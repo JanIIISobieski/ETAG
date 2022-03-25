@@ -1,4 +1,5 @@
 #include <Arduino.h>
+#include <SPI.h>
 
 #include <BluetoothSerial.h>
 
@@ -9,11 +10,23 @@
 #include <jquery_definition.h>
 #include <update_page_definition.h>
 
-// ssid may be changed if different name is desired
-const char *ssid = "Etag Comm Board";
+#define SWSENSE   14
+#define HALL      23
+#define REL_EN    24
+#define LED_BLUE  25
+#define SWDRIVE   26
+#define PRES_CS   29
 
-const int outputLED = 25;
-int ledState = HIGH;
+volatile int spin = 0;
+
+uint8_t releaseFlag = 0;
+
+uint32_t chipID = 0;
+
+String ssid_name;
+const char *ssid;
+
+uint8_t ledState = HIGH;
 
 uint8_t cmd, cmdBT;
 const long interval = 1000;
@@ -30,15 +43,35 @@ void onJavaScript(void) {
     server.send_P(200, "text/javascript", jquery_min_js_v3_2_1_gz, jquery_min_js_v3_2_1_gz_len);
 }
 
+void spinCount() {
+  spin++;
+}
+
 void setup() {
+  for (int i = 0; i < 17; i = i + 8) {
+    chipID |= ((ESP.getEfuseMac() >> (40 - i)) & 0xff) << i;
+  }
   Serial.begin(115200);
-  SerialBT.begin("ETAG");
+  SerialBT.begin(("ETAG_" + String(chipID)));
 
   Serial.println("Board starting ...");
 
-  pinMode(outputLED, OUTPUT);
-  digitalWrite(outputLED, ledState);
+  pinMode(SWSENSE, INPUT);
+  pinMode(HALL, INPUT);
+  attachInterrupt(digitalPinToInterrupt(HALL), spinCount, RISING);
+  
+  pinMode(REL_EN, OUTPUT);
+  digitalWrite(REL_EN, LOW);
 
+  pinMode(LED_BLUE, OUTPUT);
+  digitalWrite(LED_BLUE, ledState);
+
+  pinMode(SWDRIVE, OUTPUT);
+  digitalWrite(SWDRIVE, LOW);
+
+  // ssid may be changed if different name is desired
+  ssid_name  = "Etag Comm Board " + String(chipID);
+  ssid = ssid_name.c_str();
   WiFi.mode(WIFI_OFF);
 
   // return javascript jquery
@@ -82,8 +115,12 @@ void loop() {
     if (currMillis - prevMillis >= interval) {
       Serial.print("In WIFI mode\r");
       prevMillis = currMillis;
-      ledState = !ledState;
-      digitalWrite(outputLED, ledState);
+      if (ledState == HIGH) {
+        ledState = LOW;
+      } else {
+        ledState = HIGH;
+      }
+      digitalWrite(LED_BLUE, ledState);
     }
   }
 
@@ -96,12 +133,12 @@ void loop() {
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.end();
-        digitalWrite(outputLED, LOW);
+        digitalWrite(LED_BLUE, LOW);
         break;
       case ('w'):
         Serial.println("Switching to WIFI ...");
         SerialBT.end();
-        digitalWrite(outputLED, LOW);
+        digitalWrite(LED_BLUE, LOW);
         WiFi.softAP(ssid);
         server.begin();
         prevMillis = millis();
@@ -111,7 +148,7 @@ void loop() {
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.begin("ETAG");
-        digitalWrite(outputLED, HIGH);
+        digitalWrite(LED_BLUE, HIGH);
         break;
       default:
         break;
@@ -127,12 +164,12 @@ void loop() {
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.end();
-        digitalWrite(outputLED, LOW);
+        digitalWrite(LED_BLUE, LOW);
         break;
       case ('w'):
         Serial.println("Switching to WIFI ...");
         SerialBT.end();
-        digitalWrite(outputLED, LOW);
+        digitalWrite(LED_BLUE, LOW);
         WiFi.softAP(ssid);
         server.begin();
         prevMillis = millis();
