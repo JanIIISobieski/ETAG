@@ -278,7 +278,8 @@ class VarPrinter {
         void print_SD_error(SdFs& sd) {
             if (ETAG_LOG_LEVEL) {
                 uint8_t error_code = sd.sdErrorCode();
-                print_variable("SD Error Code", error_code);
+                printSdErrorSymbol(_serial, error_code); _serial->print("\n"); //function from SD-Fat library
+                printSdErrorText(_serial, error_code); _serial->print("\n");  //function from SD-Fat library
             }
         }
 

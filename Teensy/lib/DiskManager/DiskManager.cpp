@@ -37,6 +37,7 @@ bool DiskManager::reset() {
     stop();
 
     while (!init()) {
+        logger.print_SD_error(sd);
         ++try_counter;
         logger.print_variable("Trying to restart SD card:", try_counter);
         if (try_counter > 3) {  // we tried to read from the file 3 times, but still didn't work, error out
@@ -48,10 +49,16 @@ bool DiskManager::reset() {
     }
 
     if (file.open(current_file.c_str(), O_READ)) logger.print_variable("Reopened file", current_file);
-    else logger.print_variable("Could not reopen file", current_file);
+    else {
+        logger.print_variable("Could not reopen file", current_file);
+        logger.print_SD_error(sd);
+    }
 
     if (file.seekSet(file_cursor)) logger.print_variable("Position", file_cursor);
-    else logger.print_variable("Could not reach file position", file_cursor);
+    else {
+        logger.print_variable("Could not reach file position", file_cursor);
+        logger.print_SD_error(sd);
+    }
 
     return true; // was able to restart, return true
 }
@@ -116,7 +123,10 @@ bool DiskManager::create_data_file(String filename) {
     data_is_open = file.open(filename.c_str(), O_CREAT | O_TRUNC | O_RDWR);
     this->current_file = filename;
     if (data_is_open) logger.print_message("Successfully opened file");
-    else logger.print_message("Opening file failed");
+    else {
+        logger.print_message("Opening file failed");
+        logger.print_SD_error(sd);
+    }
     return data_is_open;
 }
 
