@@ -1,5 +1,7 @@
 #include <Arduino.h>
+
 #include <SPI.h>
+#include <MS58xx.h>
 
 #include <BluetoothSerial.h>
 
@@ -10,16 +12,16 @@
 #include <jquery_definition.h>
 #include <update_page_definition.h>
 
-#define SWSENSE   14
-#define HALL      23
-#define REL_EN    24
-#define LED_BLUE  25
-#define SWDRIVE   26
-#define PRES_CS   29
+#define SWSENSE   12
+#define HALL      15
+#define REL_EN    2
+#define LED_BLUE  0
+#define SWDRIVE   4
+#define PRES_CS   5
 
-volatile int spin = 0;
+volatile int32_t spin = 0;
 
-uint8_t releaseFlag = 0;
+uint8_t releaseFlag = LOW;
 
 uint32_t chipID = 0;
 
@@ -32,6 +34,8 @@ uint8_t cmd, cmdBT;
 const long interval = 1000;
 unsigned long currMillis, prevMillis;
 
+MS58xx pressSens;
+
 BluetoothSerial SerialBT;
 
 WebServer server(80);
@@ -43,8 +47,9 @@ void onJavaScript(void) {
     server.send_P(200, "text/javascript", jquery_min_js_v3_2_1_gz, jquery_min_js_v3_2_1_gz_len);
 }
 
-void spinCount() {
-  spin++;
+void IRAM_ATTR spinCount() {
+  spin ++;
+//  Serial.println("spin interrupt");
 }
 
 void setup() {
@@ -54,20 +59,31 @@ void setup() {
   Serial.begin(115200);
   SerialBT.begin(("ETAG_" + String(chipID)));
 
-  //Serial.println("Board starting ...");
+  Serial.print("LBoard starting ...\n");
 
   pinMode(SWSENSE, INPUT);
   pinMode(HALL, INPUT);
-  attachInterrupt(digitalPinToInterrupt(HALL), spinCount, RISING);
+  attachInterrupt(HALL, spinCount, RISING);
   
   pinMode(REL_EN, OUTPUT);
-  digitalWrite(REL_EN, LOW);
+  digitalWrite(REL_EN, releaseFlag);
 
   pinMode(LED_BLUE, OUTPUT);
   digitalWrite(LED_BLUE, ledState);
 
   pinMode(SWDRIVE, OUTPUT);
   digitalWrite(SWDRIVE, LOW);
+
+  pinMode(PRES_CS, OUTPUT);
+  digitalWrite(PRES_CS, HIGH);
+
+  pressSens.init(PRES_CS);
+//  Serial.println("PSENS: " + String(pressSens.PSENS));
+//  Serial.println("POFF: " + String(pressSens.POFF));
+//  Serial.println("TCSENS: " + String(pressSens.TCSENS));
+//  Serial.println("TCOFF: " + String(pressSens.TCOFF));
+//  Serial.println("TREF: " + String(pressSens.TREF));
+//  Serial.println("TEMPSENS: " + String(pressSens.TEMPSENS));
 
   // ssid may be changed if different name is desired
   ssid_name  = "Etag Comm Board " + String(chipID);
@@ -113,13 +129,15 @@ void loop() {
     server.handleClient();
     currMillis = millis();
     if (currMillis - prevMillis >= interval) {
-      //Serial.print("In WIFI mode\r");
+      Serial.print("LIn WIFI mode\n");
+//      Serial.print((String) "Hall: " + digitalRead(HALL) + "\r");
       prevMillis = currMillis;
-      if (ledState == HIGH) {
-        ledState = LOW;
-      } else {
-        ledState = HIGH;
-      }
+      ledState = !ledState;
+//      if (ledState == HIGH) {
+//        ledState = LOW;
+//      } else {
+//        ledState = HIGH;
+//      }
       digitalWrite(LED_BLUE, ledState);
     }
   }
@@ -129,14 +147,24 @@ void loop() {
     SerialBT.write(cmd);
     switch (cmd) {
       case ('o'):
-        //Serial.println("Turning off Bluetooth and WIFI ...");
+        Serial.print("LTurning off Bluetooth and WIFI ...\n");
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         break;
+      case ('p'):
+        Serial.print("LPressue and Temperature reading:\n");
+        pressSens.calc_press_temp();
+        Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
+        Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+        break;
+      case ('v'):
+        Serial.print("LCurrent spin count: ");
+        Serial.print((String) spin + "\n");
+        break;
       case ('w'):
-        //Serial.println("Switching to WIFI ...");
+        Serial.print("LSwitching to WIFI ...\n");
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         WiFi.softAP(ssid);
@@ -144,10 +172,10 @@ void loop() {
         prevMillis = millis();
         break;
       case ('y'):
-        //Serial.println("Switching to Bluetooth ...");
+        Serial.print("LSwitching to Bluetooth ...\n");
         server.stop();
         WiFi.mode(WIFI_OFF);
-        SerialBT.begin("ETAG");
+        SerialBT.begin(("ETAG_" + String(chipID)));
         digitalWrite(LED_BLUE, HIGH);
         break;
       default:
@@ -160,14 +188,24 @@ void loop() {
     Serial.write(cmdBT);
     switch (cmdBT) {
       case ('o'):
-        //Serial.println("Turning off Bluetooth and WIFI ...");
+        Serial.print("LTurning off Bluetooth and WIFI ...\n");
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         break;
+      case ('p'):
+        Serial.print("LPressue and Temperature reading:\n");
+        pressSens.calc_press_temp();
+        Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
+        Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+        break;
+      case ('v'):
+        Serial.print("Current spin count: ");
+        Serial.print((String) spin + "\n");
+        break;
       case ('w'):
-        //Serial.println("Switching to WIFI ...");
+        Serial.print("Switching to WIFI ...\n");
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         WiFi.softAP(ssid);
