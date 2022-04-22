@@ -54,7 +54,7 @@ void setup() {
   Serial.begin(115200);
   SerialBT.begin(("ETAG_" + String(chipID)));
 
-  Serial.println("Board starting ...");
+  //Serial.println("Board starting ...");
 
   pinMode(SWSENSE, INPUT);
   pinMode(HALL, INPUT);
@@ -113,7 +113,7 @@ void loop() {
     server.handleClient();
     currMillis = millis();
     if (currMillis - prevMillis >= interval) {
-      Serial.print("In WIFI mode\r");
+      //Serial.print("In WIFI mode\r");
       prevMillis = currMillis;
       if (ledState == HIGH) {
         ledState = LOW;
@@ -126,17 +126,17 @@ void loop() {
 
   if (Serial.available()) {
     cmd = Serial.read();
-    SerialBT.println(cmd);
+    SerialBT.write(cmd);
     switch (cmd) {
       case ('o'):
-        Serial.println("Turning off Bluetooth and WIFI ...");
+        //Serial.println("Turning off Bluetooth and WIFI ...");
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         break;
       case ('w'):
-        Serial.println("Switching to WIFI ...");
+        //Serial.println("Switching to WIFI ...");
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         WiFi.softAP(ssid);
@@ -144,7 +144,7 @@ void loop() {
         prevMillis = millis();
         break;
       case ('y'):
-        Serial.println("Switching to Bluetooth ...");
+        //Serial.println("Switching to Bluetooth ...");
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.begin("ETAG");
@@ -157,17 +157,17 @@ void loop() {
 
   if (SerialBT.available()) {
     cmdBT = SerialBT.read();
-    Serial.println(cmdBT);
+    Serial.write(cmdBT);
     switch (cmdBT) {
       case ('o'):
-        Serial.println("Turning off Bluetooth and WIFI ...");
+        //Serial.println("Turning off Bluetooth and WIFI ...");
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         break;
       case ('w'):
-        Serial.println("Switching to WIFI ...");
+        //Serial.println("Switching to WIFI ...");
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         WiFi.softAP(ssid);
