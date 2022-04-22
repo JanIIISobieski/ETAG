@@ -74,7 +74,10 @@ inline void sampling() {
     if (queue.num_to_write() > 0) {
         bytes_written = diskManager.write_to_file((void *)queue.dequeue(), 8192);
         logger.print_memory("Dequeued", (void *) queue.get_popped());
-        if (bytes_written != 8192) logger.print_variable("Incorrect number of bytes written", bytes_written);
+        if (bytes_written != 8192) {
+            logger.print_variable("Incorrect number of bytes written", bytes_written);
+            logger.print_SD_error(sd);
+        }
     }
 }
 

@@ -115,11 +115,11 @@ EEGBuffer eeg_buffer(ads_buffers, EEG_BUFFER_NUM, EEG_BUFFER_LENGTH, EEG_BUFF_ID
 // Device Manager
 #define NUM_DEVICES 5
 AbstractDevice* devices[NUM_DEVICES] = {&diskManager, &nirs, &IMU, &eeg, &hydrophone};
-bool device_start[NUM_DEVICES] = {false, false, false, false, false};
+bool device_start[NUM_DEVICES] = {true, false, false, true, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Allow the logger to be initialized even in RELEASE mode, along with the summary
-// structures for 
+// structures.
 // Flag passed in platformini.io will prevent writes (ETAG_LOG_LEVEL = 0 in RELEASE mode)
 // Allows for eliminating some of the very nested #ifdef ETAG_DEBUG #else #endif patterns
 // that had to exist before. Now the ETAG_DEBUG flags simply prevent from executing more

@@ -4,17 +4,16 @@ extern EEGBuffer eeg_buffer;
 
 //This function is called when the DMA SPI transfer is finished -> the same as spi_end
 void dma_spi_finished(EventResponderRef event) {
-    eeg_buffer.set_time();
     delayMicroseconds(1);    // This delay is necessary on the Teensy 4.0 in order to assure communication finished
-    digitalWriteFast(10, HIGH); // End communication (EEG_CS, HIGH)
+    digitalWriteFast(8, HIGH); // End communication (EEG_CS, HIGH)
     SPI.endTransaction();
-    eeg_buffer.set_new_data(true);
+    eeg_buffer.write();
 }
 
 // ADS1299 data ready interrupt service routine
 void ads_ISR() {
     SPI.beginTransaction(SPISettings(EEG_DMA_SPI_SPEED, MSBFIRST, SPI_MODE1));
-    digitalWriteFast(10, LOW);  // Start communication (EEG_CS pin, LOW)
+    digitalWriteFast(8, LOW);  // Start communication (EEG_CS pin, LOW)
     SPI.transfer(nullptr, (void *)eeg_buffer.get_eeg_pointer(), 27, eeg_buffer.dma_spi_transfer);
 }
 
