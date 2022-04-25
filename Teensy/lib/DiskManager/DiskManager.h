@@ -42,10 +42,6 @@ class DiskManager : public AbstractDevice {
         size_t num_experimental_runs; /**< Updated by \ref update_folder_num(), the number of files on the disk */
         bool data_is_open;            /**< The file status */
 
-        SdFs sd;        /**< Declares the SD card */
-        FsFile file;    /**< Declares a file, used for opening and closing files */
-        FsFile folder;  /**< Declares a folder, used for iterating through the root directory, and rewinding directory back to start */
-
         FileReadData read_data; /**< Stores buffer for read data */
 
         uint64_t file_cursor; /**< Used for keeping track of location in the file */
@@ -77,6 +73,10 @@ class DiskManager : public AbstractDevice {
         bool create_data_file(); /**< @brief Opens up data file */
 
     public:
+        static SdFs sd;        /**< Declares the SD card */
+        static FsFile file;    /**< Declares a file, used for opening and closing files */
+        static FsFile folder;  /**< Declares a folder, used for iterating through the root directory, and rewinding directory back to start */
+
         /**
          * @brief Construct a new Disk Manager object
          * 

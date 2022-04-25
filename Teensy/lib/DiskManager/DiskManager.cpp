@@ -1,5 +1,9 @@
 #include <DiskManager.h>
 
+SdFs DiskManager::sd;
+FsFile DiskManager::file;
+FsFile DiskManager::folder;
+
 DiskManager::DiskManager(RunData* run_data) {
     data_file_size = 0;
     data_is_open = false;

@@ -76,7 +76,7 @@ inline void sampling() {
         logger.print_memory("Dequeued", (void *) queue.get_popped());
         if (bytes_written != 8192) {
             logger.print_variable("Incorrect number of bytes written", bytes_written);
-            logger.print_SD_error(sd);
+            logger.print_SD_error(DiskManager::sd);
         }
     }
 }
