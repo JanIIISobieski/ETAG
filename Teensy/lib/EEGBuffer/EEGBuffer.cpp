@@ -10,6 +10,14 @@ void dma_spi_finished(EventResponderRef event) {
     eeg_buffer.write();
 }
 
+void dma_spi_finished_streaming(EventResponderRef event) {
+    delayMicroseconds(1);
+    eeg_buffer.set_time();
+    digitalWriteFast(8, HIGH);
+    SPI.endTransaction();
+    eeg_buffer.set_new_data(true);
+}
+
 // ADS1299 data ready interrupt service routine
 void ads_ISR() {
     SPI.beginTransaction(SPISettings(EEG_DMA_SPI_SPEED, MSBFIRST, SPI_MODE1));
