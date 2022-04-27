@@ -868,7 +868,9 @@ uint8_t MPU9250::readBytesWire(uint8_t deviceAddress, uint8_t registerAddress,
   // Put slave register address in Tx buffer
   _wire->write(registerAddress);
   // Send the Tx buffer, but send a restart to keep connection alive
-  _wire->endTransmission(false);
+  uint8_t error_code = _wire->endTransmission(false);
+
+  logger.print_variable("IMU RX Error Code", error_code);
 
   uint8_t i = 0;
   // Read bytes from slave register address
