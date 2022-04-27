@@ -72,7 +72,7 @@ Tag_ADC hydrophone(HYDROPHONE_SAMPLING_PIN, HYDROPHONE_SAMPLING_FREQUENCY, HYDRO
 // IMU
 #define MPU9250_ADDRESS MPU9250_ADDRESS_AD0
 #define I2CPort Wire
-#define I2Cclock 200000
+#define I2Cclock 300000
 MPU9250 IMU(MPU9250_ADDRESS, I2CPort, I2Cclock);
 
 #define IMU_BUFF_ID 1
@@ -166,21 +166,4 @@ void get_timing() {
         ttl_ind = 0;
     }
 }
-#endif
-
-#ifdef BLUETOOTH_DEBUG
-elapsedMicros last_send;
-uint8_t data_array[] = {0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 27, 28, 29, 30, 31};
-bool is_sampling = false;
-/*
-// Code to send the data array at a constant rate
-
-   if ((last_send > 4000) & is_sampling) {
-        bytes_written += TagComms.write(Ports::BLUETOOTH, data_array, 32);
-        //eeg_buffer.set_new_data(false);
-        logger.print_variable("BW", bytes_written);
-        last_send = 0;
-   }
-
-*/
 #endif

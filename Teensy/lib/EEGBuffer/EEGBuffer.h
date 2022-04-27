@@ -17,9 +17,21 @@ extern TimingData eeg_buffer_push;
  * @param event Event to which this function will respond to (a reference to an EventResponder)
  * 
  * This function will set the chip select to HIGH, end the SPI transation, and write the data
- * to the EEG Buffer
+ * to the EEG Buffer. Pass this to dma_spi_transfer.attatch() in this class's init().
  */
 void dma_spi_finished(EventResponderRef event);
+
+
+/**
+ * @brief Event responder to a completion of a DMA SPI transfer when wanting to stream the data
+ * 
+ * @param event Event to which this function will respond to (a reference to an EventResponder)
+ * 
+ * This function will set the chip select to HIGH, end the SPI transation, and write the data
+ * to the EEG Buffer, while also setting a new_data flag to true. Pass this to dma_spi_transfer.attatch()
+ * to this class's init().
+ */
+void dma_spi_finished_streaming(EventResponderRef event);
 
 /**
  * @brief ADS1299 data ready ISR

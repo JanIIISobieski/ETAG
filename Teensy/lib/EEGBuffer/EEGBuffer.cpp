@@ -27,7 +27,7 @@ void ads_ISR() {
 
 
 void EEGBuffer::init() {
-    dma_spi_transfer.attach(dma_spi_finished);
+    dma_spi_transfer.attach(dma_spi_finished_streaming);
     SPI.usingInterrupt(digitalPinToInterrupt(14));  //EEG_DRDY pin: 14
     attachInterrupt(digitalPinToInterrupt(14), ads_ISR, FALLING);
     new_data = false;
