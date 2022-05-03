@@ -45,6 +45,9 @@ void setup() {
         if (millis() > 10000) break; //wait for 10 seconds before moving after program start to move on
     }
 #endif
+
+    pinMode(3, OUTPUT);
+    analogWrite(3, 127);
 }
 
 void loop() {
@@ -75,12 +78,13 @@ inline void sampling() {
     }
 
 
+/*
     if (queue.num_to_write() > 0) {
         bytes_written = TagComms.write(Ports::USB, (uint8_t*) queue.dequeue(), 8192);
         logger.print_variable("BW", bytes_written);
     }
+*/
 
-/*
     if (queue.num_to_write() > 0) {
         bytes_written = diskManager.write_to_file((void *)queue.dequeue(), 8192);
         logger.print_memory("Dequeued", (void *) queue.get_popped());
@@ -89,7 +93,6 @@ inline void sampling() {
             logger.print_SD_error(DiskManager::sd);
         }
     }
-*/
 
 /*    if (is_stream_sampling & eeg_buffer.get_data_state()) {
         bytes_written += TagComms.write(Ports::USB, eeg_buffer.get_buffer(), 32);
