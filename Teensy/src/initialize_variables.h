@@ -72,7 +72,7 @@ Tag_ADC hydrophone(HYDROPHONE_SAMPLING_PIN, HYDROPHONE_SAMPLING_FREQUENCY, HYDRO
 // IMU
 #define MPU9250_ADDRESS MPU9250_ADDRESS_AD0
 #define I2CPort Wire
-#define I2Cclock 300000
+#define I2Cclock 200000
 MPU9250 IMU(MPU9250_ADDRESS, I2CPort, I2Cclock);
 
 #define IMU_BUFF_ID 1
@@ -115,7 +115,7 @@ EEGBuffer eeg_buffer(ads_buffers, EEG_BUFFER_NUM, EEG_BUFFER_LENGTH, EEG_BUFF_ID
 // Device Manager
 #define NUM_DEVICES 5
 AbstractDevice* devices[NUM_DEVICES] = {&diskManager, &nirs, &IMU, &eeg, &hydrophone};
-bool device_start[NUM_DEVICES] = {true, false, false, true, false};
+bool device_start[NUM_DEVICES] = {true, false, true, false, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Allow the logger to be initialized even in RELEASE mode, along with the summary

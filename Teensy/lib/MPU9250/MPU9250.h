@@ -9,6 +9,8 @@
 #include "Logger.h"
 extern Logger logger;
 
+#define MPU9250_ADDRESS MPU9250_ADDRESS_AD0
+
 /**
  * @brief Class to implement MPU9250 functionality
  * 

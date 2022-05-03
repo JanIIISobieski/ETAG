@@ -15,6 +15,7 @@ void dummy_file();
 void reverse_array(uint8_t* ptr, size_t length);
 
 bool is_stream_sampling = false;
+uint32_t imu_time;
 
 void setup() {
     SPI.begin();
@@ -73,6 +74,12 @@ inline void sampling() {
         imu_buffer.write(IMU.buffer, 9);
     }
 
+
+    if (queue.num_to_write() > 0) {
+        bytes_written = TagComms.write(Ports::USB, (uint8_t*) queue.dequeue(), 8192);
+        logger.print_variable("BW", bytes_written);
+    }
+
 /*
     if (queue.num_to_write() > 0) {
         bytes_written = diskManager.write_to_file((void *)queue.dequeue(), 8192);
@@ -84,11 +91,12 @@ inline void sampling() {
     }
 */
 
-    if (is_stream_sampling & eeg_buffer.get_data_state()) {
+/*    if (is_stream_sampling & eeg_buffer.get_data_state()) {
         bytes_written += TagComms.write(Ports::USB, eeg_buffer.get_buffer(), 32);
         eeg_buffer.set_new_data(false);
         logger.print_variable("BW", bytes_written);
    }
+*/
 }
 
 void begin_sampling() {

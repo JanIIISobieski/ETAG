@@ -36,9 +36,9 @@ String ADS1299::initialize() {
     wreg(MISC1, 0x00);      // 0x20 for SRB1 as reference for all channels, 0x00 for no SRB1 reference to all channels
 //    wreg(CONFIG4, 0x02);    // 0x02 to turn on dc lead-off comparators
     wreg(CH1SET, 0x65);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
-    wreg(CH2SET, 0x81);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
-    wreg(CH3SET, 0x81);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
-    wreg(CH4SET, 0x81);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH2SET, 0x65);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH3SET, 0x65);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH4SET, 0x65);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
     wreg(CH5SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
     wreg(CH6SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
     wreg(CH7SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
