@@ -2,7 +2,10 @@
 #define GUARD_TAG_NIRS
 
 #include <Arduino.h>
-#include <AbstractDevice.h>
+
+#include "AbstractDevice.h"
+#include "Logger.h"
+extern Logger logger;
 
 /**
  * @brief Track the NIRS system state
@@ -68,18 +71,27 @@ class NIRS : public AbstractDevice {
         void create_event_timer(unsigned long duration, unsigned long period) { press_duration = duration; event_period = period; };
 
         /**
-         * @brief Start the button press
+         * @brief Ends the event timer by setting the event_period to 0
          */
+        void end_event();
 
-        void start_event();
+        /**
+         * @brief Start the button press for an event with a period between the events
+         * 
+         * @param period The duration of time between button presses
+         */
+        void start_event(unsigned long period);
 
         /**
          * @brief Function to check if the pin state has to be updated
+         * 
+         * The button press occurs at regular intervals only if the event timer is greater than 0.
+         * 
          */
         void update_event();
 
     private:
-        elapsedMillis time;
+        elapsedMillis button_timer;
         elapsedMillis nirs_timer;
 
         uint8_t right_button;
@@ -95,6 +107,7 @@ class NIRS : public AbstractDevice {
         uint8_t NIRS_state;
 
         void blocking_press(uint8_t pin, int time);
+        void event_half_press();
 
         unsigned long int event_counter;
 };

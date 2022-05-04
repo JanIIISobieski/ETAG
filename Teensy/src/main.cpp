@@ -12,6 +12,8 @@ void download_files();
 void initalize_devices();
 void delete_file();
 void dummy_file();
+void nirs_on();
+void nirs_off();
 void reverse_array(uint8_t* ptr, size_t length);
 
 bool is_stream_sampling = false;
@@ -45,9 +47,6 @@ void setup() {
         if (millis() > 10000) break; //wait for 10 seconds before moving after program start to move on
     }
 #endif
-
-    pinMode(3, OUTPUT);
-    analogWrite(3, 127);
 }
 
 void loop() {
@@ -67,6 +66,8 @@ void loop() {
         else if (command == 'c') sync_time();
         else if (command == 'i') initalize_devices();
         else if (command == 'x') delete_file();
+        else if (command == '+') nirs.turn_on();
+        else if (command == '-') nirs.turn_off();
         else if (command == '?') dummy_file();
         read_val = -1;
     }

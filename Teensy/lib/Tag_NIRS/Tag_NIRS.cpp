@@ -30,49 +30,66 @@ void NIRS::blocking_press(uint8_t pin, int time) {
 }
 
 void NIRS::turn_on() {
-    if (NIRS_state == power_off) {
-        blocking_press(left_button, long_press);
-        NIRS_state = power_on;
-    }
+    blocking_press(left_button, long_press);
+    logger.print_message("ATTEMPTED NIRS POWER ON");
 }
 
 void NIRS::turn_off() {
-    if (NIRS_state != power_off) {
-        blocking_press(left_button, long_press);
-        NIRS_state = power_off;
-    }
+    blocking_press(left_button, long_press);
+    logger.print_message("ATTEMPTED NIRS POWER OFF");
 }
 
 void NIRS::begin() {
-    if (NIRS_state == power_on) {
-        blocking_press(right_button, long_press);
-        NIRS_state = recording;
-    }
+    blocking_press(right_button, long_press);
+    logger.print_message("NIRS SAMPLING STARTED");
+    start_event(10);  //starts a series of events every 10 seconds
 }
 
 void NIRS::end() {
-    if (NIRS_state == recording) {
-        blocking_press(right_button, long_press);
-        NIRS_state = power_on;
-    }
+    end_event();
+    blocking_press(right_button, long_press);
+    
+    // reset the pin state to LOW
+    digitalWrite(left_button, LOW);
+    digitalWrite(right_button, LOW);
+
+    nirs_timer = 0;
+    button_timer = 0;
+    toggle_flag = false;
+
+    logger.print_message("NIRS SAMPLING STOPPED");
 }
 
-void NIRS::start_event() {
-    nirs_timer = 0;
-    digitalWriteFast(left_button, HIGH);
-    toggle_flag = true;
+void NIRS::start_event(unsigned long period) {
+    create_event_timer(short_press, period);
+    event_half_press();
+    logger.print_message("Created event");
+}
+
+void NIRS::end_event() {
+    event_period = 0;
+    logger.print_message("Ended events");
 }
 
 void NIRS::update_event() {
-    if (nirs_timer > event_period) {
-        nirs_timer = 0;
-        digitalWriteFast(left_button, HIGH);
-        toggle_flag = true;
-    }
-    else if (nirs_timer > press_duration) {
-        if (toggle_flag) {
+    if (toggle_flag) {//button state was pressed, need to bring back to LOW after a short button press
+        if (button_timer > press_duration) {
             digitalWriteFast(left_button, LOW);
             toggle_flag = false;
+            logger.print_variable("Stopped button press", millis());
         }
     }
+
+    if ((nirs_timer > event_period) & (event_period > 0)) {
+        event_half_press();
+    }
+
+}
+
+void NIRS::event_half_press() {
+    digitalWriteFast(left_button, HIGH);
+    button_timer = 0;
+    nirs_timer = 0;
+    toggle_flag = true;
+    logger.print_variable("Started button press", millis());
 }
