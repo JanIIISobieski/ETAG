@@ -78,7 +78,7 @@ inline void sampling() {
         imu_buffer.write(IMU.buffer, 9);
     }
 
-
+    nirs.update_event();
 /*
     if (queue.num_to_write() > 0) {
         bytes_written = TagComms.write(Ports::USB, (uint8_t*) queue.dequeue(), 8192);

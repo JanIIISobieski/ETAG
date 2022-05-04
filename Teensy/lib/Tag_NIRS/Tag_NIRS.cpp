@@ -18,7 +18,9 @@ bool NIRS::init() {
     pinMode(left_button, OUTPUT);
 
     digitalWrite(right_button, LOW);
-    digitalWrite(left_button, LOW);  
+    digitalWrite(left_button, LOW);
+
+    logger.print_message("NIRS Initalized");
 
     return true; 
 }
@@ -42,7 +44,7 @@ void NIRS::turn_off() {
 void NIRS::begin() {
     blocking_press(right_button, long_press);
     logger.print_message("NIRS SAMPLING STARTED");
-    start_event(10);  //starts a series of events every 10 seconds
+    start_event(10000);  //starts a series of events every 10 seconds
 }
 
 void NIRS::end() {
