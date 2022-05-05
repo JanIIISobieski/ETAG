@@ -16,9 +16,6 @@ void nirs_on();
 void nirs_off();
 void reverse_array(uint8_t* ptr, size_t length);
 
-bool is_stream_sampling = false;
-uint32_t imu_time;
-
 void setup() {
     SPI.begin();
     TagComms.init();
@@ -79,12 +76,6 @@ inline void sampling() {
     }
 
     nirs.update_event();
-/*
-    if (queue.num_to_write() > 0) {
-        bytes_written = TagComms.write(Ports::USB, (uint8_t*) queue.dequeue(), 8192);
-        logger.print_variable("BW", bytes_written);
-    }
-*/
 
     if (queue.num_to_write() > 0) {
         bytes_written = diskManager.write_to_file((void *)queue.dequeue(), 8192);
@@ -94,13 +85,6 @@ inline void sampling() {
             logger.print_SD_error(DiskManager::sd);
         }
     }
-
-/*    if (is_stream_sampling & eeg_buffer.get_data_state()) {
-        bytes_written += TagComms.write(Ports::USB, eeg_buffer.get_buffer(), 32);
-        eeg_buffer.set_new_data(false);
-        logger.print_variable("BW", bytes_written);
-   }
-*/
 }
 
 void begin_sampling() {
@@ -130,12 +114,10 @@ void begin_sampling() {
     logger.print_buffer_headers("IMU", imu_buffer.get_buffers(), IMU_BUFF_NUM);
     logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
 
-    is_stream_sampling = true;
     deviceManager.begin_sampling();
 }
 
 void stop_sampling() {
-    is_stream_sampling = false;
     deviceManager.end_sampling();
 
 #ifdef ETAG_DEBUG
