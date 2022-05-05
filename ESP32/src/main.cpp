@@ -12,6 +12,8 @@
 #include <jquery_definition.h>
 #include <update_page_definition.h>
 
+//#define DEBUG_OUTPUT
+
 #define SWSENSE   12
 #define HALL      15
 #define REL_EN    2
@@ -49,7 +51,9 @@ void onJavaScript(void) {
 
 void IRAM_ATTR spinCount() {
   spin ++;
-//  Serial.println("spin interrupt");
+  #ifdef DEBUG_OUTPUT
+    Serial.println("spin interrupt");
+  #endif
 }
 
 void setup() {
@@ -59,14 +63,16 @@ void setup() {
   Serial.begin(115200);
   SerialBT.begin(("ETAG_" + String(chipID)));
 
-  Serial.print("LBoard starting ...\n");
+  #ifdef DEBUG_OUTPUT
+    Serial.print("LBoard starting ...\n");
+  #endif
 
   pinMode(SWSENSE, INPUT);
   pinMode(HALL, INPUT);
   attachInterrupt(HALL, spinCount, RISING);
   
   pinMode(REL_EN, OUTPUT);
-  digitalWrite(REL_EN, releaseFlag);
+  digitalWrite(REL_EN, !releaseFlag);
 
   pinMode(LED_BLUE, OUTPUT);
   digitalWrite(LED_BLUE, ledState);
@@ -78,12 +84,6 @@ void setup() {
   digitalWrite(PRES_CS, HIGH);
 
   pressSens.init(PRES_CS);
-//  Serial.println("PSENS: " + String(pressSens.PSENS));
-//  Serial.println("POFF: " + String(pressSens.POFF));
-//  Serial.println("TCSENS: " + String(pressSens.TCSENS));
-//  Serial.println("TCOFF: " + String(pressSens.TCOFF));
-//  Serial.println("TREF: " + String(pressSens.TREF));
-//  Serial.println("TEMPSENS: " + String(pressSens.TEMPSENS));
 
   // ssid may be changed if different name is desired
   ssid_name  = "Etag Comm Board " + String(chipID);
@@ -108,20 +108,23 @@ void setup() {
     HTTPUpload &upload = server.upload();
     if (upload.status == UPLOAD_FILE_START) {
       if (!Update.begin(UPDATE_SIZE_UNKNOWN)) { //start with max available size
-//        Update.printError(Serial);
+        // Update.printError(Serial);
       }
     } else if (upload.status == UPLOAD_FILE_WRITE) {
       // flashing firmware to ESP
       if (Update.write(upload.buf, upload.currentSize) != upload.currentSize) {
-//        Update.printError(Serial);
+        // Update.printError(Serial);
       }
     } else if (upload.status == UPLOAD_FILE_END) {
       if (Update.end(true)) { //true to set the size to the current progress
       } else {
-//        Update.printError(Serial);
+        // Update.printError(Serial);
       }
     }
   });
+  #ifdef DEBUG_OUTPUT
+    Serial.print("LIn Bluetooth mode - ETAG_" + String(chipID) + "\n");
+  #endif
 }
 
 void loop() {
@@ -129,88 +132,151 @@ void loop() {
     server.handleClient();
     currMillis = millis();
     if (currMillis - prevMillis >= interval) {
-      Serial.print("LIn WIFI mode\n");
-//      Serial.print((String) "Hall: " + digitalRead(HALL) + "\r");
       prevMillis = currMillis;
       ledState = !ledState;
-//      if (ledState == HIGH) {
-//        ledState = LOW;
-//      } else {
-//        ledState = HIGH;
-//      }
       digitalWrite(LED_BLUE, ledState);
     }
   }
 
   if (Serial.available()) {
     cmd = Serial.read();
-    SerialBT.write(cmd);
     switch (cmd) {
-      case ('o'):
-        Serial.print("LTurning off Bluetooth and WIFI ...\n");
+      case ('a'):   // enable release
+        releaseFlag = HIGH;
+        digitalWrite(REL_EN, !releaseFlag);
+        break;
+      case ('e'):   // disable release
+        releaseFlag = LOW;
+        digitalWrite(REL_EN, !releaseFlag);
+        break;
+      case ('k'):   // enable saltwater sensor
+        digitalWrite(SWDRIVE, HIGH);
+        Serial.print(analogRead(SWSENSE));    Serial.print("\n");
+        #ifdef DEBUG_OUTPUT
+          Serial.print((String) "SWSENSE: " + analogRead(SWSENSE) + "\n");
+        #endif
+        break;
+      case ('l'):   // disable saltwater sensor
+        digitalWrite(SWDRIVE, LOW);
+        break;
+      case ('o'):   // turn off all wireless communication
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LTurning off Bluetooth and WIFI ...\n");
+        #endif
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         break;
-      case ('p'):
-        Serial.print("LPressue and Temperature reading:\n");
+      case ('p'):   // read pressure and temperature sensor
         pressSens.calc_press_temp();
-        Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
-        Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+        Serial.print(pressSens.pressure_mbar);  Serial.print("\n");
+        Serial.print(pressSens.temperature);    Serial.print("\n");
+        #ifdef DEBUG_OUTPUT
+          Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
+          Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+        #endif
         break;
-      case ('v'):
-        Serial.print("LCurrent spin count: ");
-        Serial.print((String) spin + "\n");
+      case ('r'):   // reset pressure sensor
+        pressSens.init(PRES_CS);
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LPressure sensor reset\n");
+        #endif
         break;
-      case ('w'):
-        Serial.print("LSwitching to WIFI ...\n");
+      case ('v'):   // read speed sensor
+        Serial.print(spin);   Serial.print("\n");
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LCurrent spin count: " + (String) spin + "\n");
+        #endif
+        break;
+      case ('w'):   // switch to WiFi communication - 192.168.4.1
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LSwitching to WIFI ...\n");
+        #endif
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         WiFi.softAP(ssid);
         server.begin();
         prevMillis = millis();
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LIn WIFI mode - " + (String) ssid + "\n");
+        #endif
         break;
-      case ('y'):
-        Serial.print("LSwitching to Bluetooth ...\n");
+      case ('y'):   // switch to Bluetooth communication
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LSwitching to Bluetooth ...\n");
+        #endif
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.begin(("ETAG_" + String(chipID)));
         digitalWrite(LED_BLUE, HIGH);
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LIn Bluetooth mode - ETAG_" + String(chipID) + "\n");
+        #endif
         break;
       default:
         break;
     }
   }
-
+  
   if (SerialBT.available()) {
     cmdBT = SerialBT.read();
     Serial.write(cmdBT);
     switch (cmdBT) {
-      case ('o'):
-        Serial.print("LTurning off Bluetooth and WIFI ...\n");
+      case ('a'):   // enable release
+        releaseFlag = HIGH;
+        digitalWrite(REL_EN, !releaseFlag);
+        break;
+      case ('e'):   // disable release
+        releaseFlag = LOW;
+        digitalWrite(REL_EN, !releaseFlag);
+        break;
+      case ('k'):   // enable saltwater sensor
+        digitalWrite(SWDRIVE, HIGH);
+        Serial.print(analogRead(SWSENSE));    Serial.print("\n");
+        #ifdef DEBUG_OUTPUT
+          Serial.print((String) "SWSENSE: " + analogRead(SWSENSE) + "\n");
+        #endif
+        break;
+      case ('l'):   // disable saltwater sensor
+        digitalWrite(SWDRIVE, LOW);
+        break;
+      case ('o'):   // turn off all wireless communication
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LTurning off Bluetooth and WIFI ...\n");
+        #endif
         server.stop();
         WiFi.mode(WIFI_OFF);
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         break;
-      case ('p'):
-        Serial.print("LPressue and Temperature reading:\n");
+      case ('p'):   // read pressure and temperature sensor
         pressSens.calc_press_temp();
-        Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
-        Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+        Serial.print(pressSens.pressure_mbar);  Serial.print("\n");
+        Serial.print(pressSens.temperature);    Serial.print("\n");
+        #ifdef DEBUG_OUTPUT
+          Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
+          Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+        #endif
         break;
-      case ('v'):
-        Serial.print("Current spin count: ");
-        Serial.print((String) spin + "\n");
+      case ('v'):   // read speed sensor
+        Serial.print(spin);   Serial.print("\n");
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LCurrent spin count: " + (String) spin + "\n");
+        #endif
         break;
-      case ('w'):
-        Serial.print("Switching to WIFI ...\n");
+      case ('w'):   // switch to WiFi communication - 192.168.4.1
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LSwitching to WIFI ...\n");
+        #endif
         SerialBT.end();
         digitalWrite(LED_BLUE, LOW);
         WiFi.softAP(ssid);
         server.begin();
         prevMillis = millis();
+        #ifdef DEBUG_OUTPUT
+          Serial.print("LIn WIFI mode - " + (String) ssid + "\n");
+        #endif
         break;
       default:
         break;
