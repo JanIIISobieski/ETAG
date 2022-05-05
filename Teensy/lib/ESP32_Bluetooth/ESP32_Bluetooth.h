@@ -15,6 +15,9 @@ class ESP32_Bluetooth : public SerialCommunicator {
         void init(uint32_t baud_rate);
         bool file_send(String file_name);
 
+        void enable_passthrough();
+        void disable_passthrough();
+
     private:
         HardwareSerial* hard_serial;
 };

@@ -46,7 +46,7 @@ bool ESP32_Bluetooth::file_send(String file_name) {
             while (bytes_to_send > 0) {  // we read the file correctly, now just send it over the serial
                 size_t num_to_write = (bytes_to_send > BLUETOOTH_BUFFER_SIZE) ? BLUETOOTH_BUFFER_SIZE : bytes_to_send;
                 logger.print_variable("num_to_write", num_to_write);
-                size_t num_written = write(read_data->data, num_to_write);
+                size_t num_written = write(read_data->data + buffer_position, num_to_write);
                 if (num_written != num_to_write) logger.print_message("Wrong number of bytes written");
                 bytes_to_send -= num_written;
                 bytes_written += num_written;
@@ -60,4 +60,12 @@ bool ESP32_Bluetooth::file_send(String file_name) {
     _diskManagerPtr->close_file();
 
     return (bytes_written == size_of_file.as_int);
+}
+
+void ESP32_Bluetooth::enable_passthrough() {
+    _serial->print("ESP32$+");
+}
+
+void ESP32_Bluetooth::disable_passthrough() {
+    _serial->print("$ESP32$-");
 }
