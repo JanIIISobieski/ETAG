@@ -31,6 +31,8 @@ bool DiskManager::init() {
         return_val = false;
     }
 
+    if (return_val) logger.print_message("Successful SD card startup");
+
     return return_val;
 }
 

@@ -10,7 +10,7 @@ void Tag_USB::init(uint32_t baud_rate) {
 
 bool Tag_USB::file_send(String file_name) {
     uint64_t bytes_written = 0;
-    int bytes_to_send = 0;
+    int num_bytes_to_send = 0;
     size_t buffer_position = 0;
 
     union file_size {
@@ -28,29 +28,32 @@ bool Tag_USB::file_send(String file_name) {
 
     logger.print_message("ACK Recieved");
 
-    while (bytes_written < size_of_file.as_int) { // Start while loop
+    while (bytes_written < size_of_file.as_int) {
         FileReadData* read_data = _diskManagerPtr->get_file_data();                                                                                               // This prevents cases where the file was opened/closed unsuccessfully
-        if (read_data->bytes_read == -1) {
+        if (read_data->bytes_read == -1) {  // if the read failed, then reset the SD card
             if (!_diskManagerPtr->reset()) {
                 break;
             }
         }
-        else {
+        else {  // successful read, we want to send the data
             buffer_position = 0;
-            bytes_to_send = read_data->bytes_read;
-            logger.print_variable("bytes_to_send", bytes_to_send);
-            while (bytes_to_send > 0) {  // we read the file correctly, now just send it over the serial
-                size_t num_to_write = (bytes_to_send > USB_BUFFER_SIZE) ? USB_BUFFER_SIZE : bytes_to_send;
-                logger.print_variable("num_to_write", num_to_write);
-                size_t num_written = write(read_data->data, num_to_write);
-                if (num_written != num_to_write) logger.print_message("-----------OOPS-------------");
-                bytes_to_send -= num_written;
-                bytes_written += num_written;
-                buffer_position += num_written;
-                logger.print_variable("bytes_to_send", bytes_to_send);
-            }
+            num_bytes_to_send = read_data->bytes_read;
+            logger.print_variable("bytes_to_send", num_bytes_to_send);
+            while (num_bytes_to_send > 0) {  // we read the file correctly, now just send it over the serial
+                //Do not want to overwhelm the serial nor the SD, we can read a large amount from the SD card, and send in smaller chunks over the USB
+                size_t num_to_write = (num_bytes_to_send > USB_BUFFER_SIZE) ? USB_BUFFER_SIZE : num_bytes_to_send;
+                size_t num_written = write(read_data->data + buffer_position, num_to_write);
+                
+                if (num_written != num_to_write) logger.print_message("Wrong number of bytes written to USB from buffer");
+
+                num_bytes_to_send -= num_written;  //how many more bytes left from the read SD card chunk do we have to send
+                bytes_written += num_written;      //how many bytes in total have we sent from the file
+                buffer_position += num_written;    //increment the position in the buffer with the read SD card chunk so that we send the whole buffer across
+
+                logger.print_variable("bytes_to_send", num_bytes_to_send);
+            }  // we finished sending the SD card chunk we just read, we can go back and read a new chunk to send if there are still bytes remaining to be written
         }
-    }// end while loop
+    }// end while (bytes_written < size_of_file.as_int) loop.
 
     _diskManagerPtr->close_file();
 

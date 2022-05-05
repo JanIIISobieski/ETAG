@@ -33,7 +33,7 @@ Tag_USB MICRO_USB = Tag_USB(USB_SERIAL_ADDRESS, &diskManager);
 // Bluetooth
 #define BLUETOOTH_SERIAL_ADDRESS    &Serial4
 ESP32_Bluetooth Tag_Bluetooth = ESP32_Bluetooth(BLUETOOTH_SERIAL_ADDRESS,
-                                       &diskManager); //initializes pin values
+                                                &diskManager); //initializes pin values
 
 // Communicator Manager
 #define NUM_COMMUNICATORS 2
@@ -115,7 +115,7 @@ EEGBuffer eeg_buffer(ads_buffers, EEG_BUFFER_NUM, EEG_BUFFER_LENGTH, EEG_BUFF_ID
 // Device Manager
 #define NUM_DEVICES 5
 AbstractDevice* devices[NUM_DEVICES] = {&diskManager, &nirs, &IMU, &eeg, &hydrophone};
-bool device_start[NUM_DEVICES] = {true, false, false, false, false};
+bool device_start[NUM_DEVICES] = {true, false, true, false, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Allow the logger to be initialized even in RELEASE mode, along with the summary
