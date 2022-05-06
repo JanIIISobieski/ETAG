@@ -6,11 +6,6 @@
 #define MAX_BLUETOOTH_PACKET_SIZE 512
 #define PHRASE_SIZE 5
 
-enum SerialState {
-    PASSTHROUGH = 0,
-    COMMAND = 1
-};
-
 /**
  * @brief Class to act as an interface for the Serial communication between the boards
  * 
@@ -75,8 +70,6 @@ class SerialCommunicator {
 
         size_t len;  /**<Length of the comms object */
         Stream** comms;  /**<Pointer to a vector of Stream* */
-
-        SerialState serialState;  /**<The current state of the stream */
 
         uint8_t buffer[MAX_BLUETOOTH_PACKET_SIZE];
         uint8_t additional_buffer[PHRASE_SIZE + 1] = {0};

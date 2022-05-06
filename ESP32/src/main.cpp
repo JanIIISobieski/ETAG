@@ -26,13 +26,13 @@
 BluetoothSerial SerialBT;
 Stream* streams[] = {&Serial, &SerialBT};
 
+SerialCommunicator serialComms(streams, 2);
 
 enum ESP32State {
     COMMAND = 0,
     PASSTHROUGH = 1
 };
-
-ESP32State esp32State = COMMAND;
+ESP32State esp32State;
 
 volatile int32_t spin = 0;
 
@@ -45,7 +45,9 @@ const char *ssid;
 
 uint8_t ledState = HIGH;
 
+int readCommand;
 uint8_t cmd, cmdBT;
+
 const long interval = 1000;
 unsigned long currMillis, prevMillis;
 
@@ -67,12 +69,24 @@ void IRAM_ATTR spinCount() {
     #endif
 }
 
+void setBluetoothComms();
+void setWiFiComms();
+void turnOffComms();
+void setRelease(bool boolean);
+void setSaltwaterSensor(bool boolean);
+void serialWriteSaltwaterSensor();
+void serialWritePressureTemperature();
+void serialWriteSpeedSensor();
+void resetPressureSensor();
+
 void setup() {
     for (int i = 0; i < 17; i = i + 8) {
         chipID |= ((ESP.getEfuseMac() >> (40 - i)) & 0xff) << i;
     }
     Serial.begin(115200);
     SerialBT.begin(("ETAG_" + String(chipID)));
+
+    esp32State = COMMAND;
 
     #ifdef DEBUG_OUTPUT
         Serial.print("LBoard starting ...\n");
@@ -149,6 +163,143 @@ void loop() {
         }
     }
 
+    if (esp32State == COMMAND) {
+        readCommand = serialComms.read();
+
+        if (readCommand != -1) {
+            cmd = (uint8_t) (readCommand & 0xFF);
+            switch (cmd) {
+                case ('o'):
+                    turnOffComms();
+                    break;
+                case ('w'):
+                    setWiFiComms();  // switch to WiFi communication - 192.168.4.1
+                    break;
+                case ('y'):
+                    setBluetoothComms();
+                    break;
+                case ('a'):
+                    setRelease(true);
+                    break;
+                case ('e'):
+                    setRelease(false);
+                    break;
+                case('k'):
+                    setSaltwaterSensor(true);
+                    break;
+                case('l'):
+                    setSaltwaterSensor(false);
+                    break;
+                case('z'):
+                    serialWriteSaltwaterSensor();
+                    break;
+                case('p'):
+                    serialWritePressureTemperature();
+                    break;
+            }
+        }
+    } else if (esp32State == PASSTHROUGH) {
+        readCommand = serialComms.read_and_passthrough_until_command();
+
+        if (readCommand != -1) {
+            cmd = (uint8_t) (readCommand & 0xFF);
+            switch (cmd) {
+                case ('o'):
+                    turnOffComms();
+                    break;
+                case ('w'):
+                    setWiFiComms();  // switch to WiFi communication - 192.168.4.1
+                    break;
+                case ('y'):
+                    setBluetoothComms();
+                    break;      
+                default:
+                    break;            
+            }
+        }
+    }
+}
+
+void setBluetoothComms() {
+    #ifdef DEBUG_OUTPUT
+        Serial.print("LSwitching to Bluetooth ...\n");
+    #endif
+    server.stop();
+    WiFi.mode(WIFI_OFF);
+    SerialBT.begin(("ETAG_" + String(chipID)));
+    digitalWrite(LED_BLUE, HIGH);
+    #ifdef DEBUG_OUTPUT
+        Serial.print("LIn Bluetooth mode - ETAG_" + String(chipID) + "\n");
+    #endif
+    esp32State = PASSTHROUGH;
+}
+
+void setWiFiComms() {
+    #ifdef DEBUG_OUTPUT
+        Serial.print("LSwitching to WIFI ...\n");
+    #endif
+    SerialBT.end();
+    digitalWrite(LED_BLUE, LOW);
+    WiFi.softAP(ssid);
+    server.begin();
+    prevMillis = millis();
+    #ifdef DEBUG_OUTPUT
+        Serial.print("LIn WIFI mode - " + (String) ssid + "\n");
+    #endif
+}
+
+void turnOffComms() {
+    esp32State == COMMAND;
+    SerialBT.end();
+    server.stop();
+    WiFi.mode(WIFI_OFF);
+    digitalWrite(LED_BLUE, LOW);
+}
+
+void setRelease(bool boolean) {
+// switch starts release when driven LOW. Thus if boolean is true, LOW must be written.
+// conversely, if the boolean is false, then HIGH must be written to ensure that release is not set
+// Note that HIGH is by definition 0x1. true is 1. Thus !true is 0. false is 0. !false is 1.
+    digitalWrite(REL_EN, !boolean);
+}
+
+void setSaltwaterSensor(bool boolean) {
+// if SWDRIVE is driven HIGH, the saltwater sensor is enabled. Thus the boolean can be passed to turn on the saltwater sensor (true = HIGH).
+// if SWDRIVE is driven LOW, the saltwater sensor is disabled. Thus the boolean can be passed to turn off the saltwater sensor (false = LOW).
+    digitalWrite(SWDRIVE, boolean);
+}
+
+void serialWriteSaltwaterSensor() {
+    uint32_t read_val = analogRead(SWSENSE);
+    serialComms.write(read_val);
+}
+
+void serialWritePressureTemperature() {
+    pressSens.calc_press_temp();
+    serialComms.write(pressSens.pressure_mbar);
+    serialComms.write(pressSens.temperature);
+    #ifdef DEBUG_OUTPUT
+        Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
+        Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+    #endif 
+}
+
+void serialWriteSpeedSensor() {
+    serialComms.write(spin);
+    #ifdef DEBUG_OUTPUT
+        Serial.print("LCurrent spin count: " + (String) spin + "\n");
+    #endif    
+}
+
+void resetPressureSensor() {
+    pressSens.init(PRES_CS);
+    #ifdef DEBUG_OUTPUT
+        Serial.print("LPressure sensor reset\n");
+    #endif
+}
+
+
+/*
     if (Serial.available()) {
         cmd = Serial.read();
         switch (cmd) {
@@ -293,4 +444,4 @@ void loop() {
                 break;
         }
     }
-}
+*/

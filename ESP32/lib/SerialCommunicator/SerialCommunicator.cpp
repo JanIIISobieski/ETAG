@@ -5,6 +5,10 @@ SerialCommunicator::SerialCommunicator(Stream** comms, size_t len) {
     this->len = 2;
 }
 
+SerialCommunicator::~SerialCommunicator() {
+    
+}
+
 int SerialCommunicator::read_and_passthrough_until_command() {
     size_t bytes_read;
     size_t phrase_bytes_read;
