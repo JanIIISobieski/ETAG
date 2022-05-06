@@ -54,16 +54,21 @@ enum SerialState {
  * The way this class achieves this behavior is by having an internal 7-byte buffer. If an incoming byte matches $, it is saved in the buffer.
  * As each additional byte matches the next character of the $ESP32$ sequence, it is added to the buffer. If a byte comes in before the length of the buffer
  * 
+ * This function works right now only if len = 2. More than 2 and the passthrough becomes more complicated.
  */
 class SerialCommunicator {
     public:
         SerialCommunicator(Stream** comms, size_t len);
         ~SerialCommunicator();
 
-        size_t buffered_read();
+        int read_and_passthrough_until_command();
 
-        uint8_t read();
-        uint8_t write();
+        int read();
+
+        template <typename T>
+        size_t write(T val);
+
+        size_t write(uint8_t* array, size_t len);
 
     private:
         uint8_t phrase[PHRASE_SIZE] = {'E', 'S', 'P', '3', '2'}; /**< Set as uint8_t array to allow for changes. char arrays in C++ are const chars */
@@ -76,8 +81,15 @@ class SerialCommunicator {
         uint8_t buffer[MAX_BLUETOOTH_PACKET_SIZE];
         uint8_t additional_buffer[PHRASE_SIZE + 1] = {0};
 
-        uint8_t buffer_offset;
-        uint8_t special_command;
+        int special_command = -1;
+
+        uint8_t ID;
 
         bool array_comparison(uint8_t* array1, uint8_t* array2, size_t len);
+        inline void reset_buffer(uint8_t* array, size_t len);
 };
+
+template <typename T>
+size_t SerialCommunicator::write(T val) {
+    return comms[ID]->write(val);
+}
