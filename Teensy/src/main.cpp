@@ -59,6 +59,14 @@ inline void sampling() {
         imu_buffer.write(IMU.buffer, 9);
     }
 
+    if (Tag_Bluetooth.sample_pressure_temperature()) {
+        pressure_buffer.write(Tag_Bluetooth.get_pressure_temperature(), 12);
+    }
+
+    if (Tag_Bluetooth.sample_speed()) {
+        speed_buffer.write(Tag_Bluetooth.get_speed(), 8);
+    }
+
     nirs.update_event();
 
     if (queue.num_to_write() > 0) {

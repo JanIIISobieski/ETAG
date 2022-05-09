@@ -62,7 +62,7 @@ bool ESP32_Bluetooth::file_send(String file_name) {
     return (bytes_written == size_of_file.as_int);
 }
 
-bool ESP32_Bluetooth::get_pressure_temperature() {
+bool ESP32_Bluetooth::sample_pressure_temperature() {
     write('p');
 
     if (read() == -1) {
@@ -75,7 +75,7 @@ bool ESP32_Bluetooth::get_pressure_temperature() {
     }
 }
 
-bool ESP32_Bluetooth::get_speed() {
+bool ESP32_Bluetooth::sample_speed() {
     write('v');
 
     if (read() == -1) {
@@ -87,7 +87,7 @@ bool ESP32_Bluetooth::get_speed() {
     }
 }
 
-int32_t ESP32_Bluetooth::get_saltwater_sensor() {
+int32_t ESP32_Bluetooth::sample_saltwater_sensor() {
     write('z');
     read_type(saltwater_val);
     return saltwater_val.as_type;

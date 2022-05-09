@@ -32,9 +32,12 @@ class ESP32_Bluetooth : public SerialCommunicator {
         void init(uint32_t baud_rate);
         bool file_send(String file_name);
 
-        bool get_pressure_temperature();
-        bool get_speed();
-        int32_t get_saltwater_sensor();
+        bool sample_pressure_temperature();
+        bool sample_speed();
+        int32_t sample_saltwater_sensor();
+
+        uint8_t* get_pressure_temperature() { return pressure_temp_vals.buffer; };
+        uint8_t* get_speed() { return time_speed.buffer; };
 
         void enable_saltwater_sensor();
         void disable_saltwater_sensor();
