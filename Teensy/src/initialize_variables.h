@@ -118,6 +118,23 @@ AbstractDevice* devices[NUM_DEVICES] = {&diskManager, &nirs, &IMU, &eeg, &hydrop
 bool device_start[NUM_DEVICES] = {true, false, true, false, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
+// Helpful Functions
+inline void sampling();
+void begin_sampling();
+void stop_sampling();
+void test_sampling();
+void upload_files();
+void update_parameters();
+void sync_time();
+void update_files();
+void download_files();
+void initalize_devices();
+void delete_file();
+void dummy_file();
+void nirs_on();
+void nirs_off();
+void reverse_array(uint8_t* ptr, size_t length);
+
 // Allow the logger to be initialized even in RELEASE mode, along with the summary
 // structures.
 // Flag passed in platformini.io will prevent writes (ETAG_LOG_LEVEL = 0 in RELEASE mode)

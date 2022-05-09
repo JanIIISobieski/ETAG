@@ -1,21 +1,5 @@
 #include "initialize_variables.h"
 
-inline void sampling();
-void begin_sampling();
-void stop_sampling();
-void test_sampling();
-void upload_files();
-void update_parameters();
-void sync_time();
-void update_files();
-void download_files();
-void initalize_devices();
-void delete_file();
-void dummy_file();
-void nirs_on();
-void nirs_off();
-void reverse_array(uint8_t* ptr, size_t length);
-
 void setup() {
     SPI.begin();
     TagComms.init();
