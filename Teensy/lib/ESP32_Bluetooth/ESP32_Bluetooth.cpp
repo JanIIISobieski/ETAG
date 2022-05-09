@@ -62,10 +62,65 @@ bool ESP32_Bluetooth::file_send(String file_name) {
     return (bytes_written == size_of_file.as_int);
 }
 
-void ESP32_Bluetooth::enable_passthrough() {
-    _serial->print("ESP32$+");
+bool ESP32_Bluetooth::get_pressure_temperature() {
+    write('p');
+
+    if (read() == -1) {
+        return false;
+    } else {
+        pressure_temp_vals.tpt_struct.time = micros();
+        read_type(pressure_temp_vals.tpt_struct.pressure);
+        read_type(pressure_temp_vals.tpt_struct.temperature);
+        return true;
+    }
 }
 
-void ESP32_Bluetooth::disable_passthrough() {
-    _serial->print("$ESP32$-");
+bool ESP32_Bluetooth::get_speed() {
+    write('v');
+
+    if (read() == -1) {
+        return false;
+    } else {
+        time_speed.st_struct.time = micros();
+        read_type(time_speed.st_struct.speed);
+        return true;
+    }
+}
+
+int32_t ESP32_Bluetooth::get_saltwater_sensor() {
+    write('z');
+    read_type(saltwater_val);
+    return saltwater_val.as_type;
+}
+
+void ESP32_Bluetooth::enable_saltwater_sensor() {
+    write('k');
+}
+
+void ESP32_Bluetooth::disable_saltwater_sensor() {
+    write('l');
+}
+
+void ESP32_Bluetooth::disable_release() {
+    write('e');
+}
+
+void ESP32_Bluetooth::enable_release() {
+    write('a');
+}
+
+void ESP32_Bluetooth::reset_pressure() {
+    write('r');
+}
+
+void ESP32_Bluetooth::set_WiFi_mode() {
+    write('w');
+}
+
+void ESP32_Bluetooth::set_Bluetooth_mode() {
+    write('y');
+}
+
+void ESP32_Bluetooth::turn_off_comms() {
+    write('o');
 }
