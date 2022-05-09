@@ -21,7 +21,6 @@
 #define SWDRIVE   4
 #define PRES_CS   5
 
-
 #include <SerialCommunicator.h>
 BluetoothSerial SerialBT;
 Stream* streams[] = {&Serial, &SerialBT};

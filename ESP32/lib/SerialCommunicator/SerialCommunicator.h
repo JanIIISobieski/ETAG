@@ -1,10 +1,7 @@
 #pragma once
 
 #include <Arduino.h>
-
-#define COMMAND_BUFFER 7
-#define MAX_BLUETOOTH_PACKET_SIZE 512
-#define PHRASE_SIZE 5
+#include "CompQueue.h"
 
 /**
  * @brief Class to act as an interface for the Serial communication between the boards
@@ -66,20 +63,14 @@ class SerialCommunicator {
         size_t write(uint8_t* array, size_t len);
 
     private:
-        uint8_t phrase[PHRASE_SIZE] = {'E', 'S', 'P', '3', '2'}; /**< Set as uint8_t array to allow for changes. char arrays in C++ are const chars */
-
-        size_t len;  /**<Length of the comms object */
         Stream** comms;  /**<Pointer to a vector of Stream* */
-
-        uint8_t buffer[MAX_BLUETOOTH_PACKET_SIZE];
-        uint8_t additional_buffer[PHRASE_SIZE + 1] = {0};
+        size_t len;
 
         int special_command = -1;
-
         uint8_t ID;
 
-        bool array_comparison(uint8_t* array1, uint8_t* array2, size_t len);
-        inline void reset_buffer(uint8_t* array, size_t len);
+        CompQueue queue[2];
+        ReturnData data[2];
 };
 
 template <typename T>
