@@ -6,18 +6,6 @@
 #include "Tag_Info.h"
 
 /**
- *  @brief Byte array union to access data by byte or as the data type.
- *  
- *  This enables writing to the union byte by byte, and then reading as the wanted variable type. 
- */
-template <typename T> union byte_array {
-    byte as_bytes[sizeof(T)]; /** Byte array for storing read data */
-    T as_type;                /** Read the full byte array as a particular type */
-};
-
-template <typename T> using ByteArray = byte_array<T>;  /** Alias template for the #byte_array union to enable its use as a data type */
-
-/**
  *  @brief Class for managing communication over USB and Bluetooth
  * 
  *  Rather than writing seperate code in main(), this class manages reading data
@@ -177,7 +165,7 @@ class TagCommunicator {
 
 template <typename T>
 size_t TagCommunicator::read_type(ByteArray<T>& array) {
-    return (*(communicator_ptr + ID))->read(reinterpret_cast<uint8_t*>(&array), sizeof(array));
+    return (*(communicator_ptr + ID))->read_type(array);
 }
 
 

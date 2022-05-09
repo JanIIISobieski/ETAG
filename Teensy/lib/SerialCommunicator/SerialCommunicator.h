@@ -9,6 +9,19 @@
 extern Logger logger;
 
 /**
+ *  @brief Byte array union to access data by byte or as the data type.
+ *  
+ *  This enables writing to the union byte by byte, and then reading as the wanted variable type. 
+ */
+template <typename T> union byte_array {
+    byte as_bytes[sizeof(T)]; /** Byte array for storing read data */
+    T as_type;                /** Read the full byte array as a particular type */
+};
+
+template <typename T> using ByteArray = byte_array<T>;  /** Alias template for the #byte_array union to enable its use as a data type */
+
+
+/**
  * @brief This abstract class establishes the interface for serial communication
  * 
  * Note that this class cannot inherit from Stream, as Stream does not itself implement
@@ -158,8 +171,25 @@ class SerialCommunicator {
          */
         virtual void init(uint32_t baud_rate) = 0;
 
+        /**
+         *  @brief Reads bytes from the last read SerialCommunicator as a standard data type.
+         * 
+         *  This function enforces waiting for the bytes to go through. Will not return unless the bytes are read.
+         *  As this is a template function, it can take any standard data type.
+         * 
+         *  @param[out] array ByteArray of any standard type.
+         *  @returns size_t Number of bytes read
+         */
+        template <typename T>
+        size_t read_type(ByteArray<T>& array);
+        
     protected:
         Stream* _serial;    /**< pointer to a Stream to which characters will be sent from, read */
         int read_byte;      /**< pre-allocate the storage of the read-byte */
         DiskManager* _diskManagerPtr;
 };
+
+template <typename T>
+size_t SerialCommunicator::read_type(ByteArray<T>& array) {
+    return read(reinterpret_cast<uint8_t*>(&array), sizeof(array));
+}
