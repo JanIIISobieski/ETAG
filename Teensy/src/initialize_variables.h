@@ -15,6 +15,8 @@
 #include "IMUBuffer.h"
 #include "ADCBuffer.h"
 #include "Logger.h"
+#include "PressureBuffer.h"
+#include "SpeedBuffer.h"
 
 // Communication
 #define ACK 6
@@ -111,6 +113,28 @@ static volatile uint8_t ads_buffer3[EEG_BUFFER_LENGTH];
 static volatile uint8_t ads_buffer4[EEG_BUFFER_LENGTH];
 static volatile uint8_t* ads_buffers[EEG_BUFFER_NUM] = {ads_buffer1, ads_buffer2, ads_buffer3, ads_buffer4};
 EEGBuffer eeg_buffer(ads_buffers, EEG_BUFFER_NUM, EEG_BUFFER_LENGTH, EEG_BUFF_ID, &queue);
+
+// Pressure Buffer
+#define PRESSURE_BUFF_ID 16
+#define PRESSURE_BUFFER_LENGTH 8192
+#define PRESSURE_BUFFER_NUM 4
+static volatile uint8_t pressure_buffer1[PRESSURE_BUFFER_LENGTH];
+static volatile uint8_t pressure_buffer2[PRESSURE_BUFFER_LENGTH];
+static volatile uint8_t pressure_buffer3[PRESSURE_BUFFER_LENGTH];
+static volatile uint8_t pressure_buffer4[PRESSURE_BUFFER_LENGTH];
+static volatile uint8_t* pressure_buffers[PRESSURE_BUFFER_NUM] = {pressure_buffer1, pressure_buffer2, pressure_buffer3, pressure_buffer4};
+PressureBuffer pressure_buffer(pressure_buffers, PRESSURE_BUFFER_NUM, PRESSURE_BUFFER_LENGTH, PRESSURE_BUFF_ID, &queue);
+
+// Speed Buffer
+#define SPEED_BUFF_ID 64
+#define SPEED_BUFFER_LENGTH 8192
+#define SPEED_BUFFER_NUM 4
+static volatile uint8_t speed_buffer1[SPEED_BUFFER_LENGTH];
+static volatile uint8_t speed_buffer2[SPEED_BUFFER_LENGTH];
+static volatile uint8_t speed_buffer3[SPEED_BUFFER_LENGTH];
+static volatile uint8_t speed_buffer4[SPEED_BUFFER_LENGTH];
+static volatile uint8_t* speed_buffers[SPEED_BUFFER_NUM] = {speed_buffer1, speed_buffer2, speed_buffer3, speed_buffer4};
+SpeedBuffer speed_buffer(speed_buffers, SPEED_BUFFER_NUM, SPEED_BUFFER_LENGTH, SPEED_BUFF_ID, &queue);
 
 // Device Manager
 #define NUM_DEVICES 5
