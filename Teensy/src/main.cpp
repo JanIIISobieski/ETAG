@@ -50,6 +50,9 @@ void loop() {
         else if (command == '+') nirs.turn_on();
         else if (command == '-') nirs.turn_off();
         else if (command == '?') dummy_file();
+        else if (command == 'o') Tag_Bluetooth.turn_off_comms();
+        else if (command == 'w') Tag_Bluetooth.set_WiFi_mode();
+        else if (command == 'y') Tag_Bluetooth.set_Bluetooth_mode();
         read_val = -1;
     }
 }
