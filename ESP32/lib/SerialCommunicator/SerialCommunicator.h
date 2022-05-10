@@ -2,6 +2,9 @@
 
 #include <Arduino.h>
 #include "CompQueue.h"
+#include <elapsedMillis.h>
+
+#define READ_TIMEOUT 1000
 
 /**
  * @brief Class to act as an interface for the Serial communication between the boards
@@ -71,6 +74,9 @@ class SerialCommunicator {
 
         CompQueue queue[2];
         ReturnData data[2];
+        elapsedMillis timeouts[2];
+
+        void reset(uint8_t ind) { data[ind].len = 0; queue[ind].reset_buffer(); }; 
 };
 
 template <typename T>
