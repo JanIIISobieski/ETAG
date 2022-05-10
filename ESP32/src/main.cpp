@@ -44,7 +44,7 @@ uint32_t chipID = 0;
 String ssid_name;
 const char *ssid;
 
-uint8_t ledState = HIGH;
+uint8_t ledState = LOW;
 
 int readCommand;
 uint8_t cmd, cmdBT;
@@ -88,7 +88,7 @@ void setup() {
         chipID |= ((ESP.getEfuseMac() >> (40 - i)) & 0xff) << i;
     }
     Serial.begin(115200);
-    SerialBT.begin(("ETAG_" + String(chipID)));
+    //SerialBT.begin(("ETAG_" + String(chipID)));  //don't start bluetooth at startup
 
     esp32State = COMMAND;
 
@@ -168,9 +168,7 @@ void loop() {
     }
 
     if (esp32State == COMMAND) {
-        pressSens.update_data();
         readCommand = serialComms.read();
-
         if (readCommand != -1) {
             cmd = (uint8_t) (readCommand & 0xFF);
             switch (cmd) {
@@ -210,6 +208,8 @@ void loop() {
                 default:
                     break;
             }
+        } else {
+            pressSens.update_data();
         }
     } else if (esp32State == PASSTHROUGH) {
         readCommand = serialComms.read_and_passthrough_until_command();
@@ -259,14 +259,15 @@ void setWiFiComms() {
     #ifdef DEBUG_OUTPUT
         Serial.print("LIn WIFI mode - " + (String) ssid + "\n");
     #endif
+    esp32State = COMMAND;
 }
 
 void turnOffComms() {
-    esp32State == COMMAND;
     SerialBT.end();
     server.stop();
     WiFi.mode(WIFI_OFF);
     digitalWrite(LED_BLUE, LOW);
+    esp32State = COMMAND;
 }
 
 void setRelease(bool boolean) {
