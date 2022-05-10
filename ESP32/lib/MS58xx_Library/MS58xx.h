@@ -28,10 +28,14 @@ class MS58xx {
     volatile float pressure_mbar;
     volatile float temperature;
 
+    bool data_state = false;
+
     void init(uint8_t _CS);
     void spi_start(uint8_t _CS, SPISettings _SPI_settings);
     void spi_end(uint8_t _CS);
     void calc_press_temp();
+
+    bool get_data_state() { return data_state; };
 
     /**** Command Defintions (Datasheet, pg 8) ****/
     void reset();
@@ -45,6 +49,7 @@ class MS58xx {
     void update_temp();
     void read_press();
     void read_temp();
+    void update_data();
     /**********************************************/
 };
 
