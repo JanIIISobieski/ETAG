@@ -64,54 +64,76 @@ bool ESP32_Bluetooth::file_send(String file_name) {
 }
 
 bool ESP32_Bluetooth::sample_pressure_temperature() {
-    write('p');
+    if (chipState == COMMAND) {
+        write('p');
 
-    if (read() == -1) {
-        return false;
+        if (read() == -1) {
+            return false;
+        } else {
+            pressure_temp_vals.tpt_struct.time = micros();
+            read_type(pressure_temp_vals.tpt_struct.pressure);
+            read_type(pressure_temp_vals.tpt_struct.temperature);
+            return true;
+        }
     } else {
-        pressure_temp_vals.tpt_struct.time = micros();
-        read_type(pressure_temp_vals.tpt_struct.pressure);
-        read_type(pressure_temp_vals.tpt_struct.temperature);
-        return true;
+        return false;
     }
 }
 
 bool ESP32_Bluetooth::sample_speed() {
-    write('v');
+    if (chipState == COMMAND) {
+        write('v');
 
-    if (read() == -1) {
-        return false;
+        if (read() == -1) {
+            return false;
+        } else {
+            time_speed.st_struct.time = micros();
+            read_type(time_speed.st_struct.speed);
+            return true;
+        }
     } else {
-        time_speed.st_struct.time = micros();
-        read_type(time_speed.st_struct.speed);
-        return true;
+        return false;
     }
 }
 
 int32_t ESP32_Bluetooth::sample_saltwater_sensor() {
-    write('z');
-    read_type(saltwater_val);
-    return saltwater_val.as_type;
+    if (chipState == COMMAND) {
+        write('z');
+        read_type(saltwater_val);
+        return saltwater_val.as_type;
+    } else {
+        return -1;
+    }
 }
 
 void ESP32_Bluetooth::enable_saltwater_sensor() {
-    write('k');
+    if (chipState == COMMAND) {
+        write('k');
+    }
 }
 
 void ESP32_Bluetooth::disable_saltwater_sensor() {
-    write('l');
+    if (chipState == COMMAND) {
+        write('l');
+    }
 }
 
 void ESP32_Bluetooth::disable_release() {
-    write('e');
+    if (chipState == COMMAND) {
+        write('e');
+    }
 }
 
 void ESP32_Bluetooth::enable_release() {
-    write('a');
+    if (chipState == COMMAND) {
+        write('a');
+    }
 }
 
 void ESP32_Bluetooth::reset_pressure() {
-    write('r');
+    if (chipState == COMMAND) {
+        write('r');
+    }
 }
 
 void ESP32_Bluetooth::set_WiFi_mode() {
