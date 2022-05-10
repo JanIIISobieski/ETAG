@@ -12,6 +12,8 @@
 #include <jquery_definition.h>
 #include <update_page_definition.h>
 
+#include <elapsedMillis.h>
+
 //#define DEBUG_OUTPUT
 
 #define SWSENSE   12
@@ -49,6 +51,9 @@ uint8_t cmd, cmdBT;
 
 const long interval = 1000;
 unsigned long currMillis, prevMillis;
+
+#define SPIN_INTERVAL 20
+elapsedMillis speed_interval;
 
 MS58xx pressSens;
 
@@ -163,6 +168,7 @@ void loop() {
     }
 
     if (esp32State == COMMAND) {
+        pressSens.update_data();
         readCommand = serialComms.read();
 
         if (readCommand != -1) {
@@ -194,6 +200,14 @@ void loop() {
                     break;
                 case('p'):
                     serialWritePressureTemperature();
+                    break;
+                case ('v'):
+                    serialWriteSpeedSensor();
+                    break;
+                case ('r'):
+                    resetPressureSensor();
+                    break;
+                default:
                     break;
             }
         }
@@ -274,20 +288,30 @@ void serialWriteSaltwaterSensor() {
 }
 
 void serialWritePressureTemperature() {
-    pressSens.calc_press_temp();
-    serialComms.write(pressSens.pressure_mbar);
-    serialComms.write(pressSens.temperature);
-    #ifdef DEBUG_OUTPUT
-        Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
-        Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
-    #endif 
+    if (pressSens.get_data_state()) {
+        serialComms.write((uint8_t)1);
+        serialComms.write(pressSens.pressure_mbar);
+        serialComms.write(pressSens.temperature);
+        #ifdef DEBUG_OUTPUT
+            Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
+            Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+        #endif 
+    } else {
+        serialComms.write((uint8_t)0x0);
+    }
 }
 
 void serialWriteSpeedSensor() {
-    serialComms.write(spin);
-    #ifdef DEBUG_OUTPUT
-        Serial.print("LCurrent spin count: " + (String) spin + "\n");
-    #endif    
+    if (speed_interval >= SPIN_INTERVAL) {
+        serialComms.write((uint8_t)1);
+        serialComms.write(spin);
+        speed_interval = 0;
+        #ifdef DEBUG_OUTPUT
+            Serial.print("LCurrent spin count: " + (String) spin + "\n");
+        #endif  
+    } else {
+        serialComms.write((uint8_t)0);
+    }  
 }
 
 void resetPressureSensor() {
