@@ -172,6 +172,8 @@ Logger logger(&SerialUSB1);
 TimingData hydrophone_buffer_push{}; //these timers are structures which are initialized and then never used when not debugging
 TimingData eeg_buffer_push{};
 TimingData imu_buffer_push{};
+TimingData speed_buffer_push{};
+TimingData pressure_buffer_push{};
 TimingData sampling_loop{};
 
 PrintTiming stopOnCompletionTimer{};
