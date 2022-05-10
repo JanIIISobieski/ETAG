@@ -2,6 +2,7 @@
 
 ESP32_Bluetooth::ESP32_Bluetooth(HardwareSerial* bt_serial, DiskManager* diskManagerPtr) : SerialCommunicator(bt_serial, diskManagerPtr) {
     hard_serial = bt_serial;
+    chipState = COMMAND;
 }
 
 void ESP32_Bluetooth::init(uint32_t baud_rate) {
@@ -114,13 +115,22 @@ void ESP32_Bluetooth::reset_pressure() {
 }
 
 void ESP32_Bluetooth::set_WiFi_mode() {
+    if (chipState == PASSTHROUGH) {
+        write(phrase, PHRASE_LEN);
+    }
     write('w');
+    chipState = COMMAND;
 }
 
 void ESP32_Bluetooth::set_Bluetooth_mode() {
     write('y');
+    chipState = PASSTHROUGH;
 }
 
 void ESP32_Bluetooth::turn_off_comms() {
+    if (chipState == PASSTHROUGH) {
+        write(phrase, PHRASE_LEN);
+    }
     write('o');
+    chipState = COMMAND;
 }
