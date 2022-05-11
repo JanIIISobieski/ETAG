@@ -3,6 +3,7 @@
 ESP32_Bluetooth::ESP32_Bluetooth(HardwareSerial* bt_serial, DiskManager* diskManagerPtr) : SerialCommunicator(bt_serial, diskManagerPtr) {
     hard_serial = bt_serial;
     chipState = COMMAND;
+    is_sampling = false;
 }
 
 void ESP32_Bluetooth::init(uint32_t baud_rate) {
@@ -64,7 +65,7 @@ bool ESP32_Bluetooth::file_send(String file_name) {
 }
 
 bool ESP32_Bluetooth::sample_pressure_temperature() {
-    if (chipState == COMMAND) {
+    if (is_sampling & (chipState == COMMAND)) {
         write('p');
 
         if (read() == -1) {
@@ -81,7 +82,7 @@ bool ESP32_Bluetooth::sample_pressure_temperature() {
 }
 
 bool ESP32_Bluetooth::sample_speed() {
-    if (chipState == COMMAND) {
+    if (is_sampling & (chipState == COMMAND)) {
         write('v');
 
         if (read() == -1) {
@@ -108,35 +109,41 @@ int32_t ESP32_Bluetooth::sample_saltwater_sensor() {
 
 void ESP32_Bluetooth::enable_saltwater_sensor() {
     if (chipState == COMMAND) {
+        logger.print_message("Enabling saltwater sensor");
         write('k');
     }
 }
 
 void ESP32_Bluetooth::disable_saltwater_sensor() {
     if (chipState == COMMAND) {
+        logger.print_message("Disabling saltwater sensor");
         write('l');
     }
 }
 
 void ESP32_Bluetooth::disable_release() {
     if (chipState == COMMAND) {
+        logger.print_message("Disabling release");
         write('e');
     }
 }
 
 void ESP32_Bluetooth::enable_release() {
     if (chipState == COMMAND) {
+        logger.print_message("Enabling release");
         write('a');
     }
 }
 
 void ESP32_Bluetooth::reset_pressure() {
     if (chipState == COMMAND) {
+        logger.print_message("Resetting pressure sensor");
         write('r');
     }
 }
 
 void ESP32_Bluetooth::set_WiFi_mode() {
+    logger.print_message("Setting WiFi mode");
     if (chipState == PASSTHROUGH) {
         write(phrase, PHRASE_LEN);
     }
@@ -145,11 +152,13 @@ void ESP32_Bluetooth::set_WiFi_mode() {
 }
 
 void ESP32_Bluetooth::set_Bluetooth_mode() {
+    logger.print_message("Setting BlueTooth mode");
     write('y');
     chipState = PASSTHROUGH;
 }
 
 void ESP32_Bluetooth::turn_off_comms() {
+    logger.print_message("Disabling comms");
     if (chipState == PASSTHROUGH) {
         write(phrase, PHRASE_LEN);
     }

@@ -134,9 +134,15 @@ void stop_sampling() {
 }
 
 void sync_time() {
+    logger.print_message("Syncing time");
+
     TagComms.write(ACK);
 
+    logger.print_message("Wrote ACK");
+
     ByteArray<uint32_t> time_buffer;
+
+    logger.print_message("Waiting for read_type");
     TagComms.read_type(time_buffer);
     setTime(time_buffer.as_type);
     rtc_set(now());

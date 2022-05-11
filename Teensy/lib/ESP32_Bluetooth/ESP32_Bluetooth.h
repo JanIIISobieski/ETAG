@@ -58,6 +58,9 @@ class ESP32_Bluetooth : public SerialCommunicator {
         void set_Bluetooth_mode();
         void turn_off_comms();
 
+        void begin_sampling() { is_sampling = true; }
+        void end_sampling() { is_sampling = false; }
+
     private:
         HardwareSerial* hard_serial;
 
@@ -67,4 +70,6 @@ class ESP32_Bluetooth : public SerialCommunicator {
 
         uint8_t phrase[PHRASE_LEN] = {'$', 'E', 'S', 'P', '3', '2', '$'};
         ChipState chipState;
+
+        bool is_sampling;
 };
