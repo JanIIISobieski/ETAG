@@ -18,10 +18,8 @@ int SerialCommunicator::read_and_passthrough_until_command() {
             if (data[i].ready_to_write) {
                 comms[1-i]->write(data[i].data_ptr, data[i].len);
                 reset(i);
-                return -1;
             }
-            
-            if (data[i].len == PHRASE_LENGTH) {
+            else if (data[i].len == PHRASE_LENGTH) {
                 while (!comms[i]->available()) { }
                 reset(i);
                 return comms[i]->read();

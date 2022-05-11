@@ -84,6 +84,8 @@ void serialWriteSpeedSensor();
 void resetPressureSensor();
 
 void setup() {
+    esp_log_level_set("*", ESP_LOG_NONE);
+
     for (int i = 0; i < 17; i = i + 8) {
         chipID |= ((ESP.getEfuseMac() >> (40 - i)) & 0xff) << i;
     }
