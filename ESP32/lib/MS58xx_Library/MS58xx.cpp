@@ -34,10 +34,10 @@ void MS58xx::spi_end(uint8_t _CS) {
 
 void MS58xx::calc_press_temp() {
   update_press();
-  delay(100);
+  delay(10);
   read_press();
   update_temp();
-  delay(100);
+  delay(10);
   read_temp();
 
   uint32_t D1 = (uint32_t) ((((uint32_t) Pbuff[0] << 16) | ((uint32_t) Pbuff[1] << 8) | ((uint32_t) Pbuff[2])));
