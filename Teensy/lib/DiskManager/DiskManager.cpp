@@ -17,7 +17,7 @@ DiskManager::~DiskManager() {
 }
 
 bool DiskManager::init() {
-    bool return_val = sd.begin(SdioConfig(DMA_SDIO));
+    bool return_val = sd.begin(SdioConfig(FIFO_SDIO));
 
     if (!sd.chdir()) {
         logger.print_message("Could not open root directory");  // open root

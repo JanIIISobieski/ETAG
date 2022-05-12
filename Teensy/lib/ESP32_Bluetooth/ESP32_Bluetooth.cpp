@@ -66,9 +66,10 @@ bool ESP32_Bluetooth::file_send(String file_name) {
 
 bool ESP32_Bluetooth::sample_pressure_temperature() {
     if (is_sampling & (chipState == COMMAND)) {
+        logger.print_message("PS");
         write('p');
 
-        if (read() == -1) {
+        if (read() == 0) {
             return false;
         } else {
             pressure_temp_vals.tpt_struct.time = micros();
@@ -83,9 +84,10 @@ bool ESP32_Bluetooth::sample_pressure_temperature() {
 
 bool ESP32_Bluetooth::sample_speed() {
     if (is_sampling & (chipState == COMMAND)) {
+        logger.print_message("SS");
         write('v');
 
-        if (read() == -1) {
+        if (read() == 0) {
             return false;
         } else {
             time_speed.st_struct.time = micros();
@@ -145,6 +147,7 @@ void ESP32_Bluetooth::reset_pressure() {
 void ESP32_Bluetooth::set_WiFi_mode() {
     logger.print_message("Setting WiFi mode");
     if (chipState == PASSTHROUGH) {
+        logger.print_message("Writing phrase");
         write(phrase, PHRASE_LEN);
     }
     write('w');
@@ -160,6 +163,7 @@ void ESP32_Bluetooth::set_Bluetooth_mode() {
 void ESP32_Bluetooth::turn_off_comms() {
     logger.print_message("Disabling comms");
     if (chipState == PASSTHROUGH) {
+        logger.print_message("Writing phrase");
         write(phrase, PHRASE_LEN);
     }
     write('o');
