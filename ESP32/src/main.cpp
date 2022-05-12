@@ -12,6 +12,8 @@
 #include <jquery_definition.h>
 #include <update_page_definition.h>
 
+#include <elapsedMillis.h>
+
 //#define DEBUG_OUTPUT
 
 #define SWSENSE   12
@@ -42,6 +44,9 @@ BluetoothSerial SerialBT;
 
 WebServer server(80);
 
+#define SPIN_TIMER 20
+elapsedMillis spinTimer;
+
 void enableRelease(bool val) {
   digitalWrite(REL_EN, !val);
 }
@@ -68,13 +73,18 @@ void turnOffComms() {
 }
 
 void serialWritePressureTemperature() {
-  pressSens.calc_press_temp();
-  Serial.write((uint8_t*)(&pressSens.pressure_mbar), sizeof(pressSens.pressure_mbar));
-  Serial.write((uint8_t*)(&pressSens.temperature), sizeof(pressSens.temperature));
-  #ifdef DEBUG_OUTPUT
-    Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
-    Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
-  #endif
+  if (pressSens.data_ready) {
+    Serial.write(1);
+    Serial.write((uint8_t*)(&pressSens.pressure_mbar), sizeof(pressSens.pressure_mbar));
+    Serial.write((uint8_t*)(&pressSens.temperature), sizeof(pressSens.temperature));
+    #ifdef DEBUG_OUTPUT
+      Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
+      Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+    #endif
+    pressSens.data_ready = false;
+  } else {
+    Serial.write(0);
+  }
 }
 
 void resetPressure() {
@@ -85,10 +95,15 @@ void resetPressure() {
 }
 
 void serialWriteSpin() {
-  Serial.write(spin);
-  #ifdef DEBUG_OUTPUT
-    Serial.print("LCurrent spin count: " + (String) spin + "\n");
-  #endif
+  if (spinTimer > SPIN_TIMER) {
+    Serial.write(1);
+    Serial.write(spin);
+    #ifdef DEBUG_OUTPUT
+      Serial.print("LCurrent spin count: " + (String) spin + "\n");
+    #endif
+  } else {
+    Serial.write(0);
+  }
 }
 
 void setWifiMode() {
@@ -227,7 +242,6 @@ void loop() {
         break;
       case ('k'):   // enable saltwater sensor
         enableSaltwaterSensor(true);
-        serialWriteSaltwaterSensor();
         break;
       case ('l'):   // disable saltwater sensor
         enableSaltwaterSensor(false);
@@ -250,6 +264,8 @@ void loop() {
       case ('y'):   // switch to Bluetooth communication
         setBluetoothMode();
         break;
+      case ('z'):
+        serialWriteSaltwaterSensor();
       default:
         break;
     }
@@ -284,8 +300,14 @@ void loop() {
       case ('w'):   // switch to WiFi communication - 192.168.4.1
         setWifiMode();
         break;
+      case ('z'):
+        serialWriteSaltwaterSensor();
       default:
         break;
     }
+  }
+
+  if (!pressSens.data_ready) {
+    pressSens.update_pt_data();
   }
 }
