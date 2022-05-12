@@ -8,6 +8,8 @@
 #define MS58xx_02
 //#define MS58xx_30
 
+#define REQUEST_READ_DELAY 10
+
 void MS58xx::init(uint8_t _CS) {
   cs = _CS;
   MS58xx_SPI_settings = SPISettings(4000000, MSBFIRST, SPI_MODE0);
@@ -20,6 +22,9 @@ void MS58xx::init(uint8_t _CS) {
   get_TCOFF();
   get_TREF();
   get_TEMPSENS();
+
+  ind = 0;
+  data_ready = false;
 }
 
 void MS58xx::spi_start(uint8_t _CS, SPISettings _SPI_settings) {
@@ -32,14 +37,37 @@ void MS58xx::spi_end(uint8_t _CS) {
   SPI.endTransaction();
 }
 
-void MS58xx::calc_press_temp() {
-  update_press();
-  delay(10);
-  read_press();
-  update_temp();
-  delay(10);
-  read_temp();
+void MS58xx::update_pt_data() {
+  switch (ind) {
+    case (0):
+      update_press();
+      dt = 0;
+      ++ind;
+      break;
+    case (1):
+      if (dt >= REQUEST_READ_DELAY) {
+        ++ind;
+      } 
+    case (2):
+      read_press();
+      update_temp();
+      dt = 0;
+      ++ind;
+    case (3):
+      if (dt >= REQUEST_READ_DELAY) {
+        ++ind;
+      }
+    case (4):
+      read_temp();
+      ind = 0;
+      data_ready = true;
+    default:
+      break;
+  }
+}
 
+
+void MS58xx::calc_press_temp() {
   uint32_t D1 = (uint32_t) ((((uint32_t) Pbuff[0] << 16) | ((uint32_t) Pbuff[1] << 8) | ((uint32_t) Pbuff[2])));
   uint32_t D2 = (uint32_t) ((((uint32_t) Tbuff[0] << 16) | ((uint32_t) Tbuff[1] << 8) | ((uint32_t) Tbuff[2])));
 
