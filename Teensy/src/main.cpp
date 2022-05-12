@@ -18,6 +18,8 @@ void setup() {
     logger.assign_metadata(&hydrophone_buffer_push, "Hydrophone Push");
     logger.assign_metadata(&eeg_buffer_push, "EEG Push");
     logger.assign_metadata(&imu_buffer_push, "IMU Buffer Push");
+    logger.assign_metadata(&pressure_buffer_push, "Pressure Push");
+    logger.assign_metadata(&speed_buffer_push, "Speed Push");
     logger.assign_metadata(&sampling_loop, "Loop() Timing");
 
     stopOnCompletionTimer.dt = 1000;
@@ -53,6 +55,7 @@ void loop() {
         else if (command == 'o') Tag_Bluetooth.turn_off_comms();
         else if (command == 'w') Tag_Bluetooth.set_WiFi_mode();
         else if (command == 'y') Tag_Bluetooth.set_Bluetooth_mode();
+        else logger.print_variable("Recieved byte but don't know what to do with it", read_val);
         read_val = -1;
     }
 }
@@ -110,9 +113,11 @@ void begin_sampling() {
     logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
 
     deviceManager.begin_sampling();
+    Tag_Bluetooth.begin_sampling();
 }
 
 void stop_sampling() {
+    Tag_Bluetooth.end_sampling();
     deviceManager.end_sampling();
 
 #ifdef ETAG_DEBUG

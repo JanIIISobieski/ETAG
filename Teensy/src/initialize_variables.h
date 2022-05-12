@@ -139,7 +139,7 @@ SpeedBuffer speed_buffer(speed_buffers, SPEED_BUFFER_NUM, SPEED_BUFFER_LENGTH, S
 // Device Manager
 #define NUM_DEVICES 5
 AbstractDevice* devices[NUM_DEVICES] = {&diskManager, &nirs, &IMU, &eeg, &hydrophone};
-bool device_start[NUM_DEVICES] = {true, false, true, false, false};
+bool device_start[NUM_DEVICES] = {true, false, false, false, true};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Helpful Functions
