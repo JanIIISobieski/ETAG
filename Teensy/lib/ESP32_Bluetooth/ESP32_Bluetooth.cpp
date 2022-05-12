@@ -69,7 +69,10 @@ bool ESP32_Bluetooth::sample_pressure_temperature() {
         logger.print_message("PS");
         write('p');
 
-        if (read() == 0) {
+        int read_val = read();
+        logger.print_variable("Read val", read_val);
+
+        if ((read_val == -1) || ((uint8_t)(read_val & 0xFF) == 0) ) {
             return false;
         } else {
             pressure_temp_vals.tpt_struct.time = micros();
@@ -87,7 +90,10 @@ bool ESP32_Bluetooth::sample_speed() {
         logger.print_message("SS");
         write('v');
 
-        if (read() == 0) {
+        int read_val = read();
+        logger.print_variable("Read val", read_val);
+
+        if ((read_val == -1) || ((uint8_t)(read_val & 0xFF) == 0) ) {
             return false;
         } else {
             time_speed.st_struct.time = micros();
