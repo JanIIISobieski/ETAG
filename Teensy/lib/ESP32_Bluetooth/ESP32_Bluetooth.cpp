@@ -69,16 +69,17 @@ bool ESP32_Bluetooth::sample_pressure_temperature() {
         logger.print_message("PS");
         write('p');
 
+        while (!_serial->available()) {}
         int read_val = read();
         logger.print_variable("Read val", read_val);
 
-        if ((read_val == -1) || ((uint8_t)(read_val & 0xFF) == 0) ) {
-            return false;
-        } else {
+        if (read_val == 'Y') {
             pressure_temp_vals.tpt_struct.time = micros();
             read_type(pressure_temp_vals.tpt_struct.pressure);
             read_type(pressure_temp_vals.tpt_struct.temperature);
             return true;
+        } else {
+            return false;
         }
     } else {
         return false;
@@ -90,15 +91,16 @@ bool ESP32_Bluetooth::sample_speed() {
         logger.print_message("SS");
         write('v');
 
+        while (!_serial->available()) {}
         int read_val = read();
         logger.print_variable("Read val", read_val);
 
-        if ((read_val == -1) || ((uint8_t)(read_val & 0xFF) == 0) ) {
-            return false;
-        } else {
+        if (read_val == 'Y') {
             time_speed.st_struct.time = micros();
             read_type(time_speed.st_struct.speed);
             return true;
+        } else {
+            return false;
         }
     } else {
         return false;
@@ -107,7 +109,9 @@ bool ESP32_Bluetooth::sample_speed() {
 
 int32_t ESP32_Bluetooth::sample_saltwater_sensor() {
     if (chipState == COMMAND) {
+        logger.print_message("WS");
         write('z');
+
         read_type(saltwater_val);
         return saltwater_val.as_type;
     } else {

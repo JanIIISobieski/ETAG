@@ -69,10 +69,11 @@ inline void sampling() {
         pressure_buffer.write(Tag_Bluetooth.get_pressure_temperature(), 12);
     }
 
+/*
     if (Tag_Bluetooth.sample_speed()) {
         speed_buffer.write(Tag_Bluetooth.get_speed(), 8);
     }
-
+*/
     nirs.update_event();
 
     if (queue.num_to_write() > 0) {
@@ -95,6 +96,8 @@ void begin_sampling() {
     hydrophone_buffer.reset();
     imu_buffer.reset();
     eeg_buffer.reset();
+    pressure_buffer.reset();
+    speed_buffer.reset();
 
     run_data.update_datetime();
     run_data.update_imu_calibration(IMU);
