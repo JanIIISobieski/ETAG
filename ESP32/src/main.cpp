@@ -74,7 +74,7 @@ void turnOffComms() {
 
 void serialWritePressureTemperature() {
   if (pressSens.data_ready) {
-    Serial.write(1);
+    Serial.write('Y');
     Serial.write((uint8_t*)(&pressSens.pressure_mbar), sizeof(pressSens.pressure_mbar));
     Serial.write((uint8_t*)(&pressSens.temperature), sizeof(pressSens.temperature));
     #ifdef DEBUG_OUTPUT
@@ -83,7 +83,7 @@ void serialWritePressureTemperature() {
     #endif
     pressSens.data_ready = false;
   } else {
-    Serial.write(0);
+    Serial.write('X');
   }
 }
 
@@ -96,13 +96,14 @@ void resetPressure() {
 
 void serialWriteSpin() {
   if (spinTimer > SPIN_TIMER) {
-    Serial.write(1);
+    Serial.write('Y');
     Serial.write(spin);
     #ifdef DEBUG_OUTPUT
       Serial.print("LCurrent spin count: " + (String) spin + "\n");
     #endif
+    spinTimer = 0;
   } else {
-    Serial.write(0);
+    Serial.write('X');
   }
 }
 
@@ -273,7 +274,6 @@ void loop() {
   
   if (SerialBT.available()) {
     cmdBT = SerialBT.read();
-    Serial.write(cmdBT);
     switch (cmdBT) {
       case ('a'):   // enable release
         enableRelease(true);
@@ -303,6 +303,7 @@ void loop() {
       case ('z'):
         serialWriteSaltwaterSensor();
       default:
+        Serial.write(cmdBT);
         break;
     }
   }
