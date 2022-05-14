@@ -116,11 +116,11 @@ void begin_sampling() {
     logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
 
     deviceManager.begin_sampling();
-    Tag_Bluetooth.begin_sampling();
+    //Tag_Bluetooth.begin_sampling();
 }
 
 void stop_sampling() {
-    Tag_Bluetooth.end_sampling();
+    //Tag_Bluetooth.end_sampling();
     deviceManager.end_sampling();
 
 #ifdef ETAG_DEBUG
