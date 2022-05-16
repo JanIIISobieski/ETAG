@@ -24,6 +24,7 @@
 #define PRES_CS   5
 
 volatile int32_t spin = 0;
+int32_t spin_copy = 0;
 
 uint8_t releaseFlag = LOW;
 
@@ -92,7 +93,10 @@ void resetPressure() {
 }
 
 void serialWriteSpin() {
-    Serial.write(spin);
+    noInterrupts();
+    spin_copy = spin;
+    interrupts();
+    Serial.write((uint8_t*)(&spin_copy), sizeof(spin_copy));
     #ifdef DEBUG_OUTPUT
       Serial.print("LCurrent spin count: " + (String) spin + "\n");
     #endif
