@@ -16,7 +16,7 @@ void Logger::reset_metadata() {
     for (size_t i = 0; i < timing_list.get_length(); i++) {
         TimingData* data = timing_list.get(i);
         data->counter = 0;
-        data->min_diff = 0;
+        data->min_diff = UINT32_MAX;
         data->max_diff = 0;
         data->avg_diff = 0.0;
         data->prior_time = 0;
