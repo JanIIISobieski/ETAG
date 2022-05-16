@@ -69,11 +69,13 @@ inline void sampling() {
         pressure_buffer.write(Tag_Bluetooth.get_pressure_temperature(), 12);
     }
 
-/*
+    /*
     if (Tag_Bluetooth.sample_speed()) {
+        logger.print_message("S log");
         speed_buffer.write(Tag_Bluetooth.get_speed(), 8);
     }
-*/
+    */
+
     nirs.update_event();
 
     if (queue.num_to_write() > 0) {
@@ -116,11 +118,11 @@ void begin_sampling() {
     logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
 
     deviceManager.begin_sampling();
-    //Tag_Bluetooth.begin_sampling();
+    Tag_Bluetooth.begin_sampling();
 }
 
 void stop_sampling() {
-    //Tag_Bluetooth.end_sampling();
+    Tag_Bluetooth.end_sampling();
     deviceManager.end_sampling();
 
 #ifdef ETAG_DEBUG

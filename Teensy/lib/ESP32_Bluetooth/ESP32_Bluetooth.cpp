@@ -2,7 +2,6 @@
 
 ESP32_Bluetooth::ESP32_Bluetooth(HardwareSerial* bt_serial, DiskManager* diskManagerPtr) : SerialCommunicator(bt_serial, diskManagerPtr) {
     hard_serial = bt_serial;
-    chipState = COMMAND;
     is_sampling = false;
 }
 
@@ -65,117 +64,79 @@ bool ESP32_Bluetooth::file_send(String file_name) {
 }
 
 bool ESP32_Bluetooth::sample_pressure_temperature() {
-    if (is_sampling & (chipState == COMMAND)) {
-        logger.print_message("PS");
+    if (is_sampling & (pressure_timer >= MIN_PRESSURE_DELAY)) {
         write('p');
+        while (!_serial->available()) {};
 
-        while (!_serial->available()) {}
-        int read_val = read();
-        logger.print_variable("Read val", read_val);
+        int read_val = _serial->read();
+        logger.print_variable("Read Val", read_val);
 
-        if (read_val == 'Y') {
+        if (read_val == 1) {
             pressure_temp_vals.tpt_struct.time = micros();
             read_type(pressure_temp_vals.tpt_struct.pressure);
             read_type(pressure_temp_vals.tpt_struct.temperature);
+            pressure_timer = 0;
             return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
+        } else return false;
     }
+    else return false;
 }
 
 bool ESP32_Bluetooth::sample_speed() {
-    if (is_sampling & (chipState == COMMAND)) {
+    if (is_sampling & (speed_timer >= MIN_SPEED_DELAY)) {
         logger.print_message("SS");
         write('v');
 
-        while (!_serial->available()) {}
-        int read_val = read();
-        logger.print_variable("Read val", read_val);
-
-        if (read_val == 'Y') {
-            time_speed.st_struct.time = micros();
-            read_type(time_speed.st_struct.speed);
-            return true;
-        } else {
-            return false;
-        }
-    } else {
-        return false;
-    }
+        time_speed.st_struct.time = micros();
+        read_type(time_speed.st_struct.speed);
+        speed_timer = 0;
+        return true;
+    } else return false;
 }
 
 int32_t ESP32_Bluetooth::sample_saltwater_sensor() {
-    if (chipState == COMMAND) {
-        logger.print_message("WS");
-        write('z');
-
-        read_type(saltwater_val);
-        return saltwater_val.as_type;
-    } else {
-        return -1;
-    }
+    logger.print_message("WS");
+    write('z');
+    read_type(saltwater_val);
+    return saltwater_val.as_type;
 }
 
 void ESP32_Bluetooth::enable_saltwater_sensor() {
-    if (chipState == COMMAND) {
-        logger.print_message("Enabling saltwater sensor");
-        write('k');
-    }
+    logger.print_message("Enabling saltwater sensor");
+    write('k');
 }
 
 void ESP32_Bluetooth::disable_saltwater_sensor() {
-    if (chipState == COMMAND) {
-        logger.print_message("Disabling saltwater sensor");
-        write('l');
-    }
+    logger.print_message("Disabling saltwater sensor");
+    write('l');
 }
 
 void ESP32_Bluetooth::disable_release() {
-    if (chipState == COMMAND) {
-        logger.print_message("Disabling release");
-        write('e');
-    }
+    logger.print_message("Disabling release");
+    write('e');
 }
 
 void ESP32_Bluetooth::enable_release() {
-    if (chipState == COMMAND) {
-        logger.print_message("Enabling release");
-        write('a');
-    }
+    logger.print_message("Enabling release");
+    write('a');
 }
 
 void ESP32_Bluetooth::reset_pressure() {
-    if (chipState == COMMAND) {
-        logger.print_message("Resetting pressure sensor");
-        write('r');
-    }
+    logger.print_message("Resetting pressure sensor");
+    write('r');
 }
 
 void ESP32_Bluetooth::set_WiFi_mode() {
     logger.print_message("Setting WiFi mode");
-    if (chipState == PASSTHROUGH) {
-        logger.print_message("Writing phrase");
-        write(phrase, PHRASE_LEN);
-    }
     write('w');
-    chipState = COMMAND;
 }
 
 void ESP32_Bluetooth::set_Bluetooth_mode() {
     logger.print_message("Setting BlueTooth mode");
     write('y');
-    chipState = PASSTHROUGH;
 }
 
 void ESP32_Bluetooth::turn_off_comms() {
     logger.print_message("Disabling comms");
-    if (chipState == PASSTHROUGH) {
-        logger.print_message("Writing phrase");
-        write(phrase, PHRASE_LEN);
-    }
     write('o');
-    chipState = COMMAND;
 }

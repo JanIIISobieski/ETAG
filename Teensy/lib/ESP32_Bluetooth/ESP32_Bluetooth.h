@@ -7,6 +7,9 @@
 #define BLUETOOTH_BUFFER_SIZE 64
 #define BLUETOOTH_WRITE_BUFFER 64
 
+#define MIN_SPEED_DELAY 10
+#define MIN_PRESSURE_DELAY 10
+
 #define PHRASE_LEN 7
 
 union TimePressureTemperature {
@@ -24,11 +27,6 @@ union TimeSpeed {
         ByteArray<int32_t> speed;
     } st_struct;
     uint8_t buffer[8];
-};
-
-enum ChipState {
-    COMMAND = 0,
-    PASSTHROUGH = 1
 };
 
 class ESP32_Bluetooth : public SerialCommunicator {
@@ -68,8 +66,8 @@ class ESP32_Bluetooth : public SerialCommunicator {
         TimeSpeed time_speed;
         ByteArray<int32_t> saltwater_val;
 
-        uint8_t phrase[PHRASE_LEN] = {'$', 'E', 'S', 'P', '3', '2', '$'};
-        ChipState chipState;
+        elapsedMillis pressure_timer;
+        elapsedMillis speed_timer;
 
         bool is_sampling;
 };
