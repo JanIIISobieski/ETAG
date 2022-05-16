@@ -44,9 +44,6 @@ BluetoothSerial SerialBT;
 
 WebServer server(80);
 
-#define SPIN_TIMER 20
-elapsedMillis spinTimer;
-
 void enableRelease(bool val) {
   digitalWrite(REL_EN, !val);
 }
@@ -73,18 +70,18 @@ void turnOffComms() {
 }
 
 void serialWritePressureTemperature() {
-  if (pressSens.data_ready) {
-    Serial.write('Y');
-    Serial.write((uint8_t*)(&pressSens.pressure_mbar), sizeof(pressSens.pressure_mbar));
-    Serial.write((uint8_t*)(&pressSens.temperature), sizeof(pressSens.temperature));
-    #ifdef DEBUG_OUTPUT
-      Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
-      Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
-    #endif
-    pressSens.data_ready = false;
-  } else {
-    Serial.write('X');
-  }
+    if (pressSens.data_ready) {
+      Serial.write(1);
+      Serial.write((uint8_t*)(&pressSens.pressure_mbar), sizeof(pressSens.pressure_mbar));
+      Serial.write((uint8_t*)(&pressSens.temperature), sizeof(pressSens.temperature));
+      #ifdef DEBUG_OUTPUT
+        Serial.print((String) "LPressure: " + pressSens.pressure_mbar + " mbar\n");
+        Serial.print((String) "LTemperature: " + pressSens.temperature + " C\n");
+      #endif
+      pressSens.data_ready = false;
+    } else {
+      Serial.write(0);
+    }
 }
 
 void resetPressure() {
@@ -95,16 +92,10 @@ void resetPressure() {
 }
 
 void serialWriteSpin() {
-  if (spinTimer > SPIN_TIMER) {
-    Serial.write('Y');
     Serial.write(spin);
     #ifdef DEBUG_OUTPUT
       Serial.print("LCurrent spin count: " + (String) spin + "\n");
     #endif
-    spinTimer = 0;
-  } else {
-    Serial.write('X');
-  }
 }
 
 void setWifiMode() {

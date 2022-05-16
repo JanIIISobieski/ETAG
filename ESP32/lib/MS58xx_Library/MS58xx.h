@@ -10,10 +10,10 @@
 #include <SPI.h>
 #include "MS58xx_Definitions.h"
 
-#include "elapsedMillis.h"
-
 class MS58xx {
   public:
+    MS58xx();
+
     uint8_t cs;        // Chip Select pin number
     SPISettings MS58xx_SPI_settings;
 
@@ -53,7 +53,7 @@ class MS58xx {
     void read_temp();
     /**********************************************/
 
-    elapsedMillis dt;
+    uint32_t time_start;
     uint8_t ind;
 };
 

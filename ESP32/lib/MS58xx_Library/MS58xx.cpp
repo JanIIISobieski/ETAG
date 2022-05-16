@@ -10,6 +10,11 @@
 
 #define REQUEST_READ_DELAY 10
 
+MS58xx::MS58xx() {
+  ind = 0;
+  data_ready = false;
+}
+
 void MS58xx::init(uint8_t _CS) {
   cs = _CS;
   MS58xx_SPI_settings = SPISettings(4000000, MSBFIRST, SPI_MODE0);
@@ -22,9 +27,6 @@ void MS58xx::init(uint8_t _CS) {
   get_TCOFF();
   get_TREF();
   get_TEMPSENS();
-
-  ind = 0;
-  data_ready = false;
 }
 
 void MS58xx::spi_start(uint8_t _CS, SPISettings _SPI_settings) {
@@ -41,26 +43,30 @@ void MS58xx::update_pt_data() {
   switch (ind) {
     case (0):
       update_press();
-      dt = 0;
       ++ind;
+      time_start = millis();
       break;
     case (1):
-      if (dt >= REQUEST_READ_DELAY) {
+      if ((millis() - time_start) >= REQUEST_READ_DELAY) {
         ++ind;
-      } 
+      }
+      break;
     case (2):
       read_press();
       update_temp();
-      dt = 0;
+      time_start = millis();
       ++ind;
     case (3):
-      if (dt >= REQUEST_READ_DELAY) {
+      if ((millis() - time_start) >= REQUEST_READ_DELAY) {
         ++ind;
       }
+      break;
     case (4):
       read_temp();
+      calc_press_temp();
       ind = 0;
       data_ready = true;
+      break;
     default:
       break;
   }
