@@ -17,7 +17,6 @@ int SerialCommunicator::read() {
 
 size_t SerialCommunicator::read(uint8_t* buffer, size_t size) {
     size_t count = 0;
-    
     while (count < size) {
         int read_val = this->read();
         if (read_val != -1) {

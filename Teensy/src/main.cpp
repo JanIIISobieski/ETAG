@@ -69,12 +69,9 @@ inline void sampling() {
         pressure_buffer.write(Tag_Bluetooth.get_pressure_temperature(), 12);
     }
 
-    /*
     if (Tag_Bluetooth.sample_speed()) {
-        logger.print_message("S log");
         speed_buffer.write(Tag_Bluetooth.get_speed(), 8);
     }
-    */
 
     nirs.update_event();
 
@@ -93,6 +90,8 @@ void begin_sampling() {
     ttl_ind = 0;
     init_vector(eeg_timing_info, TTL_INT_LENGTH);
 #endif
+
+    logger.reset_metadata();
 
     queue.reset();
     hydrophone_buffer.reset();
@@ -116,6 +115,8 @@ void begin_sampling() {
     logger.print_buffer_headers("Hydrophone", hydrophone_buffer.get_buffers(), HYDROPHONE_BUFF_NUM);
     logger.print_buffer_headers("IMU", imu_buffer.get_buffers(), IMU_BUFF_NUM);
     logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
+    logger.print_buffer_headers("PRESSURE", pressure_buffer.get_buffers(), PRESSURE_BUFFER_NUM);
+    logger.print_buffer_headers("SPEED", speed_buffer.get_buffers(), SPEED_BUFFER_NUM);
 
     deviceManager.begin_sampling();
     Tag_Bluetooth.begin_sampling();
@@ -129,7 +130,6 @@ void stop_sampling() {
     logger.print_variable("Sampling Time", sampling_timer);
     logger.log_timing_metadata();
     logger.print_variable("Length Linked List", logger.get_length());
-    logger.reset_metadata();
     logger.print_buffer_headers("Hydrophone", hydrophone_buffer.get_buffers(), HYDROPHONE_BUFF_NUM);
     logger.print_buffer_headers("IMU", imu_buffer.get_buffers(), IMU_BUFF_NUM);
     logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);

@@ -66,10 +66,9 @@ bool ESP32_Bluetooth::file_send(String file_name) {
 bool ESP32_Bluetooth::sample_pressure_temperature() {
     if (is_sampling & (pressure_timer >= MIN_PRESSURE_DELAY)) {
         write('p');
-        while (!_serial->available()) {};
 
+        while (!_serial->available()) {};
         int read_val = _serial->read();
-        logger.print_variable("Read Val", read_val);
 
         if (read_val == 1) {
             pressure_temp_vals.tpt_struct.time = micros();
@@ -84,10 +83,9 @@ bool ESP32_Bluetooth::sample_pressure_temperature() {
 
 bool ESP32_Bluetooth::sample_speed() {
     if (is_sampling & (speed_timer >= MIN_SPEED_DELAY)) {
-        logger.print_message("SS");
         write('v');
-
         time_speed.st_struct.time = micros();
+
         read_type(time_speed.st_struct.speed);
         speed_timer = 0;
         return true;
