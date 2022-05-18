@@ -285,7 +285,7 @@ bool ADS1299::init() {
     digitalWrite(pwrdwn, HIGH);
 
     setup(drdy, cs);
-
+    
     return true;
 }
 

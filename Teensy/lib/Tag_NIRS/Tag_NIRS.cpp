@@ -45,6 +45,7 @@ void NIRS::begin() {
     blocking_press(right_button, long_press);
     logger.print_message("NIRS SAMPLING STARTED");
     start_event(10000);  //starts a series of events every 10 seconds
+    logger.print_message("Exiting NIRS Begin");
 }
 
 void NIRS::end() {

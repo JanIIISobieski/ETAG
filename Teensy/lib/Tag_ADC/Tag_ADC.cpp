@@ -32,6 +32,7 @@ bool Tag_ADC::init() {
 }
 
 void Tag_ADC::begin() {
+    logger.print_message("Starting Hydrophone ADC");
     _adc->adc0->startSingleRead(_pin);
     _adc->adc0->startTimer(_frequency);
 
@@ -39,6 +40,7 @@ void Tag_ADC::begin() {
 }
 
 void Tag_ADC::end() {
+    logger.print_message("Ending Hydrophone ADC");
     _adc->adc0->stopTimer();
     adc_dma->end();
 }

@@ -184,7 +184,7 @@ class VarPrinter {
          */
         void print_DMA_settings(String name, DMABaseClass* dmabc) {
             if (ETAG_LOG_LEVEL) {
-                _serial->println(name);
+                _serial->println(name); print_DMA_settings(dmabc);
             }
         };
 

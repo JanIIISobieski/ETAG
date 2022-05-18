@@ -10,11 +10,6 @@ void setup() {
 #endif
 
 #ifdef ETAG_DEBUG
-    hydrophone_buffer_push.min_diff = ULONG_MAX;
-    eeg_buffer_push.min_diff = ULONG_MAX;
-    imu_buffer_push.min_diff = ULONG_MAX;
-    sampling_loop.min_diff = ULONG_MAX;
-
     logger.assign_metadata(&hydrophone_buffer_push, "Hydrophone Push");
     logger.assign_metadata(&eeg_buffer_push, "EEG Push");
     logger.assign_metadata(&imu_buffer_push, "IMU Buffer Push");
@@ -96,7 +91,7 @@ void begin_sampling() {
     queue.reset();
     hydrophone_buffer.reset();
     imu_buffer.reset();
-    eeg_buffer.reset();
+    //eeg_buffer.reset();
     pressure_buffer.reset();
     speed_buffer.reset();
 
@@ -114,17 +109,20 @@ void begin_sampling() {
     logger.print_array("Device Enable", device_start, NUM_DEVICES);
     logger.print_buffer_headers("Hydrophone", hydrophone_buffer.get_buffers(), HYDROPHONE_BUFF_NUM);
     logger.print_buffer_headers("IMU", imu_buffer.get_buffers(), IMU_BUFF_NUM);
-    logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
+    //logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
     logger.print_buffer_headers("PRESSURE", pressure_buffer.get_buffers(), PRESSURE_BUFFER_NUM);
     logger.print_buffer_headers("SPEED", speed_buffer.get_buffers(), SPEED_BUFFER_NUM);
 
     deviceManager.begin_sampling();
     Tag_Bluetooth.begin_sampling();
+    //eeg_buffer.init();
 }
 
 void stop_sampling() {
     Tag_Bluetooth.end_sampling();
     deviceManager.end_sampling();
+    //eeg_buffer.reset();
+    queue.reset();
 
 #ifdef ETAG_DEBUG
     logger.print_variable("Sampling Time", sampling_timer);
@@ -132,9 +130,9 @@ void stop_sampling() {
     logger.print_variable("Length Linked List", logger.get_length());
     logger.print_buffer_headers("Hydrophone", hydrophone_buffer.get_buffers(), HYDROPHONE_BUFF_NUM);
     logger.print_buffer_headers("IMU", imu_buffer.get_buffers(), IMU_BUFF_NUM);
-    logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
+    //logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
 
-    logger.print_array("EEG Sample", eeg_buffer.get_buffer(), 32);
+    //logger.print_array("EEG Sample", eeg_buffer.get_buffer(), 32);
     logger.print_array("IMU Sample", IMU.buffer, 9);
 #endif
 
@@ -144,16 +142,11 @@ void stop_sampling() {
 }
 
 void sync_time() {
-    logger.print_message("Syncing time");
-
     TagComms.write(ACK);
 
-    logger.print_message("Wrote ACK");
-
     ByteArray<uint32_t> time_buffer;
-
-    logger.print_message("Waiting for read_type");
     TagComms.read_type(time_buffer);
+
     setTime(time_buffer.as_type);
     rtc_set(now());
 
@@ -203,7 +196,6 @@ void update_parameters() {
 
 void initalize_devices() {
     deviceManager.initialize_devices();
-    eeg_buffer.init();
 
     TagComms.write(ACK);
 }

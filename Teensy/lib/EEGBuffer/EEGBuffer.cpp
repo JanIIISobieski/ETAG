@@ -27,10 +27,11 @@ void ads_ISR() {
 
 
 void EEGBuffer::init() {
-    dma_spi_transfer.attach(dma_spi_finished_streaming);
+    dma_spi_transfer.attach(dma_spi_finished);
     SPI.usingInterrupt(digitalPinToInterrupt(14));  //EEG_DRDY pin: 14
     attachInterrupt(digitalPinToInterrupt(14), ads_ISR, FALLING);
     new_data = false;
+    logger.print_message("Initalized EEG Buffer");
 }
 
 void EEGBuffer::write() {
@@ -42,6 +43,7 @@ void EEGBuffer::write() {
 
 void EEGBuffer::write(volatile uint8_t* source, size_t length) {
     for (size_t i = 0; i < length; i++) {
+        logger.print_variable("CI", current_index);
         *(buffers[buffer_selector].data_ptr + current_index) = *(source + i);
         increment_and_check_push();
     }
@@ -70,6 +72,7 @@ void EEGBuffer::reset_buffer(volatile BufferHelper<uint8_t>* buff) {
 }
 
 void EEGBuffer::reset() {
+    dma_spi_transfer.detach();
     for (size_t i = 0; i < num_buffers; i++) {
         reset_buffer(&buffers[i]);
     }
