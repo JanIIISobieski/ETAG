@@ -97,9 +97,9 @@ void begin_sampling() {
 
     run_data.update_datetime();
     run_data.update_imu_calibration(IMU);
-    run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
-    run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
-    run_data.update_description(TagComms.readStringUntil('|', 120U));
+//    run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
+//    run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
+//    run_data.update_description(TagComms.readStringUntil('|', 120U));
 
     bytes_written = 0;
 
