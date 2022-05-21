@@ -196,8 +196,6 @@ void update_parameters() {
 
 void initalize_devices() {
     deviceManager.initialize_devices();
-
-    TagComms.write(ACK);
 }
 
 void dummy_file() {
