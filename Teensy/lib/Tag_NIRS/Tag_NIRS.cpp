@@ -44,12 +44,12 @@ void NIRS::turn_off() {
 void NIRS::begin() {
     blocking_press(right_button, long_press);
     logger.print_message("NIRS SAMPLING STARTED");
-    start_event(20000);  //starts a series of events every 10 seconds
+    //start_event(20000);  //starts a series of events every 10 seconds
     logger.print_message("Exiting NIRS Begin");
 }
 
 void NIRS::end() {
-    end_event();
+    //end_event();
     blocking_press(right_button, long_press);
     
     // reset the pin state to LOW

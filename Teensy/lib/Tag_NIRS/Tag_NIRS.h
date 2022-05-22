@@ -97,8 +97,8 @@ class NIRS : public AbstractDevice {
         uint8_t right_button;
         uint8_t left_button;
 
-        int long_press = 3000;
-        int short_press = 1000;
+        int long_press;
+        int short_press;
 
         unsigned long press_duration;
         unsigned long event_period;

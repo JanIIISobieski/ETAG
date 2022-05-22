@@ -90,8 +90,8 @@ IMUBuffer imu_buffer(imu_buffers, IMU_BUFF_NUM, IMU_BUFF_LENGTH, IMU_BUFF_ID, &q
 // NIRS
 #define NIRS_LEFT_BUTTON 21
 #define NIRS_RIGHT_BUTTON 22
-#define NIRS_SHORT_PRESS 850
-#define NIRS_LONG_PRESS 4000
+#define NIRS_SHORT_PRESS 1000
+#define NIRS_LONG_PRESS 3000
 NIRS nirs(NIRS_LEFT_BUTTON, NIRS_RIGHT_BUTTON, NIRS_SHORT_PRESS, NIRS_LONG_PRESS);
 
 /*
@@ -141,7 +141,7 @@ SpeedBuffer speed_buffer(speed_buffers, SPEED_BUFFER_NUM, SPEED_BUFFER_LENGTH, S
 // Device Manager
 #define NUM_DEVICES 4
 AbstractDevice* devices[NUM_DEVICES] = {&diskManager, &nirs, &IMU, &hydrophone};
-bool device_start[NUM_DEVICES] = {true, true, true, true};
+bool device_start[NUM_DEVICES] = {false, true, false, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Helpful Functions

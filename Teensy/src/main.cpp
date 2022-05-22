@@ -68,7 +68,7 @@ inline void sampling() {
         speed_buffer.write(Tag_Bluetooth.get_speed(), 8);
     }
 
-    nirs.update_event();
+    //nirs.update_event();
 
     if (queue.num_to_write() > 0) {
         bytes_written = diskManager.write_to_file((void *)queue.dequeue(), 8192);
