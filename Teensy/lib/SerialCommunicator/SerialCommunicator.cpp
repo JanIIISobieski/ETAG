@@ -7,7 +7,6 @@ SerialCommunicator::~SerialCommunicator() {
 int SerialCommunicator::read() {
     if (_serial->available()) {
         read_byte = _serial->read();
-        //logger.print_variable_with_time("Read Byte", read_byte);
         return read_byte;
     }
     else {

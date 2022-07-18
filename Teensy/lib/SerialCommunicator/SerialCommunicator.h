@@ -33,10 +33,6 @@ template <typename T> using ByteArray = byte_array<T>;  /** Alias template for t
  * is the function that has to be implemented in any dervied class as it is a pure virtual function.
  * This interface thus allows for there to be one communications manager that can query all the
  * available communication devices.
- * 
- * \todo This and VarPrinter are redundant, should just combine both of these into one file, or perahps
- * two files, one that handles printing of variables, and the TagCommunicators additionally need methods
- * for sending files, awaiting acknowledgment, 
  */
 class SerialCommunicator {
     public:
