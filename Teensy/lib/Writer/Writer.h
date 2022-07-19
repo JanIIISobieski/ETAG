@@ -12,12 +12,22 @@ class Writer {
 
         size_t create_data_header(RunData* run_data);
 
+        /**
+         * @brief Helping function to write a JSON array
+         * 
+         * Mostly just eliminates the need for many uses of array.add()
+         * 
+         * @tparam T Arbitrary data type (e.g. uint8_t, int16_t, unsigned char, float, etc.)
+         * @param array A JsonArray object (from ArduinoJSON package)
+         * @param src The array to write to the JsonArray
+         * @param len The length of /ref src to write
+         */
         template <typename T>
         void write_json_array(JsonArray* array, T* src, size_t len);
 
     public:
-        virtual size_t write_header() = 0;
-        virtual size_t write_data() = 0;
+        virtual size_t write_header(RunData* run_data) = 0;
+        virtual size_t write_data(void* buff_ptr, size_t num_bytes) = 0;
 };
 
 template <typename T>
@@ -25,25 +35,4 @@ void Writer::write_json_array(JsonArray* array, T* src, size_t len) {
     for (size_t i = 0; i < len; i++) {
         array->add(*(src + i));
     }   
-}
-
-size_t Writer::create_data_header(RunData* run_data) {
-    json_imu_calibration["aRes"] = (run_data->get_imu())->accel_resolution;
-    json_imu_calibration["gRes"] = (run_data->get_imu())->gyro_resolution;
-    json_imu_calibration["mRes"] = (run_data->get_imu())->magnetometer_resolution;
-
-    JsonArray aBias = json_imu_calibration.createNestedArray("aBias");
-    JsonArray mBias = json_imu_calibration.createNestedArray("mBias");
-    JsonArray mCal  = json_imu_calibration.createNestedArray("mCal");
-
-    write_json_array(&aBias, (run_data->get_imu())->accel_biases, 3);
-    write_json_array(&mBias, (run_data->get_imu())->magnetometer_biases, 3);
-    write_json_array(&mCal,  (run_data->get_imu())->magnetometer_calibration, 3);
-
-    header_info["imu_calibration"] = json_imu_calibration;
-    header_info["name"] = (run_data->get_animal())->name;
-    header_info["species"] = (run_data->get_animal())->species;
-    header_info["description"] = (run_data->get_description());
-
-    return measureJson(header_info);
 }
