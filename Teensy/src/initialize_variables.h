@@ -17,10 +17,12 @@
 #include "Logger.h"
 #include "PressureBuffer.h"
 #include "SpeedBuffer.h"
+#include "WriterManager.h"
 
 // Communication
 #define ACK 6
 
+//Settings
 RunData run_data; /**< Header file data */
 
 // SD Card
@@ -40,17 +42,23 @@ ESP32_Bluetooth Tag_Bluetooth = ESP32_Bluetooth(BLUETOOTH_SERIAL_ADDRESS,
 // Communicator Manager
 #define NUM_COMMUNICATORS 2
 SerialCommunicator* comm_array[NUM_COMMUNICATORS] = {&Tag_Bluetooth, &MICRO_USB};  /**< has to be pointers. SerialCommunicator is an abstract class and so cannot be instantiated. */
-uint32_t baud_rates[NUM_COMMUNICATORS] = {115200, 115200};
-TagCommunicator TagComms = TagCommunicator(comm_array, baud_rates, NUM_COMMUNICATORS);
-
-enum Ports : uint8_t { 
-    BLUETOOTH = 0,
-    USB = 1
-}; /**< Used to index TagCommunicator to write to specific ports, each value is of type uint8_t */
+TagCommunicator TagComms = TagCommunicator(comm_array, NUM_COMMUNICATORS);
 
 // Global communication variables
 char command = '0';     /** Stores the current command */
 int read_val = -1;      /** Stores the last read value */
+
+// Writer Manager
+#define NUM_WRITERS 3
+
+enum WriterLocation : uint8_t { 
+    BLUETOOTH = 0,
+    USB = 1,
+    SD  = 2
+}; /**< Selects to where data should be written during sampling */
+
+Writer* writers[NUM_WRITERS] = {&Tag_Bluetooth, &MICRO_USB, &diskManager};
+WriterManager WriteManager(writers, NUM_WRITERS);
 
 // Buffer Queue
 Tag_Queue queue;                    /**< Declare the queue */
@@ -137,9 +145,9 @@ static volatile uint8_t* speed_buffers[SPEED_BUFFER_NUM] = {speed_buffer1, speed
 SpeedBuffer speed_buffer(speed_buffers, SPEED_BUFFER_NUM, SPEED_BUFFER_LENGTH, SPEED_BUFF_ID, &queue);
 
 // Device Manager
-#define NUM_DEVICES 5
-AbstractDevice* devices[NUM_DEVICES] = {&diskManager, &nirs, &IMU, &eeg, &hydrophone};
-bool device_start[NUM_DEVICES] = {true, false, false, true, false};
+#define NUM_DEVICES 4
+AbstractDevice* devices[NUM_DEVICES] = {&nirs, &IMU, &eeg, &hydrophone};
+bool device_start[NUM_DEVICES] = {false, true, false, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Helpful Functions
@@ -154,10 +162,13 @@ void update_files();
 void download_files();
 void initalize_devices();
 void delete_file();
-void dummy_file();
 void nirs_on();
 void nirs_off();
+
+/*
+void dummy_file();
 void reverse_array(uint8_t* ptr, size_t length);
+*/
 
 // Allow the logger to be initialized even in RELEASE mode, along with the summary
 // structures.
@@ -179,34 +190,4 @@ TimingData sampling_loop{};
 PrintTiming stopOnCompletionTimer{};
 #ifdef ETAG_DEBUG
 elapsedMillis sampling_timer;  // doesn't need to be initalized unless explicitly debugging
-#endif
-
-#ifdef EEG_TIMING
-// Information for storing the TTL Decoder Timings
-#define TTL_INT_LENGTH 3000
-#define TTL_INT_PIN 0
-
-volatile size_t ttl_ind = 0;
-volatile uint32_t eeg_timing_info[TTL_INT_LENGTH];
-
-void init_vector(volatile uint32_t* vector, size_t length) {
-    for (size_t i = 0; i < length; i++) {
-        vector[i] = 0;
-    }
-}
-
-void print_timings(volatile uint32_t* timing_data, size_t length) {
-    SerialUSB1.println("");
-    SerialUSB1.println("Timing Information Begins Here:");
-    for (size_t i = 0; i < length; i++) {
-        SerialUSB1.println(timing_data[i]);
-    }
-}
-
-void get_timing() {
-    eeg_timing_info[ttl_ind] = micros();
-    if (++ttl_ind > TTL_INT_LENGTH) {
-        ttl_ind = 0;
-    }
-}
 #endif
