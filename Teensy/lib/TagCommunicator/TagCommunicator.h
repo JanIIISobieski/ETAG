@@ -39,11 +39,6 @@ class TagCommunicator {
 		TagCommunicator(SerialCommunicator** ptr, size_t len);
         
         /**
-         * @brief Implements the initilizer method for each managed SerialCommunicator.
-         */
-        void init();
-
-        /**
          * @brief Checks for available commands from each managed SerialCommunicator.
          * 
          * This function specifies which SerialCommunicator to use for any further communication (until function returns)

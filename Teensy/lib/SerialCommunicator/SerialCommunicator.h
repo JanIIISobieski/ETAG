@@ -34,7 +34,7 @@ template <typename T> using ByteArray = byte_array<T>;  /** Alias template for t
  * This interface thus allows for there to be one communications manager that can query all the
  * available communication devices.
  */
-class SerialCommunicator : public AbstractDevice {
+class SerialCommunicator {
     public:
         /**
          * @brief Construct a new Serial Communicator object

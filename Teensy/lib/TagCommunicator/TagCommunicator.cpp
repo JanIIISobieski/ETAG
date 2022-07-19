@@ -6,13 +6,6 @@ TagCommunicator::TagCommunicator(SerialCommunicator** ptr, size_t len) {
     communicator_ptr = ptr;
 }
 
-void TagCommunicator::init() {
-    for (size_t i = 0; i < length; i++)
-    {
-        (*(communicator_ptr + i))->init();
-    }
-}
-
 int TagCommunicator::check_for_commands() {
     int return_int = -1;    // -1 by default (i.e. no read)
     for (size_t i = 0; i < length; i++) {
