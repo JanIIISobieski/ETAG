@@ -34,7 +34,7 @@ template <typename T> using ByteArray = byte_array<T>;  /** Alias template for t
  * This interface thus allows for there to be one communications manager that can query all the
  * available communication devices.
  */
-class SerialCommunicator {
+class SerialCommunicator : public AbstractDevice {
     public:
         /**
          * @brief Construct a new Serial Communicator object
@@ -157,15 +157,6 @@ class SerialCommunicator {
          * @return false Acknowledgement not recieved
          */
         bool await_acknowledgment();
-
-        /**
-         * @brief Initalize the Stream with a baud rate
-         * 
-         * Note that for usb_serial_class, the baud rate makes no difference, full USB speed will be used
-         * 
-         * @param baud_rate Set the baud rate
-         */
-        virtual void init(uint32_t baud_rate) = 0;
 
         /**
          *  @brief Reads bytes from the last read SerialCommunicator as a standard data type.

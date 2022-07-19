@@ -26,7 +26,6 @@ class TagCommunicator {
 		size_t ID;
         size_t length;
 		SerialCommunicator** communicator_ptr;
-        uint32_t* baud_rate_ptr;
 
 	public:
         /**
@@ -37,7 +36,7 @@ class TagCommunicator {
          * @param[in] len the length of both arrays (must be equal)
          * @param[in] run_data* pointer to the RunData structure
          */
-		TagCommunicator(SerialCommunicator** ptr, uint32_t* baud_rates, size_t len);
+		TagCommunicator(SerialCommunicator** ptr, size_t len);
         
         /**
          * @brief Implements the initilizer method for each managed SerialCommunicator.

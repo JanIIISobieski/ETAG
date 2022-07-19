@@ -1,16 +1,15 @@
 #include "TagCommunicator.h"
 
-TagCommunicator::TagCommunicator(SerialCommunicator** ptr, uint32_t* baud_rates, size_t len) {
+TagCommunicator::TagCommunicator(SerialCommunicator** ptr, size_t len) {
     ID = 0;
     length = len;
     communicator_ptr = ptr;
-    baud_rate_ptr = baud_rates;
 }
 
 void TagCommunicator::init() {
     for (size_t i = 0; i < length; i++)
     {
-        (*(communicator_ptr + i))->init(*(baud_rate_ptr + i));
+        (*(communicator_ptr + i))->init();
     }
 }
 
