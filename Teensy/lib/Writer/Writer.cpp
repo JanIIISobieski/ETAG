@@ -1,5 +1,8 @@
 #include "Writer.h"
 
+StaticJsonDocument<512> Writer::header_info;
+StaticJsonDocument<256> Writer::json_imu_calibration;
+
 size_t Writer::create_data_header(RunData* run_data) {
     json_imu_calibration["aRes"] = (run_data->get_imu())->accel_resolution;
     json_imu_calibration["gRes"] = (run_data->get_imu())->gyro_resolution;

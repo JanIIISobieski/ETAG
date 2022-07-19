@@ -7,9 +7,10 @@
 
 class Writer {
     protected:
-        StaticJsonDocument<512> header_info;
-        StaticJsonDocument<256> json_imu_calibration;
+        static StaticJsonDocument<512> header_info;
+        static StaticJsonDocument<256> json_imu_calibration;
 
+        void clear_jsons() { json_imu_calibration.clear(); header_info.clear(); }
         size_t create_data_header(RunData* run_data);
 
         /**
@@ -28,6 +29,8 @@ class Writer {
     public:
         virtual size_t write_header(RunData* run_data) = 0;
         virtual size_t write_data(void* buff_ptr, size_t num_bytes) = 0;
+        virtual void   pre_sampling_setup() = 0;
+        virtual void   post_sampling_conclude() = 0;
 };
 
 template <typename T>
