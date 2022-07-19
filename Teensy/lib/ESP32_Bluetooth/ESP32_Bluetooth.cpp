@@ -15,6 +15,21 @@ bool ESP32_Bluetooth::init() {
     return true;
 }
 
+size_t ESP32_Bluetooth::write_header(RunData* run_data) {
+    size_t header_size = 0;
+    
+    create_data_header(run_data);
+
+    header_size += serializeJson(header_info, (*hard_serial));
+    header_size += _serial->print('\n');
+
+    return header_size;
+}
+
+size_t ESP32_Bluetooth::write_data(void* buff_ptr, size_t num_bytes) {
+    return _serial->write(reinterpret_cast<uint8_t*>(buff_ptr), num_bytes);
+}
+
 bool ESP32_Bluetooth::file_send(String file_name) {
     uint64_t bytes_written = 0;
     int bytes_to_send = 0;

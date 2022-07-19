@@ -31,7 +31,7 @@ union TimeSpeed {
     uint8_t buffer[8];
 };
 
-class ESP32_Bluetooth : public SerialCommunicator {
+class ESP32_Bluetooth : public SerialCommunicator, public AbstractDevice, public Writer {
     public:
         ESP32_Bluetooth(HardwareSerial* bt_serial, DiskManager* diskManagerPtr);
         ~ESP32_Bluetooth() {};
@@ -60,6 +60,12 @@ class ESP32_Bluetooth : public SerialCommunicator {
         bool init();
         void begin() { is_sampling = true; }
         void end() { is_sampling = false; }
+
+        void pre_sampling_setup() {};
+        void post_sampling_conclude() {};
+
+        size_t write_header(RunData* run_data);
+        size_t write_data(void* buff_ptr, size_t num_bytes);
 
     private:
         HardwareSerial* hard_serial;

@@ -73,12 +73,12 @@ void DiskManager::stop() {
     sd.end();
 }
 
-void DiskManager::begin() {
+void DiskManager::pre_sampling_setup() {
     create_data_file();
     write_header(this->run_data);
 }
 
-void DiskManager::end() {
+void DiskManager::post_sampling_conclude() {
     close_file();
     folder.rewindDirectory();
 }

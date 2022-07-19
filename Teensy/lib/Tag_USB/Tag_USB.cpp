@@ -9,6 +9,20 @@ bool Tag_USB::init() {
     return true;
 }
 
+size_t Tag_USB::write_data(void* buff_ptr, size_t num_bytes) {
+    return write(reinterpret_cast<uint8_t*>(buff_ptr), num_bytes);
+}
+
+size_t Tag_USB::write_header(RunData* run_data) {
+    size_t header_size = 0;
+
+    create_data_header(run_data); // from Writer.h
+    header_size += serializeJson(header_info, (*hard_serial));  //hard_serial is a pointer, we need to pass the actual object
+    header_size += hard_serial->print("\n");
+
+    return header_size;
+}
+
 bool Tag_USB::file_send(String file_name) {
     uint64_t bytes_written = 0;
     int num_bytes_to_send = 0;

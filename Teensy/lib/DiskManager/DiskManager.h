@@ -33,7 +33,7 @@ void dateTime(uint16_t* date, uint16_t* time, uint8_t* ms10);
 /**
  * @brief Class to manage the SD card and files for the tag
  */
-class DiskManager : public AbstractDevice, public Writer {
+class DiskManager : public Writer {
     private:
         size_t data_file_size;        /**< Can store the file size */
         size_t num_experimental_runs; /**< Updated by \ref update_folder_num(), the number of files on the disk */
@@ -81,14 +81,14 @@ class DiskManager : public AbstractDevice, public Writer {
          * 
          * Opens the file, calls the DateTime callback, and writes the file header
          */
-        void begin();
+        void pre_sampling_setup();
 
         /**
          * @brief Ends sampling
          * 
          * Closes file, and rewinds the directory to the beginning
          */
-        void end();
+        void post_sampling_conclude();
 
         size_t update_folder_num(); /**< @brief Gets the total number of files present */
 
@@ -170,6 +170,12 @@ class DiskManager : public AbstractDevice, public Writer {
          */
         size_t write_data(void* buffer_ptr, size_t num_bytes) { return file.write(buffer_ptr, num_bytes); };
 
+        /**
+         * @brief Closes the data file, as well as bring the file cursor back to the beginning
+         * 
+         * @return true File successfully closed
+         * @return false File did not close successfully
+         */
         bool close_file(); /**< @brief Closes data file */
 };
 
