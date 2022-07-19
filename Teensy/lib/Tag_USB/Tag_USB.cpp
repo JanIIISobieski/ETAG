@@ -4,8 +4,9 @@ Tag_USB::Tag_USB(usb_serial_class* serial, DiskManager* diskManagerPtr) : Serial
     hard_serial = serial;
 }
 
-void Tag_USB::init(uint32_t baud_rate) {
-    hard_serial->begin(baud_rate);
+bool Tag_USB::init() {
+    hard_serial->begin(USB_BAUD_RATE);
+    return true;
 }
 
 bool Tag_USB::file_send(String file_name) {

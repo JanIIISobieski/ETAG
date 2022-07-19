@@ -10,6 +10,8 @@
 #define MIN_SPEED_DELAY 10
 #define MIN_PRESSURE_DELAY 10
 
+#define ESP32_BAUD_RATE 115200
+
 #define PHRASE_LEN 7
 
 union TimePressureTemperature {
@@ -34,7 +36,6 @@ class ESP32_Bluetooth : public SerialCommunicator {
         ESP32_Bluetooth(HardwareSerial* bt_serial, DiskManager* diskManagerPtr);
         ~ESP32_Bluetooth() {};
 
-        void init(uint32_t baud_rate);
         bool file_send(String file_name);
 
         bool sample_pressure_temperature();
@@ -56,8 +57,9 @@ class ESP32_Bluetooth : public SerialCommunicator {
         void set_Bluetooth_mode();
         void turn_off_comms();
 
-        void begin_sampling() { is_sampling = true; }
-        void end_sampling() { is_sampling = false; }
+        bool init();
+        void begin() { is_sampling = true; }
+        void end() { is_sampling = false; }
 
     private:
         HardwareSerial* hard_serial;

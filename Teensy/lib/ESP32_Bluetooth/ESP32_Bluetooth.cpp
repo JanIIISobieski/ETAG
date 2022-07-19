@@ -5,12 +5,14 @@ ESP32_Bluetooth::ESP32_Bluetooth(HardwareSerial* bt_serial, DiskManager* diskMan
     is_sampling = false;
 }
 
-void ESP32_Bluetooth::init(uint32_t baud_rate) {
-    hard_serial->begin(baud_rate);
+bool ESP32_Bluetooth::init() {
+    hard_serial->begin(ESP32_BAUD_RATE);
 
     while (!hard_serial) {
         delay(50);
     }
+    
+    return true;
 }
 
 bool ESP32_Bluetooth::file_send(String file_name) {
