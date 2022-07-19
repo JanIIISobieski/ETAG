@@ -9,7 +9,7 @@ DiskManager::DiskManager(RunData* run_data) {
     data_is_open = false;
     num_experimental_runs = 0;
 
-    run_data = run_data;
+    this->run_data = run_data;
 }
 
 DiskManager::~DiskManager() {
@@ -75,7 +75,7 @@ void DiskManager::stop() {
 
 void DiskManager::begin() {
     create_data_file();
-    write_header(&run_data);
+    write_header(this->run_data);
 }
 
 void DiskManager::end() {
@@ -89,26 +89,7 @@ inline bool DiskManager::go_to_root() {
 
 size_t DiskManager::write_header(RunData* run_data) {
     size_t header_size = 0;
-
-    StaticJsonDocument<512> header_info;
-    StaticJsonDocument<256> json_imu_calibration;
-
-    json_imu_calibration["aRes"] = (run_data->get_imu())->accel_resolution;
-    json_imu_calibration["gRes"] = (run_data->get_imu())->gyro_resolution;
-    json_imu_calibration["mRes"] = (run_data->get_imu())->magnetometer_resolution;
-
-    JsonArray aBias = json_imu_calibration.createNestedArray("aBias");
-    JsonArray mBias = json_imu_calibration.createNestedArray("mBias");
-    JsonArray mCal  = json_imu_calibration.createNestedArray("mCal");
-
-    write_json_array(&aBias, (run_data->get_imu())->accel_biases, 3);
-    write_json_array(&mBias, (run_data->get_imu())->magnetometer_biases, 3);
-    write_json_array(&mCal,  (run_data->get_imu())->magnetometer_calibration, 3);
-
-    header_info["imu_calibration"] = json_imu_calibration;
-    header_info["name"] = (run_data->get_animal())->name;
-    header_info["species"] = (run_data->get_animal())->species;
-    header_info["description"] = (run_data->get_description());
+    create_data_header(run_data);  //imported from Writer.h
 
     header_size += serializeJson(header_info, file);
     header_size += file.print("\n");
@@ -119,7 +100,7 @@ size_t DiskManager::write_header(RunData* run_data) {
 }
 
 bool DiskManager::create_data_file() {
-    String data_name = run_data.get_datetime() + "_Data.bin";
+    String data_name = run_data->get_datetime() + "_Data.bin";
     return create_data_file(data_name);
 }
 

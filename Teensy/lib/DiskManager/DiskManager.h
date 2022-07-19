@@ -3,9 +3,8 @@
 
 #include <TimeLib.h>
 #include "AbstractDevice.h"
-#include "Tag_Info.h"
-#include "ArduinoJson.h"
 #include "SdFat.h"
+#include "Writer.h"
 
 #include "Logger.h"
 extern Logger logger;
@@ -19,8 +18,6 @@ struct FileReadData {
     int bytes_read;
     uint8_t data[FILE_READ_SIZE];
 };
-
-extern RunData run_data;
 
 /**
  * @brief DateTime callback for establishing the proper time datetime on files
@@ -36,38 +33,17 @@ void dateTime(uint16_t* date, uint16_t* time, uint8_t* ms10);
 /**
  * @brief Class to manage the SD card and files for the tag
  */
-class DiskManager : public AbstractDevice {
+class DiskManager : public AbstractDevice, public Writer {
     private:
         size_t data_file_size;        /**< Can store the file size */
         size_t num_experimental_runs; /**< Updated by \ref update_folder_num(), the number of files on the disk */
         bool data_is_open;            /**< The file status */
 
         FileReadData read_data; /**< Stores buffer for read data */
-
         uint64_t file_cursor; /**< Used for keeping track of location in the file */
+        String current_file;  /**< Stores the current file in use */
 
-        String current_file;  /** Stores the current file in use */
-
-        /**
-         * @brief Writes the RunData metadata as the header for the data file
-         * 
-         * @param run_data Pointer to the RunData object
-         * @return size_t Returns the number of bytes written as the header
-         */
-        size_t write_header(RunData* run_data);
-        
-        /**
-         * @brief Helping function to write a JSON array
-         * 
-         * Mostly just eliminates the need for many uses of array.add()
-         * 
-         * @tparam T Arbitrary data type (e.g. uint8_t, int16_t, unsigned char, float, etc.)
-         * @param array A JsonArray object (from ArduinoJSON package)
-         * @param src The array to write to the JsonArray
-         * @param len The length of /ref src to write
-         */
-        template <typename T>
-        void write_json_array(JsonArray* array, T* src, size_t len);
+        RunData* run_data;  /**< Stores pointer to the run_info used for writing header */
 
         inline bool go_to_root(); /**< @brief Returns to the root directory */
         bool create_data_file(); /**< @brief Opens up data file */
@@ -163,6 +139,14 @@ class DiskManager : public AbstractDevice {
         bool create_data_file(String filename);
 
         /**
+         * @brief Writes the RunData metadata as the header for the data file
+         * 
+         * @param run_data Pointer to the RunData object
+         * @return size_t Returns the number of bytes written as the header
+         */
+        size_t write_header(RunData* run_data);
+
+        /**
          * @brief Closes all files, restarts the SD card, and reopens the files
          * 
          * 
@@ -177,17 +161,16 @@ class DiskManager : public AbstractDevice {
          */
         inline uint64_t get_file_size() { return file.size(); };
 
-        size_t write_to_file(void* buffer_ptr, size_t num_bytes) { return file.write(buffer_ptr, num_bytes); };
+        /**
+         * @brief Writes the data to the file, implements function from the abstract class \ref Writer.
+         * 
+         * @param buffer_ptr The pointer of the data to write
+         * @param num_bytes The number of bytes to write
+         * @return size_t The number of bytes written
+         */
+        size_t write_data(void* buffer_ptr, size_t num_bytes) { return file.write(buffer_ptr, num_bytes); };
 
         bool close_file(); /**< @brief Closes data file */
 };
-
-
-template <typename T>
-void DiskManager::write_json_array(JsonArray* array, T* src, size_t len) {
-    for (size_t i = 0; i < len; i++) {
-        array->add(*(src + i));
-    }   
-}
 
 #endif //GUARD_DISK_MANAGER
