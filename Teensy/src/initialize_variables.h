@@ -1,6 +1,6 @@
 #include <Arduino.h>
 #include <SPI.h>
-//#include <ADS1299.h>
+#include <ADS1299.h>
 #include "Tag_ADC.h"
 #include "Tag_SD.h"
 #include "DeviceManager.h"
@@ -11,7 +11,7 @@
 #include "ESP32_Bluetooth.h"
 #include "Tag_USB.h"
 #include "Tag_Queue.h"
-//#include "EEGBuffer.h"
+#include "EEGBuffer.h"
 #include "IMUBuffer.h"
 #include "ADCBuffer.h"
 #include "Logger.h"
@@ -94,7 +94,6 @@ IMUBuffer imu_buffer(imu_buffers, IMU_BUFF_NUM, IMU_BUFF_LENGTH, IMU_BUFF_ID, &q
 #define NIRS_LONG_PRESS 3000
 NIRS nirs(NIRS_LEFT_BUTTON, NIRS_RIGHT_BUTTON, NIRS_SHORT_PRESS, NIRS_LONG_PRESS);
 
-/*
 // EEG
 #define EEG_DRDY         14  // ADS1299 Data Ready pin
 #define EEG_CS_PARENT     8  // ADS1299 Chip Select pin for master chip
@@ -114,7 +113,6 @@ static volatile uint8_t ads_buffer3[EEG_BUFFER_LENGTH];
 static volatile uint8_t ads_buffer4[EEG_BUFFER_LENGTH];
 static volatile uint8_t* ads_buffers[EEG_BUFFER_NUM] = {ads_buffer1, ads_buffer2, ads_buffer3, ads_buffer4};
 EEGBuffer eeg_buffer(ads_buffers, EEG_BUFFER_NUM, EEG_BUFFER_LENGTH, EEG_BUFF_ID, &queue);
-*/
 
 // Pressure Buffer
 #define PRESSURE_BUFF_ID 16
@@ -139,9 +137,9 @@ static volatile uint8_t* speed_buffers[SPEED_BUFFER_NUM] = {speed_buffer1, speed
 SpeedBuffer speed_buffer(speed_buffers, SPEED_BUFFER_NUM, SPEED_BUFFER_LENGTH, SPEED_BUFF_ID, &queue);
 
 // Device Manager
-#define NUM_DEVICES 4
-AbstractDevice* devices[NUM_DEVICES] = {&diskManager, &nirs, &IMU, &hydrophone};
-bool device_start[NUM_DEVICES] = {true, true, true, true};
+#define NUM_DEVICES 5
+AbstractDevice* devices[NUM_DEVICES] = {&diskManager, &nirs, &IMU, &eeg, &hydrophone};
+bool device_start[NUM_DEVICES] = {true, false, false, true, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Helpful Functions

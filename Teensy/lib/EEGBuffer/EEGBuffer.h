@@ -161,6 +161,8 @@ private:
     inline void increment_and_check_push(); /**< Function to check whether the end of the buffer has been reached, and thus the buffer has to be added to the queue*/
     Tag_Queue *_queue; /**< Pointer to the queue object where filled buffers will be sent */
 
+    volatile bool new_data; /**< Flag for data read from EEG using the interrupt and it has not been read yet */
+
     /**
      * @brief The data buffer object as a union
      * 
@@ -179,8 +181,6 @@ private:
         } data;
     } data_buffer;
 #pragma pack(pop)
-
-    volatile bool new_data; /**< Flag for data read from EEG using the interrupt and it has not been read yet */
 };
 
 #endif //GUARD_EEG_BUFFER
