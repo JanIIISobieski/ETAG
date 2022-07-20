@@ -6,6 +6,7 @@ void setup() {
     SPI.begin();
     MICRO_USB.init();
     Tag_Bluetooth.init();
+    diskManager.init();
 
 #ifdef ETAG_DEBUG
     logger.assign_metadata(&hydrophone_buffer_push, "Hydrophone Push");
@@ -66,10 +67,10 @@ inline void sampling() {
         speed_buffer.write(Tag_Bluetooth.get_speed(), 8);
     }
 
-    //nirs.update_event();
+    nirs.update_event();
 
     if (queue.num_to_write() > 0) {
-        bytes_written = diskManager.write_data((void *)queue.dequeue(), 8192);
+        bytes_written = WriteManager.write_data(LOC_TO_WRITE, (void *)queue.dequeue(), 8192);
         logger.print_memory("Dequeued", (void *) queue.get_popped());
         if (bytes_written != 8192) {
             logger.print_variable("Incorrect number of bytes written", bytes_written);

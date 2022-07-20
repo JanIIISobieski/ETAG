@@ -145,9 +145,9 @@ static volatile uint8_t* speed_buffers[SPEED_BUFFER_NUM] = {speed_buffer1, speed
 SpeedBuffer speed_buffer(speed_buffers, SPEED_BUFFER_NUM, SPEED_BUFFER_LENGTH, SPEED_BUFF_ID, &queue);
 
 // Device Manager
-#define NUM_DEVICES 4
-AbstractDevice* devices[NUM_DEVICES] = {&nirs, &IMU, &eeg, &hydrophone};
-bool device_start[NUM_DEVICES] = {false, true, false, false};
+#define NUM_DEVICES 5
+AbstractDevice* devices[NUM_DEVICES] = {&nirs, &IMU, &eeg, &hydrophone, &Tag_Bluetooth};
+bool device_start[NUM_DEVICES] = {false, true, false, false, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Helpful Functions
