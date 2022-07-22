@@ -1,12 +1,12 @@
 #pragma once
 
 #include <Arduino.h>
+#include "BufferBase.h"
 
 /**
- * @brief Abstract structure containing the important descriptors for each buffer
+ * @brief Template structure containing the important descriptors for each buffer
  * 
  * @tparam T Any valid type (e.g. uint32_t, int16_t, unsigned char, etc.)
- * 
  * 
  * Each buffer is of the form:\n
  * `[    ID   |   Count  | --- Time --- | --------------Data-------------------]`\n
@@ -27,13 +27,13 @@ struct BufferHelper {
  *  @brief Abstract class to manage the data buffers
  *  
  *  As this is an abstract class, it cannot be instantiated directly, and is instead used as a base from which
- *  the other buffers are derived. Every sampling instance requires two data buffers. As one fills up, the next buffer
+ *  the other buffers are derived. Every sampling instance requires at least two data buffers. As one fills up, the next buffer
  *  saves data while the filled one awaits to be written to the SD card. Additionally, each data buffer needs to have
  *  a short header containing the ID of the data, filled buffer count, and time. This class essentially builds a \ref BufferHelper
- *  for each buffer passed into it.
+ *  for each buffer passed into it. Note that this class is abstract because it inherits from BufferBase, which contains a pure virtual function.
  */
 template <class T>
-class AbstractBuffer {
+class AbstractBuffer : public BufferBase {
     public:
         /**
          * @brief Construct a new Abstract Buffer object
@@ -49,22 +49,10 @@ class AbstractBuffer {
          * @brief Destroy the Abstract Buffer object
          * 
          * Since AbstractBuffer() uses new[], the destructor object must call delete[].
-         * This should never be called by the Teensy, as the classes are initialized globally,
+         * This should never be called by the Teensy, as the classes are initialized
          * and never unallocated
          */
         ~AbstractBuffer();
-
-        /**
-         * @brief Pure virtual function to reset the buffers to their initial state
-         */
-        virtual void reset() = 0;
-
-        /**
-         * @brief Get the number of buffers
-         * 
-         * @return size_t The number of buffers
-         */
-        size_t get_num_buffers() { return num_buffers; };
 
         /**
          * @brief Get the buffers object
@@ -75,10 +63,4 @@ class AbstractBuffer {
 
     protected:
         volatile BufferHelper<T>* buffers; /**< The pointer to the head of the array of BufferHelper objects */
-        uint8_t identifier; /**< The identifier byte for the buffers */
-
-        size_t num_buffers; /**< The number of buffers */
-        volatile uint8_t buffer_selector; /**< An index selecting the current active buffer */
-        volatile uint8_t buffer_trigger_count; /**< The number of times any buffer was sent to the SD card */
-        volatile size_t current_index; /**< The current location in a buffer */
 };

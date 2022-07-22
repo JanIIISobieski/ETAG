@@ -88,11 +88,7 @@ void begin_sampling() {
     logger.reset_metadata();
 
     queue.reset();
-    hydrophone_buffer.reset();
-    imu_buffer.reset();
-    eeg_buffer.reset();
-    pressure_buffer.reset();
-    speed_buffer.reset();
+    buffer_manager.reset();
 
     run_data.update_datetime();
     run_data.update_imu_calibration(IMU);

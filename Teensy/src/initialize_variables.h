@@ -18,6 +18,7 @@
 #include "PressureBuffer.h"
 #include "SpeedBuffer.h"
 #include "WriterManager.h"
+#include "BufferManager.h"
 
 // Communication
 #define ACK 6
@@ -143,6 +144,11 @@ static volatile uint8_t speed_buffer3[SPEED_BUFFER_LENGTH];
 static volatile uint8_t speed_buffer4[SPEED_BUFFER_LENGTH];
 static volatile uint8_t* speed_buffers[SPEED_BUFFER_NUM] = {speed_buffer1, speed_buffer2, speed_buffer3, speed_buffer4};
 SpeedBuffer speed_buffer(speed_buffers, SPEED_BUFFER_NUM, SPEED_BUFFER_LENGTH, SPEED_BUFF_ID, &queue);
+
+//Buffer Manager
+#define NUM_BUFFER_TYPES 6
+BufferBase* buffers[NUM_BUFFER_TYPES] = {&imu_buffer, &eeg_buffer, &hydrophone_buffer, &pressure_buffer, &speed_buffer};
+BufferManager buffer_manager(buffers, NUM_BUFFER_TYPES);
 
 // Device Manager
 #define NUM_DEVICES 5

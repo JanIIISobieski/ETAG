@@ -5,17 +5,10 @@ template class AbstractBuffer<uint16_t>;
 template class AbstractBuffer<uint8_t>;
 
 template <class T>
-AbstractBuffer<T>::AbstractBuffer(volatile T** buff_vec, size_t num_buffers, size_t length_buffers, uint8_t id) {
+AbstractBuffer<T>::AbstractBuffer(volatile T** buff_vec, size_t num_buffers, size_t length_buffers, uint8_t id) : BufferBase(num_buffers, length_buffers, id) {
     size_t length_diff_lookup_table[9] = {0, 6, 3, 0, 2, 0, 0, 0, 1}; //non-zero indices correspond to sizeof u/int8_t, u/int16_t, u/int32_t, u/int64_t
     
     buffers = new BufferHelper<T>[num_buffers];  // This requires calling delete in the destructor (though none of these classes are deallocated during runtime)
-
-    this->buffer_selector = 0;
-    this->buffer_trigger_count = 0;
-    this->current_index = 0;
-    this->num_buffers = num_buffers;
-
-    identifier = id;
 
     for (size_t i = 0; i < num_buffers; i++) {
         //Allocate the pointers for each buffer in the buffer helper array
