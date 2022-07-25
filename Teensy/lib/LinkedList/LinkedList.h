@@ -44,8 +44,28 @@ class LinkedList {
          * @param data The new data to add to the list
          */
         void insert(T data);
+
+        /**
+         * @brief Get the ind-th Node
+         * 
+         * @param ind The ind-th Node to return
+         * @return T value stored in the node
+         */
         T get(size_t ind);
+
+        /**
+         * @brief Get the length object
+         * 
+         * @return size_t Get the total length of the Linked List
+         */
         size_t get_length() { return length; };
+
+        /**
+         * @brief Apply function to each item in the Linked List
+         * 
+         * @param f The function to run on each element of the Linked List. This function must return void.
+         */
+        void apply_func_to_all( void (*f)(T) );
 
     private:
         Node<T>* head; //**< The start of the linked list
@@ -73,4 +93,14 @@ T LinkedList<T>::get(size_t ind) {
         temp = temp->next;
     }
     return temp->data;
+}
+
+template <class T>
+void LinkedList<T>::apply_func_to_all( void (*f)(T) ) {
+    Node<T>* node = head; 
+
+    while (node->next != nullptr) {
+        (*f)(node->data);
+        node = node->next;
+    }
 }
