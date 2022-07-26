@@ -1,6 +1,6 @@
 #include "ESP32_Bluetooth.h"
 
-ESP32_Bluetooth::ESP32_Bluetooth(HardwareSerial* bt_serial, DiskManager* diskManagerPtr) : SerialCommunicator(bt_serial, diskManagerPtr) {
+ESP32_Bluetooth::ESP32_Bluetooth(HardwareSerial* bt_serial, DiskManager* diskManagerPtr, RunData* run_data) : SerialCommunicator(bt_serial, diskManagerPtr), Writer(run_data) {
     hard_serial = bt_serial;
     is_sampling = false;
 }
@@ -15,10 +15,10 @@ bool ESP32_Bluetooth::init() {
     return true;
 }
 
-size_t ESP32_Bluetooth::write_header(RunData* run_data) {
+size_t ESP32_Bluetooth::write_header() {
     size_t header_size = 0;
     
-    create_data_header(run_data);
+    create_data_header();
 
     header_size += serializeJson(header_info, (*hard_serial));
     header_size += _serial->print('\n');

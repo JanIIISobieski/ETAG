@@ -29,13 +29,13 @@ class WriterManager {
             return writer_ptrs[ind]->write_data(buff_ptr, num_bytes);
         }
 
-        size_t write_header(RunData* run_data) {
-            return writer_ptrs[this->writer_ind]->write_header(run_data);
+        size_t write_header() {
+            return writer_ptrs[this->writer_ind]->write_header();
         }
 
-        size_t write_header(size_t ind, RunData* run_data) {
+        size_t write_header(size_t ind) {
             logger.print_message("Writing Header");
-            return writer_ptrs[ind]->write_header(run_data);
+            return writer_ptrs[ind]->write_header();
         }
 
         void pre_sampling_setup() {

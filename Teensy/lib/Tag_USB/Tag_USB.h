@@ -12,14 +12,14 @@
 
 class Tag_USB : public SerialCommunicator, public Writer {
     public:
-        Tag_USB(usb_serial_class* serial, DiskManager* diskManagerPtr);
+        Tag_USB(usb_serial_class* serial, DiskManager* diskManagerPtr, RunData* run_data);
         ~Tag_USB() {};
 
         bool init();
         void pre_sampling_setup() {};
         void post_sampling_conclude() {};
 
-        size_t write_header(RunData* run_data);
+        size_t write_header();
         size_t write_data(void* buff_ptr, size_t num_bytes);
 
         bool file_send(String file_name);

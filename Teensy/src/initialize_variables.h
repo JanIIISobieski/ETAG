@@ -33,12 +33,13 @@ size_t bytes_written = 0; /**< pre-allocate variable in which to write the numbe
 
 // USB
 #define USB_SERIAL_ADDRESS &Serial
-Tag_USB MICRO_USB = Tag_USB(USB_SERIAL_ADDRESS, &diskManager);
+Tag_USB MICRO_USB = Tag_USB(USB_SERIAL_ADDRESS, &diskManager, &run_data);
 
 // Bluetooth
 #define BLUETOOTH_SERIAL_ADDRESS    &Serial4
 ESP32_Bluetooth Tag_Bluetooth = ESP32_Bluetooth(BLUETOOTH_SERIAL_ADDRESS,
-                                                &diskManager); //initializes pin values
+                                                &diskManager,
+                                                &run_data); //initializes pin values
 
 // Communicator Manager
 #define NUM_COMMUNICATORS 2

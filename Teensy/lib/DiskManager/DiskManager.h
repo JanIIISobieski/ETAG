@@ -144,7 +144,7 @@ class DiskManager : public Writer {
          * @param run_data Pointer to the RunData object
          * @return size_t Returns the number of bytes written as the header
          */
-        size_t write_header(RunData* run_data);
+        size_t write_header();
 
         /**
          * @brief Closes all files, restarts the SD card, and reopens the files

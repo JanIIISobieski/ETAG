@@ -4,12 +4,10 @@ SdFs DiskManager::sd;
 FsFile DiskManager::file;
 FsFile DiskManager::folder;
 
-DiskManager::DiskManager(RunData* run_data) {
+DiskManager::DiskManager(RunData* run_data) : Writer(run_data) {
     data_file_size = 0;
     data_is_open = false;
     num_experimental_runs = 0;
-
-    this->run_data = run_data;
 }
 
 DiskManager::~DiskManager() {
@@ -75,7 +73,7 @@ void DiskManager::stop() {
 
 void DiskManager::pre_sampling_setup() {
     create_data_file();
-    write_header(this->run_data);
+    write_header();
 }
 
 void DiskManager::post_sampling_conclude() {
@@ -87,9 +85,9 @@ inline bool DiskManager::go_to_root() {
     return sd.chdir();
 }
 
-size_t DiskManager::write_header(RunData* run_data) {
+size_t DiskManager::write_header() {
     size_t header_size = 0;
-    create_data_header(run_data);  //imported from Writer.h
+    create_data_header();  //imported from Writer.h
 
     header_size += serializeJson(header_info, file);
     header_size += file.print("\n");
