@@ -4,7 +4,6 @@ void setup() {
     SPI.begin();
     MICRO_USB.init();
     Tag_Bluetooth.init();
-    diskManager.init();
 
 #ifdef ETAG_DEBUG
     logger.assign_metadata(&hydrophone_buffer_push, "Hydrophone Push");
@@ -81,8 +80,10 @@ void begin_sampling() {
     ttl_ind = 0;
     init_vector(eeg_timing_info, TTL_INT_LENGTH);
 #endif
+    ByteArray<uint8_t> writer_ind;
+    TagComms.read_type(writer_ind);  //this read is blocking, unlike read() which will return -1 if there is no byte ready
 
-    WriteManager.select_writer(TagComms.read_byte_from_active_port());
+    WriteManager.select_writer(writer_ind.as_type);
     run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
     run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
     run_data.update_description(TagComms.readStringUntil('|', 120U));
@@ -93,6 +94,8 @@ void begin_sampling() {
     logger.reset_metadata();
     queue.reset();
     buffer_manager.reset();
+
+    logger.print_message("Successful buffer reset");
 
     bytes_written = 0;
 
@@ -187,5 +190,6 @@ void update_parameters() {
 }
 
 void initalize_devices() {
+    diskManager.init();
     deviceManager.initialize_devices();
 }

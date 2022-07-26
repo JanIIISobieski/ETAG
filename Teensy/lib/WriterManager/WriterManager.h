@@ -2,6 +2,9 @@
 
 #include "Writer.h"
 
+#include "Logger.h"
+extern Logger logger;
+
 class WriterManager {
     private:
         Writer** writer_ptrs;
@@ -14,9 +17,11 @@ class WriterManager {
 
         void select_writer(size_t index) {
             writer_ind = index;
+            logger.print_variable("Writer Ind", index);
         }
 
         size_t write_data(void* buff_ptr, size_t num_bytes) {
+            logger.print_message("Writing Data");
             return writer_ptrs[this->writer_ind]->write_data(buff_ptr, num_bytes);
         }
 
@@ -29,10 +34,12 @@ class WriterManager {
         }
 
         size_t write_header(size_t ind, RunData* run_data) {
+            logger.print_message("Writing Header");
             return writer_ptrs[ind]->write_header(run_data);
         }
 
         void pre_sampling_setup() {
+            logger.print_message("Pre sampling setup");
             writer_ptrs[this->writer_ind]->pre_sampling_setup();
         }
 
@@ -41,6 +48,7 @@ class WriterManager {
         }
 
         void post_sampling_conclude() {
+            logger.print_message("Post sampling conclusion");
             writer_ptrs[this->writer_ind]->post_sampling_conclude();
         }
 

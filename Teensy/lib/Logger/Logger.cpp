@@ -13,6 +13,7 @@ void Logger::log_timing_metadata() {
 }
 
 void Logger::reset_metadata() {
+    print_message("Resetting Metadata");
     for (size_t i = 0; i < timing_list.get_length(); i++) {
         TimingData* data = timing_list.get(i);
         data->counter = 0;

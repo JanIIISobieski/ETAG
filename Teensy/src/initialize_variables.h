@@ -146,7 +146,7 @@ static volatile uint8_t* speed_buffers[SPEED_BUFFER_NUM] = {speed_buffer1, speed
 SpeedBuffer speed_buffer(speed_buffers, SPEED_BUFFER_NUM, SPEED_BUFFER_LENGTH, SPEED_BUFF_ID, &queue);
 
 //Buffer Manager
-#define NUM_BUFFER_TYPES 6
+#define NUM_BUFFER_TYPES 5
 BufferBase* buffers[NUM_BUFFER_TYPES] = {&imu_buffer, &eeg_buffer, &hydrophone_buffer, &pressure_buffer, &speed_buffer};
 BufferManager buffer_manager(buffers, NUM_BUFFER_TYPES);
 

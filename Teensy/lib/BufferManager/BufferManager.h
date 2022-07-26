@@ -1,6 +1,8 @@
 #pragma once
 
 #include "BufferBase.h"
+#include "Logger.h"
+extern Logger logger;
 
 class BufferManager {
     private:
