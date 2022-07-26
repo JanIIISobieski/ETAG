@@ -25,6 +25,10 @@ bool TagCommunicator::send_file(String filename) {
     return (*(communicator_ptr + ID))->file_send(filename.c_str());
 }
 
+uint8_t TagCommunicator::read_byte_from_active_port() {
+    return (*(communicator_ptr + ID))->read();
+}
+
 size_t TagCommunicator::write(uint8_t port, uint8_t byte) {
     return (*(communicator_ptr + port))->write(byte);
 }

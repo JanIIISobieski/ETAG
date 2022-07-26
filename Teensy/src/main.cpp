@@ -1,7 +1,5 @@
 #include "initialize_variables.h"
 
-#define LOC_TO_WRITE WriterLocation::SD
-
 void setup() {
     SPI.begin();
     MICRO_USB.init();
@@ -45,7 +43,6 @@ void loop() {
         else if (command == 'x') delete_file();
         else if (command == '+') nirs.turn_on();
         else if (command == '-') nirs.turn_off();
-        //else if (command == '?') dummy_file();
         else if (command == 'o') Tag_Bluetooth.turn_off_comms();
         else if (command == 'w') Tag_Bluetooth.set_WiFi_mode();
         else if (command == 'y') Tag_Bluetooth.set_Bluetooth_mode();
@@ -70,7 +67,7 @@ inline void sampling() {
     nirs.update_event();
 
     if (queue.num_to_write() > 0) {
-        bytes_written = WriteManager.write_data(LOC_TO_WRITE, (void *)queue.dequeue(), 8192);
+        bytes_written = WriteManager.write_data((void *)queue.dequeue(), 8192);
         logger.print_memory("Dequeued", (void *) queue.get_popped());
         if (bytes_written != 8192) {
             logger.print_variable("Incorrect number of bytes written", bytes_written);
@@ -85,16 +82,17 @@ void begin_sampling() {
     init_vector(eeg_timing_info, TTL_INT_LENGTH);
 #endif
 
-    logger.reset_metadata();
-
-    queue.reset();
-    buffer_manager.reset();
-
-    run_data.update_datetime();
-    run_data.update_imu_calibration(IMU);
+    WriteManager.select_writer(TagComms.read_byte_from_active_port());
     run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
     run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
     run_data.update_description(TagComms.readStringUntil('|', 120U));
+
+    run_data.update_datetime();
+    run_data.update_imu_calibration(IMU);
+
+    logger.reset_metadata();
+    queue.reset();
+    buffer_manager.reset();
 
     bytes_written = 0;
 
@@ -108,7 +106,7 @@ void begin_sampling() {
     logger.print_buffer_headers("PRESSURE", pressure_buffer.get_buffers(), PRESSURE_BUFFER_NUM);
     logger.print_buffer_headers("SPEED", speed_buffer.get_buffers(), SPEED_BUFFER_NUM);
 
-    WriteManager.pre_sampling_setup(LOC_TO_WRITE);
+    WriteManager.pre_sampling_setup();
     deviceManager.begin_sampling();
     eeg_buffer.init();
 }
@@ -117,7 +115,7 @@ void stop_sampling() {
     deviceManager.end_sampling();
     eeg_buffer.reset();
     queue.reset();
-    WriteManager.post_sampling_conclude(LOC_TO_WRITE);
+    WriteManager.post_sampling_conclude();
 
 #ifdef ETAG_DEBUG
     logger.print_variable("Sampling Time", sampling_timer);
@@ -191,42 +189,3 @@ void update_parameters() {
 void initalize_devices() {
     deviceManager.initialize_devices();
 }
-
-/*
-void dummy_file() {
-    const size_t write_buffer_length = 256;
-    const size_t num_buffer_writes =  4000;
-
-    uint8_t write_buffer[write_buffer_length];
-
-    for (size_t i = 0; i < write_buffer_length; i++) {
-        write_buffer[i] = 255 - i;
-    }
-    
-    diskManager.create_data_file("DummyFile.bin");
-
-    for (size_t i = 0; i < num_buffer_writes; i++) {
-        logger.print_variable("Current count", i);
-        reverse_array(write_buffer, write_buffer_length);
-        diskManager.write_data(write_buffer, write_buffer_length);
-    }
-
-    reverse_array(write_buffer, write_buffer_length);
-    diskManager.write_data(write_buffer, 41); //print partial at the end
-
-    logger.print_message("Done writing dummy file");
-
-    diskManager.close_file();
-}
-
-void reverse_array(uint8_t* ptr, size_t length) {
-    uint8_t* head = ptr;
-    uint8_t* tail = ptr + length - 1; // len is one past the end of the array, we need the address of last element
-    uint8_t tmp;
-    for (size_t i = 0; i < (length/2); i++) {
-        tmp = *(head + i);
-        *(head + i) = *(tail - i);
-        *(tail - i) = tmp;
-    } 
-}
-*/

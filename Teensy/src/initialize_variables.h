@@ -171,11 +171,6 @@ void delete_file();
 void nirs_on();
 void nirs_off();
 
-/*
-void dummy_file();
-void reverse_array(uint8_t* ptr, size_t length);
-*/
-
 // Allow the logger to be initialized even in RELEASE mode, along with the summary
 // structures.
 // Flag passed in platformini.io will prevent writes (ETAG_LOG_LEVEL = 0 in RELEASE mode)

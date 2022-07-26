@@ -155,6 +155,13 @@ class TagCommunicator {
          *  @returns String the character string until the terminator character
          */
         String readStringUntil(char terminator, size_t max = 120U);
+
+        /**
+         * @brief Read byte from active port
+         * 
+         * @returns The byte read from the port
+         */
+        uint8_t read_byte_from_active_port();
 };
 
 template <typename T>
