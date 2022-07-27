@@ -22,6 +22,9 @@ size_t ESP32_Bluetooth::write_header() {
 
     header_size += serializeJson(header_info, (*hard_serial));
     header_size += _serial->print('\n');
+    _serial->flush();
+
+    logger.print_json(header_info);
 
     return header_size;
 }

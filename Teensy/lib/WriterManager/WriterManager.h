@@ -21,38 +21,22 @@ class WriterManager {
         }
 
         size_t write_data(void* buff_ptr, size_t num_bytes) {
-            logger.print_message("Writing Data");
+            logger.print_variable("Writing Data", writer_ind);
             return writer_ptrs[this->writer_ind]->write_data(buff_ptr, num_bytes);
         }
 
-        size_t write_data(size_t ind, void* buff_ptr, size_t num_bytes) {
-            return writer_ptrs[ind]->write_data(buff_ptr, num_bytes);
-        }
-
         size_t write_header() {
+            logger.print_variable("Writing Header", writer_ind);
             return writer_ptrs[this->writer_ind]->write_header();
         }
 
-        size_t write_header(size_t ind) {
-            logger.print_message("Writing Header");
-            return writer_ptrs[ind]->write_header();
-        }
-
         void pre_sampling_setup() {
-            logger.print_message("Pre sampling setup");
+            logger.print_variable("Pre Sampling Setup", writer_ind);
             writer_ptrs[this->writer_ind]->pre_sampling_setup();
         }
 
-        void pre_sampling_setup(size_t ind) {
-            writer_ptrs[ind]->pre_sampling_setup(); 
-        }
-
         void post_sampling_conclude() {
-            logger.print_message("Post sampling conclusion");
+            logger.print_variable("Post Sampling Conclude", writer_ind);
             writer_ptrs[this->writer_ind]->post_sampling_conclude();
-        }
-
-        void post_sampling_conclude(size_t ind) {
-            writer_ptrs[ind]->post_sampling_conclude();
         }
 };

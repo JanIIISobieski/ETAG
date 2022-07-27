@@ -61,8 +61,8 @@ class ESP32_Bluetooth : public SerialCommunicator, public AbstractDevice, public
         void begin() { is_sampling = true; }
         void end() { is_sampling = false; }
 
-        void pre_sampling_setup() {};
-        void post_sampling_conclude() {};
+        void pre_sampling_setup() { await_acknowledgment(); };
+        void post_sampling_conclude() { clear_jsons(); };
 
         size_t write_header();
         size_t write_data(void* buff_ptr, size_t num_bytes);

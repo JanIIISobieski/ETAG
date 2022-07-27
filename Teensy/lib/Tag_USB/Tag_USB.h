@@ -16,8 +16,8 @@ class Tag_USB : public SerialCommunicator, public Writer {
         ~Tag_USB() {};
 
         bool init();
-        void pre_sampling_setup() {};
-        void post_sampling_conclude() {};
+        void pre_sampling_setup() { await_acknowledgment(); };
+        void post_sampling_conclude() { hard_serial->send_now(); clear_jsons(); };
 
         size_t write_header();
         size_t write_data(void* buff_ptr, size_t num_bytes);

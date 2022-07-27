@@ -72,13 +72,14 @@ void DiskManager::stop() {
 }
 
 void DiskManager::pre_sampling_setup() {
+    logger.print_message("In DiskManager Pre-Sampling");
     create_data_file();
-    write_header();
 }
 
 void DiskManager::post_sampling_conclude() {
     close_file();
     folder.rewindDirectory();
+    clear_jsons();
 }
 
 inline bool DiskManager::go_to_root() {
@@ -98,7 +99,7 @@ size_t DiskManager::write_header() {
 }
 
 bool DiskManager::create_data_file() {
-    String data_name = run_data->get_datetime() + "_Data.bin";
+    String data_name = (run_data->get_datetime()) + "_Data.bin";
     return create_data_file(data_name);
 }
 

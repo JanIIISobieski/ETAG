@@ -110,6 +110,7 @@ void begin_sampling() {
     logger.print_buffer_headers("SPEED", speed_buffer.get_buffers(), SPEED_BUFFER_NUM);
 
     WriteManager.pre_sampling_setup();
+    WriteManager.write_header();
     deviceManager.begin_sampling();
     eeg_buffer.init();
 }
@@ -117,7 +118,6 @@ void begin_sampling() {
 void stop_sampling() {
     deviceManager.end_sampling();
     eeg_buffer.reset();
-    queue.reset();
     WriteManager.post_sampling_conclude();
 
 #ifdef ETAG_DEBUG

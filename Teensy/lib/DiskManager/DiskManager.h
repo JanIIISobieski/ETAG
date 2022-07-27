@@ -43,8 +43,6 @@ class DiskManager : public Writer {
         uint64_t file_cursor; /**< Used for keeping track of location in the file */
         String current_file;  /**< Stores the current file in use */
 
-        RunData* run_data;  /**< Stores pointer to the run_info used for writing header */
-
         inline bool go_to_root(); /**< @brief Returns to the root directory */
         bool create_data_file(); /**< @brief Opens up data file */
 

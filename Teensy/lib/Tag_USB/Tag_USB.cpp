@@ -19,6 +19,10 @@ size_t Tag_USB::write_header() {
     create_data_header(); // from Writer.h
     header_size += serializeJson(header_info, (*hard_serial));  //hard_serial is a pointer, we need to pass the actual object
     header_size += hard_serial->print("\n");
+    hard_serial->send_now();
+
+    logger.print_json(header_info);
+    logger.print_variable("USB Header Size", header_size);
 
     return header_size;
 }
