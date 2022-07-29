@@ -98,8 +98,8 @@ static volatile int16_t* imu_buffers[IMU_BUFF_NUM] = {imu_buff1, imu_buff2, imu_
 IMUBuffer imu_buffer(imu_buffers, IMU_BUFF_NUM, IMU_BUFF_LENGTH, IMU_BUFF_ID, &queue);
 
 // NIRS
-#define NIRS_LEFT_BUTTON 21
-#define NIRS_RIGHT_BUTTON 22
+#define NIRS_LEFT_BUTTON 20
+#define NIRS_RIGHT_BUTTON 21
 #define NIRS_SHORT_PRESS 1000
 #define NIRS_LONG_PRESS 3000
 NIRS nirs(NIRS_LEFT_BUTTON, NIRS_RIGHT_BUTTON, NIRS_SHORT_PRESS, NIRS_LONG_PRESS);
@@ -154,7 +154,7 @@ BufferManager buffer_manager(buffers, NUM_BUFFER_TYPES);
 // Device Manager
 #define NUM_DEVICES 5
 AbstractDevice* devices[NUM_DEVICES] = {&nirs, &IMU, &eeg, &hydrophone, &Tag_Bluetooth};
-bool device_start[NUM_DEVICES] = {false, true, false, false, false};
+bool device_start[NUM_DEVICES] = {false, false, true, false, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Helpful Functions

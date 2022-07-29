@@ -4,6 +4,7 @@ void setup() {
     SPI.begin();
     MICRO_USB.init();
     Tag_Bluetooth.init();
+    SerialUSB1.begin(9600);
 
 #ifdef ETAG_DEBUG
     logger.assign_metadata(&hydrophone_buffer_push, "Hydrophone Push");
@@ -12,14 +13,7 @@ void setup() {
     logger.assign_metadata(&pressure_buffer_push, "Pressure Push");
     logger.assign_metadata(&speed_buffer_push, "Speed Push");
     logger.assign_metadata(&sampling_loop, "Loop() Timing");
-
     stopOnCompletionTimer.dt = 1000;
-
-    SerialUSB1.begin(9600);
-    while (!SerialUSB1) {  //wait to open Debug file
-        delay(100);
-        if (millis() > 10000) break; //wait for 10 seconds before moving after program start to move on
-    }
 #endif
 }
 
@@ -76,10 +70,6 @@ inline void sampling() {
 }
 
 void begin_sampling() {
-#ifdef EEG_TIMING
-    ttl_ind = 0;
-    init_vector(eeg_timing_info, TTL_INT_LENGTH);
-#endif
     ByteArray<uint8_t> writer_ind;
     TagComms.read_type(writer_ind);  //this read is blocking, unlike read() which will return -1 if there is no byte ready
 
@@ -117,9 +107,7 @@ void begin_sampling() {
 
 void stop_sampling() {
     deviceManager.end_sampling();
-    eeg_buffer.reset();
     WriteManager.post_sampling_conclude();
-
 #ifdef ETAG_DEBUG
     logger.print_variable("Sampling Time", sampling_timer);
     logger.log_timing_metadata();
@@ -130,10 +118,7 @@ void stop_sampling() {
     logger.print_array("EEG Sample", eeg_buffer.get_buffer(), 32);
     logger.print_array("IMU Sample", IMU.buffer, 9);
 #endif
-
-#ifdef EEG_TIMING
-    print_timings(eeg_timing_info, TTL_INT_LENGTH);
-#endif
+    eeg_buffer.reset();
 }
 
 void sync_time() {

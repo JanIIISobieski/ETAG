@@ -89,7 +89,7 @@ class VarPrinter {
         template <typename T>
         void print_array(String var_name, T* head, size_t len) {
             if (ETAG_LOG_LEVEL) {
-                _serial->println(var_name + ": ");
+                _serial->print(var_name + ": ");
                 print_array(head, len);
             }
         }
@@ -211,10 +211,10 @@ class VarPrinter {
                 _serial->println(var_name);
                 _serial->println("==========");
                 for (size_t i = 0; i < len; i++) {
-                    _serial->printf("Loc: %p ID: %d Count: %d Time: %lu\n", (void *) buffers[i].id_ptr,
-                                                                            *(buffers[i].id_ptr),
-                                                                            *(buffers[i].count_ptr),
-                                                                            *(buffers[i].time_ptr));
+                    _serial->printf("Loc: %p ID: %d Count: %d Time: %lu\n", (void *) (buffers[i].id_ptr),
+                                                                            (uint8_t) (*(buffers[i].id_ptr)),
+                                                                            (uint8_t) (*(buffers[i].count_ptr)),
+                                                                            (size_t) (*(buffers[i].time_ptr)));
                 }
             }
         }
@@ -289,9 +289,9 @@ class VarPrinter {
         template <typename T>
         void print_array(T* head, size_t len) {
             _serial->print("[");
-            for (size_t i = 0; i < len; i++)
-            {
-                _serial->print(head[i]); _serial->print(", ");
+            for (size_t i = 0; i < len; i++) {
+                _serial->print(head[i]); 
+                if (i < (len - 1)) _serial->print(", ");
             }
             _serial->println("]");
         }
