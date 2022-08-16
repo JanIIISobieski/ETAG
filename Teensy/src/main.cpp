@@ -39,6 +39,7 @@ void loop() {
         else if (command == 'o') Tag_Bluetooth.turn_off_comms();
         else if (command == 'w') Tag_Bluetooth.set_WiFi_mode();
         else if (command == 'y') Tag_Bluetooth.set_Bluetooth_mode();
+        else if (command == 'L') forward_ESP32_logging();
         else logger.print_variable("Recieved byte but don't know what to do with it", read_val);
         read_val = -1;
     }
@@ -177,4 +178,8 @@ void update_parameters() {
 void initalize_devices() {
     diskManager.init();
     deviceManager.initialize_devices();
+}
+
+inline void forward_ESP_32_logging() {
+    logger.print_message(TagComms.readStringUntil('\n', 120U));  //logging messages are of the form "L[...Message...]\n". We want to capture just the ...Message..., so readline until newline is perfect
 }

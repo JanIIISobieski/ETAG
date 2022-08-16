@@ -154,7 +154,7 @@ BufferManager buffer_manager(buffers, NUM_BUFFER_TYPES);
 // Device Manager
 #define NUM_DEVICES 5
 AbstractDevice* devices[NUM_DEVICES] = {&nirs, &IMU, &eeg, &hydrophone, &Tag_Bluetooth};
-bool device_start[NUM_DEVICES] = {false, false, true, false, false};
+bool device_start[NUM_DEVICES] = {false, true, false, false, false};
 DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
 
 // Helpful Functions
@@ -171,6 +171,7 @@ void initalize_devices();
 void delete_file();
 void nirs_on();
 void nirs_off();
+inline void forward_ESP32_logging();
 
 // Allow the logger to be initialized even in RELEASE mode, along with the summary
 // structures.
