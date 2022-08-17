@@ -12,6 +12,8 @@
 
 class MS58xx {
   public:
+    MS58xx();
+
     uint8_t cs;        // Chip Select pin number
     SPISettings MS58xx_SPI_settings;
 
@@ -28,10 +30,14 @@ class MS58xx {
     volatile float pressure_mbar;
     volatile float temperature;
 
+    bool data_ready;
+
     void init(uint8_t _CS);
     void spi_start(uint8_t _CS, SPISettings _SPI_settings);
     void spi_end(uint8_t _CS);
-    void calc_press_temp();
+    void calc_press_temp();    
+
+    void update_pt_data();
 
     /**** Command Defintions (Datasheet, pg 8) ****/
     void reset();
@@ -46,6 +52,9 @@ class MS58xx {
     void read_press();
     void read_temp();
     /**********************************************/
+
+    uint32_t time_start;
+    uint8_t ind;
 };
 
 extern MS58xx press_sens;
