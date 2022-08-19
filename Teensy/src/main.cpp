@@ -180,6 +180,6 @@ void initalize_devices() {
     deviceManager.initialize_devices();
 }
 
-inline void forward_ESP_32_logging() {
+inline void forward_ESP32_logging() {
     logger.print_message(TagComms.readStringUntil('\n', 120U));  //logging messages are of the form "L[...Message...]\n". We want to capture just the ...Message..., so readline until newline is perfect
 }
