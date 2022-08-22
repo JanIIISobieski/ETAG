@@ -19,8 +19,6 @@
 #include "SpeedBuffer.h"
 #include "WriterManager.h"
 #include "BufferManager.h"
-#include "LinkedListTemp.h"
-#include "CircularList.h"
 
 // Communication
 #define ACK 6
