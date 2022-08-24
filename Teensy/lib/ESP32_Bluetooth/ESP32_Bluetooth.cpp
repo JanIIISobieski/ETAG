@@ -87,13 +87,14 @@ bool ESP32_Bluetooth::sample_pressure_temperature() {
     if (is_sampling & (pressure_timer >= MIN_PRESSURE_DELAY)) {
         write('p');
 
-        while (!_serial->available()) {};
-        int read_val = _serial->read();
+        while (!_serial->available()) {}; //wait for response
+        int read_val = _serial->read();   //read response
 
         if (read_val == 1) {
             pressure_temp_vals.tpt_struct.time = micros();
             read_type(pressure_temp_vals.tpt_struct.pressure);
             read_type(pressure_temp_vals.tpt_struct.temperature);
+            logger.print_array("PT", get_pressure_temperature(), 12);
             pressure_timer = 0;
             return true;
         } else return false;
@@ -104,9 +105,11 @@ bool ESP32_Bluetooth::sample_pressure_temperature() {
 bool ESP32_Bluetooth::sample_speed() {
     if (is_sampling & (speed_timer >= MIN_SPEED_DELAY)) {
         write('v');
+
         time_speed.st_struct.time = micros();
 
         read_type(time_speed.st_struct.speed);
+
         speed_timer = 0;
         return true;
     } else return false;
