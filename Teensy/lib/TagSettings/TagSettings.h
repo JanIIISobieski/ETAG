@@ -6,12 +6,20 @@
 union ADS1299Settings {
     struct {
         uint8_t config1;
+        uint8_t config2;
         uint8_t config3;
-        uint8_t bias_sensp;
-        uint8_t misc1;
+        uint8_t loff;
         uint8_t chnset[8];
+        uint8_t bias_sensp;
+        uint8_t bias_sensn;
+        uint8_t loff_sensp;
+        uint8_t loff_sensn;
+        uint8_t loff_flip;
+        uint8_t loff_statp;
+        uint8_t loff_statn;
+        uint8_t gpio;
     } fields;
-    uint8_t raw_bytes[12];
+    uint8_t raw_bytes[sizeof(fields)];
 };
 
 union ADCSettings {
@@ -20,7 +28,7 @@ union ADCSettings {
         uint8_t avg;
         uint8_t resolution;
     } fields;
-    uint8_t raw_bytes[6];
+    uint8_t raw_bytes[sizeof(fields)];
 };
 
 union DeviceEnable {
@@ -28,8 +36,10 @@ union DeviceEnable {
         boolean imu_enable;
         boolean hydrophone_enable;
         boolean eeg_enable;
+        boolean nirs_enable;
+        boolean bluetooth_sampling_enable;
     } fields;
-    uint8_t raw_bytes[3];
+    uint8_t raw_bytes[sizeof(fields)];
 };
 
 union SettingsPacket {

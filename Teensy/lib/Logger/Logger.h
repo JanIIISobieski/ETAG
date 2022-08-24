@@ -6,7 +6,7 @@
 #include "AbstractBuffer.h"
 #include "ArduinoJson.h"
 #include "SdFat.h"
-#include "EEGSettings.h"
+#include "TagSettings.h"
 
 #define VARIABLE_TO_STRING(variable) (void(variable), #variable) // based on Stack Overflow https://stackoverflow.com/questions/3386861/converting-a-variable-name-to-a-string-in-c
                                                                  // comma operator runs the first operand AND discards result, and then evaluates the second operand and returns this value
@@ -284,6 +284,28 @@ class VarPrinter {
             }
         }
 
+        /**
+         * @brief Print the settable registers for the ADS1299
+         * 
+         * @param var_name Name to call the ADS1299 Settings
+         * @param settings A pointer to the structure containing the settings
+         */
+        void print_ADS1299_settings(String var_name, ADS1299Settings* settings) {
+            _serial->println(var_name);
+            print_ADS1299_settings(settings);
+        }
+
+        /**
+         * @brief Print the settings for the hydrophone sampling
+         * 
+         * @param var_name The 
+         * @param settings 
+         */
+        void print_ADC_settings(String var_name, ADCSettings* settings) {
+            _serial->println(var_name);
+            print_ADC_settings(settings);
+        }
+
     protected:
         Stream* _serial; /**< Pointer to Stream which is where these values will be printed to */
 
@@ -330,6 +352,26 @@ class VarPrinter {
 	        _serial->printf("SADDR:%x SOFF:%d ATTR:%x NBYTES:%x SLAST:%d DADDR:%x DOFF: %d CITER:%x DLASTSGA:%x CSR:%x BITER:%x\n", (uint32_t)dmabc->TCD->SADDR,
 		                    dmabc->TCD->SOFF, dmabc->TCD->ATTR, dmabc->TCD->NBYTES, dmabc->TCD->SLAST, (uint32_t)dmabc->TCD->DADDR, 
 		                    dmabc->TCD->DOFF, dmabc->TCD->CITER, dmabc->TCD->DLASTSGA, dmabc->TCD->CSR, dmabc->TCD->BITER);
+        }
+
+        void print_ADS1299_settings(ADS1299Settings* settings) {
+            for (size_t i = 0; i < sizeof(ADS1299Settings); i++) {
+                _serial->printf("Mem: %5X, Val: %4d\n", i, (settings->raw_bytes)[i]);
+            }
+        }
+
+        void print_ADC_settings(ADCSettings* settings) {
+            _serial->printf("%11s: %d\n", "Frequency",  (settings->fields).frequency);
+            _serial->printf("%11s: %d\n", "Averaging",  (settings->fields).avg);
+            _serial->printf("%11s: %d\n", "Resolution", (settings->fields).resolution);
+        }
+
+        void print_DeviceEnable_settings(DeviceEnable* settings) {
+            _serial->printf("%12s: %s\n", "IMU", (settings->fields).imu_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%12s: %s\n", "HYDROPHONE", (settings->fields).hydrophone_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%12s: %s\n", "EEG", (settings->fields).eeg_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%12s: %s\n", "NIRS", (settings->fields).nirs_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "BLUETOOTH_DEV", (settings->fields).bluetooth_sampling_enable ? "ENABLED" : "DISABLED");
         }
 };
 
