@@ -19,6 +19,8 @@
 #include "SpeedBuffer.h"
 #include "WriterManager.h"
 #include "BufferManager.h"
+#include "EEGSettings.h"
+#include "LinkedList.h"
 
 // Communication
 #define ACK 6

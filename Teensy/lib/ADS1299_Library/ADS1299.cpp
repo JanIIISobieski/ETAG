@@ -21,6 +21,7 @@ void ADS1299::setup(uint32_t _DRDY, uint32_t _CS) {
     // This sets dma_spi_finished function to be called at end of DMA SPI transfer
     initialize();
 }
+
 String ADS1299::initialize() {
     // recommended power up sequence requiers >Tpor (~32mS)
     delay(50);
@@ -46,15 +47,18 @@ String ADS1299::initialize() {
     output_count = 0;
     return "ADS1299 initalized";
 }
+
 void ADS1299::spi_start(uint32_t _CS, SPISettings _SPI_settings) {
     SPI.beginTransaction(_SPI_settings);
     digitalWrite(_CS, LOW);  // Start communication
 }
+
 void ADS1299::spi_end(uint32_t _CS) {
     delayMicroseconds(2);    // This delay is necessary on the Teensy 4.0 in order to assure communication finished
     digitalWrite(_CS, HIGH); // End communication
     SPI.endTransaction();
 }
+
 void ADS1299::send_command(uint8_t cmd) {
     spi_start(cs, ADS_SPI_settings); // Start communication
     SPI.transfer(cmd);
@@ -66,18 +70,22 @@ void ADS1299::wakeup() {
     send_command(_WAKEUP);
     delayMicroseconds(3);   // must wait 4 tCLK cycles before sending another command (Datasheet, pg. 40)
 }
+
 void ADS1299::standby() {
     send_command(_STANDBY);
 }
+
 String ADS1299::reset() {
     send_command(_RESET);
     delayMicroseconds(10);  // must wait 18 tCLK cycles to execute this command (Datasheet, pg. 41)
     return "ADS1299 reset";
 }
+
 String ADS1299::start() {
     send_command(_START);
     return "ADS1299 data conversion started";
 }
+
 String ADS1299::stop() {
     send_command(_STOP);
     return "ADS1299 data conversion stopped";
@@ -87,10 +95,12 @@ String ADS1299::stop() {
 void ADS1299::rdatac() {
     send_command(_RDATAC);
 }
+
 void ADS1299::sdatac() {
     send_command(_SDATAC);
     delayMicroseconds(3);   // must wait 4 tCLK cycles before sending another command (Datasheet, pg. 42)
 }
+
 void ADS1299::rdata() {
     send_command(_RDATA);
 }
@@ -106,6 +116,7 @@ uint8_t ADS1299::get_id() {
     spi_end(cs);                        // End communication
     return data;
 }
+
 String ADS1299::rreg(uint8_t address) {
     String return_value = "";
     uint8_t opcode1 = _RREG + address;  // 001rrrrr: _RREG = 00100000, adress = rrrrr
@@ -131,6 +142,7 @@ String ADS1299::rreg(uint8_t address) {
     }
     return (return_value += "\n");
 }
+
 String ADS1299::wreg(uint8_t address, uint8_t value) {
     String return_value = "";
     uint8_t opcode1 = _WREG + address;  // 010rrrrr: _WREG = 01000000, adress = rrrrr (address offset)

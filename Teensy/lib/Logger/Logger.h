@@ -6,6 +6,7 @@
 #include "AbstractBuffer.h"
 #include "ArduinoJson.h"
 #include "SdFat.h"
+#include "EEGSettings.h"
 
 #define VARIABLE_TO_STRING(variable) (void(variable), #variable) // based on Stack Overflow https://stackoverflow.com/questions/3386861/converting-a-variable-name-to-a-string-in-c
                                                                  // comma operator runs the first operand AND discards result, and then evaluates the second operand and returns this value
@@ -329,7 +330,7 @@ class VarPrinter {
 	        _serial->printf("SADDR:%x SOFF:%d ATTR:%x NBYTES:%x SLAST:%d DADDR:%x DOFF: %d CITER:%x DLASTSGA:%x CSR:%x BITER:%x\n", (uint32_t)dmabc->TCD->SADDR,
 		                    dmabc->TCD->SOFF, dmabc->TCD->ATTR, dmabc->TCD->NBYTES, dmabc->TCD->SLAST, (uint32_t)dmabc->TCD->DADDR, 
 		                    dmabc->TCD->DOFF, dmabc->TCD->CITER, dmabc->TCD->DLASTSGA, dmabc->TCD->CSR, dmabc->TCD->BITER);
-        }       
+        }
 };
 
 /**

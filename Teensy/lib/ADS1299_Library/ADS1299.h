@@ -65,8 +65,8 @@ public:
     void send_command(uint8_t cmd); //*< Sends commands to the ADS1299, see ADS1299 documentation for what these are */
 
     /**** SPI Command Defintions (Datasheet, pg 40) ****/
-    void wakeup();      //**< Wake-up from standby mode */
-    void standby();     //**< Enter standby mode */
+    void wakeup();        //**< Wake-up from standby mode */
+    void standby();       //**< Enter standby mode */
     String reset();       //**< Reset the device */
     String start();       //**< Start and restart (synchronize) conversions */
     String stop();        //**< Stop conversion */
