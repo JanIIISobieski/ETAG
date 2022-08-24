@@ -98,9 +98,7 @@ void resetPressure() {
 }
 
 void serialWriteSpin() {
-    noInterrupts();
     spin_copy = spin;
-    interrupts();
     Serial.write((uint8_t*)(&spin_copy), sizeof(spin_copy));
     #ifdef DEBUG_OUTPUT
       Serial.print("LCurrent spin count: " + (String) spin + "\n");

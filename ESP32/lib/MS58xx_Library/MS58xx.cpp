@@ -56,6 +56,7 @@ void MS58xx::update_pt_data() {
       update_temp();
       time_start = millis();
       ++ind;
+      break;
     case (3):
       if ((millis() - time_start) >= REQUEST_READ_DELAY) {
         ++ind;
