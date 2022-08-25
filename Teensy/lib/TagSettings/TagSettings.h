@@ -33,13 +33,13 @@ union ADCSettings {
 
 union DeviceEnable {
     struct {
-        boolean imu_enable;
-        boolean hydrophone_enable;
-        boolean eeg_enable;
-        boolean nirs_enable;
-        boolean bluetooth_sampling_enable;
+        boolean nirs_enable {false};
+        boolean imu_enable {true};
+        boolean eeg_enable {false};
+        boolean hydrophone_enable {false};
+        boolean bluetooth_sampling_enable {false};
     } fields;
-    uint8_t raw_bytes[sizeof(fields)];
+    boolean raw_bytes[sizeof(fields)];
 };
 
 union SettingsPacket {
