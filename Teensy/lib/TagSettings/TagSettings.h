@@ -22,11 +22,15 @@ union ADS1299Settings {
     uint8_t raw_bytes[sizeof(fields)];
 };
 
+
+#define HYDROPHONE_AVG_DEFAULT 0
+#define HYDROPHONE_RESOLUTION_DEFAULT 12
+#define HYDROPHONE_SAMPLING_FREQUENCY_DEFAULT 40000
 union ADCSettings {
     struct {
-        int frequency;
-        uint8_t avg;
-        uint8_t resolution;
+        int frequency { HYDROPHONE_SAMPLING_FREQUENCY_DEFAULT };
+        uint8_t avg { HYDROPHONE_AVG_DEFAULT };
+        uint8_t resolution { HYDROPHONE_RESOLUTION_DEFAULT };
     } fields;
     uint8_t raw_bytes[sizeof(fields)];
 };

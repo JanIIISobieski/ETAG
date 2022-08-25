@@ -5,6 +5,7 @@
 #include <DMAChannel.h>
 #include "AbstractDevice.h"
 #include "ADCBuffer.h"
+#include "TagSettings.h"
 
 #include "Logger.h"
 extern Logger logger;
@@ -29,7 +30,12 @@ class Tag_ADC : public AbstractDevice {
          * @param resolution Resolution of sampling
          * @param adc_buffer ADCBuffer pointer in which to save sampled data
          */
-        Tag_ADC(uint8_t pin, int frequency, uint8_t avg, int resolution, ADCBuffer* adc_buffer);
+        Tag_ADC(uint8_t pin, ADCSettings* adc_settings, ADCBuffer* adc_buffer);
+        
+        /**
+         * @brief Destroy the Tag_ADC object
+         * 
+         */
         ~Tag_ADC();
 
         /**
@@ -51,13 +57,21 @@ class Tag_ADC : public AbstractDevice {
          */
         bool init();
 
+        /**
+         * @brief Updates the settings for sampling
+         * 
+         * Note that only these two settings have to be changed.
+         * The frequency is set during the begin() method, and thus does not have to be changed
+         * ahead of time.
+         * 
+         */
+        void update_settings();
+
     private:
         ADC* _adc; /**< Pointer to an ADC object */
         ADCBuffer* adc_dma; /**< Pointer to ADCBuffer in which data will be stored */
-        uint8_t _avg; /**< Number of points to average over */
-        uint8_t _resolution; /**< Resolution of sampling */
         uint8_t _pin; /**< Pin number to sample */
-        int _frequency; /** Frequency with which to sample */
+        ADCSettings* adc_settings; /**< ADC Settings object defined in TagSettings */
 };
 
 #endif

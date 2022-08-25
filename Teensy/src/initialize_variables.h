@@ -81,7 +81,8 @@ ADCBuffer hydrophone_buffer(adc_buffers, HYDROPHONE_BUFF_NUM, HYDROPHONE_BUFF_LE
 #define HYDROPHONE_AVG                  0
 #define HYRDOPHONE_RESOLUTION           12
 #define HYDROPHONE_SAMPLING_FREQUENCY   40000
-Tag_ADC hydrophone(HYDROPHONE_SAMPLING_PIN, HYDROPHONE_SAMPLING_FREQUENCY, HYDROPHONE_AVG, HYRDOPHONE_RESOLUTION, &hydrophone_buffer);
+ADCSettings adc_settings {};
+Tag_ADC hydrophone(HYDROPHONE_SAMPLING_PIN, &adc_settings, &hydrophone_buffer);
 
 // IMU
 #define MPU9250_ADDRESS MPU9250_ADDRESS_AD0
@@ -156,8 +157,8 @@ BufferManager buffer_manager(buffers, NUM_BUFFER_TYPES);
 // Device Manager
 #define NUM_DEVICES 5
 AbstractDevice* devices[NUM_DEVICES] = {&nirs, &IMU, &eeg, &hydrophone, &Tag_Bluetooth};
-bool device_start[NUM_DEVICES] = {false, true, false, false, false};
-DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
+DeviceEnable device_settings {};
+DeviceManager deviceManager(devices, device_settings.raw_bytes, NUM_DEVICES);
 
 // Helpful Functions
 inline void sampling();
