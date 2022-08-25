@@ -38,9 +38,9 @@ union ADCSettings {
 union DeviceEnable {
     struct {
         boolean nirs_enable {false};
-        boolean imu_enable {true};
+        boolean imu_enable {false};
         boolean eeg_enable {false};
-        boolean hydrophone_enable {false};
+        boolean hydrophone_enable {true};
         boolean bluetooth_sampling_enable {false};
     } fields;
     boolean raw_bytes[sizeof(fields)];

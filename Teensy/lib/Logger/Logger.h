@@ -300,10 +300,10 @@ class VarPrinter {
         /**
          * @brief Print the settings for the hydrophone sampling
          * 
-         * @param var_name The 
-         * @param settings 
+         * @param var_name The name to call the ADC settings
+         * @param settings The settings to print
          */
-        void print_ADC_settings(String var_name, ADCSettings* settings) {
+        void print_ADC_settings(String var_name, ADCSettings& settings) {
             if (ETAG_LOG_LEVEL) {
                 _serial->println(var_name);
                 print_ADC_settings(settings);
@@ -377,10 +377,10 @@ class VarPrinter {
             }
         }
 
-        void print_ADC_settings(ADCSettings* settings) {
-            _serial->printf("%11s: %d\n", "Frequency",  (settings->fields).frequency);
-            _serial->printf("%11s: %d\n", "Averaging",  (settings->fields).avg);
-            _serial->printf("%11s: %d\n", "Resolution", (settings->fields).resolution);
+        void print_ADC_settings(ADCSettings& settings) {
+            _serial->printf("%11s: %d\n", "Frequency",  (settings.fields).frequency);
+            _serial->printf("%11s: %d\n", "Averaging",  (settings.fields).avg);
+            _serial->printf("%11s: %d\n", "Resolution", (settings.fields).resolution);
         }
 
         void print_DeviceEnable_settings(DeviceEnable& settings) {

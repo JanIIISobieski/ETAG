@@ -94,6 +94,8 @@ void begin_sampling() {
     sampling_timer = 0;
 #endif
     logger.print_DeviceEnable_settings("Device Enable", device_settings);
+    logger.print_ADC_settings("Hydrophone Settings", adc_settings);
+
     logger.print_buffer_headers("Hydrophone", hydrophone_buffer.get_buffers(), HYDROPHONE_BUFF_NUM);
     logger.print_buffer_headers("IMU", imu_buffer.get_buffers(), IMU_BUFF_NUM);
     logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
