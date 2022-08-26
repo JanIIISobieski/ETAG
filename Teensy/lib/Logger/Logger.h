@@ -290,10 +290,11 @@ class VarPrinter {
          * @param var_name Name to call the ADS1299 Settings
          * @param settings A pointer to the structure containing the settings
          */
-        void print_ADS1299_settings(String var_name, ADS1299Settings* settings) {
+        void print_ADS1299_settings(String var_name, ADS1299Settings& settings) {
             if (ETAG_LOG_LEVEL) {
                 _serial->println(var_name);
                 print_ADS1299_settings(settings);
+                _serial->println();
             }
         }
 
@@ -307,6 +308,7 @@ class VarPrinter {
             if (ETAG_LOG_LEVEL) {
                 _serial->println(var_name);
                 print_ADC_settings(settings);
+                _serial->println();
             }
         }
 
@@ -320,6 +322,7 @@ class VarPrinter {
             if (ETAG_LOG_LEVEL) {
                 _serial->println("Device Settings");
                 print_DeviceEnable_settings(settings);
+                _serial->println();
             }
         }
 
@@ -371,9 +374,9 @@ class VarPrinter {
 		                    dmabc->TCD->DOFF, dmabc->TCD->CITER, dmabc->TCD->DLASTSGA, dmabc->TCD->CSR, dmabc->TCD->BITER);
         }
 
-        void print_ADS1299_settings(ADS1299Settings* settings) {
+        void print_ADS1299_settings(ADS1299Settings& settings) {
             for (size_t i = 0; i < sizeof(ADS1299Settings); i++) {
-                _serial->printf("Mem: %5X, Val: %4d\n", i, (settings->raw_bytes)[i]);
+                _serial->printf("Mem: %5X, Val: %4d\n", i, (settings.raw_bytes)[i]);
             }
         }
 
@@ -384,10 +387,10 @@ class VarPrinter {
         }
 
         void print_DeviceEnable_settings(DeviceEnable& settings) {
-            _serial->printf("%12s: %s\n", "IMU", (settings.fields).imu_enable ? "ENABLED" : "DISABLED");
-            _serial->printf("%12s: %s\n", "HYDROPHONE", (settings.fields).hydrophone_enable ? "ENABLED" : "DISABLED");
-            _serial->printf("%12s: %s\n", "EEG", (settings.fields).eeg_enable ? "ENABLED" : "DISABLED");
-            _serial->printf("%12s: %s\n", "NIRS", (settings.fields).nirs_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "IMU", (settings.fields).imu_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "HYDROPHONE", (settings.fields).hydrophone_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "EEG", (settings.fields).eeg_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "NIRS", (settings.fields).nirs_enable ? "ENABLED" : "DISABLED");
             _serial->printf("%14s: %s\n", "BLUETOOTH_DEV", (settings.fields).bluetooth_sampling_enable ? "ENABLED" : "DISABLED");
         }
 };

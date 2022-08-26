@@ -125,6 +125,7 @@ static volatile uint8_t ads_buffer2[EEG_BUFFER_LENGTH];
 static volatile uint8_t ads_buffer3[EEG_BUFFER_LENGTH];
 static volatile uint8_t ads_buffer4[EEG_BUFFER_LENGTH];
 static volatile uint8_t* ads_buffers[EEG_BUFFER_NUM] = {ads_buffer1, ads_buffer2, ads_buffer3, ads_buffer4};
+ADS1299Settings eeg_settings {};
 EEGBuffer eeg_buffer(ads_buffers, EEG_BUFFER_NUM, EEG_BUFFER_LENGTH, EEG_BUFF_ID, &queue);
 
 // Pressure Buffer

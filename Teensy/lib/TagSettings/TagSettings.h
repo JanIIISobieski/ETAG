@@ -3,6 +3,7 @@
 #include <Arduino.h>
 
 #pragma pack(push, 1)
+
 union ADS1299Settings {
     struct {
         uint8_t config1;
@@ -15,9 +16,6 @@ union ADS1299Settings {
         uint8_t loff_sensp;
         uint8_t loff_sensn;
         uint8_t loff_flip;
-        uint8_t loff_statp;
-        uint8_t loff_statn;
-        uint8_t gpio;
     } fields;
     uint8_t raw_bytes[sizeof(fields)];
 };

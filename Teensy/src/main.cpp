@@ -174,12 +174,22 @@ void delete_file() {
 }
 
 void update_parameters() {
-    delay(1);
+    logger.print_message("Updating params");
+    TagComms.read(eeg_settings.raw_bytes, sizeof(ADS1299Settings));
+    TagComms.read(adc_settings.raw_bytes, sizeof(ADCSettings));
+    TagComms.read((uint8_t*)device_settings.raw_bytes, sizeof(DeviceEnable));
+
+    logger.print_ADS1299_settings("ADS Main Settings", eeg_settings);
+    logger.print_ADC_settings("Hydrophone Settings", adc_settings);
+    logger.print_DeviceEnable_settings("Device Setting", device_settings);
 }
 
 void initalize_devices() {
     diskManager.init();
     deviceManager.initialize_devices();
+
+    logger.print_ADC_settings("ADC Settings", adc_settings);
+    logger.print_DeviceEnable_settings("Device Enable Settings", device_settings);
 }
 
 inline void forward_ESP32_logging() {
