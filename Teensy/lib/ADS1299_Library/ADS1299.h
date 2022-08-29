@@ -139,7 +139,4 @@ private:
 
 };
 
-// This let's us call into the class from within the library if necessary
-extern ADS1299 eeg;
-
 #endif

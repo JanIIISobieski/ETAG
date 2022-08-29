@@ -19,7 +19,6 @@
 #include "SpeedBuffer.h"
 #include "WriterManager.h"
 #include "BufferManager.h"
-#include "EEGSettings.h"
 #include "LinkedList.h"
 
 // Communication
@@ -109,14 +108,15 @@ NIRS nirs(NIRS_LEFT_BUTTON, NIRS_RIGHT_BUTTON, NIRS_SHORT_PRESS, NIRS_LONG_PRESS
 
 // EEG
 #define EEG_DRDY         14  // ADS1299 Data Ready pin
-#define EEG_CS_PARENT     8  // ADS1299 Chip Select pin for master chip
-#define EEG_CS_CHILD     10 // ADS1299 Chip Select pin for slave chip
+#define EEG_CS_PARENT     8  // ADS1299 Chip Select pin for parent chip
+#define EEG_CS_CHILD     10 // ADS1299 Chip Select pin for child chip
 #define EEG_RST          22  // ADS1299 Reset pin
 #define EEG_START         9  // ADS1299 Start pin
 #define EEG_PWDN         23  // ADS1299 Power-Down pin
-ADS1299Settings eeg_settings {};
-ADS1299 eeg(EEG_DRDY, EEG_CS_PARENT, EEG_RST, EEG_START, EEG_PWDN, &eeg_settings);
-//ADS1299 eeg2(EEG_DRDY, EEG_CS_SLAVE, EEG_RST, EEG_START, EEG_PWDN);
+ADS1299Settings parent_eeg_settings {};
+ADS1299Settings child_eeg_settings {};
+ADS1299 eeg(EEG_DRDY, EEG_CS_PARENT, EEG_RST, EEG_START, EEG_PWDN, &parent_eeg_settings);
+//ADS1299 eeg2(EEG_DRDY, EEG_CS_CHILD, EEG_RST, EEG_START, EEG_PWDN, &child_eeg_settings);
 
 #define EEG_BUFF_ID 8
 #define EEG_BUFFER_LENGTH 8192

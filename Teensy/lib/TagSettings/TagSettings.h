@@ -5,17 +5,18 @@
 #pragma pack(push, 1)
 
 union ADS1299Settings {
-    struct {
-        uint8_t config1;
-        uint8_t config2;
-        uint8_t config3;
-        uint8_t loff;
-        uint8_t chnset[8];
-        uint8_t bias_sensp;
-        uint8_t bias_sensn;
-        uint8_t loff_sensp;
-        uint8_t loff_sensn;
-        uint8_t loff_flip;
+    struct ADSRegisters {
+        uint8_t config1 { 0x96 };
+        uint8_t config2 { 0xC0 };
+        uint8_t config3 { 0x60 };
+        uint8_t loff { 0x00 };
+        uint8_t chnset[8] { 0x61, 0x61, 0x61, 0x61, 0x00, 0x00, 0x00, 0x00 };
+        uint8_t bias_sensp { 0x00 };
+        uint8_t bias_sensn { 0x00 };
+        uint8_t loff_sensp { 0x00 };
+        uint8_t loff_sensn { 0x00};
+        uint8_t loff_flip { 0x00 };
+        uint8_t misc1 { 0x00 };
     } fields;
     uint8_t raw_bytes[sizeof(fields)];
 };
@@ -25,7 +26,7 @@ union ADS1299Settings {
 #define HYDROPHONE_RESOLUTION_DEFAULT 12
 #define HYDROPHONE_SAMPLING_FREQUENCY_DEFAULT 40000
 union ADCSettings {
-    struct {
+    struct ADCVals {
         int frequency { HYDROPHONE_SAMPLING_FREQUENCY_DEFAULT };
         uint8_t avg { HYDROPHONE_AVG_DEFAULT };
         uint8_t resolution { HYDROPHONE_RESOLUTION_DEFAULT };

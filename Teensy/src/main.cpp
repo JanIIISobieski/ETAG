@@ -74,6 +74,8 @@ void begin_sampling() {
     ByteArray<uint8_t> writer_ind;
     TagComms.read_type(writer_ind);  //this read is blocking, unlike read() which will return -1 if there is no byte ready
 
+    logger.print_message("Recieved Write Index");
+
     WriteManager.select_writer(writer_ind.as_type);
     run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
     run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
@@ -81,6 +83,8 @@ void begin_sampling() {
 
     run_data.update_datetime();
     run_data.update_imu_calibration(IMU);
+
+    logger.print_message("Updated run data");
 
     logger.reset_metadata();
     queue.reset();
@@ -175,11 +179,11 @@ void delete_file() {
 
 void update_parameters() {
     logger.print_message("Updating params");
-    TagComms.read(eeg_settings.raw_bytes, sizeof(ADS1299Settings));
+    TagComms.read(parent_eeg_settings.raw_bytes, sizeof(ADS1299Settings));
     TagComms.read(adc_settings.raw_bytes, sizeof(ADCSettings));
     TagComms.read((uint8_t*)device_settings.raw_bytes, sizeof(DeviceEnable));
 
-    logger.print_ADS1299_settings("ADS Main Settings", eeg_settings);
+    logger.print_ADS1299_settings("ADS Main Settings", parent_eeg_settings);
     logger.print_ADC_settings("Hydrophone Settings", adc_settings);
     logger.print_DeviceEnable_settings("Device Setting", device_settings);
 }
