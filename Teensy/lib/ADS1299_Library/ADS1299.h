@@ -12,6 +12,7 @@
 #include <SPI.h>
 #include "ADS1299_Definitions.h"
 #include "AbstractDevice.h"
+#include "TagSettings.h"
 
 #include "Logger.h"
 extern Logger logger;
@@ -32,7 +33,7 @@ public:
      * @param start_pin The pin used for starting the ADS1299
      * @param power_down The pin used for powering down the ADS1299
      */
-    ADS1299(uint32_t data_ready, uint32_t chip_select, uint32_t reset_pin, uint32_t start_pin, uint32_t power_down) {
+    ADS1299(uint32_t data_ready, uint32_t chip_select, uint32_t reset_pin, uint32_t start_pin, uint32_t power_down, ADS1299Settings* settings) {
         drdy = data_ready;
         cs = chip_select;
         rst = reset_pin;
@@ -132,6 +133,10 @@ public:
      * 
      */
     void end();
+
+private:
+    ADS1299Settings* eeg_settings;
+
 };
 
 // This let's us call into the class from within the library if necessary

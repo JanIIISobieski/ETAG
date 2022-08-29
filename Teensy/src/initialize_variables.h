@@ -114,7 +114,8 @@ NIRS nirs(NIRS_LEFT_BUTTON, NIRS_RIGHT_BUTTON, NIRS_SHORT_PRESS, NIRS_LONG_PRESS
 #define EEG_RST          22  // ADS1299 Reset pin
 #define EEG_START         9  // ADS1299 Start pin
 #define EEG_PWDN         23  // ADS1299 Power-Down pin
-ADS1299 eeg(EEG_DRDY, EEG_CS_PARENT, EEG_RST, EEG_START, EEG_PWDN);
+ADS1299Settings eeg_settings {};
+ADS1299 eeg(EEG_DRDY, EEG_CS_PARENT, EEG_RST, EEG_START, EEG_PWDN, &eeg_settings);
 //ADS1299 eeg2(EEG_DRDY, EEG_CS_SLAVE, EEG_RST, EEG_START, EEG_PWDN);
 
 #define EEG_BUFF_ID 8
@@ -125,7 +126,6 @@ static volatile uint8_t ads_buffer2[EEG_BUFFER_LENGTH];
 static volatile uint8_t ads_buffer3[EEG_BUFFER_LENGTH];
 static volatile uint8_t ads_buffer4[EEG_BUFFER_LENGTH];
 static volatile uint8_t* ads_buffers[EEG_BUFFER_NUM] = {ads_buffer1, ads_buffer2, ads_buffer3, ads_buffer4};
-ADS1299Settings eeg_settings {};
 EEGBuffer eeg_buffer(ads_buffers, EEG_BUFFER_NUM, EEG_BUFFER_LENGTH, EEG_BUFF_ID, &queue);
 
 // Pressure Buffer

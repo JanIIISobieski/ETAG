@@ -387,10 +387,10 @@ class VarPrinter {
         }
 
         void print_DeviceEnable_settings(DeviceEnable& settings) {
-            _serial->printf("%14s: %s\n", "IMU", (settings.fields).imu_enable ? "ENABLED" : "DISABLED");
-            _serial->printf("%14s: %s\n", "HYDROPHONE", (settings.fields).hydrophone_enable ? "ENABLED" : "DISABLED");
-            _serial->printf("%14s: %s\n", "EEG", (settings.fields).eeg_enable ? "ENABLED" : "DISABLED");
             _serial->printf("%14s: %s\n", "NIRS", (settings.fields).nirs_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "IMU", (settings.fields).imu_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "EEG", (settings.fields).eeg_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "HYDROPHONE", (settings.fields).hydrophone_enable ? "ENABLED" : "DISABLED");
             _serial->printf("%14s: %s\n", "BLUETOOTH_DEV", (settings.fields).bluetooth_sampling_enable ? "ENABLED" : "DISABLED");
         }
 };
