@@ -17,7 +17,7 @@ union ADS1299Settings {
         uint8_t loff_sensn { 0x00};
         uint8_t loff_flip { 0x00 };
         uint8_t misc1 { 0x00 };
-    } fields;
+    } fields {};  // the {} after fields is for the default initalization of fields
     uint8_t raw_bytes[sizeof(fields)];
 };
 

@@ -33,7 +33,7 @@ String ADS1299::initialize() {
     logger.print_message("Successful ADS reset");
 
     // For register map and settings see Datasheet, pg 44
-
+    /*
     wreg(CONFIG1,    (eeg_settings->fields).config1);    // 0x90 for 16 kSPS, 0x96 for 250 SPS. Incrementing from 0x90 by one halves the sampling rate, up to 0x96
     wreg(CONFIG2,    (eeg_settings->fields).config2);    // For testing purposes (CAL_AMP = 1, freq = fCLK/2^20)
     wreg(CONFIG3,    (eeg_settings->fields).config3);    // 0xEC for internal bias reference signal, E8 for no bias
@@ -52,6 +52,24 @@ String ADS1299::initialize() {
     wreg(LOFF_SENSN, (eeg_settings->fields).loff_sensn);
     wreg(LOFF_FLIP,  (eeg_settings->fields).loff_flip);
     wreg(MISC1,      (eeg_settings->fields).misc1);      // 0x20 for SRB1 as reference for all channels, 0x00 for no SRB1 reference to all channels
+    */
+   
+    wreg(CONFIG1, 0x96);    // 0x90 for 16 kSPS, 0x96 for 250 SPS. Incrementing from 0x90 by one halves the sampling rate, up to 0x96
+    wreg(CONFIG2, 0xD5);    // For testing purposes (CAL_AMP = 1, freq = fCLK/2^20)
+    wreg(CONFIG3, 0xE8);    // 0xEC for internal bias reference signal, E8 for no bias
+    wreg(BIAS_SENSP, 0x00); // 0xFF to add all channels to bias generation, 0x00 for none
+    wreg(BIAS_SENSN, 0x00);
+//    wreg(LOFF_SENSP, 0xFF); // 0xFF to enable lead-off detection on all channels
+    wreg(MISC1, 0x00);      // 0x20 for SRB1 as reference for all channels, 0x00 for no SRB1 reference to all channels
+//    wreg(CONFIG4, 0x02);    // 0x02 to turn on dc lead-off comparators
+    wreg(CH1SET, 0x65);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH2SET, 0x65);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH3SET, 0x65);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH4SET, 0x65);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH5SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH6SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH7SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH8SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
 
     output_count = 0;
     return "ADS1299 initalized";
