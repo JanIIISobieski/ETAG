@@ -66,9 +66,6 @@ public:
             buffer_trigger_count = 0;
             current_index = 0;
             this->num_buffers = num_buffers;
-            new_data = false;
-
-            data_buffer.data.terminator = '\n';
         }
 
     /**
@@ -173,11 +170,10 @@ private:
      */
 #pragma pack(push, 1)
     union DataBuffer {
-        uint8_t buffer[32];
+        uint8_t buffer[31];
         struct Data {
             volatile uint32_t time;
             volatile uint8_t data[27];
-            char terminator;
         } data;
     } data_buffer;
 #pragma pack(pop)

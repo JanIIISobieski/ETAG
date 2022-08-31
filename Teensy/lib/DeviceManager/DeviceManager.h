@@ -3,6 +3,9 @@
 #include <Arduino.h>
 #include "AbstractDevice.h"
 
+#include "Logger.h"
+extern Logger logger;
+
 /**
  * @brief This class manages all of the sampling devices
  * 
