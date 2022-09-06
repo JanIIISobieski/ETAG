@@ -77,6 +77,7 @@ void begin_sampling() {
     logger.print_message("Recieved Write Index");
 
     WriteManager.select_writer(writer_ind.as_type);
+    
     run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
     run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
     run_data.update_description(TagComms.readStringUntil('|', 120U));

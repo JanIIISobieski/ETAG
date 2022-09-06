@@ -14,9 +14,6 @@
 #include "AbstractDevice.h"
 #include "TagSettings.h"
 
-#include "Logger.h"
-extern Logger logger;
-
 /**
  * @brief Implements the interface to use with the ADS1299 chip for electroencephalography
  * 
@@ -85,9 +82,9 @@ public:
      * @brief Read the register at the specified address of the ADS1299 
      * 
      * @param address Address on the chip
-     * @return String the read value followed by a newline
+     * @return uint8_t the read value of the register
      */
-    String rreg(uint8_t address);
+    uint8_t rreg(uint8_t address);
 
     /**
      * @brief Write to the register at the specified address of the ADS1299
@@ -98,14 +95,6 @@ public:
      */
     String wreg(uint8_t address, uint8_t value);
     /***************************************************/
-
-    /**
-     * @brief Print the name of the register
-     * 
-     * @param address Name of register whose name to print
-     * @return String the name of the register
-     */
-    String print_reg_name(uint8_t address);
 
     /**
      * @brief Samples the ADS1299 and sends the data to the appropriate buffer: \ref channel_data

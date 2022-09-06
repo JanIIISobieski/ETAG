@@ -20,8 +20,6 @@ void ADS1299::setup(uint32_t _DRDY, uint32_t _CS) {
 
     // This sets dma_spi_finished function to be called at end of DMA SPI transfer
     
-    logger.print_message("In ADS1299::initalize()");
-    
     initialize();
 }
 
@@ -29,8 +27,6 @@ String ADS1299::initialize() {
     // recommended power up sequence requiers >Tpor (~32mS)
     delay(50);
     reset();                // reset the on-board ADS registers
-
-    logger.print_message("Successful ADS reset");
 
     // For register map and settings see Datasheet, pg 44
     /*
@@ -144,7 +140,7 @@ uint8_t ADS1299::get_id() {
     return data;
 }
 
-String ADS1299::rreg(uint8_t address) {
+uint8_t ADS1299::rreg(uint8_t address) {
     String return_value = "";
     uint8_t opcode1 = _RREG + address;  // 001rrrrr: _RREG = 00100000, adress = rrrrr
     spi_start(cs, ADS_SPI_settings);    // Start communication
@@ -154,20 +150,7 @@ String ADS1299::rreg(uint8_t address) {
     uint8_t data = SPI.transfer(0x00);  // returned byte should match default of register map unless edited manually
     SPI.transfer(_RDATAC);              // Restart data conversion
     spi_end(cs);                        // End communication
-
-    return_value = print_reg_name(address);
-    return_value += "0x";
-    if (address < 16) return_value += "0";
-    return_value += String(address, HEX);
-    return_value += ", 0x";
-    if (data < 16) return_value += "0";
-    return_value += String(data, HEX);
-    return_value += ", ";
-    for (uint8_t j = 0; j < 8; j++) {
-        return_value += String(bitRead(data, 7 - j), BIN);
-        if (j != 7) return_value += " ";
-    }
-    return (return_value += "\n");
+    return data;
 }
 
 String ADS1299::wreg(uint8_t address, uint8_t value) {
@@ -185,90 +168,7 @@ String ADS1299::wreg(uint8_t address, uint8_t value) {
     if (address < 16) return_value += "0";
     return_value += String(address, HEX);
 
-    logger.print_message(return_value);
-
     return (return_value += " modified.\n");
-}
-
-String ADS1299::print_reg_name(uint8_t address) {
-    String return_value;
-    switch (address) {
-        case EEG_ID:
-            return_value = "ID, ";
-            break;
-        case CONFIG1:
-            return_value = "CONFIG1, ";
-            break;
-        case CONFIG2:
-            return_value = "CONFIG2, ";
-            break;
-        case CONFIG3:
-            return_value = "CONFIG3, ";
-            break;
-        case LOFF:
-            return_value = "LOFF, ";
-            break;
-        case CH1SET:
-            return_value = "CH1SET, ";
-            break;
-        case CH2SET:
-            return_value = "CH2SET, ";
-            break;
-        case CH3SET:
-            return_value = "CH3SET, ";
-            break;
-        case CH4SET:
-            return_value = "CH4SET, ";
-            break;
-        case CH5SET:
-            return_value = "CH5SET, ";
-            break;
-        case CH6SET:
-            return_value = "CH6SET, ";
-            break;
-        case CH7SET:
-            return_value = "CH7SET, ";
-            break;
-        case CH8SET:
-            return_value = "CH8SET, ";
-            break;
-        case BIAS_SENSP:
-            return_value = "BIAS_SENSP, ";
-            break;
-        case BIAS_SENSN:
-            return_value = "BIAS_SENSN, ";
-            break;
-        case LOFF_SENSP:
-            return_value = "LOFF_SENSP, ";
-            break;
-        case LOFF_SENSN:
-            return_value = "LOFF_SENSN, ";
-            break;
-        case LOFF_FLIP:
-            return_value = "LOFF_FLIP, ";
-            break;
-        case LOFF_STATP:
-            return_value = "LOFF_STATP, ";
-            break;
-        case LOFF_STATN:
-            return_value = "LOFF_STATN, ";
-            break;
-        case GPIO:
-            return_value = "GPIO, ";
-            break;
-        case MISC1:
-            return_value = "MISC1, ";
-            break;
-        case MISC2:
-            return_value = "MISC2, ";
-            break;
-        case CONFIG4:
-            return_value = "CONFIG4, ";
-            break;
-        default:
-            break;
-    }
-    return return_value;
 }
 
 // This method moves the data out from the ADS1299 using standard SPI
@@ -314,8 +214,6 @@ void ADS1299::update_data() {
 }
 
 bool ADS1299::init() {
-    logger.print_message("In ADS1299 Initalization");
-
     pinMode(rst, OUTPUT);
     digitalWrite(rst, HIGH);
 
@@ -326,20 +224,17 @@ bool ADS1299::init() {
     pinMode(pwrdwn, OUTPUT);
     digitalWrite(pwrdwn, HIGH);
 
-    logger.print_message("Starting ADS1299 setup");
     setup(drdy, cs);
     
     return true;
 }
 
 void ADS1299::begin() {
-    logger.print_message("Starting ADS1299 Sampling");
     rdatac();
     start();
 }
 
 void ADS1299::end() {
-    logger.print_message("Stopping ADS1299 Sampling");
     stop();
     delay(1);
     sdatac();
