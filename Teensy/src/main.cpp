@@ -21,7 +21,7 @@ void loop() {
 #ifdef ETAG_DEBUG
     logger.update_timing_data(sampling_loop);
 #endif
-    read_val = TagComms.check_for_commands();
+    read_val = TagComms.check_for_commands();  // returns -1 if no commands are read
     sampling();
     if (read_val != -1) {
         command = (char)(read_val & 0xFF);
@@ -98,6 +98,7 @@ void begin_sampling() {
 #ifdef ETAG_DEBUG
     sampling_timer = 0;
 #endif
+
     logger.print_DeviceEnable_settings("Device Enable", device_settings);
     logger.print_ADC_settings("Hydrophone Settings", adc_settings);
 

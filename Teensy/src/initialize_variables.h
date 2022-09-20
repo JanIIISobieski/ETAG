@@ -193,8 +193,8 @@ TimingData imu_buffer_push{};
 TimingData speed_buffer_push{};
 TimingData pressure_buffer_push{};
 TimingData sampling_loop{};
-
 PrintTiming stopOnCompletionTimer{};
+
 #ifdef ETAG_DEBUG
-elapsedMillis sampling_timer;  // doesn't need to be initalized unless explicitly debugging
+elapsedMillis sampling_timer;  // shouldn't be initalized unless explicitly debugging
 #endif
