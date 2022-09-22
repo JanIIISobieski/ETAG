@@ -19,6 +19,7 @@
 #include "SpeedBuffer.h"
 #include "WriterManager.h"
 #include "BufferManager.h"
+#include "LinkedList.h"
 
 // Communication
 #define ACK 6
@@ -79,7 +80,8 @@ ADCBuffer hydrophone_buffer(adc_buffers, HYDROPHONE_BUFF_NUM, HYDROPHONE_BUFF_LE
 #define HYDROPHONE_AVG                  0
 #define HYRDOPHONE_RESOLUTION           12
 #define HYDROPHONE_SAMPLING_FREQUENCY   40000
-Tag_ADC hydrophone(HYDROPHONE_SAMPLING_PIN, HYDROPHONE_SAMPLING_FREQUENCY, HYDROPHONE_AVG, HYRDOPHONE_RESOLUTION, &hydrophone_buffer);
+ADCSettings adc_settings {};
+Tag_ADC hydrophone(HYDROPHONE_SAMPLING_PIN, &adc_settings, &hydrophone_buffer);
 
 // IMU
 #define MPU9250_ADDRESS MPU9250_ADDRESS_AD0
@@ -106,13 +108,15 @@ NIRS nirs(NIRS_LEFT_BUTTON, NIRS_RIGHT_BUTTON, NIRS_SHORT_PRESS, NIRS_LONG_PRESS
 
 // EEG
 #define EEG_DRDY         14  // ADS1299 Data Ready pin
-#define EEG_CS_PARENT     8  // ADS1299 Chip Select pin for master chip
-#define EEG_CS_CHILD     10 // ADS1299 Chip Select pin for slave chip
+#define EEG_CS_PARENT     8  // ADS1299 Chip Select pin for parent chip
+#define EEG_CS_CHILD     10 // ADS1299 Chip Select pin for child chip
 #define EEG_RST          22  // ADS1299 Reset pin
 #define EEG_START         9  // ADS1299 Start pin
 #define EEG_PWDN         23  // ADS1299 Power-Down pin
-ADS1299 eeg(EEG_DRDY, EEG_CS_PARENT, EEG_RST, EEG_START, EEG_PWDN);
-//ADS1299 eeg2(EEG_DRDY, EEG_CS_SLAVE, EEG_RST, EEG_START, EEG_PWDN);
+ADS1299Settings parent_eeg_settings {};
+ADS1299Settings child_eeg_settings {};
+ADS1299 eeg(EEG_DRDY, EEG_CS_PARENT, EEG_RST, EEG_START, EEG_PWDN, &parent_eeg_settings);
+//ADS1299 eeg2(EEG_DRDY, EEG_CS_CHILD, EEG_RST, EEG_START, EEG_PWDN, &child_eeg_settings);
 
 #define EEG_BUFF_ID 8
 #define EEG_BUFFER_LENGTH 8192
@@ -154,8 +158,8 @@ BufferManager buffer_manager(buffers, NUM_BUFFER_TYPES);
 // Device Manager
 #define NUM_DEVICES 5
 AbstractDevice* devices[NUM_DEVICES] = {&nirs, &IMU, &eeg, &hydrophone, &Tag_Bluetooth};
-bool device_start[NUM_DEVICES] = {false, false, true, false, false};
-DeviceManager deviceManager(devices, device_start, NUM_DEVICES);
+DeviceEnable device_settings {};
+DeviceManager deviceManager(devices, device_settings.raw_bytes, NUM_DEVICES);
 
 // Helpful Functions
 inline void sampling();
@@ -189,8 +193,8 @@ TimingData imu_buffer_push{};
 TimingData speed_buffer_push{};
 TimingData pressure_buffer_push{};
 TimingData sampling_loop{};
-
 PrintTiming stopOnCompletionTimer{};
+
 #ifdef ETAG_DEBUG
-elapsedMillis sampling_timer;  // doesn't need to be initalized unless explicitly debugging
+elapsedMillis sampling_timer;  // shouldn't be initalized unless explicitly debugging
 #endif

@@ -6,10 +6,14 @@
 #include "AbstractBuffer.h"
 #include "ArduinoJson.h"
 #include "SdFat.h"
+#include "TagSettings.h"
+#include "ADS1299.h"
 
 #define VARIABLE_TO_STRING(variable) (void(variable), #variable) // based on Stack Overflow https://stackoverflow.com/questions/3386861/converting-a-variable-name-to-a-string-in-c
                                                                  // comma operator runs the first operand AND discards result, and then evaluates the second operand and returns this value
                                                                  // this ensures that if the variable does not exist, the program will error
+
+#define NUM_ADS1299_Registers 24
 
 /**
  * @brief Structure to store the timing between various functions (filling buffers, main loop timing, etc.)
@@ -283,6 +287,48 @@ class VarPrinter {
             }
         }
 
+        /**
+         * @brief Print the settable registers for the ADS1299
+         * 
+         * @param var_name Name to call the ADS1299 Settings
+         * @param settings A pointer to the structure containing the settings
+         */
+        void print_ADS1299_settings(String var_name, ADS1299Settings& settings) {
+            if (ETAG_LOG_LEVEL) {
+                _serial->println(var_name);
+                print_ADS1299_settings(settings);
+                _serial->println();
+            }
+        }
+
+        /**
+         * @brief Print the settings for the hydrophone sampling
+         * 
+         * @param var_name The name to call the ADC settings
+         * @param settings The settings to print
+         */
+        void print_ADC_settings(String var_name, ADCSettings& settings) {
+            if (ETAG_LOG_LEVEL) {
+                _serial->println(var_name);
+                print_ADC_settings(settings);
+                _serial->println();
+            }
+        }
+
+        /**
+         * @brief Print the device enable settings for the tag
+         * 
+         * @param var_name The name to call the device settings
+         * @param settings 
+         */
+        void print_DeviceEnable_settings(String var_name, DeviceEnable& settings) {
+            if (ETAG_LOG_LEVEL) {
+                _serial->println("Device Settings");
+                print_DeviceEnable_settings(settings);
+                _serial->println();
+            }
+        }
+
     protected:
         Stream* _serial; /**< Pointer to Stream which is where these values will be printed to */
 
@@ -329,7 +375,128 @@ class VarPrinter {
 	        _serial->printf("SADDR:%x SOFF:%d ATTR:%x NBYTES:%x SLAST:%d DADDR:%x DOFF: %d CITER:%x DLASTSGA:%x CSR:%x BITER:%x\n", (uint32_t)dmabc->TCD->SADDR,
 		                    dmabc->TCD->SOFF, dmabc->TCD->ATTR, dmabc->TCD->NBYTES, dmabc->TCD->SLAST, (uint32_t)dmabc->TCD->DADDR, 
 		                    dmabc->TCD->DOFF, dmabc->TCD->CITER, dmabc->TCD->DLASTSGA, dmabc->TCD->CSR, dmabc->TCD->BITER);
-        }       
+        }
+
+        void print_ADS1299_settings(ADS1299Settings& settings) {
+            for (size_t i = 0; i < sizeof(ADS1299Settings); i++) {
+                _serial->printf("Mem: %5X, Val: %4d\n", i, (settings.raw_bytes)[i]);
+            }
+        }
+
+        void print_ADC_settings(ADCSettings& settings) {
+            _serial->printf("%11s: %d\n", "Frequency",  (settings.fields).frequency);
+            _serial->printf("%11s: %d\n", "Averaging",  (settings.fields).avg);
+            _serial->printf("%11s: %d\n", "Resolution", (settings.fields).resolution);
+        }
+
+        void print_DeviceEnable_settings(DeviceEnable& settings) {
+            _serial->printf("%14s: %s\n", "NIRS", (settings.fields).nirs_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "IMU", (settings.fields).imu_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "EEG", (settings.fields).eeg_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "HYDROPHONE", (settings.fields).hydrophone_enable ? "ENABLED" : "DISABLED");
+            _serial->printf("%14s: %s\n", "BLUETOOTH_DEV", (settings.fields).bluetooth_sampling_enable ? "ENABLED" : "DISABLED");
+        }
+
+        void read_and_print_all_EEG_registers(ADS1299& eeg) {
+            for (uint8_t i = 0; i < NUM_ADS1299_Registers; i++) {
+                read_and_print_EEG_register(eeg, i);
+            }
+        }
+
+        void read_and_print_EEG_register(ADS1299& eeg, uint8_t address) {
+            uint8_t val = eeg.rreg(address);
+            String reg_name = get_ADS1299_register_name(address);
+
+            String binarized = "";
+            for (uint8_t j = 0; j < 8; j++) {
+                binarized += String(bitRead(val, 7 - j), BIN);
+                if (j != 7) binarized += " ";
+            }
+
+            _serial->printf("%10s: %2X  %16s\n", reg_name, val, binarized);
+        }
+
+        String get_ADS1299_register_name(uint8_t address) {
+            String return_value;
+            switch (address) {
+                case 0x00:
+                    return_value = "ID";
+                    break;
+                case 0x01:
+                    return_value = "CONFIG1";
+                    break;
+                case 0x02:
+                    return_value = "CONFIG2";
+                    break;
+                case 0x03:
+                    return_value = "CONFIG3";
+                    break;
+                case 0x04:
+                    return_value = "LOFF";
+                    break;
+                case 0x05:
+                    return_value = "CH1SET";
+                    break;
+                case 0x06:
+                    return_value = "CH2SET";
+                    break;
+                case 0x07:
+                    return_value = "CH3SET";
+                    break;
+                case 0x08:
+                    return_value = "CH4SET";
+                    break;
+                case 0x09:
+                    return_value = "CH5SET";
+                    break;
+                case 0x0A:
+                    return_value = "CH6SET";
+                    break;
+                case 0x0B:
+                    return_value = "CH7SET";
+                    break;
+                case 0x0C:
+                    return_value = "CH8SET";
+                    break;
+                case 0x0D:
+                    return_value = "BIAS_SENSP";
+                    break;
+                case 0x0E:
+                    return_value = "BIAS_SENSN";
+                    break;
+                case 0x0F:
+                    return_value = "LOFF_SENSP";
+                    break;
+                case 0x10:
+                    return_value = "LOFF_SENSN";
+                    break;
+                case 0x11:
+                    return_value = "LOFF_FLIP";
+                    break;
+                case 0x12:
+                    return_value = "LOFF_STATP";
+                    break;
+                case 0x13:
+                    return_value = "LOFF_STATN";
+                    break;
+                case 0x14:
+                    return_value = "GPIO";
+                    break;
+                case 0x15:
+                    return_value = "MISC1";
+                    break;
+                case 0x16:
+                    return_value = "MISC2";
+                    break;
+                case 0x17:
+                    return_value = "CONFIG4";
+                    break;
+                default:
+                    break;
+            }
+            return return_value;
+        }
+
 };
 
 /**

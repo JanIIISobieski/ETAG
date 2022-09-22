@@ -13,6 +13,7 @@ void DeviceManager::initialize_devices() {
 }
 
 void DeviceManager::begin_sampling() {
+    logger.print_array("Device Start", device_start, length);
     for (size_t i = 0; i < length; i++) {
         if (device_start[i]) (*(device_ptr + i))->begin();
     }

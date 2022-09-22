@@ -12,9 +12,7 @@
 #include <SPI.h>
 #include "ADS1299_Definitions.h"
 #include "AbstractDevice.h"
-
-#include "Logger.h"
-extern Logger logger;
+#include "TagSettings.h"
 
 /**
  * @brief Implements the interface to use with the ADS1299 chip for electroencephalography
@@ -32,7 +30,7 @@ public:
      * @param start_pin The pin used for starting the ADS1299
      * @param power_down The pin used for powering down the ADS1299
      */
-    ADS1299(uint32_t data_ready, uint32_t chip_select, uint32_t reset_pin, uint32_t start_pin, uint32_t power_down) {
+    ADS1299(uint32_t data_ready, uint32_t chip_select, uint32_t reset_pin, uint32_t start_pin, uint32_t power_down, ADS1299Settings* settings) {
         drdy = data_ready;
         cs = chip_select;
         rst = reset_pin;
@@ -65,8 +63,8 @@ public:
     void send_command(uint8_t cmd); //*< Sends commands to the ADS1299, see ADS1299 documentation for what these are */
 
     /**** SPI Command Defintions (Datasheet, pg 40) ****/
-    void wakeup();      //**< Wake-up from standby mode */
-    void standby();     //**< Enter standby mode */
+    void wakeup();        //**< Wake-up from standby mode */
+    void standby();       //**< Enter standby mode */
     String reset();       //**< Reset the device */
     String start();       //**< Start and restart (synchronize) conversions */
     String stop();        //**< Stop conversion */
@@ -84,9 +82,9 @@ public:
      * @brief Read the register at the specified address of the ADS1299 
      * 
      * @param address Address on the chip
-     * @return String the read value followed by a newline
+     * @return uint8_t the read value of the register
      */
-    String rreg(uint8_t address);
+    uint8_t rreg(uint8_t address);
 
     /**
      * @brief Write to the register at the specified address of the ADS1299
@@ -97,14 +95,6 @@ public:
      */
     String wreg(uint8_t address, uint8_t value);
     /***************************************************/
-
-    /**
-     * @brief Print the name of the register
-     * 
-     * @param address Name of register whose name to print
-     * @return String the name of the register
-     */
-    String print_reg_name(uint8_t address);
 
     /**
      * @brief Samples the ADS1299 and sends the data to the appropriate buffer: \ref channel_data
@@ -132,9 +122,10 @@ public:
      * 
      */
     void end();
-};
 
-// This let's us call into the class from within the library if necessary
-extern ADS1299 eeg;
+private:
+    ADS1299Settings* eeg_settings;
+
+};
 
 #endif

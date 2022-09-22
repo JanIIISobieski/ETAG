@@ -19,14 +19,37 @@ void ADS1299::setup(uint32_t _DRDY, uint32_t _CS) {
     digitalWrite(cs, HIGH);
 
     // This sets dma_spi_finished function to be called at end of DMA SPI transfer
+    
     initialize();
 }
+
 String ADS1299::initialize() {
     // recommended power up sequence requiers >Tpor (~32mS)
     delay(50);
     reset();                // reset the on-board ADS registers
 
     // For register map and settings see Datasheet, pg 44
+    /*
+    wreg(CONFIG1,    (eeg_settings->fields).config1);    // 0x90 for 16 kSPS, 0x96 for 250 SPS. Incrementing from 0x90 by one halves the sampling rate, up to 0x96
+    wreg(CONFIG2,    (eeg_settings->fields).config2);    // For testing purposes (CAL_AMP = 1, freq = fCLK/2^20)
+    wreg(CONFIG3,    (eeg_settings->fields).config3);    // 0xEC for internal bias reference signal, E8 for no bias
+    wreg(LOFF,       (eeg_settings->fields).loff);
+    wreg(CH1SET,     ((eeg_settings->fields).chnset)[0]);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH2SET,     ((eeg_settings->fields).chnset)[1]);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH3SET,     ((eeg_settings->fields).chnset)[2]);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH4SET,     ((eeg_settings->fields).chnset)[3]);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH5SET,     ((eeg_settings->fields).chnset)[4]);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH6SET,     ((eeg_settings->fields).chnset)[5]);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH7SET,     ((eeg_settings->fields).chnset)[6]);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH8SET,     ((eeg_settings->fields).chnset)[7]);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(BIAS_SENSP, (eeg_settings->fields).bias_sensp); // 0xFF to add all channels to bias generation, 0x00 for none
+    wreg(BIAS_SENSN, (eeg_settings->fields).bias_sensn);
+    wreg(LOFF_SENSP, (eeg_settings->fields).loff_sensp); // 0xFF to enable lead-off detection on all channels
+    wreg(LOFF_SENSN, (eeg_settings->fields).loff_sensn);
+    wreg(LOFF_FLIP,  (eeg_settings->fields).loff_flip);
+    wreg(MISC1,      (eeg_settings->fields).misc1);      // 0x20 for SRB1 as reference for all channels, 0x00 for no SRB1 reference to all channels
+    */
+   
     wreg(CONFIG1, 0x96);    // 0x90 for 16 kSPS, 0x96 for 250 SPS. Incrementing from 0x90 by one halves the sampling rate, up to 0x96
     wreg(CONFIG2, 0xD5);    // For testing purposes (CAL_AMP = 1, freq = fCLK/2^20)
     wreg(CONFIG3, 0xE8);    // 0xEC for internal bias reference signal, E8 for no bias
@@ -43,18 +66,22 @@ String ADS1299::initialize() {
     wreg(CH6SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
     wreg(CH7SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
     wreg(CH8SET, 0x00);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+
     output_count = 0;
     return "ADS1299 initalized";
 }
+
 void ADS1299::spi_start(uint32_t _CS, SPISettings _SPI_settings) {
     SPI.beginTransaction(_SPI_settings);
     digitalWrite(_CS, LOW);  // Start communication
 }
+
 void ADS1299::spi_end(uint32_t _CS) {
     delayMicroseconds(2);    // This delay is necessary on the Teensy 4.0 in order to assure communication finished
     digitalWrite(_CS, HIGH); // End communication
     SPI.endTransaction();
 }
+
 void ADS1299::send_command(uint8_t cmd) {
     spi_start(cs, ADS_SPI_settings); // Start communication
     SPI.transfer(cmd);
@@ -66,18 +93,22 @@ void ADS1299::wakeup() {
     send_command(_WAKEUP);
     delayMicroseconds(3);   // must wait 4 tCLK cycles before sending another command (Datasheet, pg. 40)
 }
+
 void ADS1299::standby() {
     send_command(_STANDBY);
 }
+
 String ADS1299::reset() {
     send_command(_RESET);
     delayMicroseconds(10);  // must wait 18 tCLK cycles to execute this command (Datasheet, pg. 41)
     return "ADS1299 reset";
 }
+
 String ADS1299::start() {
     send_command(_START);
     return "ADS1299 data conversion started";
 }
+
 String ADS1299::stop() {
     send_command(_STOP);
     return "ADS1299 data conversion stopped";
@@ -87,10 +118,12 @@ String ADS1299::stop() {
 void ADS1299::rdatac() {
     send_command(_RDATAC);
 }
+
 void ADS1299::sdatac() {
     send_command(_SDATAC);
     delayMicroseconds(3);   // must wait 4 tCLK cycles before sending another command (Datasheet, pg. 42)
 }
+
 void ADS1299::rdata() {
     send_command(_RDATA);
 }
@@ -106,7 +139,8 @@ uint8_t ADS1299::get_id() {
     spi_end(cs);                        // End communication
     return data;
 }
-String ADS1299::rreg(uint8_t address) {
+
+uint8_t ADS1299::rreg(uint8_t address) {
     String return_value = "";
     uint8_t opcode1 = _RREG + address;  // 001rrrrr: _RREG = 00100000, adress = rrrrr
     spi_start(cs, ADS_SPI_settings);    // Start communication
@@ -116,21 +150,9 @@ String ADS1299::rreg(uint8_t address) {
     uint8_t data = SPI.transfer(0x00);  // returned byte should match default of register map unless edited manually
     SPI.transfer(_RDATAC);              // Restart data conversion
     spi_end(cs);                        // End communication
-
-    return_value = print_reg_name(address);
-    return_value += "0x";
-    if (address < 16) return_value += "0";
-    return_value += String(address, HEX);
-    return_value += ", 0x";
-    if (data < 16) return_value += "0";
-    return_value += String(data, HEX);
-    return_value += ", ";
-    for (uint8_t j = 0; j < 8; j++) {
-        return_value += String(bitRead(data, 7 - j), BIN);
-        if (j != 7) return_value += " ";
-    }
-    return (return_value += "\n");
+    return data;
 }
+
 String ADS1299::wreg(uint8_t address, uint8_t value) {
     String return_value = "";
     uint8_t opcode1 = _WREG + address;  // 010rrrrr: _WREG = 01000000, adress = rrrrr (address offset)
@@ -145,88 +167,8 @@ String ADS1299::wreg(uint8_t address, uint8_t value) {
     return_value = "Register 0x";
     if (address < 16) return_value += "0";
     return_value += String(address, HEX);
-    return (return_value += " modified.\n");
-}
 
-String ADS1299::print_reg_name(uint8_t address) {
-    String return_value;
-    switch (address) {
-        case EEG_ID:
-            return_value = "ID, ";
-            break;
-        case CONFIG1:
-            return_value = "CONFIG1, ";
-            break;
-        case CONFIG2:
-            return_value = "CONFIG2, ";
-            break;
-        case CONFIG3:
-            return_value = "CONFIG3, ";
-            break;
-        case LOFF:
-            return_value = "LOFF, ";
-            break;
-        case CH1SET:
-            return_value = "CH1SET, ";
-            break;
-        case CH2SET:
-            return_value = "CH2SET, ";
-            break;
-        case CH3SET:
-            return_value = "CH3SET, ";
-            break;
-        case CH4SET:
-            return_value = "CH4SET, ";
-            break;
-        case CH5SET:
-            return_value = "CH5SET, ";
-            break;
-        case CH6SET:
-            return_value = "CH6SET, ";
-            break;
-        case CH7SET:
-            return_value = "CH7SET, ";
-            break;
-        case CH8SET:
-            return_value = "CH8SET, ";
-            break;
-        case BIAS_SENSP:
-            return_value = "BIAS_SENSP, ";
-            break;
-        case BIAS_SENSN:
-            return_value = "BIAS_SENSN, ";
-            break;
-        case LOFF_SENSP:
-            return_value = "LOFF_SENSP, ";
-            break;
-        case LOFF_SENSN:
-            return_value = "LOFF_SENSN, ";
-            break;
-        case LOFF_FLIP:
-            return_value = "LOFF_FLIP, ";
-            break;
-        case LOFF_STATP:
-            return_value = "LOFF_STATP, ";
-            break;
-        case LOFF_STATN:
-            return_value = "LOFF_STATN, ";
-            break;
-        case GPIO:
-            return_value = "GPIO, ";
-            break;
-        case MISC1:
-            return_value = "MISC1, ";
-            break;
-        case MISC2:
-            return_value = "MISC2, ";
-            break;
-        case CONFIG4:
-            return_value = "CONFIG4, ";
-            break;
-        default:
-            break;
-    }
-    return return_value;
+    return (return_value += " modified.\n");
 }
 
 // This method moves the data out from the ADS1299 using standard SPI
@@ -272,8 +214,6 @@ void ADS1299::update_data() {
 }
 
 bool ADS1299::init() {
-    logger.print_message("In ADS1299 Initalization");
-
     pinMode(rst, OUTPUT);
     digitalWrite(rst, HIGH);
 
@@ -290,13 +230,11 @@ bool ADS1299::init() {
 }
 
 void ADS1299::begin() {
-    logger.print_message("Starting ADS1299 Sampling");
     rdatac();
     start();
 }
 
 void ADS1299::end() {
-    logger.print_message("Stopping ADS1299 Sampling");
     stop();
     delay(1);
     sdatac();

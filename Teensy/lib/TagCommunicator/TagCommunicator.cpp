@@ -29,6 +29,10 @@ uint8_t TagCommunicator::read_byte_from_active_port() {
     return (*(communicator_ptr + ID))->read();
 }
 
+size_t TagCommunicator::read(uint8_t* buffer, size_t len) {
+    return (*(communicator_ptr + ID))->read(buffer, len);
+}
+
 size_t TagCommunicator::write(uint8_t port, uint8_t byte) {
     return (*(communicator_ptr + port))->write(byte);
 }

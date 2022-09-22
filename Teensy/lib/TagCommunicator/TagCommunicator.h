@@ -59,6 +59,15 @@ class TagCommunicator {
         template <typename T>
         size_t read_type(ByteArray<T>& array);
 		
+        /**
+         * @brief Read a certain number of bytes into a buffer
+         * 
+         * @param buffer The pointer to the start of the buffer
+         * @param len The number of bytes to read
+         * @return size_t The number of bytes read
+         */
+        size_t read(uint8_t* buffer, size_t len);
+
         /** @brief Read data for the device settings over a SerialCommunicator
          * 
          * This function, like #read_type(), enforces waiting for the bytes. Will not return unless the bytes are read.

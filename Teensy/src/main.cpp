@@ -21,7 +21,7 @@ void loop() {
 #ifdef ETAG_DEBUG
     logger.update_timing_data(sampling_loop);
 #endif
-    read_val = TagComms.check_for_commands();
+    read_val = TagComms.check_for_commands();  // returns -1 if no commands are read
     sampling();
     if (read_val != -1) {
         command = (char)(read_val & 0xFF);
@@ -74,13 +74,18 @@ void begin_sampling() {
     ByteArray<uint8_t> writer_ind;
     TagComms.read_type(writer_ind);  //this read is blocking, unlike read() which will return -1 if there is no byte ready
 
+    logger.print_message("Recieved Write Index");
+
     WriteManager.select_writer(writer_ind.as_type);
+    
     run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
     run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
     run_data.update_description(TagComms.readStringUntil('|', 120U));
 
     run_data.update_datetime();
     run_data.update_imu_calibration(IMU);
+
+    logger.print_message("Updated run data");
 
     logger.reset_metadata();
     queue.reset();
@@ -93,7 +98,10 @@ void begin_sampling() {
 #ifdef ETAG_DEBUG
     sampling_timer = 0;
 #endif
-    logger.print_array("Device Enable", device_start, NUM_DEVICES);
+
+    logger.print_DeviceEnable_settings("Device Enable", device_settings);
+    logger.print_ADC_settings("Hydrophone Settings", adc_settings);
+
     logger.print_buffer_headers("Hydrophone", hydrophone_buffer.get_buffers(), HYDROPHONE_BUFF_NUM);
     logger.print_buffer_headers("IMU", imu_buffer.get_buffers(), IMU_BUFF_NUM);
     logger.print_buffer_headers("EEG", eeg_buffer.get_buffers(), EEG_BUFFER_NUM);
@@ -172,12 +180,22 @@ void delete_file() {
 }
 
 void update_parameters() {
-    delay(1);
+    logger.print_message("Updating params");
+    TagComms.read(parent_eeg_settings.raw_bytes, sizeof(ADS1299Settings));
+    TagComms.read(adc_settings.raw_bytes, sizeof(ADCSettings));
+    TagComms.read((uint8_t*)device_settings.raw_bytes, sizeof(DeviceEnable));
+
+    logger.print_ADS1299_settings("ADS Main Settings", parent_eeg_settings);
+    logger.print_ADC_settings("Hydrophone Settings", adc_settings);
+    logger.print_DeviceEnable_settings("Device Setting", device_settings);
 }
 
 void initalize_devices() {
     diskManager.init();
     deviceManager.initialize_devices();
+
+    logger.print_ADC_settings("ADC Settings", adc_settings);
+    logger.print_DeviceEnable_settings("Device Enable Settings", device_settings);
 }
 
 inline void forward_ESP32_logging() {
