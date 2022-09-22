@@ -103,6 +103,7 @@ void serialWriteSpin() {
     #ifdef DEBUG_OUTPUT
         Serial.print("LCurrent spin count: " + (String) spin + "\n");
     #endif
+    spin = 0;
 }
 
 void setWifiMode() {
