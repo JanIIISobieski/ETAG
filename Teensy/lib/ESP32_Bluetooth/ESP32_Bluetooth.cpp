@@ -94,7 +94,6 @@ bool ESP32_Bluetooth::sample_pressure_temperature() {
             pressure_temp_vals.tpt_struct.time = micros();
             read_type(pressure_temp_vals.tpt_struct.pressure);
             read_type(pressure_temp_vals.tpt_struct.temperature);
-            logger.print_array("PT", get_pressure_temperature(), 12);
             pressure_timer = 0;
             return true;
         } else return false;
