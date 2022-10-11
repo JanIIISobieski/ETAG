@@ -149,7 +149,7 @@ void test_sampling() {
 void update_files() {
     TagComms.write(ACK);
 
-    uint8_t num_files = diskManager.update_folder_num();
+    uint8_t num_files = diskManager.update_file_num();
 
     for (uint8_t i = 0; i < num_files; i++) {
         String folder_name = diskManager.get_filename(i);

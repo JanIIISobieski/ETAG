@@ -127,7 +127,7 @@ bool DiskManager::delete_file(uint8_t i) {
     return sd.remove(get_filename(i));
 }
 
-size_t DiskManager::update_folder_num() {
+size_t DiskManager::update_file_num() {
     logger.print_message("In update_folder_num()");
 
     // figure out how many directory files there are

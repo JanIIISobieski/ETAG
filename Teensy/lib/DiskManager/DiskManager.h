@@ -88,7 +88,7 @@ class DiskManager : public Writer {
          */
         void post_sampling_conclude();
 
-        size_t update_folder_num(); /**< @brief Gets the total number of files present */
+        size_t update_file_num(); /**< @brief Gets the total number of files present */
 
         /**
          * @brief Deletes the file at the ith index

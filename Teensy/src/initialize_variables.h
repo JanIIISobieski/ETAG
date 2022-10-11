@@ -162,19 +162,139 @@ DeviceEnable device_settings {};
 DeviceManager deviceManager(devices, device_settings.raw_bytes, NUM_DEVICES);
 
 // Helpful Functions
+
+/**
+ * @brief Function to handle sampling of devices
+ * 
+ * The devices whose code runs in this sampling loop are set to poll data, and thus run in the main loop.
+ * Other devices, such as the Hydrophone (using the ADC converter) or the EEG (ADS1299 library) sample based on
+ * interrupts defined in their corresponding begin() and end() methods for sampling as part of the \ref AbstractDevice class inheritance.
+ * This loop is also responsible for writing data to the corresponding writer (Bluetooth, USB, or SD card) once the \ref queue
+ */
 inline void sampling();
+
+/**
+ * @brief Starts the sampling of all the devices
+ * 
+ * This function performs several tasks:
+ *   #. Reads which writer (see \ref AbstractWriter) is going to be responsible for logging the data
+ *      0 -> Bluetooth, 1 -> USB, 2 -> SD card
+ *   #. Reads any of the additional metadata sent over the \ref TagCommunicator (animal name, animal species, description)
+ *   #. Updates the IMU calibration structure with last recorded data from the IMU
+ *   #. Resets the Queue (see \ref Tag_Queue) to the default, empty state
+ *   #. Resets each of the buffers to an empty state, with only the ID byte kept for each buffer
+ *   #. Runs the pre_sampling_setup routine for the used Writer (see \ref AbstractWriter)
+ *      For these routines, the SD card writing is the one that needs a pre-sampling routine to open a file
+ *      and then write to it.
+ */
 void begin_sampling();
+
+/**
+ * @brief Stops the sampling devices and does any post-sampling tasks
+ * 
+ * The post-sampling tasks are especially applicable for the SD card \ref Writer, as the file has
+ * to be closed and synced.
+ */
 void stop_sampling();
+
+/**
+ * @brief Function that will test the sampling and stream this data over Bluetooth.
+ * 
+ * Note that this function still has to be implemented.
+ * 
+ */
 void test_sampling();
-void upload_files();
+
+/**
+ * @brief This function updates the structures that hold the settings for each sampling device
+ * 
+ * note that this function only updates the structures for \ref ADCSettings, \ref ADS1299Settings,
+ * and \ref DeviceSettings. None of the devices get updated with the new settings though. For that,
+ * \ref initialize_devices() must be run. The data itself comes as a series of raw bytes. 
+ * 
+ */
 void update_parameters();
+
 void sync_time();
+
+/**
+ * @brief This function reads all the available files in the SD card root directory, and sends the file names over the \ref TagCommunicator
+ * 
+ * This function reads first the number of files present in the root directory (/) on the SD card, and then sends
+ * the filename. Thus, the sents results would look like this:
+ * 
+ * Sent to the Teensy |  File Index
+ * -------------------|:------------:
+ * Filename1.bin      |      0
+ * Filename2.bin      |      1
+ * Filename3.bin      |      2
+ * Filename4.bin      |      3
+ * 
+ * The File Index is what is sent over the \ref TagCommunicator to indicate on which file to do operations.
+ * The File Index is sent for \ref download_file, \ref delete_file to indicate which file to download or delete.
+ */
 void update_files();
+
+/**
+ * @brief Downloads a file from the tag to the computer
+ * 
+ * This function will read a file index from the serial line, and then
+ * call the appropriate \ref TagCommunicator to send the file. A file is sent
+ * in its entirety.
+ * 
+ */
 void download_files();
+
+/**
+ * @brief Initialize the sampling devices
+ * 
+ * Based on the device settings (see \ref DeviceEnable, \ref ADCSettings, \ref ADS1299Settings), the
+ * devices are initialized to prepare them for sampling. This function must be run each time
+ * \ref update_parameters() is run, as this function is actually responsible for updating each devices settings,
+ * unlike \ref update_parameters() which only reads the new settings but does not update the devices.
+ * 
+ */
 void initalize_devices();
+
+/**
+ * @brief This function will delete a file from the SD card, freeing up space
+ * 
+ * This function first reads a file index (the numerical position of the file from the root).
+ * Then, this file is deleted from the SD card.
+ * 
+ */
 void delete_file();
+
+/**
+ * @brief Turns on the NIRS system
+ * 
+ * Unfortunately, the Teensy does not currently track the state of the ESP32.
+ * Thus, this function only ever presses a button, but does not know when the ESP32 is actually on.
+ * 
+ */
 void nirs_on();
+
+/**
+ * @brief Turns off the NIRS system
+ * 
+ * Unfortunately, the Teensy does not currently track the state of the ESP32.
+ * Thus, this function only ever presses a button, but does not know when the ESP32 is actually off.
+ * 
+ */
 void nirs_off();
+
+/**
+ * @brief Forwards logging calls from ESP32 to the logger
+ * 
+ * All logging calls from the ESP32 are in the form of L[message]\n.
+ * Thus, when the command is L, the rest of the message will be read and sent to the logger.
+ * Additionally, thus function should not be relied upon too heavily. This solves the issue when
+ * a logging call comes in while the main() loop is happening. However, if a logging call occurs
+ * when the Teensy is currently expecting data, it will result in improper data bein written.
+ * I (Gabriel) think the only way of avoiding this is to seperate out another Serial line on the
+ * ESP32 to handle logging.
+ * 
+ */
 inline void forward_ESP32_logging();
 
 // Allow the logger to be initialized even in RELEASE mode, along with the summary
