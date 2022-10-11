@@ -72,7 +72,6 @@ void DiskManager::stop() {
 }
 
 void DiskManager::pre_sampling_setup() {
-    logger.print_message("In DiskManager Pre-Sampling");
     create_data_file();
 }
 
