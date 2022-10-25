@@ -16,7 +16,7 @@ union ADS1299Settings {
      * For full details, see the ADS1299 data sheet
      */
     struct ADSRegisters {
-        uint8_t config1 { 0x96 }; /**< Config 1 - Res | Daisy Chain (0) or Multiple Read Back (1) | Oscillator Clock Disabled (0) or Enabled (1) | 1 | 0 | Sampling Rate (000 for 16 kSPS, 001 for 8 kSPS, ... 110 for 250 SPS) */
+        uint8_t config1 { 0x96 }; /**< Config 1 - Res | Daisy Chain (0) or Multiple Read Back (1) | Oscillator Clock Disabled (0) or Enabled (1) | Res | Res | Sampling Rate (000 for 16 kSPS, 001 for 8 kSPS, ... 110 for 250 SPS) */
         uint8_t config2 { 0xC0 }; /**< Config 2 - */
         uint8_t config3 { 0x60 };
         uint8_t loff { 0x00 };
