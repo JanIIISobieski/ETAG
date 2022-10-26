@@ -1,0 +1,62 @@
+\hypertarget{quaternionFilters_8cpp}{}\doxysection{lib/quaternion\+Filters/quaternion\+Filters.cpp File Reference}
+\label{quaternionFilters_8cpp}\index{lib/quaternionFilters/quaternionFilters.cpp@{lib/quaternionFilters/quaternionFilters.cpp}}
+{\ttfamily \#include \char`\"{}quaternion\+Filters.\+h\char`\"{}}\newline
+Include dependency graph for quaternion\+Filters.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=190pt]{quaternionFilters_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{quaternionFilters_8cpp_a75bcee4b28157d51fa12c57a1a5d321a}{Kp}}~2.\+0f $\ast$ 5.\+0f
+\item 
+\#define \mbox{\hyperlink{quaternionFilters_8cpp_a6ccd383fe0d82309eac500d9bd3b825b}{Ki}}~0.\+0f
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{quaternionFilters_8cpp_a45f358545b60a727efbd48a6993bf5ec}{Madgwick\+Quaternion\+Update}} (float ax, float ay, float az, float gx, float gy, float gz, float mx, float my, float mz, float deltat)
+\item 
+void \mbox{\hyperlink{quaternionFilters_8cpp_a1b6638b3c389c0dd3fb85cfdaadda464}{Mahony\+Quaternion\+Update}} (float ax, float ay, float az, float gx, float gy, float gz, float mx, float my, float mz, float deltat)
+\item 
+const float $\ast$ \mbox{\hyperlink{quaternionFilters_8cpp_ad470cb40b327558dcd7438f3329205ab}{getQ}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{quaternionFilters_8cpp_a6ccd383fe0d82309eac500d9bd3b825b}\label{quaternionFilters_8cpp_a6ccd383fe0d82309eac500d9bd3b825b}} 
+\index{quaternionFilters.cpp@{quaternionFilters.cpp}!Ki@{Ki}}
+\index{Ki@{Ki}!quaternionFilters.cpp@{quaternionFilters.cpp}}
+\doxysubsubsection{\texorpdfstring{Ki}{Ki}}
+{\footnotesize\ttfamily \#define Ki~0.\+0f}
+
+\mbox{\Hypertarget{quaternionFilters_8cpp_a75bcee4b28157d51fa12c57a1a5d321a}\label{quaternionFilters_8cpp_a75bcee4b28157d51fa12c57a1a5d321a}} 
+\index{quaternionFilters.cpp@{quaternionFilters.cpp}!Kp@{Kp}}
+\index{Kp@{Kp}!quaternionFilters.cpp@{quaternionFilters.cpp}}
+\doxysubsubsection{\texorpdfstring{Kp}{Kp}}
+{\footnotesize\ttfamily \#define Kp~2.\+0f $\ast$ 5.\+0f}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{quaternionFilters_8cpp_ad470cb40b327558dcd7438f3329205ab}\label{quaternionFilters_8cpp_ad470cb40b327558dcd7438f3329205ab}} 
+\index{quaternionFilters.cpp@{quaternionFilters.cpp}!getQ@{getQ}}
+\index{getQ@{getQ}!quaternionFilters.cpp@{quaternionFilters.cpp}}
+\doxysubsubsection{\texorpdfstring{getQ()}{getQ()}}
+{\footnotesize\ttfamily const float$\ast$ getQ (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{quaternionFilters_8cpp_a45f358545b60a727efbd48a6993bf5ec}\label{quaternionFilters_8cpp_a45f358545b60a727efbd48a6993bf5ec}} 
+\index{quaternionFilters.cpp@{quaternionFilters.cpp}!MadgwickQuaternionUpdate@{MadgwickQuaternionUpdate}}
+\index{MadgwickQuaternionUpdate@{MadgwickQuaternionUpdate}!quaternionFilters.cpp@{quaternionFilters.cpp}}
+\doxysubsubsection{\texorpdfstring{MadgwickQuaternionUpdate()}{MadgwickQuaternionUpdate()}}
+{\footnotesize\ttfamily void Madgwick\+Quaternion\+Update (\begin{DoxyParamCaption}\item[{float}]{ax,  }\item[{float}]{ay,  }\item[{float}]{az,  }\item[{float}]{gx,  }\item[{float}]{gy,  }\item[{float}]{gz,  }\item[{float}]{mx,  }\item[{float}]{my,  }\item[{float}]{mz,  }\item[{float}]{deltat }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{quaternionFilters_8cpp_a1b6638b3c389c0dd3fb85cfdaadda464}\label{quaternionFilters_8cpp_a1b6638b3c389c0dd3fb85cfdaadda464}} 
+\index{quaternionFilters.cpp@{quaternionFilters.cpp}!MahonyQuaternionUpdate@{MahonyQuaternionUpdate}}
+\index{MahonyQuaternionUpdate@{MahonyQuaternionUpdate}!quaternionFilters.cpp@{quaternionFilters.cpp}}
+\doxysubsubsection{\texorpdfstring{MahonyQuaternionUpdate()}{MahonyQuaternionUpdate()}}
+{\footnotesize\ttfamily void Mahony\+Quaternion\+Update (\begin{DoxyParamCaption}\item[{float}]{ax,  }\item[{float}]{ay,  }\item[{float}]{az,  }\item[{float}]{gx,  }\item[{float}]{gy,  }\item[{float}]{gz,  }\item[{float}]{mx,  }\item[{float}]{my,  }\item[{float}]{mz,  }\item[{float}]{deltat }\end{DoxyParamCaption})}
+

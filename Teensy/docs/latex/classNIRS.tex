@@ -1,0 +1,204 @@
+\hypertarget{classNIRS}{}\doxysection{N\+I\+RS Class Reference}
+\label{classNIRS}\index{NIRS@{NIRS}}
+
+
+Implements the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} control.  
+
+
+
+
+{\ttfamily \#include $<$Tag\+\_\+\+N\+I\+R\+S.\+h$>$}
+
+
+
+Inheritance diagram for N\+I\+RS\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classNIRS__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for N\+I\+RS\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classNIRS__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNIRS_a7c400f007842b26cac3405f7de5cb5b2}{N\+I\+RS}} (uint8\+\_\+t left\+\_\+button\+\_\+pin, uint8\+\_\+t right\+\_\+button\+\_\+pin, unsigned long short\+\_\+time, unsigned long long\+\_\+time)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classNIRS}{N\+I\+RS}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNIRS_a36a88a923ae87e81af2c122d21203386}{turn\+\_\+on}} ()
+\begin{DoxyCompactList}\small\item\em Turn on the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNIRS_aab6143ff0384cb633a3db9c81e6a871c}{turn\+\_\+off}} ()
+\begin{DoxyCompactList}\small\item\em Turn off the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classNIRS_a7dca6431c9adfb4fb2957df2dba2f35d}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initalize the pins. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNIRS_a42f2dbbb15de68a0b84486c6ebc81a2f}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Begin the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} sampling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNIRS_a1bdf3266cff740679c110d8fc48f0185}{end}} ()
+\begin{DoxyCompactList}\small\item\em End the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} sampling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNIRS_a9eb274bb27141d23da9b88f3dedb9bc5}{create\+\_\+event\+\_\+timer}} (unsigned long duration, unsigned long period)
+\begin{DoxyCompactList}\small\item\em Create a event timer object, setting up how long to press the button and what the period of the button presses is. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNIRS_ad0fdddd66ccb97651074fa04e33ee1cb}{end\+\_\+event}} ()
+\begin{DoxyCompactList}\small\item\em Ends the event timer by setting the event\+\_\+period to 0. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNIRS_aa3a6a7e83059358c3f9599bd0f65229f}{start\+\_\+event}} (unsigned long period)
+\begin{DoxyCompactList}\small\item\em Start the button press for an event with a period between the events. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classNIRS_a610c6d0314f095318676773c58223135}{update\+\_\+event}} ()
+\begin{DoxyCompactList}\small\item\em Function to check if the pin state has to be updated. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} control. 
+
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNIRS_a7c400f007842b26cac3405f7de5cb5b2}\label{classNIRS_a7c400f007842b26cac3405f7de5cb5b2}} 
+\index{NIRS@{NIRS}!NIRS@{NIRS}}
+\index{NIRS@{NIRS}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{NIRS()}{NIRS()}}
+{\footnotesize\ttfamily N\+I\+R\+S\+::\+N\+I\+RS (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{left\+\_\+button\+\_\+pin,  }\item[{uint8\+\_\+t}]{right\+\_\+button\+\_\+pin,  }\item[{unsigned long}]{short\+\_\+time,  }\item[{unsigned long}]{long\+\_\+time }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classNIRS}{N\+I\+RS}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em left\+\_\+button\+\_\+pin} & Left button pin \\
+\hline
+{\em right\+\_\+button\+\_\+pin} & Right button pin \\
+\hline
+{\em short\+\_\+time} & The duration of a short button press \\
+\hline
+{\em long\+\_\+time} & The duration of a long button press \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNIRS_a42f2dbbb15de68a0b84486c6ebc81a2f}\label{classNIRS_a42f2dbbb15de68a0b84486c6ebc81a2f}} 
+\index{NIRS@{NIRS}!begin@{begin}}
+\index{begin@{begin}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Begin the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} sampling. 
+
+
+
+Implements \mbox{\hyperlink{classAbstractDevice_a89f4760b7a46e04ae41b624565c09517}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classNIRS_a9eb274bb27141d23da9b88f3dedb9bc5}\label{classNIRS_a9eb274bb27141d23da9b88f3dedb9bc5}} 
+\index{NIRS@{NIRS}!create\_event\_timer@{create\_event\_timer}}
+\index{create\_event\_timer@{create\_event\_timer}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{create\_event\_timer()}{create\_event\_timer()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+::create\+\_\+event\+\_\+timer (\begin{DoxyParamCaption}\item[{unsigned long}]{duration,  }\item[{unsigned long}]{period }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Create a event timer object, setting up how long to press the button and what the period of the button presses is. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em duration} & Duration of press \\
+\hline
+{\em period} & Period between presses \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNIRS_a1bdf3266cff740679c110d8fc48f0185}\label{classNIRS_a1bdf3266cff740679c110d8fc48f0185}} 
+\index{NIRS@{NIRS}!end@{end}}
+\index{end@{end}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+End the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} sampling. 
+
+
+
+Implements \mbox{\hyperlink{classAbstractDevice_a3be2e4a734196c00d317ed5bc19995c7}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classNIRS_ad0fdddd66ccb97651074fa04e33ee1cb}\label{classNIRS_ad0fdddd66ccb97651074fa04e33ee1cb}} 
+\index{NIRS@{NIRS}!end\_event@{end\_event}}
+\index{end\_event@{end\_event}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{end\_event()}{end\_event()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+::end\+\_\+event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Ends the event timer by setting the event\+\_\+period to 0. 
+
+\mbox{\Hypertarget{classNIRS_a7dca6431c9adfb4fb2957df2dba2f35d}\label{classNIRS_a7dca6431c9adfb4fb2957df2dba2f35d}} 
+\index{NIRS@{NIRS}!init@{init}}
+\index{init@{init}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool N\+I\+R\+S\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initalize the pins. 
+
+
+
+Implements \mbox{\hyperlink{classAbstractDevice_a79fcd0fd5b748a233fe9488195b080a0}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classNIRS_aa3a6a7e83059358c3f9599bd0f65229f}\label{classNIRS_aa3a6a7e83059358c3f9599bd0f65229f}} 
+\index{NIRS@{NIRS}!start\_event@{start\_event}}
+\index{start\_event@{start\_event}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{start\_event()}{start\_event()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+::start\+\_\+event (\begin{DoxyParamCaption}\item[{unsigned long}]{period }\end{DoxyParamCaption})}
+
+
+
+Start the button press for an event with a period between the events. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em period} & The duration of time between button presses \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classNIRS_aab6143ff0384cb633a3db9c81e6a871c}\label{classNIRS_aab6143ff0384cb633a3db9c81e6a871c}} 
+\index{NIRS@{NIRS}!turn\_off@{turn\_off}}
+\index{turn\_off@{turn\_off}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{turn\_off()}{turn\_off()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+::turn\+\_\+off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turn off the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system. 
+
+\mbox{\Hypertarget{classNIRS_a36a88a923ae87e81af2c122d21203386}\label{classNIRS_a36a88a923ae87e81af2c122d21203386}} 
+\index{NIRS@{NIRS}!turn\_on@{turn\_on}}
+\index{turn\_on@{turn\_on}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{turn\_on()}{turn\_on()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+::turn\+\_\+on (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turn on the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system. 
+
+\mbox{\Hypertarget{classNIRS_a610c6d0314f095318676773c58223135}\label{classNIRS_a610c6d0314f095318676773c58223135}} 
+\index{NIRS@{NIRS}!update\_event@{update\_event}}
+\index{update\_event@{update\_event}!NIRS@{NIRS}}
+\doxysubsubsection{\texorpdfstring{update\_event()}{update\_event()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+::update\+\_\+event (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function to check if the pin state has to be updated. 
+
+The button press occurs at regular intervals only if the event timer is greater than 0. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Tag\+\_\+\+N\+I\+R\+S/\mbox{\hyperlink{Tag__NIRS_8h}{Tag\+\_\+\+N\+I\+R\+S.\+h}}\item 
+lib/\+Tag\+\_\+\+N\+I\+R\+S/\mbox{\hyperlink{Tag__NIRS_8cpp}{Tag\+\_\+\+N\+I\+R\+S.\+cpp}}\end{DoxyCompactItemize}

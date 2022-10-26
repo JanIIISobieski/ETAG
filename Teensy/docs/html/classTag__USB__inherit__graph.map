@@ -1,0 +1,5 @@
+<map id="Tag_USB" name="Tag_USB">
+<area shape="rect" id="node1" title=" " alt="" coords="97,80,176,107"/>
+<area shape="rect" id="node2" href="$classSerialCommunicator.html" title="This abstract class establishes the interface for serial communication." alt="" coords="5,5,145,32"/>
+<area shape="rect" id="node3" href="$classWriter.html" title=" " alt="" coords="170,5,226,32"/>
+</map>

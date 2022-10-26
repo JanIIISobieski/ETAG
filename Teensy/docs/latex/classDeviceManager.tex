@@ -1,0 +1,88 @@
+\hypertarget{classDeviceManager}{}\doxysection{Device\+Manager Class Reference}
+\label{classDeviceManager}\index{DeviceManager@{DeviceManager}}
+
+
+This class manages all of the sampling devices.  
+
+
+
+
+{\ttfamily \#include $<$Device\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDeviceManager_ab9c00ca61b7d9afc55edacfcae1a8954}{Device\+Manager}} (\mbox{\hyperlink{classAbstractDevice}{Abstract\+Device}} $\ast$$\ast$ptr, bool $\ast$device\+\_\+bool, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Construct a new Device Manager object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDeviceManager_a6871cebd16aa43b9ac5e4ee70d1a6a06}{initialize\+\_\+devices}} ()
+\begin{DoxyCompactList}\small\item\em Calls each device\textquotesingle{}s init() method. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDeviceManager_a1d94326d6d1249025ffdca83a782cdbc}{begin\+\_\+sampling}} ()
+\begin{DoxyCompactList}\small\item\em Calls the begin() methods of each device that has a true in the bool array. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDeviceManager_a92dcb2189d4bce49c34eb30392d1f67e}{end\+\_\+sampling}} ()
+\begin{DoxyCompactList}\small\item\em Calls the end() methods of each device that has a true in the bool array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This class manages all of the sampling devices. 
+
+This class calls each device\textquotesingle{}s init(), while begin(), end() only if the corresponding device\+\_\+start boolean is true. This allows for only starting select devices. This also results in shorter code for the main function, as only this class\textquotesingle{}s methods must be called to maintain all of the devices. All chips are initalized no matter the state of the bool array. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDeviceManager_ab9c00ca61b7d9afc55edacfcae1a8954}\label{classDeviceManager_ab9c00ca61b7d9afc55edacfcae1a8954}} 
+\index{DeviceManager@{DeviceManager}!DeviceManager@{DeviceManager}}
+\index{DeviceManager@{DeviceManager}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{DeviceManager()}{DeviceManager()}}
+{\footnotesize\ttfamily Device\+Manager\+::\+Device\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classAbstractDevice}{Abstract\+Device}} $\ast$$\ast$}]{ptr,  }\item[{bool $\ast$}]{device\+\_\+bool,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Construct a new Device Manager object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ptr} & A pointer to an array of pointers to Abstract\+Devices \\
+\hline
+{\em device\+\_\+bool} & A pointer to an array of booleans of the same length as the array pointed to by ptr, true indicating to sample the device, false indicating to not sample \\
+\hline
+{\em len} & The lengths of the arrays pointed to by ptr and device\+\_\+bool \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDeviceManager_a1d94326d6d1249025ffdca83a782cdbc}\label{classDeviceManager_a1d94326d6d1249025ffdca83a782cdbc}} 
+\index{DeviceManager@{DeviceManager}!begin\_sampling@{begin\_sampling}}
+\index{begin\_sampling@{begin\_sampling}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{begin\_sampling()}{begin\_sampling()}}
+{\footnotesize\ttfamily void Device\+Manager\+::begin\+\_\+sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calls the begin() methods of each device that has a true in the bool array. 
+
+\mbox{\Hypertarget{classDeviceManager_a92dcb2189d4bce49c34eb30392d1f67e}\label{classDeviceManager_a92dcb2189d4bce49c34eb30392d1f67e}} 
+\index{DeviceManager@{DeviceManager}!end\_sampling@{end\_sampling}}
+\index{end\_sampling@{end\_sampling}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{end\_sampling()}{end\_sampling()}}
+{\footnotesize\ttfamily void Device\+Manager\+::end\+\_\+sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calls the end() methods of each device that has a true in the bool array. 
+
+\mbox{\Hypertarget{classDeviceManager_a6871cebd16aa43b9ac5e4ee70d1a6a06}\label{classDeviceManager_a6871cebd16aa43b9ac5e4ee70d1a6a06}} 
+\index{DeviceManager@{DeviceManager}!initialize\_devices@{initialize\_devices}}
+\index{initialize\_devices@{initialize\_devices}!DeviceManager@{DeviceManager}}
+\doxysubsubsection{\texorpdfstring{initialize\_devices()}{initialize\_devices()}}
+{\footnotesize\ttfamily void Device\+Manager\+::initialize\+\_\+devices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Calls each device\textquotesingle{}s init() method. 
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Device\+Manager/\mbox{\hyperlink{DeviceManager_8h}{Device\+Manager.\+h}}\item 
+lib/\+Device\+Manager/\mbox{\hyperlink{DeviceManager_8cpp}{Device\+Manager.\+cpp}}\end{DoxyCompactItemize}

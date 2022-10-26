@@ -1,0 +1,313 @@
+\hypertarget{classADCBuffer}{}\doxysection{A\+D\+C\+Buffer Class Reference}
+\label{classADCBuffer}\index{ADCBuffer@{ADCBuffer}}
+
+
+\mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} class for managing sampling of pins.  
+
+
+
+
+{\ttfamily \#include $<$A\+D\+C\+Buffer.\+h$>$}
+
+
+
+Inheritance diagram for A\+D\+C\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classADCBuffer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for A\+D\+C\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classADCBuffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classADCBuffer_a36cd4e941d74e4d48e6c798fafba374a}{process\+A\+D\+C\+\_\+\+D\+M\+A\+I\+SR}} ()
+\begin{DoxyCompactList}\small\item\em Process the D\+MA completion I\+SR. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classADCBuffer_a75a5ad50646d35d26af0cace965be548}{A\+D\+C\+Buffer}} (volatile uint16\+\_\+t $\ast$$\ast$\mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}}, size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}, size\+\_\+t length\+\_\+buffers, uint8\+\_\+t \mbox{\hyperlink{Test__Tag__ADC_8h_a1e6927fa1486224044e568f9c370519b}{id}}, \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classADCBuffer_a03c3232a06daf313af09a001d6cd775a}{init}} (A\+DC $\ast$\mbox{\hyperlink{Test__Tag__ADC_8h_adfc4cf75de73dc229c45303c75fc1178}{adc}}, int8\+\_\+t \mbox{\hyperlink{classADCBuffer_a760296805ea2004c47210e55e4703f29}{adc\+\_\+num}}=-\/1)
+\begin{DoxyCompactList}\small\item\em Initialize the object including setup of the D\+MA structures. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classADCBuffer_a2bb53a89c61c52c06d3418019a40b474}{begin}} ()
+\begin{DoxyCompactList}\small\item\em The method to call beginning sampling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classADCBuffer_a93eb8c112a9e60815bc02300bfc0326a}{end}} ()
+\begin{DoxyCompactList}\small\item\em The method to call for ending sampling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classADCBuffer_a20587b595a0505c1c2ba76544b2e54b5}{stop\+On\+Completion}} (bool stop\+\_\+on\+\_\+complete)
+\begin{DoxyCompactList}\small\item\em allows for stopping when a D\+MA buffer has completed filling \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classADCBuffer_a7d22db92ea9f4127f2725c237b892fae}{stop\+On\+Completion}} (void)
+\begin{DoxyCompactList}\small\item\em Getter method for stop on completion. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classADCBuffer_af2a56960b615ded33582d95a91a7f01f}{clear\+Completion}} ()
+\begin{DoxyCompactList}\small\item\em if we have stop on completion, then clear the completion state i.\+e. reenable the D\+MA operation. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classADCBuffer_a57fcb4d574d32308ac504bd4558ec41b}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the buffers to their default state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classADCBuffer_aa6c36dd031f918402889f60460a9c095}{get\+\_\+trigger\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Get the trigger count object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classADCBuffer_aa5b60521edb4ff4fdbcf9b8c10970625}{adc\+\_\+0\+\_\+dma\+I\+SR}} ()
+\begin{DoxyCompactList}\small\item\em Called for first A\+DC when D\+MA has completed filling a buffer. \end{DoxyCompactList}\item 
+static void \mbox{\hyperlink{classADCBuffer_a870e1038ec157f022b466e7450ac85bd}{adc\+\_\+1\+\_\+dma\+I\+SR}} ()
+\begin{DoxyCompactList}\small\item\em Used for processors that have a second A\+DC object (such as the Teensy 4) \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+D\+M\+A\+Setting \mbox{\hyperlink{classADCBuffer_a5b578fe45abdb437b48e318d7f6dfa45}{\+\_\+dmasettings\+\_\+adc}} \mbox{[}2\mbox{]}
+\item 
+D\+M\+A\+Channel \mbox{\hyperlink{classADCBuffer_a4e8c54f0b6685182c72742550e0345a4}{\+\_\+dmachannel\+\_\+adc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} $\ast$ \mbox{\hyperlink{classADCBuffer_a14d7dc19304392c86e3ffb6f3c92042b}{\+\_\+active\+Object\+Per\+A\+DC}} \mbox{[}2\mbox{]} = \{nullptr, nullptr\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classADCBuffer_a75f714da17777c31452b59480a70ea44}{reset\+\_\+buffer}} (volatile \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ uint16\+\_\+t $>$ $\ast$buff)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+bool \mbox{\hyperlink{classADCBuffer_a4779034bc5771199124d88a38220f6ed}{\+\_\+stop\+\_\+on\+\_\+completion}} = false
+\item 
+\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$ \mbox{\hyperlink{classADCBuffer_aef7937cdd0bdd4d9274a067b2cad2184}{\+\_\+queue}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{classADCBuffer_a760296805ea2004c47210e55e4703f29}{adc\+\_\+num}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} class for managing sampling of pins. 
+
+This class is related to Analog\+D\+M\+A\+Buffer by Pedro Villanueva. It was simplified and edited to work with the interface needed for this project. Importantly, this framework for high speed sampling of the A\+DC allows for using an interrupt to trigger a D\+MA transfer from an A\+DC register to the buffer, and once one buffer fills up, send it to the Queue (through an interrupt process that triggers once a buffer is filled), while also setting up the next buffer to be ready to take in data (to minimize downtime). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classADCBuffer_a75a5ad50646d35d26af0cace965be548}\label{classADCBuffer_a75a5ad50646d35d26af0cace965be548}} 
+\index{ADCBuffer@{ADCBuffer}!ADCBuffer@{ADCBuffer}}
+\index{ADCBuffer@{ADCBuffer}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{ADCBuffer()}{ADCBuffer()}}
+{\footnotesize\ttfamily A\+D\+C\+Buffer\+::\+A\+D\+C\+Buffer (\begin{DoxyParamCaption}\item[{volatile uint16\+\_\+t $\ast$$\ast$}]{buffers,  }\item[{size\+\_\+t}]{num\+\_\+buffers,  }\item[{size\+\_\+t}]{length\+\_\+buffers,  }\item[{uint8\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} object. 
+
+This class implements \mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}} and uses it to set up the buffers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffers} & A pointer to an array containing pointers to buffers \\
+\hline
+{\em num\+\_\+buffers} & The number of buffers (length of the \mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}} array) \\
+\hline
+{\em length\+\_\+buffers} & The lengths of each array in \mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}} \\
+\hline
+{\em id} & Sets the idnetification bytes for each buffer \\
+\hline
+{\em queue} & Defines the queue object into which the pointers of the filled buffers will be sent \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classADCBuffer_aa5b60521edb4ff4fdbcf9b8c10970625}\label{classADCBuffer_aa5b60521edb4ff4fdbcf9b8c10970625}} 
+\index{ADCBuffer@{ADCBuffer}!adc\_0\_dmaISR@{adc\_0\_dmaISR}}
+\index{adc\_0\_dmaISR@{adc\_0\_dmaISR}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{adc\_0\_dmaISR()}{adc\_0\_dmaISR()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer\+::adc\+\_\+0\+\_\+dma\+I\+SR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Called for first A\+DC when D\+MA has completed filling a buffer. 
+
+Note that the asm(\char`\"{}\+D\+S\+B\char`\"{}) is a data synchronization assembly command \mbox{\Hypertarget{classADCBuffer_a870e1038ec157f022b466e7450ac85bd}\label{classADCBuffer_a870e1038ec157f022b466e7450ac85bd}} 
+\index{ADCBuffer@{ADCBuffer}!adc\_1\_dmaISR@{adc\_1\_dmaISR}}
+\index{adc\_1\_dmaISR@{adc\_1\_dmaISR}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{adc\_1\_dmaISR()}{adc\_1\_dmaISR()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer\+::adc\+\_\+1\+\_\+dma\+I\+SR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+
+
+Used for processors that have a second A\+DC object (such as the Teensy 4) 
+
+Note that the asm(\char`\"{}\+D\+S\+B\char`\"{}) is a data synchronization assembly command \mbox{\Hypertarget{classADCBuffer_a2bb53a89c61c52c06d3418019a40b474}\label{classADCBuffer_a2bb53a89c61c52c06d3418019a40b474}} 
+\index{ADCBuffer@{ADCBuffer}!begin@{begin}}
+\index{begin@{begin}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The method to call beginning sampling. 
+
+This method attaches the interrupts and triggering of the buffers \mbox{\Hypertarget{classADCBuffer_af2a56960b615ded33582d95a91a7f01f}\label{classADCBuffer_af2a56960b615ded33582d95a91a7f01f}} 
+\index{ADCBuffer@{ADCBuffer}!clearCompletion@{clearCompletion}}
+\index{clearCompletion@{clearCompletion}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{clearCompletion()}{clearCompletion()}}
+{\footnotesize\ttfamily bool A\+D\+C\+Buffer\+::clear\+Completion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+if we have stop on completion, then clear the completion state i.\+e. reenable the D\+MA operation. 
+
+\begin{DoxyReturn}{Returns}
+true if D\+MA channel has been re-\/enabled 
+
+false if the D\+MA channel has not been re-\/enabled (or stop\+\_\+on\+\_\+completion was false) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classADCBuffer_a93eb8c112a9e60815bc02300bfc0326a}\label{classADCBuffer_a93eb8c112a9e60815bc02300bfc0326a}} 
+\index{ADCBuffer@{ADCBuffer}!end@{end}}
+\index{end@{end}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+The method to call for ending sampling. 
+
+This method detaches the interrupts and stops the D\+M\+A\+\_\+\+M\+UX after a buffer is filled (at 500k\+Hz, this would take at most 8 ms, at 40k\+Hz, this would take about 102 ms). \mbox{\Hypertarget{classADCBuffer_aa6c36dd031f918402889f60460a9c095}\label{classADCBuffer_aa6c36dd031f918402889f60460a9c095}} 
+\index{ADCBuffer@{ADCBuffer}!get\_trigger\_count@{get\_trigger\_count}}
+\index{get\_trigger\_count@{get\_trigger\_count}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_trigger\_count()}{get\_trigger\_count()}}
+{\footnotesize\ttfamily uint8\+\_\+t A\+D\+C\+Buffer\+::get\+\_\+trigger\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the trigger count object. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t The number of times a buffer was enqued on the queue from this class 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classADCBuffer_a03c3232a06daf313af09a001d6cd775a}\label{classADCBuffer_a03c3232a06daf313af09a001d6cd775a}} 
+\index{ADCBuffer@{ADCBuffer}!init@{init}}
+\index{init@{init}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer\+::init (\begin{DoxyParamCaption}\item[{A\+DC $\ast$}]{adc,  }\item[{int8\+\_\+t}]{adc\+\_\+num = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+
+
+Initialize the object including setup of the D\+MA structures. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em adc} & A pointer to an A\+DC object \\
+\hline
+{\em adc\+\_\+num} & The register of the A\+DC to use \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classADCBuffer_a36cd4e941d74e4d48e6c798fafba374a}\label{classADCBuffer_a36cd4e941d74e4d48e6c798fafba374a}} 
+\index{ADCBuffer@{ADCBuffer}!processADC\_DMAISR@{processADC\_DMAISR}}
+\index{processADC\_DMAISR@{processADC\_DMAISR}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{processADC\_DMAISR()}{processADC\_DMAISR()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer\+::process\+A\+D\+C\+\_\+\+D\+M\+A\+I\+SR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Process the D\+MA completion I\+SR. 
+
+Common for both I\+S\+Rs on those processors who have more than one A\+DC \mbox{\Hypertarget{classADCBuffer_a57fcb4d574d32308ac504bd4558ec41b}\label{classADCBuffer_a57fcb4d574d32308ac504bd4558ec41b}} 
+\index{ADCBuffer@{ADCBuffer}!reset@{reset}}
+\index{reset@{reset}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Resets the buffers to their default state. 
+
+The ID byte remains the same, but the count and times get reset to 0, and the data is reset as well 
+
+Implements \mbox{\hyperlink{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}{Buffer\+Base}}.
+
+\mbox{\Hypertarget{classADCBuffer_a75f714da17777c31452b59480a70ea44}\label{classADCBuffer_a75f714da17777c31452b59480a70ea44}} 
+\index{ADCBuffer@{ADCBuffer}!reset\_buffer@{reset\_buffer}}
+\index{reset\_buffer@{reset\_buffer}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{reset\_buffer()}{reset\_buffer()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer\+::reset\+\_\+buffer (\begin{DoxyParamCaption}\item[{volatile \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ uint16\+\_\+t $>$ $\ast$}]{buff }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+An array of \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}} objects to refernce the saved buffers \mbox{\Hypertarget{classADCBuffer_a20587b595a0505c1c2ba76544b2e54b5}\label{classADCBuffer_a20587b595a0505c1c2ba76544b2e54b5}} 
+\index{ADCBuffer@{ADCBuffer}!stopOnCompletion@{stopOnCompletion}}
+\index{stopOnCompletion@{stopOnCompletion}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{stopOnCompletion()}{stopOnCompletion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer\+::stop\+On\+Completion (\begin{DoxyParamCaption}\item[{bool}]{stop\+\_\+on\+\_\+complete }\end{DoxyParamCaption})}
+
+
+
+allows for stopping when a D\+MA buffer has completed filling 
+
+Defaults to true when only 1 buffer passed into this class, otherwise to false
+
+
+\begin{DoxyParams}{Parameters}
+{\em stop\+\_\+on\+\_\+complete} & if true, then stopped on buffer completion, otherwise false \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classADCBuffer_a7d22db92ea9f4127f2725c237b892fae}\label{classADCBuffer_a7d22db92ea9f4127f2725c237b892fae}} 
+\index{ADCBuffer@{ADCBuffer}!stopOnCompletion@{stopOnCompletion}}
+\index{stopOnCompletion@{stopOnCompletion}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{stopOnCompletion()}{stopOnCompletion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily bool A\+D\+C\+Buffer\+::stop\+On\+Completion (\begin{DoxyParamCaption}\item[{void}]{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Getter method for stop on completion. 
+
+\begin{DoxyReturn}{Returns}
+true if the sampling it to stop after filling a buffer 
+
+false if the sampling is to continue after filling a buffer 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classADCBuffer_a14d7dc19304392c86e3ffb6f3c92042b}\label{classADCBuffer_a14d7dc19304392c86e3ffb6f3c92042b}} 
+\index{ADCBuffer@{ADCBuffer}!\_activeObjectPerADC@{\_activeObjectPerADC}}
+\index{\_activeObjectPerADC@{\_activeObjectPerADC}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{\_activeObjectPerADC}{\_activeObjectPerADC}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} $\ast$ A\+D\+C\+Buffer\+::\+\_\+active\+Object\+Per\+A\+DC = \{nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [static]}}
+
+Allows for global variable to be used for interrupt \mbox{\Hypertarget{classADCBuffer_a4e8c54f0b6685182c72742550e0345a4}\label{classADCBuffer_a4e8c54f0b6685182c72742550e0345a4}} 
+\index{ADCBuffer@{ADCBuffer}!\_dmachannel\_adc@{\_dmachannel\_adc}}
+\index{\_dmachannel\_adc@{\_dmachannel\_adc}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{\_dmachannel\_adc}{\_dmachannel\_adc}}
+{\footnotesize\ttfamily D\+M\+A\+Channel A\+D\+C\+Buffer\+::\+\_\+dmachannel\+\_\+adc}
+
+Allows for setting the source, destination, and interrupt scheme for a D\+MA channel \mbox{\Hypertarget{classADCBuffer_a5b578fe45abdb437b48e318d7f6dfa45}\label{classADCBuffer_a5b578fe45abdb437b48e318d7f6dfa45}} 
+\index{ADCBuffer@{ADCBuffer}!\_dmasettings\_adc@{\_dmasettings\_adc}}
+\index{\_dmasettings\_adc@{\_dmasettings\_adc}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{\_dmasettings\_adc}{\_dmasettings\_adc}}
+{\footnotesize\ttfamily D\+M\+A\+Setting A\+D\+C\+Buffer\+::\+\_\+dmasettings\+\_\+adc\mbox{[}2\mbox{]}}
+
+Array to store the settings for each buffer \mbox{\Hypertarget{classADCBuffer_aef7937cdd0bdd4d9274a067b2cad2184}\label{classADCBuffer_aef7937cdd0bdd4d9274a067b2cad2184}} 
+\index{ADCBuffer@{ADCBuffer}!\_queue@{\_queue}}
+\index{\_queue@{\_queue}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{\_queue}{\_queue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}}$\ast$ A\+D\+C\+Buffer\+::\+\_\+queue\hspace{0.3cm}{\ttfamily [protected]}}
+
+A pointer to the queue responsible for sending data to the SD card \mbox{\Hypertarget{classADCBuffer_a4779034bc5771199124d88a38220f6ed}\label{classADCBuffer_a4779034bc5771199124d88a38220f6ed}} 
+\index{ADCBuffer@{ADCBuffer}!\_stop\_on\_completion@{\_stop\_on\_completion}}
+\index{\_stop\_on\_completion@{\_stop\_on\_completion}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{\_stop\_on\_completion}{\_stop\_on\_completion}}
+{\footnotesize\ttfamily bool A\+D\+C\+Buffer\+::\+\_\+stop\+\_\+on\+\_\+completion = false\hspace{0.3cm}{\ttfamily [protected]}}
+
+The flag for stopping on completion \mbox{\Hypertarget{classADCBuffer_a760296805ea2004c47210e55e4703f29}\label{classADCBuffer_a760296805ea2004c47210e55e4703f29}} 
+\index{ADCBuffer@{ADCBuffer}!adc\_num@{adc\_num}}
+\index{adc\_num@{adc\_num}!ADCBuffer@{ADCBuffer}}
+\doxysubsubsection{\texorpdfstring{adc\_num}{adc\_num}}
+{\footnotesize\ttfamily int8\+\_\+t A\+D\+C\+Buffer\+::adc\+\_\+num\hspace{0.3cm}{\ttfamily [protected]}}
+
+The address of the A\+DC to use 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+A\+D\+C\+Buffer/\mbox{\hyperlink{ADCBuffer_8h}{A\+D\+C\+Buffer.\+h}}\item 
+lib/\+A\+D\+C\+Buffer/\mbox{\hyperlink{ADCBuffer_8cpp}{A\+D\+C\+Buffer.\+cpp}}\end{DoxyCompactItemize}

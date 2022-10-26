@@ -1,0 +1,252 @@
+\hypertarget{classEEGBuffer}{}\doxysection{E\+E\+G\+Buffer Class Reference}
+\label{classEEGBuffer}\index{EEGBuffer@{EEGBuffer}}
+
+
+Class that manages the buffers for the E\+EG.  
+
+
+
+
+{\ttfamily \#include $<$E\+E\+G\+Buffer.\+h$>$}
+
+
+
+Inheritance diagram for E\+E\+G\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classEEGBuffer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for E\+E\+G\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classEEGBuffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEEGBuffer_a0f32650e1760db9fd788ec45b4f6acb1}{E\+E\+G\+Buffer}} (volatile uint8\+\_\+t $\ast$$\ast$\mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}}, size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}, size\+\_\+t length\+\_\+buffers, uint8\+\_\+t \mbox{\hyperlink{Test__Tag__ADC_8h_a1e6927fa1486224044e568f9c370519b}{id}}, \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEEGBuffer_a491b32ed7f9f6fa3e04e24cd961bf0e1}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the sampling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEEGBuffer_ac1bc209ffc5a39ca32bde6e5ea55373b}{write}} ()
+\begin{DoxyCompactList}\small\item\em Default writer of the E\+EG data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEEGBuffer_ad6fb69b4f5aafa1c8ed1edbe2e3a6d62}{write}} (volatile uint8\+\_\+t $\ast$source, size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classWriter}{Writer}} of the E\+EG Data to the E\+E\+G\+Buffers. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEEGBuffer_a30553892c183b95cf84d7d4f5089b240}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the E\+E\+G\+Buffers, as well as the incides, buffer selector, and trigger count. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classEEGBuffer_ad5d62d86b172c8c8c0e38ce663821100}{get\+\_\+trigger\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Get the trigger count. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classEEGBuffer_afa262fd183f8e3fb57ad3eff0cfbf33b}{get\+\_\+index}} ()
+\begin{DoxyCompactList}\small\item\em Get the index object. \end{DoxyCompactList}\item 
+volatile uint8\+\_\+t $\ast$ \mbox{\hyperlink{classEEGBuffer_a2017bd6cb1ccf9092a2820ad0fbb9105}{get\+\_\+eeg\+\_\+pointer}} ()
+\begin{DoxyCompactList}\small\item\em Get the pointer to the E\+EG data object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEEGBuffer_a76de10db09d65c8c71b332c7c1ceb499}{set\+\_\+new\+\_\+data}} (bool val)
+\begin{DoxyCompactList}\small\item\em Sets the state of new\+\_\+data. \end{DoxyCompactList}\item 
+volatile bool \mbox{\hyperlink{classEEGBuffer_ab2d075b0301a1367f4dbd7311d05dcaf}{get\+\_\+data\+\_\+state}} ()
+\begin{DoxyCompactList}\small\item\em Gets the new\+\_\+data state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classEEGBuffer_a25257a0f22e13879925cb75c1985511c}{set\+\_\+time}} ()
+\begin{DoxyCompactList}\small\item\em Set the time object. \end{DoxyCompactList}\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{classEEGBuffer_aa15b439a9ca0372fe575641422669974}{get\+\_\+buffer}} ()
+\begin{DoxyCompactList}\small\item\em Get the buffer object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Event\+Responder \mbox{\hyperlink{classEEGBuffer_af8f599f2ca0673fdec253473538e845a}{dma\+\_\+spi\+\_\+transfer}}
+\begin{DoxyCompactList}\small\item\em Event responder used as a callback after the D\+MA S\+PI transfer. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class that manages the buffers for the E\+EG. 
+
+This class is responsible for managing the writing, filling, and interrupts that allow the device to sample 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classEEGBuffer_a0f32650e1760db9fd788ec45b4f6acb1}\label{classEEGBuffer_a0f32650e1760db9fd788ec45b4f6acb1}} 
+\index{EEGBuffer@{EEGBuffer}!EEGBuffer@{EEGBuffer}}
+\index{EEGBuffer@{EEGBuffer}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{EEGBuffer()}{EEGBuffer()}}
+{\footnotesize\ttfamily E\+E\+G\+Buffer\+::\+E\+E\+G\+Buffer (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$$\ast$}]{buffers,  }\item[{size\+\_\+t}]{num\+\_\+buffers,  }\item[{size\+\_\+t}]{length\+\_\+buffers,  }\item[{uint8\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}} object. 
+
+This class implements \mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}} and uses it to set up the buffers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffers} & A pointer to an array containing pointers to buffers \\
+\hline
+{\em num\+\_\+buffers} & The number of buffers (length of the \mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}} array) \\
+\hline
+{\em length\+\_\+buffers} & The lengths of each array in \mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}} \\
+\hline
+{\em id} & Sets the idnetification bytes for each buffer \\
+\hline
+{\em queue} & Defines the queue object into which the pointers of the filled buffers will be sent \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classEEGBuffer_aa15b439a9ca0372fe575641422669974}\label{classEEGBuffer_aa15b439a9ca0372fe575641422669974}} 
+\index{EEGBuffer@{EEGBuffer}!get\_buffer@{get\_buffer}}
+\index{get\_buffer@{get\_buffer}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_buffer()}{get\_buffer()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ E\+E\+G\+Buffer\+::get\+\_\+buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the buffer object. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t$\ast$ Return the full data buffer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEEGBuffer_ab2d075b0301a1367f4dbd7311d05dcaf}\label{classEEGBuffer_ab2d075b0301a1367f4dbd7311d05dcaf}} 
+\index{EEGBuffer@{EEGBuffer}!get\_data\_state@{get\_data\_state}}
+\index{get\_data\_state@{get\_data\_state}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_data\_state()}{get\_data\_state()}}
+{\footnotesize\ttfamily volatile bool E\+E\+G\+Buffer\+::get\+\_\+data\+\_\+state (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Gets the new\+\_\+data state. 
+
+\mbox{\Hypertarget{classEEGBuffer_a2017bd6cb1ccf9092a2820ad0fbb9105}\label{classEEGBuffer_a2017bd6cb1ccf9092a2820ad0fbb9105}} 
+\index{EEGBuffer@{EEGBuffer}!get\_eeg\_pointer@{get\_eeg\_pointer}}
+\index{get\_eeg\_pointer@{get\_eeg\_pointer}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_eeg\_pointer()}{get\_eeg\_pointer()}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t$\ast$ E\+E\+G\+Buffer\+::get\+\_\+eeg\+\_\+pointer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the pointer to the E\+EG data object. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t$\ast$ Pointer to where the eeg\+\_\+data is stored (points to the first byte of E\+EG data) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEEGBuffer_afa262fd183f8e3fb57ad3eff0cfbf33b}\label{classEEGBuffer_afa262fd183f8e3fb57ad3eff0cfbf33b}} 
+\index{EEGBuffer@{EEGBuffer}!get\_index@{get\_index}}
+\index{get\_index@{get\_index}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_index()}{get\_index()}}
+{\footnotesize\ttfamily size\+\_\+t E\+E\+G\+Buffer\+::get\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the index object. 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The current index in the data buffer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEEGBuffer_ad5d62d86b172c8c8c0e38ce663821100}\label{classEEGBuffer_ad5d62d86b172c8c8c0e38ce663821100}} 
+\index{EEGBuffer@{EEGBuffer}!get\_trigger\_count@{get\_trigger\_count}}
+\index{get\_trigger\_count@{get\_trigger\_count}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_trigger\_count()}{get\_trigger\_count()}}
+{\footnotesize\ttfamily uint8\+\_\+t E\+E\+G\+Buffer\+::get\+\_\+trigger\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the trigger count. 
+
+Gets the number of times a buffer was filled and sent to the queue
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classEEGBuffer_a491b32ed7f9f6fa3e04e24cd961bf0e1}\label{classEEGBuffer_a491b32ed7f9f6fa3e04e24cd961bf0e1}} 
+\index{EEGBuffer@{EEGBuffer}!init@{init}}
+\index{init@{init}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void E\+E\+G\+Buffer\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initializes the sampling. 
+
+This method attaches dma\+\_\+spi\+\_\+finished to function to the dma\+\_\+spi\+\_\+transfer, which is called on each S\+P\+I.\+transfer() in the \mbox{\hyperlink{EEGBuffer_8cpp_a6c6d962b5f2f27d7e6876abbe2b0adf8}{ads\+\_\+\+I\+S\+R()}} Additionally, the S\+PI uses the E\+E\+G\+\_\+\+D\+R\+DY pin 14 for \mbox{\Hypertarget{classEEGBuffer_a30553892c183b95cf84d7d4f5089b240}\label{classEEGBuffer_a30553892c183b95cf84d7d4f5089b240}} 
+\index{EEGBuffer@{EEGBuffer}!reset@{reset}}
+\index{reset@{reset}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void E\+E\+G\+Buffer\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Resets the E\+E\+G\+Buffers, as well as the incides, buffer selector, and trigger count. 
+
+The time and count are changed to 0, and the data overwritten with 0s, while the ID byte remains unchanged 
+
+Implements \mbox{\hyperlink{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}{Buffer\+Base}}.
+
+\mbox{\Hypertarget{classEEGBuffer_a76de10db09d65c8c71b332c7c1ceb499}\label{classEEGBuffer_a76de10db09d65c8c71b332c7c1ceb499}} 
+\index{EEGBuffer@{EEGBuffer}!set\_new\_data@{set\_new\_data}}
+\index{set\_new\_data@{set\_new\_data}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{set\_new\_data()}{set\_new\_data()}}
+{\footnotesize\ttfamily void E\+E\+G\+Buffer\+::set\+\_\+new\+\_\+data (\begin{DoxyParamCaption}\item[{bool}]{val }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Sets the state of new\+\_\+data. 
+
+\mbox{\Hypertarget{classEEGBuffer_a25257a0f22e13879925cb75c1985511c}\label{classEEGBuffer_a25257a0f22e13879925cb75c1985511c}} 
+\index{EEGBuffer@{EEGBuffer}!set\_time@{set\_time}}
+\index{set\_time@{set\_time}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{set\_time()}{set\_time()}}
+{\footnotesize\ttfamily void E\+E\+G\+Buffer\+::set\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Set the time object. 
+
+Sets the time on the data object. \mbox{\Hypertarget{classEEGBuffer_ac1bc209ffc5a39ca32bde6e5ea55373b}\label{classEEGBuffer_ac1bc209ffc5a39ca32bde6e5ea55373b}} 
+\index{EEGBuffer@{EEGBuffer}!write@{write}}
+\index{write@{write}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void E\+E\+G\+Buffer\+::write (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Default writer of the E\+EG data. 
+
+Writes the 27-\/bytes from the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} in eeg\+\_\+data\+\_\+vec to the appropriate location in buffers \mbox{\Hypertarget{classEEGBuffer_ad6fb69b4f5aafa1c8ed1edbe2e3a6d62}\label{classEEGBuffer_ad6fb69b4f5aafa1c8ed1edbe2e3a6d62}} 
+\index{EEGBuffer@{EEGBuffer}!write@{write}}
+\index{write@{write}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void E\+E\+G\+Buffer\+::write (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$}]{source,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classWriter}{Writer}} of the E\+EG Data to the E\+E\+G\+Buffers. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Location from which to write data \\
+\hline
+{\em length} & Length of the data to write \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classEEGBuffer_af8f599f2ca0673fdec253473538e845a}\label{classEEGBuffer_af8f599f2ca0673fdec253473538e845a}} 
+\index{EEGBuffer@{EEGBuffer}!dma\_spi\_transfer@{dma\_spi\_transfer}}
+\index{dma\_spi\_transfer@{dma\_spi\_transfer}!EEGBuffer@{EEGBuffer}}
+\doxysubsubsection{\texorpdfstring{dma\_spi\_transfer}{dma\_spi\_transfer}}
+{\footnotesize\ttfamily Event\+Responder E\+E\+G\+Buffer\+::dma\+\_\+spi\+\_\+transfer}
+
+
+
+Event responder used as a callback after the D\+MA S\+PI transfer. 
+
+Used an input into S\+P\+I.\+transfer() 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+E\+E\+G\+Buffer/\mbox{\hyperlink{EEGBuffer_8h}{E\+E\+G\+Buffer.\+h}}\item 
+lib/\+E\+E\+G\+Buffer/\mbox{\hyperlink{EEGBuffer_8cpp}{E\+E\+G\+Buffer.\+cpp}}\end{DoxyCompactItemize}

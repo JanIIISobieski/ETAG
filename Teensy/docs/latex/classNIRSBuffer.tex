@@ -1,0 +1,104 @@
+\hypertarget{classNIRSBuffer}{}\doxysection{N\+I\+R\+S\+Buffer Class Reference}
+\label{classNIRSBuffer}\index{NIRSBuffer@{NIRSBuffer}}
+
+
+{\ttfamily \#include $<$N\+I\+R\+S\+Buffer.\+h$>$}
+
+
+
+Inheritance diagram for N\+I\+R\+S\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classNIRSBuffer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for N\+I\+R\+S\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classNIRSBuffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classNIRSBuffer_a16e6c9bbe9728fe8dff97b45b9b4be1a}{N\+I\+R\+S\+Buffer}} (volatile uint8\+\_\+t $\ast$$\ast$\mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}}, size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}, size\+\_\+t buffer\+\_\+length, uint8\+\_\+t \mbox{\hyperlink{Test__Tag__ADC_8h_a1e6927fa1486224044e568f9c370519b}{id}}, \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\item 
+void \mbox{\hyperlink{classNIRSBuffer_a58c6501a72b0fc052414641e4b34ee66}{write}} (volatile uint8\+\_\+t $\ast$source, size\+\_\+t length)
+\item 
+void \mbox{\hyperlink{classNIRSBuffer_a4b6683f4f290e11bb2ad4ca7558c49f1}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Pure virtual function to reset the buffers to their initial state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classNIRSBuffer_a27542cbc6a90b9496474372cecdae629}{get\+\_\+buffer\+\_\+selector}} ()
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classNIRSBuffer_a856acc56dd6ee8e3cca28455c71438a8}{get\+\_\+index}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classNIRSBuffer_a4904a5873a87a70faece7537a2a1f4c1}{get\+\_\+trigger\+\_\+count}} ()
+\item 
+volatile uint8\+\_\+t $\ast$ \mbox{\hyperlink{classNIRSBuffer_a06d1aaedae1fcf70609e8f1e8f1799a6}{get\+\_\+current\+\_\+buffer}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classNIRSBuffer_a16e6c9bbe9728fe8dff97b45b9b4be1a}\label{classNIRSBuffer_a16e6c9bbe9728fe8dff97b45b9b4be1a}} 
+\index{NIRSBuffer@{NIRSBuffer}!NIRSBuffer@{NIRSBuffer}}
+\index{NIRSBuffer@{NIRSBuffer}!NIRSBuffer@{NIRSBuffer}}
+\doxysubsubsection{\texorpdfstring{NIRSBuffer()}{NIRSBuffer()}}
+{\footnotesize\ttfamily N\+I\+R\+S\+Buffer\+::\+N\+I\+R\+S\+Buffer (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$$\ast$}]{buffers,  }\item[{size\+\_\+t}]{num\+\_\+buffers,  }\item[{size\+\_\+t}]{buffer\+\_\+length,  }\item[{uint8\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classNIRSBuffer_a27542cbc6a90b9496474372cecdae629}\label{classNIRSBuffer_a27542cbc6a90b9496474372cecdae629}} 
+\index{NIRSBuffer@{NIRSBuffer}!get\_buffer\_selector@{get\_buffer\_selector}}
+\index{get\_buffer\_selector@{get\_buffer\_selector}!NIRSBuffer@{NIRSBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_buffer\_selector()}{get\_buffer\_selector()}}
+{\footnotesize\ttfamily uint8\+\_\+t N\+I\+R\+S\+Buffer\+::get\+\_\+buffer\+\_\+selector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classNIRSBuffer_a06d1aaedae1fcf70609e8f1e8f1799a6}\label{classNIRSBuffer_a06d1aaedae1fcf70609e8f1e8f1799a6}} 
+\index{NIRSBuffer@{NIRSBuffer}!get\_current\_buffer@{get\_current\_buffer}}
+\index{get\_current\_buffer@{get\_current\_buffer}!NIRSBuffer@{NIRSBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_current\_buffer()}{get\_current\_buffer()}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t$\ast$ N\+I\+R\+S\+Buffer\+::get\+\_\+current\+\_\+buffer (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classNIRSBuffer_a856acc56dd6ee8e3cca28455c71438a8}\label{classNIRSBuffer_a856acc56dd6ee8e3cca28455c71438a8}} 
+\index{NIRSBuffer@{NIRSBuffer}!get\_index@{get\_index}}
+\index{get\_index@{get\_index}!NIRSBuffer@{NIRSBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_index()}{get\_index()}}
+{\footnotesize\ttfamily uint16\+\_\+t N\+I\+R\+S\+Buffer\+::get\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classNIRSBuffer_a4904a5873a87a70faece7537a2a1f4c1}\label{classNIRSBuffer_a4904a5873a87a70faece7537a2a1f4c1}} 
+\index{NIRSBuffer@{NIRSBuffer}!get\_trigger\_count@{get\_trigger\_count}}
+\index{get\_trigger\_count@{get\_trigger\_count}!NIRSBuffer@{NIRSBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_trigger\_count()}{get\_trigger\_count()}}
+{\footnotesize\ttfamily uint8\+\_\+t N\+I\+R\+S\+Buffer\+::get\+\_\+trigger\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classNIRSBuffer_a4b6683f4f290e11bb2ad4ca7558c49f1}\label{classNIRSBuffer_a4b6683f4f290e11bb2ad4ca7558c49f1}} 
+\index{NIRSBuffer@{NIRSBuffer}!reset@{reset}}
+\index{reset@{reset}!NIRSBuffer@{NIRSBuffer}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+Buffer\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Pure virtual function to reset the buffers to their initial state. 
+
+
+
+Implements \mbox{\hyperlink{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}{Buffer\+Base}}.
+
+\mbox{\Hypertarget{classNIRSBuffer_a58c6501a72b0fc052414641e4b34ee66}\label{classNIRSBuffer_a58c6501a72b0fc052414641e4b34ee66}} 
+\index{NIRSBuffer@{NIRSBuffer}!write@{write}}
+\index{write@{write}!NIRSBuffer@{NIRSBuffer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void N\+I\+R\+S\+Buffer\+::write (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$}]{source,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+N\+I\+R\+S\+Buffer/\mbox{\hyperlink{NIRSBuffer_8h}{N\+I\+R\+S\+Buffer.\+h}}\item 
+lib/\+N\+I\+R\+S\+Buffer/\mbox{\hyperlink{NIRSBuffer_8cpp}{N\+I\+R\+S\+Buffer.\+cpp}}\end{DoxyCompactItemize}

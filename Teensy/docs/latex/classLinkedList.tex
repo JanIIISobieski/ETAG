@@ -1,0 +1,128 @@
+\hypertarget{classLinkedList}{}\doxysection{Linked\+List$<$ T $>$ Class Template Reference}
+\label{classLinkedList}\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+
+
+Implements the singly linked list.  
+
+
+
+
+{\ttfamily \#include $<$Linked\+List.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLinkedList_a3c20fcfec867e867f541061a09fc640c}{Linked\+List}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Linked List object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLinkedList_ae0eea63e4ab6ec45da58dc483b6e38bb}{insert}} (T data)
+\begin{DoxyCompactList}\small\item\em Insert a new node (at the head of the list) \end{DoxyCompactList}\item 
+T \mbox{\hyperlink{classLinkedList_a1d510d1dcd52883a0eb59468ff17deff}{get}} (size\+\_\+t ind)
+\begin{DoxyCompactList}\small\item\em Get the ind-\/th \mbox{\hyperlink{classNode}{Node}}. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classLinkedList_a147d158ce029ff4f23b8a49f8b605c9b}{get\+\_\+length}} ()
+\begin{DoxyCompactList}\small\item\em Get the length object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLinkedList_ad71c30fd44de7e07fe23072736ae1d72}{apply\+\_\+func\+\_\+to\+\_\+all}} (void($\ast$f)(T))
+\begin{DoxyCompactList}\small\item\em Apply function to each item in the Linked List. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Linked\+List$<$ T $>$}
+
+Implements the singly linked list. 
+
+This simplifies some code down the line, especially printing out the sampling metadata as \mbox{\hyperlink{classLinkedList}{Linked\+List}} can store pointers to the metadata and then a single print function can iterate through the entire list to print at once.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any structure or type (e.\+g. \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}}) \\
+\hline
+\end{DoxyTemplParams}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLinkedList_a3c20fcfec867e867f541061a09fc640c}\label{classLinkedList_a3c20fcfec867e867f541061a09fc640c}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!LinkedList@{LinkedList}}
+\index{LinkedList@{LinkedList}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{LinkedList()}{LinkedList()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classLinkedList}{Linked\+List}}$<$ T $>$\+::\mbox{\hyperlink{classLinkedList}{Linked\+List}} (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Linked List object. 
+
+By default, the list is empty, with a nullptr for the head, and a length of 0 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLinkedList_ad71c30fd44de7e07fe23072736ae1d72}\label{classLinkedList_ad71c30fd44de7e07fe23072736ae1d72}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!apply\_func\_to\_all@{apply\_func\_to\_all}}
+\index{apply\_func\_to\_all@{apply\_func\_to\_all}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{apply\_func\_to\_all()}{apply\_func\_to\_all()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classLinkedList}{Linked\+List}}$<$ T $>$\+::apply\+\_\+func\+\_\+to\+\_\+all (\begin{DoxyParamCaption}\item[{void($\ast$)(T)}]{f }\end{DoxyParamCaption})}
+
+
+
+Apply function to each item in the Linked List. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em f} & The function to run on each element of the Linked List. This function must return void. \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLinkedList_a1d510d1dcd52883a0eb59468ff17deff}\label{classLinkedList_a1d510d1dcd52883a0eb59468ff17deff}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!get@{get}}
+\index{get@{get}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get()}{get()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+T \mbox{\hyperlink{classLinkedList}{Linked\+List}}$<$ T $>$\+::get (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{ind }\end{DoxyParamCaption})}
+
+
+
+Get the ind-\/th \mbox{\hyperlink{classNode}{Node}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em ind} & The ind-\/th \mbox{\hyperlink{classNode}{Node}} to return \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+T value stored in the node 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLinkedList_a147d158ce029ff4f23b8a49f8b605c9b}\label{classLinkedList_a147d158ce029ff4f23b8a49f8b605c9b}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!get\_length@{get\_length}}
+\index{get\_length@{get\_length}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_length()}{get\_length()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \mbox{\hyperlink{classLinkedList}{Linked\+List}}$<$ T $>$\+::get\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the length object. 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Get the total length of the Linked List 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLinkedList_ae0eea63e4ab6ec45da58dc483b6e38bb}\label{classLinkedList_ae0eea63e4ab6ec45da58dc483b6e38bb}} 
+\index{LinkedList$<$ T $>$@{LinkedList$<$ T $>$}!insert@{insert}}
+\index{insert@{insert}!LinkedList$<$ T $>$@{LinkedList$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{insert()}{insert()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void \mbox{\hyperlink{classLinkedList}{Linked\+List}}$<$ T $>$\+::insert (\begin{DoxyParamCaption}\item[{T}]{data }\end{DoxyParamCaption})}
+
+
+
+Insert a new node (at the head of the list) 
+
+That is, given a linked list A -\/$>$ B -\/$>$ C, inserting D will yield D -\/$>$ A -\/$>$ B -\/$>$ C
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The new data to add to the list \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Linked\+List/\mbox{\hyperlink{LinkedList_8h}{Linked\+List.\+h}}\end{DoxyCompactItemize}

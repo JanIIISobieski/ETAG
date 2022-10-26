@@ -1,0 +1,6 @@
+<map id="Writer" name="Writer">
+<area shape="rect" id="node1" title=" " alt="" coords="163,5,219,32"/>
+<area shape="rect" id="node2" href="$classDiskManager.html" title="Class to manage the SD card and files for the tag." alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node3" href="$classESP32__Bluetooth.html" title=" " alt="" coords="128,80,253,107"/>
+<area shape="rect" id="node4" href="$classTag__USB.html" title=" " alt="" coords="278,80,357,107"/>
+</map>

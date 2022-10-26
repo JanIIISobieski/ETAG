@@ -1,0 +1,120 @@
+\hypertarget{classAbstractBuffer}{}\doxysection{Abstract\+Buffer$<$ T $>$ Class Template Reference}
+\label{classAbstractBuffer}\index{AbstractBuffer$<$ T $>$@{AbstractBuffer$<$ T $>$}}
+
+
+Abstract class to manage the data buffers.  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+Buffer.\+h$>$}
+
+
+
+Inheritance diagram for Abstract\+Buffer$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classAbstractBuffer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Abstract\+Buffer$<$ T $>$\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=184pt]{classAbstractBuffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classAbstractBuffer_ad42273a53de1d26735d89cddf7222428}{Abstract\+Buffer}} (volatile T $\ast$$\ast$buff\+\_\+vec, size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}, size\+\_\+t length\+\_\+buffers, uint8\+\_\+t \mbox{\hyperlink{Test__Tag__ADC_8h_a1e6927fa1486224044e568f9c370519b}{id}})
+\begin{DoxyCompactList}\small\item\em Construct a new Abstract Buffer object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classAbstractBuffer_a162e06314859d93b221857cd88060361}{$\sim$\+Abstract\+Buffer}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Abstract Buffer object. \end{DoxyCompactList}\item 
+volatile \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classAbstractBuffer_a66ce3a6694c1765766dbfa0b18fc21c5}{get\+\_\+buffers}} ()
+\begin{DoxyCompactList}\small\item\em Get the buffers object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$ $\ast$ \mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+class Abstract\+Buffer$<$ T $>$}
+
+Abstract class to manage the data buffers. 
+
+As this is an abstract class, it cannot be instantiated directly, and is instead used as a base from which the other buffers are derived. Every sampling instance requires at least two data buffers. As one fills up, the next buffer saves data while the filled one awaits to be written to the SD card. Additionally, each data buffer needs to have a short header containing the ID of the data, filled buffer count, and time. This class essentially builds a \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}} for each buffer passed into it. Note that this class is abstract because it inherits from \mbox{\hyperlink{classBufferBase}{Buffer\+Base}}, which contains a pure virtual function. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classAbstractBuffer_ad42273a53de1d26735d89cddf7222428}\label{classAbstractBuffer_ad42273a53de1d26735d89cddf7222428}} 
+\index{AbstractBuffer$<$ T $>$@{AbstractBuffer$<$ T $>$}!AbstractBuffer@{AbstractBuffer}}
+\index{AbstractBuffer@{AbstractBuffer}!AbstractBuffer$<$ T $>$@{AbstractBuffer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{AbstractBuffer()}{AbstractBuffer()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}}$<$ T $>$\+::\mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}} (\begin{DoxyParamCaption}\item[{volatile T $\ast$$\ast$}]{buff\+\_\+vec,  }\item[{size\+\_\+t}]{num\+\_\+buffers,  }\item[{size\+\_\+t}]{length\+\_\+buffers,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Construct a new Abstract Buffer object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buff\+\_\+vec} & A pointer to an array containing pointers to buffers of type T \\
+\hline
+{\em num\+\_\+buffers} & The number of buffers (length of the buff\+\_\+vec array) \\
+\hline
+{\em length\+\_\+buffers} & The length of each array passed in buff\+\_\+vec \\
+\hline
+{\em id} & Sets the identification bytes for each buffer \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classAbstractBuffer_a162e06314859d93b221857cd88060361}\label{classAbstractBuffer_a162e06314859d93b221857cd88060361}} 
+\index{AbstractBuffer$<$ T $>$@{AbstractBuffer$<$ T $>$}!````~AbstractBuffer@{$\sim$AbstractBuffer}}
+\index{````~AbstractBuffer@{$\sim$AbstractBuffer}!AbstractBuffer$<$ T $>$@{AbstractBuffer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{$\sim$AbstractBuffer()}{~AbstractBuffer()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+\mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}}$<$ T $>$\+::$\sim$\mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}}}
+
+
+
+Destroy the Abstract Buffer object. 
+
+Since \mbox{\hyperlink{classAbstractBuffer_ad42273a53de1d26735d89cddf7222428}{Abstract\+Buffer()}} uses new\mbox{[}\mbox{]}, the destructor object must call delete\mbox{[}\mbox{]}. This should never be called by the Teensy, as the classes are initialized and never unallocated 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAbstractBuffer_a66ce3a6694c1765766dbfa0b18fc21c5}\label{classAbstractBuffer_a66ce3a6694c1765766dbfa0b18fc21c5}} 
+\index{AbstractBuffer$<$ T $>$@{AbstractBuffer$<$ T $>$}!get\_buffers@{get\_buffers}}
+\index{get\_buffers@{get\_buffers}!AbstractBuffer$<$ T $>$@{AbstractBuffer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{get\_buffers()}{get\_buffers()}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+volatile \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$T$>$$\ast$ \mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}}$<$ T $>$\+::get\+\_\+buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the buffers object. 
+
+\begin{DoxyReturn}{Returns}
+volatile$\ast$ of type T, the pointer to the array of \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}} objects, most useful when logging 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}\label{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}} 
+\index{AbstractBuffer$<$ T $>$@{AbstractBuffer$<$ T $>$}!buffers@{buffers}}
+\index{buffers@{buffers}!AbstractBuffer$<$ T $>$@{AbstractBuffer$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{buffers}{buffers}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+volatile \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$T$>$$\ast$ \mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}}$<$ T $>$\+::buffers\hspace{0.3cm}{\ttfamily [protected]}}
+
+The pointer to the head of the array of \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}} objects 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Abstract\+Buffer/\mbox{\hyperlink{AbstractBuffer_8h}{Abstract\+Buffer.\+h}}\item 
+lib/\+Abstract\+Buffer/\mbox{\hyperlink{AbstractBuffer_8cpp}{Abstract\+Buffer.\+cpp}}\end{DoxyCompactItemize}

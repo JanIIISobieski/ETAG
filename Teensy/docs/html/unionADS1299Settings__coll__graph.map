@@ -1,0 +1,4 @@
+<map id="ADS1299Settings" name="ADS1299Settings">
+<area shape="rect" id="node1" title="Settings for the ADS1299 EEG Chip." alt="" coords="51,95,178,121"/>
+<area shape="rect" id="node2" href="$structADS1299Settings_1_1ADSRegisters.html" title="The structure that stores the settable parameters of the ADS1299." alt="" coords="5,5,224,32"/>
+</map>

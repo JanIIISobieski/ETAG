@@ -1,0 +1,4 @@
+<map id="DiskManager" name="DiskManager">
+<area shape="rect" id="node1" title="Class to manage the SD card and files for the tag." alt="" coords="5,80,104,107"/>
+<area shape="rect" id="node2" href="$classWriter.html" title=" " alt="" coords="27,5,83,32"/>
+</map>

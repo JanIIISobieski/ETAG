@@ -1,0 +1,181 @@
+\hypertarget{main_8cpp}{}\doxysection{src/main.cpp File Reference}
+\label{main_8cpp}\index{src/main.cpp@{src/main.cpp}}
+{\ttfamily \#include \char`\"{}initialize\+\_\+variables.\+h\char`\"{}}\newline
+Include dependency graph for main.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{main_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}{setup}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_a32e7a7ed8702a489fd9d67f4edf5dcf8}{sampling}} ()
+\begin{DoxyCompactList}\small\item\em Function to handle sampling of devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_ac4ffd9db24ac31263f4401e7d966f804}{begin\+\_\+sampling}} ()
+\begin{DoxyCompactList}\small\item\em Starts the sampling of all the devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a8aff2db9386e6e5d6e9dcd2f4e45a112}{stop\+\_\+sampling}} ()
+\begin{DoxyCompactList}\small\item\em Stops the sampling devices and does any post-\/sampling tasks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a64bd27b4f76f66c63bc820efa494f442}{sync\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{main_8cpp_a39d0e278f38d1c73f2f595def6df0070}{test\+\_\+sampling}} ()
+\begin{DoxyCompactList}\small\item\em Function that will test the sampling and stream this data over Bluetooth. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_afcc14e36efc3d59aeb2d6a33f81c8632}{update\+\_\+files}} ()
+\begin{DoxyCompactList}\small\item\em This function reads all the available files in the SD card root directory, and sends the file names over the \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a8e5d8fba35ea2d7dc097615cd3050e29}{download\+\_\+files}} ()
+\begin{DoxyCompactList}\small\item\em Downloads a file from the tag to the computer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a36e6a4185b24d4b7681ca565317a602a}{delete\+\_\+file}} ()
+\begin{DoxyCompactList}\small\item\em This function will delete a file from the SD card, freeing up space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a74878e0057e5adc4a53ad0dfd107c1b1}{update\+\_\+parameters}} ()
+\begin{DoxyCompactList}\small\item\em This function updates the structures that hold the settings for each sampling device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a1cc1a8a26d1818565992a466cd25b6b9}{initalize\+\_\+devices}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the sampling devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{main_8cpp_a2e4f0ce332d3c08a9ab4b88fffd775f2}{forward\+\_\+\+E\+S\+P32\+\_\+logging}} ()
+\begin{DoxyCompactList}\small\item\em Forwards logging calls from E\+S\+P32 to the logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{main_8cpp_ac4ffd9db24ac31263f4401e7d966f804}\label{main_8cpp_ac4ffd9db24ac31263f4401e7d966f804}} 
+\index{main.cpp@{main.cpp}!begin\_sampling@{begin\_sampling}}
+\index{begin\_sampling@{begin\_sampling}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{begin\_sampling()}{begin\_sampling()}}
+{\footnotesize\ttfamily void begin\+\_\+sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starts the sampling of all the devices. 
+
+This function performs several tasks\+: \#. Reads which writer (see Abstract\+Writer) is going to be responsible for logging the data 0 -\/$>$ Bluetooth, 1 -\/$>$ U\+SB, 2 -\/$>$ SD card \#. Reads any of the additional metadata sent over the \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}} (animal name, animal species, description) \#. Updates the I\+MU calibration structure with last recorded data from the I\+MU \#. Resets the Queue (see \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}}) to the default, empty state \#. Resets each of the buffers to an empty state, with only the ID byte kept for each buffer \#. Runs the pre\+\_\+sampling\+\_\+setup routine for the used \mbox{\hyperlink{classWriter}{Writer}} (see Abstract\+Writer) For these routines, the SD card writing is the one that needs a pre-\/sampling routine to open a file and then write to it. \mbox{\Hypertarget{main_8cpp_a36e6a4185b24d4b7681ca565317a602a}\label{main_8cpp_a36e6a4185b24d4b7681ca565317a602a}} 
+\index{main.cpp@{main.cpp}!delete\_file@{delete\_file}}
+\index{delete\_file@{delete\_file}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{delete\_file()}{delete\_file()}}
+{\footnotesize\ttfamily void delete\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function will delete a file from the SD card, freeing up space. 
+
+This function first reads a file index (the numerical position of the file from the root). Then, this file is deleted from the SD card. \mbox{\Hypertarget{main_8cpp_a8e5d8fba35ea2d7dc097615cd3050e29}\label{main_8cpp_a8e5d8fba35ea2d7dc097615cd3050e29}} 
+\index{main.cpp@{main.cpp}!download\_files@{download\_files}}
+\index{download\_files@{download\_files}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{download\_files()}{download\_files()}}
+{\footnotesize\ttfamily void download\+\_\+files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Downloads a file from the tag to the computer. 
+
+This function will read a file index from the serial line, and then call the appropriate \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}} to send the file. A file is sent in its entirety. \mbox{\Hypertarget{main_8cpp_a2e4f0ce332d3c08a9ab4b88fffd775f2}\label{main_8cpp_a2e4f0ce332d3c08a9ab4b88fffd775f2}} 
+\index{main.cpp@{main.cpp}!forward\_ESP32\_logging@{forward\_ESP32\_logging}}
+\index{forward\_ESP32\_logging@{forward\_ESP32\_logging}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{forward\_ESP32\_logging()}{forward\_ESP32\_logging()}}
+{\footnotesize\ttfamily void forward\+\_\+\+E\+S\+P32\+\_\+logging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Forwards logging calls from E\+S\+P32 to the logger. 
+
+All logging calls from the E\+S\+P32 are in the form of L\mbox{[}message\mbox{]}~\newline
+. Thus, when the command is L, the rest of the message will be read and sent to the logger. Additionally, thus function should not be relied upon too heavily. This solves the issue when a logging call comes in while the main() loop is happening. However, if a logging call occurs when the Teensy is currently expecting data, it will result in improper data bein written. I (Gabriel) think the only way of avoiding this is to seperate out another Serial line on the E\+S\+P32 to handle logging. \mbox{\Hypertarget{main_8cpp_a1cc1a8a26d1818565992a466cd25b6b9}\label{main_8cpp_a1cc1a8a26d1818565992a466cd25b6b9}} 
+\index{main.cpp@{main.cpp}!initalize\_devices@{initalize\_devices}}
+\index{initalize\_devices@{initalize\_devices}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{initalize\_devices()}{initalize\_devices()}}
+{\footnotesize\ttfamily void initalize\+\_\+devices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the sampling devices. 
+
+Based on the device settings (see \mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}}, \mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}}, \mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}}), the devices are initialized to prepare them for sampling. This function must be run each time \mbox{\hyperlink{initialize__variables_8h_a74878e0057e5adc4a53ad0dfd107c1b1}{update\+\_\+parameters()}} is run, as this function is actually responsible for updating each devices settings, unlike \mbox{\hyperlink{initialize__variables_8h_a74878e0057e5adc4a53ad0dfd107c1b1}{update\+\_\+parameters()}} which only reads the new settings but does not update the devices. \mbox{\Hypertarget{main_8cpp_afe461d27b9c48d5921c00d521181f12f}\label{main_8cpp_afe461d27b9c48d5921c00d521181f12f}} 
+\index{main.cpp@{main.cpp}!loop@{loop}}
+\index{loop@{loop}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{loop()}{loop()}}
+{\footnotesize\ttfamily void loop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a32e7a7ed8702a489fd9d67f4edf5dcf8}\label{main_8cpp_a32e7a7ed8702a489fd9d67f4edf5dcf8}} 
+\index{main.cpp@{main.cpp}!sampling@{sampling}}
+\index{sampling@{sampling}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{sampling()}{sampling()}}
+{\footnotesize\ttfamily void sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to handle sampling of devices. 
+
+The devices whose code runs in this sampling loop are set to poll data, and thus run in the main loop. Other devices, such as the Hydrophone (using the A\+DC converter) or the E\+EG (\mbox{\hyperlink{classADS1299}{A\+D\+S1299}} library) sample based on interrupts defined in their corresponding begin() and end() methods for sampling as part of the \mbox{\hyperlink{classAbstractDevice}{Abstract\+Device}} class inheritance. This loop is also responsible for writing data to the corresponding writer (Bluetooth, U\+SB, or SD card) once the \mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}} \mbox{\Hypertarget{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}\label{main_8cpp_a4fc01d736fe50cf5b977f755b675f11d}} 
+\index{main.cpp@{main.cpp}!setup@{setup}}
+\index{setup@{setup}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a8aff2db9386e6e5d6e9dcd2f4e45a112}\label{main_8cpp_a8aff2db9386e6e5d6e9dcd2f4e45a112}} 
+\index{main.cpp@{main.cpp}!stop\_sampling@{stop\_sampling}}
+\index{stop\_sampling@{stop\_sampling}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{stop\_sampling()}{stop\_sampling()}}
+{\footnotesize\ttfamily void stop\+\_\+sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops the sampling devices and does any post-\/sampling tasks. 
+
+The post-\/sampling tasks are especially applicable for the SD card \mbox{\hyperlink{classWriter}{Writer}}, as the file has to be closed and synced. \mbox{\Hypertarget{main_8cpp_a64bd27b4f76f66c63bc820efa494f442}\label{main_8cpp_a64bd27b4f76f66c63bc820efa494f442}} 
+\index{main.cpp@{main.cpp}!sync\_time@{sync\_time}}
+\index{sync\_time@{sync\_time}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{sync\_time()}{sync\_time()}}
+{\footnotesize\ttfamily void sync\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{main_8cpp_a39d0e278f38d1c73f2f595def6df0070}\label{main_8cpp_a39d0e278f38d1c73f2f595def6df0070}} 
+\index{main.cpp@{main.cpp}!test\_sampling@{test\_sampling}}
+\index{test\_sampling@{test\_sampling}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{test\_sampling()}{test\_sampling()}}
+{\footnotesize\ttfamily void test\+\_\+sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that will test the sampling and stream this data over Bluetooth. 
+
+Note that this function still has to be implemented. \mbox{\Hypertarget{main_8cpp_afcc14e36efc3d59aeb2d6a33f81c8632}\label{main_8cpp_afcc14e36efc3d59aeb2d6a33f81c8632}} 
+\index{main.cpp@{main.cpp}!update\_files@{update\_files}}
+\index{update\_files@{update\_files}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{update\_files()}{update\_files()}}
+{\footnotesize\ttfamily void update\+\_\+files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function reads all the available files in the SD card root directory, and sends the file names over the \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}}. 
+
+This function reads first the number of files present in the root directory (/) on the SD card, and then sends the filename. Thus, the sents results would look like this\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sent to the Teensy }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ File Index  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sent to the Teensy }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ File Index  }\\\cline{1-2}
+\endhead
+Filename1.\+bin &\PBS\centering 0  \\\cline{1-2}
+Filename2.\+bin &\PBS\centering 1  \\\cline{1-2}
+Filename3.\+bin &\PBS\centering 2  \\\cline{1-2}
+Filename4.\+bin &\PBS\centering 3  \\\cline{1-2}
+\end{longtabu}
+
+
+The File Index is what is sent over the \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}} to indicate on which file to do operations. The File Index is sent for download\+\_\+file, \mbox{\hyperlink{main_8cpp_a36e6a4185b24d4b7681ca565317a602a}{delete\+\_\+file}} to indicate which file to download or delete. \mbox{\Hypertarget{main_8cpp_a74878e0057e5adc4a53ad0dfd107c1b1}\label{main_8cpp_a74878e0057e5adc4a53ad0dfd107c1b1}} 
+\index{main.cpp@{main.cpp}!update\_parameters@{update\_parameters}}
+\index{update\_parameters@{update\_parameters}!main.cpp@{main.cpp}}
+\doxysubsubsection{\texorpdfstring{update\_parameters()}{update\_parameters()}}
+{\footnotesize\ttfamily void update\+\_\+parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function updates the structures that hold the settings for each sampling device. 
+
+note that this function only updates the structures for \mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}}, \mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}}, and Device\+Settings. None of the devices get updated with the new settings though. For that, initialize\+\_\+devices() must be run. The data itself comes as a series of raw bytes. 

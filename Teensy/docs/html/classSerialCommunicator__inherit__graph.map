@@ -1,0 +1,6 @@
+<map id="SerialCommunicator" name="SerialCommunicator">
+<area shape="rect" id="node1" title="This abstract class establishes the interface for serial communication." alt="" coords="145,5,285,32"/>
+<area shape="rect" id="node2" href="$classESP32__Bluetooth.html" title=" " alt="" coords="5,80,131,107"/>
+<area shape="rect" id="node3" href="$classRN42__Bluetooth.html" title=" " alt="" coords="155,80,274,107"/>
+<area shape="rect" id="node4" href="$classTag__USB.html" title=" " alt="" coords="298,80,377,107"/>
+</map>

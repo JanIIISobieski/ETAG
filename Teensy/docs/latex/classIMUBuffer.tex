@@ -1,0 +1,159 @@
+\hypertarget{classIMUBuffer}{}\doxysection{I\+M\+U\+Buffer Class Reference}
+\label{classIMUBuffer}\index{IMUBuffer@{IMUBuffer}}
+
+
+Class that manages the buffers for the I\+MU.  
+
+
+
+
+{\ttfamily \#include $<$I\+M\+U\+Buffer.\+h$>$}
+
+
+
+Inheritance diagram for I\+M\+U\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classIMUBuffer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for I\+M\+U\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classIMUBuffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classIMUBuffer_aa61ca577fff241964254de869c258d08}{I\+M\+U\+Buffer}} (volatile int16\+\_\+t $\ast$$\ast$\mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}}, size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}, size\+\_\+t buffer\+\_\+length, uint8\+\_\+t \mbox{\hyperlink{Test__Tag__ADC_8h_a1e6927fa1486224044e568f9c370519b}{id}}, \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIMUBuffer_acb3a0f716668147a67ca2977f9cb239a}{write}} (volatile int16\+\_\+t $\ast$source, size\+\_\+t length)
+\begin{DoxyCompactList}\small\item\em Writes data from the source to the I\+MU Buffer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classIMUBuffer_a4967c9aa67b845a81751f611ab8e12dd}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Resets the I\+MU Buffers and associated indices. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classIMUBuffer_a7ad3b582730e3ac504a76b7e44e9a089}{get\+\_\+buffer\+\_\+selector}} ()
+\begin{DoxyCompactList}\small\item\em Get the index of the buffer currently being written to. \end{DoxyCompactList}\item 
+uint16\+\_\+t \mbox{\hyperlink{classIMUBuffer_a1d0ba78c320b07645dcadda97d6c1da5}{get\+\_\+index}} ()
+\begin{DoxyCompactList}\small\item\em Get the index in the active buffer where data will be written to next. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classIMUBuffer_a3a9a019308d3722d56db2c6b3d977dac}{get\+\_\+trigger\+\_\+count}} ()
+\begin{DoxyCompactList}\small\item\em Get the trigger count object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class that manages the buffers for the I\+MU. 
+
+This class is responsible for managing the writing, filling, and interrupts that allow the device to sample 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classIMUBuffer_aa61ca577fff241964254de869c258d08}\label{classIMUBuffer_aa61ca577fff241964254de869c258d08}} 
+\index{IMUBuffer@{IMUBuffer}!IMUBuffer@{IMUBuffer}}
+\index{IMUBuffer@{IMUBuffer}!IMUBuffer@{IMUBuffer}}
+\doxysubsubsection{\texorpdfstring{IMUBuffer()}{IMUBuffer()}}
+{\footnotesize\ttfamily I\+M\+U\+Buffer\+::\+I\+M\+U\+Buffer (\begin{DoxyParamCaption}\item[{volatile int16\+\_\+t $\ast$$\ast$}]{buffers,  }\item[{size\+\_\+t}]{num\+\_\+buffers,  }\item[{size\+\_\+t}]{buffer\+\_\+length,  }\item[{uint8\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}} object. 
+
+This class implements \mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}} and uses it to set up the buffers.
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffers} & A pointer to an array containing pointers to buffers \\
+\hline
+{\em num\+\_\+buffers} & The number of buffers (length of the \mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}} array) \\
+\hline
+{\em buffer\+\_\+length} & The lengths of each array in \mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}} \\
+\hline
+{\em id} & Sets the idnetification bytes for each buffer \\
+\hline
+{\em queue} & Defines the queue object into which the pointers of the filled buffers will be sent \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classIMUBuffer_a7ad3b582730e3ac504a76b7e44e9a089}\label{classIMUBuffer_a7ad3b582730e3ac504a76b7e44e9a089}} 
+\index{IMUBuffer@{IMUBuffer}!get\_buffer\_selector@{get\_buffer\_selector}}
+\index{get\_buffer\_selector@{get\_buffer\_selector}!IMUBuffer@{IMUBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_buffer\_selector()}{get\_buffer\_selector()}}
+{\footnotesize\ttfamily uint8\+\_\+t I\+M\+U\+Buffer\+::get\+\_\+buffer\+\_\+selector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the index of the buffer currently being written to. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t The index of the buffer 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIMUBuffer_a1d0ba78c320b07645dcadda97d6c1da5}\label{classIMUBuffer_a1d0ba78c320b07645dcadda97d6c1da5}} 
+\index{IMUBuffer@{IMUBuffer}!get\_index@{get\_index}}
+\index{get\_index@{get\_index}!IMUBuffer@{IMUBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_index()}{get\_index()}}
+{\footnotesize\ttfamily uint16\+\_\+t I\+M\+U\+Buffer\+::get\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the index in the active buffer where data will be written to next. 
+
+Note that a uint16\+\_\+t index will maximally be 65535.
+
+\begin{DoxyReturn}{Returns}
+uint16\+\_\+t The index 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIMUBuffer_a3a9a019308d3722d56db2c6b3d977dac}\label{classIMUBuffer_a3a9a019308d3722d56db2c6b3d977dac}} 
+\index{IMUBuffer@{IMUBuffer}!get\_trigger\_count@{get\_trigger\_count}}
+\index{get\_trigger\_count@{get\_trigger\_count}!IMUBuffer@{IMUBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_trigger\_count()}{get\_trigger\_count()}}
+{\footnotesize\ttfamily uint8\+\_\+t I\+M\+U\+Buffer\+::get\+\_\+trigger\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the trigger count object. 
+
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t The total number of times a buffer was sent to the queue 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classIMUBuffer_a4967c9aa67b845a81751f611ab8e12dd}\label{classIMUBuffer_a4967c9aa67b845a81751f611ab8e12dd}} 
+\index{IMUBuffer@{IMUBuffer}!reset@{reset}}
+\index{reset@{reset}!IMUBuffer@{IMUBuffer}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void I\+M\+U\+Buffer\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Resets the I\+MU Buffers and associated indices. 
+
+The time and count in the buffers is set to 0, data is zeroed out in the buffers, and the buffer selector, current index, and buffer trigger count is reset to 0. 
+
+Implements \mbox{\hyperlink{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}{Buffer\+Base}}.
+
+\mbox{\Hypertarget{classIMUBuffer_acb3a0f716668147a67ca2977f9cb239a}\label{classIMUBuffer_acb3a0f716668147a67ca2977f9cb239a}} 
+\index{IMUBuffer@{IMUBuffer}!write@{write}}
+\index{write@{write}!IMUBuffer@{IMUBuffer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void I\+M\+U\+Buffer\+::write (\begin{DoxyParamCaption}\item[{volatile int16\+\_\+t $\ast$}]{source,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+Writes data from the source to the I\+MU Buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em source} & Pointer from where the data is to be written \\
+\hline
+{\em length} & Length of the data to read \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+I\+M\+U\+Buffer/\mbox{\hyperlink{IMUBuffer_8h}{I\+M\+U\+Buffer.\+h}}\item 
+lib/\+I\+M\+U\+Buffer/\mbox{\hyperlink{IMUBuffer_8cpp}{I\+M\+U\+Buffer.\+cpp}}\end{DoxyCompactItemize}

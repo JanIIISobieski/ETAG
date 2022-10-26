@@ -1,0 +1,188 @@
+\hypertarget{classADCBuffer2}{}\doxysection{A\+D\+C\+Buffer2 Class Reference}
+\label{classADCBuffer2}\index{ADCBuffer2@{ADCBuffer2}}
+
+
+{\ttfamily \#include $<$A\+D\+C\+Buffer2.\+h$>$}
+
+
+
+Inheritance diagram for A\+D\+C\+Buffer2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=212pt]{classADCBuffer2__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for A\+D\+C\+Buffer2\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=322pt]{classADCBuffer2__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classADCBuffer2_a2be49b350f4cbaa005d84e5c4539eb1f}{A\+D\+C\+Buffer2}} (volatile uint16\+\_\+t $\ast$$\ast$\mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}}, size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}, size\+\_\+t length\+\_\+buffers, uint8\+\_\+t \mbox{\hyperlink{Test__Tag__ADC_8h_a1e6927fa1486224044e568f9c370519b}{id}}, \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\item 
+\mbox{\hyperlink{classADCBuffer2_ad837c7a364289f9a573db03634d7b310}{$\sim$\+A\+D\+C\+Buffer2}} ()
+\item 
+void \mbox{\hyperlink{classADCBuffer2_ab681dbc41918bcd0fc0ee726865ba085}{init}} (A\+DC $\ast$\mbox{\hyperlink{Test__Tag__ADC_8h_adfc4cf75de73dc229c45303c75fc1178}{adc}}, int8\+\_\+t adc\+\_\+num=-\/1)
+\item 
+void \mbox{\hyperlink{classADCBuffer2_ab9c8ab09fe485bb6c89b22dd53c207d4}{begin}} ()
+\item 
+void \mbox{\hyperlink{classADCBuffer2_acc94dd86b1b4732148e3b459fbed7b6b}{end}} ()
+\item 
+void \mbox{\hyperlink{classADCBuffer2_a4f45c9afb94317540fc23f23041ddaaf}{stop\+On\+Completion}} (bool stop\+\_\+on\+\_\+complete)
+\item 
+bool \mbox{\hyperlink{classADCBuffer2_a5e2d0058bcb98e7c093c9d18d6c0b39b}{stop\+On\+Completion}} ()
+\item 
+bool \mbox{\hyperlink{classADCBuffer2_a50aa203a06e3b664b602c38dcfa59d3f}{clear\+Completion}} ()
+\item 
+void \mbox{\hyperlink{classADCBuffer2_ab1e50bfab9642a269248648f26d0c390}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Pure virtual function to reset the buffers to their initial state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classADCBuffer2_a616b53b08d2464d1caf102d4a0bb10e3}{get\+\_\+trigger\+\_\+count}} ()
+\item 
+void \mbox{\hyperlink{classADCBuffer2_aa5ea0868442f92e46aa7f551f816c80b}{process\+A\+D\+C\+\_\+\+D\+M\+A\+I\+SR}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+static void \mbox{\hyperlink{classADCBuffer2_a93ef72731e0eb94aa5ded10aed28b883}{adc\+\_\+0\+\_\+dma\+I\+SR}} ()
+\item 
+static void \mbox{\hyperlink{classADCBuffer2_aaed93c377ec3d43261ebd703f64cfbd6}{adc\+\_\+1\+\_\+dma\+I\+SR}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+D\+M\+A\+Setting $\ast$ \mbox{\hyperlink{classADCBuffer2_a15e9c6e58862383933ae0964cd6fb1fa}{\+\_\+dmasettings\+\_\+adc}}
+\item 
+D\+M\+A\+Channel \mbox{\hyperlink{classADCBuffer2_a8381eaed1b2bb3a0b865e9901550c350}{\+\_\+dmachannel\+\_\+adc}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static \mbox{\hyperlink{classADCBuffer2}{A\+D\+C\+Buffer2}} $\ast$ \mbox{\hyperlink{classADCBuffer2_a1465be8ee5183d0daf723b77fa53cce2}{\+\_\+active\+Object\+Per\+A\+DC}} \mbox{[}2\mbox{]} = \{nullptr, nullptr\}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classADCBuffer2_a2be49b350f4cbaa005d84e5c4539eb1f}\label{classADCBuffer2_a2be49b350f4cbaa005d84e5c4539eb1f}} 
+\index{ADCBuffer2@{ADCBuffer2}!ADCBuffer2@{ADCBuffer2}}
+\index{ADCBuffer2@{ADCBuffer2}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{ADCBuffer2()}{ADCBuffer2()}}
+{\footnotesize\ttfamily A\+D\+C\+Buffer2\+::\+A\+D\+C\+Buffer2 (\begin{DoxyParamCaption}\item[{volatile uint16\+\_\+t $\ast$$\ast$}]{buffers,  }\item[{size\+\_\+t}]{num\+\_\+buffers,  }\item[{size\+\_\+t}]{length\+\_\+buffers,  }\item[{uint8\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classADCBuffer2_ad837c7a364289f9a573db03634d7b310}\label{classADCBuffer2_ad837c7a364289f9a573db03634d7b310}} 
+\index{ADCBuffer2@{ADCBuffer2}!````~ADCBuffer2@{$\sim$ADCBuffer2}}
+\index{````~ADCBuffer2@{$\sim$ADCBuffer2}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{$\sim$ADCBuffer2()}{~ADCBuffer2()}}
+{\footnotesize\ttfamily A\+D\+C\+Buffer2\+::$\sim$\+A\+D\+C\+Buffer2 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classADCBuffer2_a93ef72731e0eb94aa5ded10aed28b883}\label{classADCBuffer2_a93ef72731e0eb94aa5ded10aed28b883}} 
+\index{ADCBuffer2@{ADCBuffer2}!adc\_0\_dmaISR@{adc\_0\_dmaISR}}
+\index{adc\_0\_dmaISR@{adc\_0\_dmaISR}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{adc\_0\_dmaISR()}{adc\_0\_dmaISR()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer2\+::adc\+\_\+0\+\_\+dma\+I\+SR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classADCBuffer2_aaed93c377ec3d43261ebd703f64cfbd6}\label{classADCBuffer2_aaed93c377ec3d43261ebd703f64cfbd6}} 
+\index{ADCBuffer2@{ADCBuffer2}!adc\_1\_dmaISR@{adc\_1\_dmaISR}}
+\index{adc\_1\_dmaISR@{adc\_1\_dmaISR}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{adc\_1\_dmaISR()}{adc\_1\_dmaISR()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer2\+::adc\+\_\+1\+\_\+dma\+I\+SR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classADCBuffer2_ab9c8ab09fe485bb6c89b22dd53c207d4}\label{classADCBuffer2_ab9c8ab09fe485bb6c89b22dd53c207d4}} 
+\index{ADCBuffer2@{ADCBuffer2}!begin@{begin}}
+\index{begin@{begin}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer2\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADCBuffer2_a50aa203a06e3b664b602c38dcfa59d3f}\label{classADCBuffer2_a50aa203a06e3b664b602c38dcfa59d3f}} 
+\index{ADCBuffer2@{ADCBuffer2}!clearCompletion@{clearCompletion}}
+\index{clearCompletion@{clearCompletion}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{clearCompletion()}{clearCompletion()}}
+{\footnotesize\ttfamily bool A\+D\+C\+Buffer2\+::clear\+Completion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADCBuffer2_acc94dd86b1b4732148e3b459fbed7b6b}\label{classADCBuffer2_acc94dd86b1b4732148e3b459fbed7b6b}} 
+\index{ADCBuffer2@{ADCBuffer2}!end@{end}}
+\index{end@{end}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer2\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADCBuffer2_a616b53b08d2464d1caf102d4a0bb10e3}\label{classADCBuffer2_a616b53b08d2464d1caf102d4a0bb10e3}} 
+\index{ADCBuffer2@{ADCBuffer2}!get\_trigger\_count@{get\_trigger\_count}}
+\index{get\_trigger\_count@{get\_trigger\_count}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{get\_trigger\_count()}{get\_trigger\_count()}}
+{\footnotesize\ttfamily uint8\+\_\+t A\+D\+C\+Buffer2\+::get\+\_\+trigger\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classADCBuffer2_ab681dbc41918bcd0fc0ee726865ba085}\label{classADCBuffer2_ab681dbc41918bcd0fc0ee726865ba085}} 
+\index{ADCBuffer2@{ADCBuffer2}!init@{init}}
+\index{init@{init}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer2\+::init (\begin{DoxyParamCaption}\item[{A\+DC $\ast$}]{adc,  }\item[{int8\+\_\+t}]{adc\+\_\+num = {\ttfamily -\/1} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADCBuffer2_aa5ea0868442f92e46aa7f551f816c80b}\label{classADCBuffer2_aa5ea0868442f92e46aa7f551f816c80b}} 
+\index{ADCBuffer2@{ADCBuffer2}!processADC\_DMAISR@{processADC\_DMAISR}}
+\index{processADC\_DMAISR@{processADC\_DMAISR}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{processADC\_DMAISR()}{processADC\_DMAISR()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer2\+::process\+A\+D\+C\+\_\+\+D\+M\+A\+I\+SR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADCBuffer2_ab1e50bfab9642a269248648f26d0c390}\label{classADCBuffer2_ab1e50bfab9642a269248648f26d0c390}} 
+\index{ADCBuffer2@{ADCBuffer2}!reset@{reset}}
+\index{reset@{reset}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer2\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Pure virtual function to reset the buffers to their initial state. 
+
+
+
+Implements \mbox{\hyperlink{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}{Buffer\+Base}}.
+
+\mbox{\Hypertarget{classADCBuffer2_a5e2d0058bcb98e7c093c9d18d6c0b39b}\label{classADCBuffer2_a5e2d0058bcb98e7c093c9d18d6c0b39b}} 
+\index{ADCBuffer2@{ADCBuffer2}!stopOnCompletion@{stopOnCompletion}}
+\index{stopOnCompletion@{stopOnCompletion}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{stopOnCompletion()}{stopOnCompletion()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily bool A\+D\+C\+Buffer2\+::stop\+On\+Completion (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classADCBuffer2_a4f45c9afb94317540fc23f23041ddaaf}\label{classADCBuffer2_a4f45c9afb94317540fc23f23041ddaaf}} 
+\index{ADCBuffer2@{ADCBuffer2}!stopOnCompletion@{stopOnCompletion}}
+\index{stopOnCompletion@{stopOnCompletion}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{stopOnCompletion()}{stopOnCompletion()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void A\+D\+C\+Buffer2\+::stop\+On\+Completion (\begin{DoxyParamCaption}\item[{bool}]{stop\+\_\+on\+\_\+complete }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classADCBuffer2_a1465be8ee5183d0daf723b77fa53cce2}\label{classADCBuffer2_a1465be8ee5183d0daf723b77fa53cce2}} 
+\index{ADCBuffer2@{ADCBuffer2}!\_activeObjectPerADC@{\_activeObjectPerADC}}
+\index{\_activeObjectPerADC@{\_activeObjectPerADC}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{\_activeObjectPerADC}{\_activeObjectPerADC}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classADCBuffer2}{A\+D\+C\+Buffer2}} $\ast$ A\+D\+C\+Buffer2\+::\+\_\+active\+Object\+Per\+A\+DC = \{nullptr, nullptr\}\hspace{0.3cm}{\ttfamily [static]}}
+
+\mbox{\Hypertarget{classADCBuffer2_a8381eaed1b2bb3a0b865e9901550c350}\label{classADCBuffer2_a8381eaed1b2bb3a0b865e9901550c350}} 
+\index{ADCBuffer2@{ADCBuffer2}!\_dmachannel\_adc@{\_dmachannel\_adc}}
+\index{\_dmachannel\_adc@{\_dmachannel\_adc}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{\_dmachannel\_adc}{\_dmachannel\_adc}}
+{\footnotesize\ttfamily D\+M\+A\+Channel A\+D\+C\+Buffer2\+::\+\_\+dmachannel\+\_\+adc}
+
+\mbox{\Hypertarget{classADCBuffer2_a15e9c6e58862383933ae0964cd6fb1fa}\label{classADCBuffer2_a15e9c6e58862383933ae0964cd6fb1fa}} 
+\index{ADCBuffer2@{ADCBuffer2}!\_dmasettings\_adc@{\_dmasettings\_adc}}
+\index{\_dmasettings\_adc@{\_dmasettings\_adc}!ADCBuffer2@{ADCBuffer2}}
+\doxysubsubsection{\texorpdfstring{\_dmasettings\_adc}{\_dmasettings\_adc}}
+{\footnotesize\ttfamily D\+M\+A\+Setting$\ast$ A\+D\+C\+Buffer2\+::\+\_\+dmasettings\+\_\+adc}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+A\+D\+C\+Buffer/\mbox{\hyperlink{ADCBuffer2_8h}{A\+D\+C\+Buffer2.\+h}}\item 
+lib/\+A\+D\+C\+Buffer/\mbox{\hyperlink{ADCBuffer2_8cpp}{A\+D\+C\+Buffer2.\+cpp}}\end{DoxyCompactItemize}

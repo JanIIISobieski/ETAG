@@ -1,0 +1,152 @@
+\hypertarget{classLogger}{}\doxysection{Logger Class Reference}
+\label{classLogger}\index{Logger@{Logger}}
+
+
+The main logging class responsible for logging.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+
+
+Inheritance diagram for Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{classLogger__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Logger\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{classLogger__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger_a4ab4a635d0a6380387ba09e5748554bd}{Logger}} (Stream $\ast$serial)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classLogger}{Logger}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_ad3cabb69180bb83de04f9f4571116325}{assign\+\_\+metadata}} (\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} $\ast$data, String name)
+\begin{DoxyCompactList}\small\item\em Adds the Timing\+Data structures to the \mbox{\hyperlink{classLogger}{Logger}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a046b7d44f5c1926107b78e38aa1879af}{update\+\_\+timing\+\_\+data}} (\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} \&data)
+\begin{DoxyCompactList}\small\item\em Updates the members of Timing\+Data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a30b6ee646946abad861e1e301d5955fc}{log\+\_\+timing\+\_\+metadata}} ()
+\begin{DoxyCompactList}\small\item\em Prints the timing metadata. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classLogger_a70030362b9ae26f702d801227a273fe8}{reset\+\_\+metadata}} ()
+\begin{DoxyCompactList}\small\item\em Loops over the linked list, resetting to defaults the \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}} structure. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classLogger_a8b6a6fcea18745f2c67e09361489d145}{get\+\_\+length}} ()
+\begin{DoxyCompactList}\small\item\em Get the length of the linked list. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+The main logging class responsible for logging. 
+
+This classes sets up the Linked\+Lists used for storing and then printing the \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}} and other updates of structures for logging. Since this class inherits the public interface of \mbox{\hyperlink{classVarPrinter}{Var\+Printer}}, this \mbox{\hyperlink{classLogger}{Logger}} is the one that calls the printing of variables.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000001}{Todo}}]Would have been more efficient to make \mbox{\hyperlink{classVarPrinter}{Var\+Printer}} have the protected methods become the public methods, and for the public methods of \mbox{\hyperlink{classVarPrinter}{Var\+Printer}} to be the methods contained in \mbox{\hyperlink{classLogger}{Logger}}. Thus, there is a seperate class that prints variables, and then a \mbox{\hyperlink{classLogger}{Logger}} that inherits the print methods and wraps them in Logging level to be used for logging. Not a critical change, but one that would improve the format of the code. \end{DoxyRefDesc}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classLogger_a4ab4a635d0a6380387ba09e5748554bd}\label{classLogger_a4ab4a635d0a6380387ba09e5748554bd}} 
+\index{Logger@{Logger}!Logger@{Logger}}
+\index{Logger@{Logger}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{Logger()}{Logger()}}
+{\footnotesize\ttfamily Logger\+::\+Logger (\begin{DoxyParamCaption}\item[{Stream $\ast$}]{serial }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classLogger}{Logger}} object. 
+
+A Serial output must be passed to the \mbox{\hyperlink{classLogger}{Logger}}
+
+
+\begin{DoxyParams}{Parameters}
+{\em serial} & Stream to which the Logging data will be written \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classLogger_ad3cabb69180bb83de04f9f4571116325}\label{classLogger_ad3cabb69180bb83de04f9f4571116325}} 
+\index{Logger@{Logger}!assign\_metadata@{assign\_metadata}}
+\index{assign\_metadata@{assign\_metadata}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{assign\_metadata()}{assign\_metadata()}}
+{\footnotesize\ttfamily void Logger\+::assign\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} $\ast$}]{data,  }\item[{String}]{name }\end{DoxyParamCaption})}
+
+
+
+Adds the Timing\+Data structures to the \mbox{\hyperlink{classLogger}{Logger}}. 
+
+These will be added to a linked list that stores the location of all the Timing\+Data structures. This way, logging the timing metadata simply needs to iterate through the linked list to print them all out. Thus, only the setup code gets a little messier (the \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}} is added then to the logger one at a time), but the rest of the code stays clean.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & Pointer to the Timing\+Data structure to add to the linked list \\
+\hline
+{\em name} & The name to call the Timing\+Data structure \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classLogger_a8b6a6fcea18745f2c67e09361489d145}\label{classLogger_a8b6a6fcea18745f2c67e09361489d145}} 
+\index{Logger@{Logger}!get\_length@{get\_length}}
+\index{get\_length@{get\_length}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{get\_length()}{get\_length()}}
+{\footnotesize\ttfamily size\+\_\+t Logger\+::get\+\_\+length (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the length of the linked list. 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The length of the linked list 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classLogger_a30b6ee646946abad861e1e301d5955fc}\label{classLogger_a30b6ee646946abad861e1e301d5955fc}} 
+\index{Logger@{Logger}!log\_timing\_metadata@{log\_timing\_metadata}}
+\index{log\_timing\_metadata@{log\_timing\_metadata}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{log\_timing\_metadata()}{log\_timing\_metadata()}}
+{\footnotesize\ttfamily void Logger\+::log\+\_\+timing\+\_\+metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Prints the timing metadata. 
+
+Loops over the linked list, printing the timing metadata. For format, see \mbox{\hyperlink{classVarPrinter_a9e5fe39b22529038a27b88516354229c}{Var\+Printer\+::print\+\_\+timing\+\_\+metadata}} \mbox{\Hypertarget{classLogger_a70030362b9ae26f702d801227a273fe8}\label{classLogger_a70030362b9ae26f702d801227a273fe8}} 
+\index{Logger@{Logger}!reset\_metadata@{reset\_metadata}}
+\index{reset\_metadata@{reset\_metadata}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{reset\_metadata()}{reset\_metadata()}}
+{\footnotesize\ttfamily void Logger\+::reset\+\_\+metadata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Loops over the linked list, resetting to defaults the \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}} structure. 
+
+Every variable is set to either 0 or false, depending on type. \mbox{\Hypertarget{classLogger_a046b7d44f5c1926107b78e38aa1879af}\label{classLogger_a046b7d44f5c1926107b78e38aa1879af}} 
+\index{Logger@{Logger}!update\_timing\_data@{update\_timing\_data}}
+\index{update\_timing\_data@{update\_timing\_data}!Logger@{Logger}}
+\doxysubsubsection{\texorpdfstring{update\_timing\_data()}{update\_timing\_data()}}
+{\footnotesize\ttfamily void Logger\+::update\+\_\+timing\+\_\+data (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} \&}]{data }\end{DoxyParamCaption})}
+
+
+
+Updates the members of Timing\+Data. 
+
+This function when called will get the time the function was called and update all the fields of Timing\+Data. See \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}} for what these fields are.
+
+
+\begin{DoxyParams}{Parameters}
+{\em data} & The Timing\+Data to update \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Logger/\mbox{\hyperlink{Logger_8h}{Logger.\+h}}\item 
+lib/\+Logger/\mbox{\hyperlink{Logger_8cpp}{Logger.\+cpp}}\end{DoxyCompactItemize}

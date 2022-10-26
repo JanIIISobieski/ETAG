@@ -1,0 +1,148 @@
+\hypertarget{classTag__ADC}{}\doxysection{Tag\+\_\+\+A\+DC Class Reference}
+\label{classTag__ADC}\index{Tag\_ADC@{Tag\_ADC}}
+
+
+Class to implement an Abstract device for the A\+DC control.  
+
+
+
+
+{\ttfamily \#include $<$Tag\+\_\+\+A\+D\+C.\+h$>$}
+
+
+
+Inheritance diagram for Tag\+\_\+\+A\+DC\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classTag__ADC__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tag\+\_\+\+A\+DC\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classTag__ADC__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTag__ADC_a599c294143b380567456d7fd1666bd8c}{Tag\+\_\+\+A\+DC}} (uint8\+\_\+t pin, \mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}} $\ast$adc\+\_\+settings, \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} $\ast$adc\+\_\+buffer)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classTag__ADC}{Tag\+\_\+\+A\+DC}} object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classTag__ADC_a31108256b50e3d6173f7977ac3693d08}{$\sim$\+Tag\+\_\+\+A\+DC}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the \mbox{\hyperlink{classTag__ADC}{Tag\+\_\+\+A\+DC}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTag__ADC_ac44df4c7105436285fbd20b7d348388a}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Begins sampling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTag__ADC_a7d7048a340318e24e9b5d15dce11b395}{end}} ()
+\begin{DoxyCompactList}\small\item\em Ends sampling. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTag__ADC_a1576331f5cd817cd64287fdef2fb2c6f}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the A\+DC settings and sets up the \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classTag__ADC_a29cdc46177d71fb6a1a8e9cdf0b716b2}{update\+\_\+settings}} ()
+\begin{DoxyCompactList}\small\item\em Updates the settings for sampling. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to implement an Abstract device for the A\+DC control. 
+
+This class controls the speed of sampling, which pin to sample, the resolution, and to where write the data 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTag__ADC_a599c294143b380567456d7fd1666bd8c}\label{classTag__ADC_a599c294143b380567456d7fd1666bd8c}} 
+\index{Tag\_ADC@{Tag\_ADC}!Tag\_ADC@{Tag\_ADC}}
+\index{Tag\_ADC@{Tag\_ADC}!Tag\_ADC@{Tag\_ADC}}
+\doxysubsubsection{\texorpdfstring{Tag\_ADC()}{Tag\_ADC()}}
+{\footnotesize\ttfamily Tag\+\_\+\+A\+D\+C\+::\+Tag\+\_\+\+A\+DC (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{pin,  }\item[{\mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}} $\ast$}]{adc\+\_\+settings,  }\item[{\mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} $\ast$}]{adc\+\_\+buffer }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classTag__ADC}{Tag\+\_\+\+A\+DC}} object. 
+
+Note that averaging can only take on the values of 0, 2, 4, 8, 16, or 32. The frequency of sampling activates a timer at the set frequency.
+
+
+\begin{DoxyParams}{Parameters}
+{\em pin} & Which pin to sample \\
+\hline
+{\em frequency} & The frequency of sampling \\
+\hline
+{\em avg} & The number of samples to average \\
+\hline
+{\em resolution} & Resolution of sampling \\
+\hline
+{\em adc\+\_\+buffer} & \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} pointer in which to save sampled data \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classTag__ADC_a31108256b50e3d6173f7977ac3693d08}\label{classTag__ADC_a31108256b50e3d6173f7977ac3693d08}} 
+\index{Tag\_ADC@{Tag\_ADC}!````~Tag\_ADC@{$\sim$Tag\_ADC}}
+\index{````~Tag\_ADC@{$\sim$Tag\_ADC}!Tag\_ADC@{Tag\_ADC}}
+\doxysubsubsection{\texorpdfstring{$\sim$Tag\_ADC()}{~Tag\_ADC()}}
+{\footnotesize\ttfamily Tag\+\_\+\+A\+D\+C\+::$\sim$\+Tag\+\_\+\+A\+DC (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the \mbox{\hyperlink{classTag__ADC}{Tag\+\_\+\+A\+DC}} object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTag__ADC_ac44df4c7105436285fbd20b7d348388a}\label{classTag__ADC_ac44df4c7105436285fbd20b7d348388a}} 
+\index{Tag\_ADC@{Tag\_ADC}!begin@{begin}}
+\index{begin@{begin}!Tag\_ADC@{Tag\_ADC}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void Tag\+\_\+\+A\+D\+C\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Begins sampling. 
+
+Starts the timer and attaches hardware interrupt to the \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} 
+
+Implements \mbox{\hyperlink{classAbstractDevice_a89f4760b7a46e04ae41b624565c09517}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classTag__ADC_a7d7048a340318e24e9b5d15dce11b395}\label{classTag__ADC_a7d7048a340318e24e9b5d15dce11b395}} 
+\index{Tag\_ADC@{Tag\_ADC}!end@{end}}
+\index{end@{end}!Tag\_ADC@{Tag\_ADC}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void Tag\+\_\+\+A\+D\+C\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Ends sampling. 
+
+Stops the timer and detaches interrupt 
+
+Implements \mbox{\hyperlink{classAbstractDevice_a3be2e4a734196c00d317ed5bc19995c7}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classTag__ADC_a1576331f5cd817cd64287fdef2fb2c6f}\label{classTag__ADC_a1576331f5cd817cd64287fdef2fb2c6f}} 
+\index{Tag\_ADC@{Tag\_ADC}!init@{init}}
+\index{init@{init}!Tag\_ADC@{Tag\_ADC}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Tag\+\_\+\+A\+D\+C\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initializes the A\+DC settings and sets up the \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}}. 
+
+
+
+Implements \mbox{\hyperlink{classAbstractDevice_a79fcd0fd5b748a233fe9488195b080a0}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classTag__ADC_a29cdc46177d71fb6a1a8e9cdf0b716b2}\label{classTag__ADC_a29cdc46177d71fb6a1a8e9cdf0b716b2}} 
+\index{Tag\_ADC@{Tag\_ADC}!update\_settings@{update\_settings}}
+\index{update\_settings@{update\_settings}!Tag\_ADC@{Tag\_ADC}}
+\doxysubsubsection{\texorpdfstring{update\_settings()}{update\_settings()}}
+{\footnotesize\ttfamily void Tag\+\_\+\+A\+D\+C\+::update\+\_\+settings (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Updates the settings for sampling. 
+
+Note that only these two settings have to be changed. The frequency is set during the \mbox{\hyperlink{classTag__ADC_ac44df4c7105436285fbd20b7d348388a}{begin()}} method, and thus does not have to be changed ahead of time. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Tag\+\_\+\+A\+D\+C/\mbox{\hyperlink{Tag__ADC_8h}{Tag\+\_\+\+A\+D\+C.\+h}}\item 
+lib/\+Tag\+\_\+\+A\+D\+C/\mbox{\hyperlink{Tag__ADC_8cpp}{Tag\+\_\+\+A\+D\+C.\+cpp}}\end{DoxyCompactItemize}

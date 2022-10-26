@@ -1,0 +1,96 @@
+\hypertarget{classSpeedBuffer}{}\doxysection{Speed\+Buffer Class Reference}
+\label{classSpeedBuffer}\index{SpeedBuffer@{SpeedBuffer}}
+
+
+{\ttfamily \#include $<$Speed\+Buffer.\+h$>$}
+
+
+
+Inheritance diagram for Speed\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classSpeedBuffer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Speed\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classSpeedBuffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSpeedBuffer_a09e6d9e90062223e81b87b21899d799b}{Speed\+Buffer}} (volatile uint8\+\_\+t $\ast$$\ast$\mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}}, size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}, size\+\_\+t buffer\+\_\+length, uint8\+\_\+t \mbox{\hyperlink{Test__Tag__ADC_8h_a1e6927fa1486224044e568f9c370519b}{id}}, \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\item 
+void \mbox{\hyperlink{classSpeedBuffer_a4260c7482d45c0ec13bc964b58b6ec1c}{write}} (volatile uint8\+\_\+t $\ast$source, size\+\_\+t length)
+\item 
+void \mbox{\hyperlink{classSpeedBuffer_a2abcabf66d8ce3be3e6f0a9b36c9d227}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Pure virtual function to reset the buffers to their initial state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classSpeedBuffer_a3d446a40427dd70d281d5311aed55168}{get\+\_\+buffer\+\_\+selector}} ()
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classSpeedBuffer_a9ecdf76511910eb7734b2e822d7a9c89}{get\+\_\+index}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classSpeedBuffer_a11f607ce8edafbe9042e69f4c1b484ad}{get\+\_\+trigger\+\_\+count}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSpeedBuffer_a09e6d9e90062223e81b87b21899d799b}\label{classSpeedBuffer_a09e6d9e90062223e81b87b21899d799b}} 
+\index{SpeedBuffer@{SpeedBuffer}!SpeedBuffer@{SpeedBuffer}}
+\index{SpeedBuffer@{SpeedBuffer}!SpeedBuffer@{SpeedBuffer}}
+\doxysubsubsection{\texorpdfstring{SpeedBuffer()}{SpeedBuffer()}}
+{\footnotesize\ttfamily Speed\+Buffer\+::\+Speed\+Buffer (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$$\ast$}]{buffers,  }\item[{size\+\_\+t}]{num\+\_\+buffers,  }\item[{size\+\_\+t}]{buffer\+\_\+length,  }\item[{uint8\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSpeedBuffer_a3d446a40427dd70d281d5311aed55168}\label{classSpeedBuffer_a3d446a40427dd70d281d5311aed55168}} 
+\index{SpeedBuffer@{SpeedBuffer}!get\_buffer\_selector@{get\_buffer\_selector}}
+\index{get\_buffer\_selector@{get\_buffer\_selector}!SpeedBuffer@{SpeedBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_buffer\_selector()}{get\_buffer\_selector()}}
+{\footnotesize\ttfamily uint8\+\_\+t Speed\+Buffer\+::get\+\_\+buffer\+\_\+selector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classSpeedBuffer_a9ecdf76511910eb7734b2e822d7a9c89}\label{classSpeedBuffer_a9ecdf76511910eb7734b2e822d7a9c89}} 
+\index{SpeedBuffer@{SpeedBuffer}!get\_index@{get\_index}}
+\index{get\_index@{get\_index}!SpeedBuffer@{SpeedBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_index()}{get\_index()}}
+{\footnotesize\ttfamily uint16\+\_\+t Speed\+Buffer\+::get\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classSpeedBuffer_a11f607ce8edafbe9042e69f4c1b484ad}\label{classSpeedBuffer_a11f607ce8edafbe9042e69f4c1b484ad}} 
+\index{SpeedBuffer@{SpeedBuffer}!get\_trigger\_count@{get\_trigger\_count}}
+\index{get\_trigger\_count@{get\_trigger\_count}!SpeedBuffer@{SpeedBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_trigger\_count()}{get\_trigger\_count()}}
+{\footnotesize\ttfamily uint8\+\_\+t Speed\+Buffer\+::get\+\_\+trigger\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classSpeedBuffer_a2abcabf66d8ce3be3e6f0a9b36c9d227}\label{classSpeedBuffer_a2abcabf66d8ce3be3e6f0a9b36c9d227}} 
+\index{SpeedBuffer@{SpeedBuffer}!reset@{reset}}
+\index{reset@{reset}!SpeedBuffer@{SpeedBuffer}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Speed\+Buffer\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Pure virtual function to reset the buffers to their initial state. 
+
+
+
+Implements \mbox{\hyperlink{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}{Buffer\+Base}}.
+
+\mbox{\Hypertarget{classSpeedBuffer_a4260c7482d45c0ec13bc964b58b6ec1c}\label{classSpeedBuffer_a4260c7482d45c0ec13bc964b58b6ec1c}} 
+\index{SpeedBuffer@{SpeedBuffer}!write@{write}}
+\index{write@{write}!SpeedBuffer@{SpeedBuffer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Speed\+Buffer\+::write (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$}]{source,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Speed\+Buffer/\mbox{\hyperlink{SpeedBuffer_8h}{Speed\+Buffer.\+h}}\item 
+lib/\+Speed\+Buffer/\mbox{\hyperlink{SpeedBuffer_8cpp}{Speed\+Buffer.\+cpp}}\end{DoxyCompactItemize}

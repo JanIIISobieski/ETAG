@@ -1,0 +1,16 @@
+<map id="lib/Tag_SD/Tag_SD.h" name="lib/Tag_SD/Tag_SD.h">
+<area shape="rect" id="node1" title="Defines SD card." alt="" coords="299,5,447,32"/>
+<area shape="rect" id="node2" href="$initialize__variables_8h.html" title=" " alt="" coords="187,266,349,293"/>
+<area shape="rect" id="node4" href="$SerialCommunicator_8h.html" title=" " alt="" coords="295,80,452,121"/>
+<area shape="rect" id="node14" href="$Test__Tag__ADC_8h.html" title=" " alt="" coords="477,80,630,121"/>
+<area shape="rect" id="node3" href="$main_8cpp.html" title=" " alt="" coords="219,348,317,375"/>
+<area shape="rect" id="node5" href="$ESP32__Bluetooth_8h.html" title=" " alt="" coords="26,169,169,211"/>
+<area shape="rect" id="node7" href="$RN42_8h.html" title=" " alt="" coords="752,177,875,203"/>
+<area shape="rect" id="node9" href="$SerialCommunicator_8cpp.html" title=" " alt="" coords="193,169,361,211"/>
+<area shape="rect" id="node10" href="$Tag__USB_8h.html" title=" " alt="" coords="386,177,553,203"/>
+<area shape="rect" id="node12" href="$TagCommunicator_8h.html" title=" " alt="" coords="577,169,722,211"/>
+<area shape="rect" id="node6" href="$ESP32__Bluetooth_8cpp.html" title=" " alt="" coords="8,259,163,300"/>
+<area shape="rect" id="node8" href="$RN42_8cpp.html" title=" " alt="" coords="757,266,893,293"/>
+<area shape="rect" id="node11" href="$Tag__USB_8cpp.html" title=" " alt="" coords="373,266,553,293"/>
+<area shape="rect" id="node13" href="$TagCommunicator_8cpp.html" title=" " alt="" coords="577,259,733,300"/>
+</map>

@@ -1,0 +1,198 @@
+\hypertarget{classWriter}{}\doxysection{Writer Class Reference}
+\label{classWriter}\index{Writer@{Writer}}
+
+
+{\ttfamily \#include $<$Writer.\+h$>$}
+
+
+
+Inheritance diagram for Writer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=344pt]{classWriter__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Writer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=149pt]{classWriter__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{classWriter_aa408827bcbd650655b8b6c5a2a7a5a7b}{write\+\_\+header}} ()=0
+\item 
+virtual size\+\_\+t \mbox{\hyperlink{classWriter_ac189f80d1fb1fffef55725dace730892}{write\+\_\+data}} (void $\ast$buff\+\_\+ptr, size\+\_\+t num\+\_\+bytes)=0
+\item 
+virtual void \mbox{\hyperlink{classWriter_a37b50645d34760cc163ce69fa601caa0}{pre\+\_\+sampling\+\_\+setup}} ()=0
+\item 
+virtual void \mbox{\hyperlink{classWriter_af901795041c72fd3d7d71618527bb420}{post\+\_\+sampling\+\_\+conclude}} ()=0
+\item 
+\mbox{\hyperlink{classWriter_a8a71d7d1a421b15b644b9acd2677398b}{Writer}} (\mbox{\hyperlink{classRunData}{Run\+Data}} $\ast$\mbox{\hyperlink{classWriter_a1c7b2e7632942f083b0aa7867d2e328e}{run\+\_\+data}})
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classWriter}{Writer}} object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{classWriter_acecee48becaa285f6f0f86cdb9e55230}{clear\+\_\+jsons}} ()
+\begin{DoxyCompactList}\small\item\em This results in actually deleting the information from the J\+S\+O\+Ns. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classWriter_a4f9f8c686c84e07afc96e9b02bb41ffa}{create\+\_\+data\+\_\+header}} ()
+\begin{DoxyCompactList}\small\item\em Create a data header J\+S\+ON. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classWriter_aaa68a4a95c02fb340f00321bfaa788d9}{write\+\_\+json\+\_\+array}} (Json\+Array $\ast$array, T $\ast$src, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Helping function to write a J\+S\+ON array. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRunData}{Run\+Data}} $\ast$ \mbox{\hyperlink{classWriter_a1c7b2e7632942f083b0aa7867d2e328e}{run\+\_\+data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Static Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Static\+Json\+Document$<$ 512 $>$ \mbox{\hyperlink{classWriter_a35d7a5c67311b04b7c6f6a0d8e79a847}{header\+\_\+info}}
+\item 
+static Static\+Json\+Document$<$ 256 $>$ \mbox{\hyperlink{classWriter_ad2f7eb783af6b17dcfc7327e7759e578}{json\+\_\+imu\+\_\+calibration}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWriter_a8a71d7d1a421b15b644b9acd2677398b}\label{classWriter_a8a71d7d1a421b15b644b9acd2677398b}} 
+\index{Writer@{Writer}!Writer@{Writer}}
+\index{Writer@{Writer}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{Writer()}{Writer()}}
+{\footnotesize\ttfamily Writer\+::\+Writer (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRunData}{Run\+Data}} $\ast$}]{run\+\_\+data }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classWriter}{Writer}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em run\+\_\+data} & A \mbox{\hyperlink{classRunData}{Run\+Data}} structure to refer to for the data that will be written in the data header. \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWriter_acecee48becaa285f6f0f86cdb9e55230}\label{classWriter_acecee48becaa285f6f0f86cdb9e55230}} 
+\index{Writer@{Writer}!clear\_jsons@{clear\_jsons}}
+\index{clear\_jsons@{clear\_jsons}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{clear\_jsons()}{clear\_jsons()}}
+{\footnotesize\ttfamily void Writer\+::clear\+\_\+jsons (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+This results in actually deleting the information from the J\+S\+O\+Ns. 
+
+Note that due to the structure of these J\+S\+O\+Ns and how they are implemented in \href{https://github.com/bblanchon/ArduinoJson}{\texttt{ Arduino\+J\+S\+ON}}, the J\+S\+O\+Ns must be cleared in between writing new values to the keys. Otherwise, there will be a memory leak. Since the J\+S\+O\+Ns are only really created before the header has to be written, they need to be cleared after writing. Thus, for the most part, clera\+\_\+jsons() is run in the \mbox{\hyperlink{classWriter_af901795041c72fd3d7d71618527bb420}{Writer\+::post\+\_\+sampling\+\_\+conclude()}}, in addition to any other tasks that might have to be run. \mbox{\Hypertarget{classWriter_a4f9f8c686c84e07afc96e9b02bb41ffa}\label{classWriter_a4f9f8c686c84e07afc96e9b02bb41ffa}} 
+\index{Writer@{Writer}!create\_data\_header@{create\_data\_header}}
+\index{create\_data\_header@{create\_data\_header}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{create\_data\_header()}{create\_data\_header()}}
+{\footnotesize\ttfamily size\+\_\+t Writer\+::create\+\_\+data\+\_\+header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Create a data header J\+S\+ON. 
+
+The \mbox{\hyperlink{classWriter_a35d7a5c67311b04b7c6f6a0d8e79a847}{header\+\_\+info}} and \mbox{\hyperlink{classWriter_ad2f7eb783af6b17dcfc7327e7759e578}{json\+\_\+imu\+\_\+calibration}} headers are created from scratch with the appropriate settings. Note that these J\+S\+O\+Ns are both static, and are thus shared between all classes that inherit from \mbox{\hyperlink{classWriter}{Writer}}. This results in saving some memory to not have several J\+S\+O\+Ns taking up space in memory.
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The size of the created J\+S\+O\+Ns 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWriter_af901795041c72fd3d7d71618527bb420}\label{classWriter_af901795041c72fd3d7d71618527bb420}} 
+\index{Writer@{Writer}!post\_sampling\_conclude@{post\_sampling\_conclude}}
+\index{post\_sampling\_conclude@{post\_sampling\_conclude}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{post\_sampling\_conclude()}{post\_sampling\_conclude()}}
+{\footnotesize\ttfamily virtual void Writer\+::post\+\_\+sampling\+\_\+conclude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Pure virtual function to run after sampling to properly conclude sampling 
+
+Implemented in \mbox{\hyperlink{classDiskManager_acb98ecc45432bfeaefeb3ccd67a20dce}{Disk\+Manager}}, \mbox{\hyperlink{classESP32__Bluetooth_a782e00ca5a70bf5b932442f69af0e44c}{E\+S\+P32\+\_\+\+Bluetooth}}, and \mbox{\hyperlink{classTag__USB_abb4bb2860ee65ebe20f293503f1d02d1}{Tag\+\_\+\+U\+SB}}.
+
+\mbox{\Hypertarget{classWriter_a37b50645d34760cc163ce69fa601caa0}\label{classWriter_a37b50645d34760cc163ce69fa601caa0}} 
+\index{Writer@{Writer}!pre\_sampling\_setup@{pre\_sampling\_setup}}
+\index{pre\_sampling\_setup@{pre\_sampling\_setup}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{pre\_sampling\_setup()}{pre\_sampling\_setup()}}
+{\footnotesize\ttfamily virtual void Writer\+::pre\+\_\+sampling\+\_\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Pure virtual function to run any setup before sampling can be started 
+
+Implemented in \mbox{\hyperlink{classDiskManager_a455f35143f3ada1201f8fa494916624a}{Disk\+Manager}}, \mbox{\hyperlink{classESP32__Bluetooth_aad41a6b9f4381754a23ede435291d066}{E\+S\+P32\+\_\+\+Bluetooth}}, and \mbox{\hyperlink{classTag__USB_a9bb8e82a5235503bf0f11a0b56a484a8}{Tag\+\_\+\+U\+SB}}.
+
+\mbox{\Hypertarget{classWriter_ac189f80d1fb1fffef55725dace730892}\label{classWriter_ac189f80d1fb1fffef55725dace730892}} 
+\index{Writer@{Writer}!write\_data@{write\_data}}
+\index{write\_data@{write\_data}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{write\_data()}{write\_data()}}
+{\footnotesize\ttfamily virtual size\+\_\+t Writer\+::write\+\_\+data (\begin{DoxyParamCaption}\item[{void $\ast$}]{buff\+\_\+ptr,  }\item[{size\+\_\+t}]{num\+\_\+bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Pure virtual function to write a data buffer 
+
+Implemented in \mbox{\hyperlink{classDiskManager_a1ab3e8d854d0bb041c475568bfed0912}{Disk\+Manager}}, \mbox{\hyperlink{classESP32__Bluetooth_af0314d12fb9678fee1c9df85adf213ed}{E\+S\+P32\+\_\+\+Bluetooth}}, and \mbox{\hyperlink{classTag__USB_aac35338c37ad79d98a507c182d3ba108}{Tag\+\_\+\+U\+SB}}.
+
+\mbox{\Hypertarget{classWriter_aa408827bcbd650655b8b6c5a2a7a5a7b}\label{classWriter_aa408827bcbd650655b8b6c5a2a7a5a7b}} 
+\index{Writer@{Writer}!write\_header@{write\_header}}
+\index{write\_header@{write\_header}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{write\_header()}{write\_header()}}
+{\footnotesize\ttfamily virtual size\+\_\+t Writer\+::write\+\_\+header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+Pure virtual function to write the header 
+
+Implemented in \mbox{\hyperlink{classDiskManager_a91afbfba534f045558431083439f1710}{Disk\+Manager}}, \mbox{\hyperlink{classESP32__Bluetooth_ae370f9512d5280110a066a9259a3a3cb}{E\+S\+P32\+\_\+\+Bluetooth}}, and \mbox{\hyperlink{classTag__USB_a42ed4cf1ef85121e9a7ed8133ed93bf7}{Tag\+\_\+\+U\+SB}}.
+
+\mbox{\Hypertarget{classWriter_aaa68a4a95c02fb340f00321bfaa788d9}\label{classWriter_aaa68a4a95c02fb340f00321bfaa788d9}} 
+\index{Writer@{Writer}!write\_json\_array@{write\_json\_array}}
+\index{write\_json\_array@{write\_json\_array}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{write\_json\_array()}{write\_json\_array()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Writer\+::write\+\_\+json\+\_\+array (\begin{DoxyParamCaption}\item[{Json\+Array $\ast$}]{array,  }\item[{T $\ast$}]{src,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+Helping function to write a J\+S\+ON array. 
+
+Mostly just eliminates the need for many uses of array.\+add()
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Arbitrary data type (e.\+g. uint8\+\_\+t, int16\+\_\+t, unsigned char, float, etc.) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em array} & A Json\+Array object (from Arduino\+J\+S\+ON package) \\
+\hline
+{\em src} & The array to write to the Json\+Array \\
+\hline
+{\em len} & The length of /ref src to write \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classWriter_a35d7a5c67311b04b7c6f6a0d8e79a847}\label{classWriter_a35d7a5c67311b04b7c6f6a0d8e79a847}} 
+\index{Writer@{Writer}!header\_info@{header\_info}}
+\index{header\_info@{header\_info}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{header\_info}{header\_info}}
+{\footnotesize\ttfamily Static\+Json\+Document$<$ 512 $>$ Writer\+::header\+\_\+info\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+J\+S\+ON containing run metadata like animal species, animal name, and a description \mbox{\Hypertarget{classWriter_ad2f7eb783af6b17dcfc7327e7759e578}\label{classWriter_ad2f7eb783af6b17dcfc7327e7759e578}} 
+\index{Writer@{Writer}!json\_imu\_calibration@{json\_imu\_calibration}}
+\index{json\_imu\_calibration@{json\_imu\_calibration}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{json\_imu\_calibration}{json\_imu\_calibration}}
+{\footnotesize\ttfamily Static\+Json\+Document$<$ 256 $>$ Writer\+::json\+\_\+imu\+\_\+calibration\hspace{0.3cm}{\ttfamily [static]}, {\ttfamily [protected]}}
+
+J\+S\+ON containing the I\+MU calibration values (acceleration bias, gyro bias, scaling factors, etc.) \mbox{\Hypertarget{classWriter_a1c7b2e7632942f083b0aa7867d2e328e}\label{classWriter_a1c7b2e7632942f083b0aa7867d2e328e}} 
+\index{Writer@{Writer}!run\_data@{run\_data}}
+\index{run\_data@{run\_data}!Writer@{Writer}}
+\doxysubsubsection{\texorpdfstring{run\_data}{run\_data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classRunData}{Run\+Data}}$\ast$ Writer\+::run\+\_\+data\hspace{0.3cm}{\ttfamily [protected]}}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Writer/\mbox{\hyperlink{Writer_8h}{Writer.\+h}}\item 
+lib/\+Writer/\mbox{\hyperlink{Writer_8cpp}{Writer.\+cpp}}\end{DoxyCompactItemize}

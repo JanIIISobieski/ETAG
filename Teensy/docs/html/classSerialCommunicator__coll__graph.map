@@ -1,0 +1,6 @@
+<map id="SerialCommunicator" name="SerialCommunicator">
+<area shape="rect" id="node1" title="This abstract class establishes the interface for serial communication." alt="" coords="5,260,145,287"/>
+<area shape="rect" id="node2" href="$classDiskManager.html" title="Class to manage the SD card and files for the tag." alt="" coords="26,171,125,197"/>
+<area shape="rect" id="node3" href="$classWriter.html" title=" " alt="" coords="47,95,103,121"/>
+<area shape="rect" id="node4" href="$classRunData.html" title="Class to manage the run metadata." alt="" coords="38,5,113,32"/>
+</map>

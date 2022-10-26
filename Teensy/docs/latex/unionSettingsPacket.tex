@@ -1,0 +1,67 @@
+\hypertarget{unionSettingsPacket}{}\doxysection{Settings\+Packet Union Reference}
+\label{unionSettingsPacket}\index{SettingsPacket@{SettingsPacket}}
+
+
+{\ttfamily \#include $<$Tag\+Settings.\+h$>$}
+
+
+
+Collaboration diagram for Settings\+Packet\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{unionSettingsPacket__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+\begin{tabbing}
+xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=xx\=\kill
+struct \{\\
+\>\mbox{\hyperlink{unionADS1299Settings}{ADS1299Settings}} \mbox{\hyperlink{unionSettingsPacket_ad0412cbd196afe79d6f657446c2cd59e}{ADS}} \{\}\\
+\>\mbox{\hyperlink{unionADCSettings}{ADCSettings}} \mbox{\hyperlink{unionSettingsPacket_a57fad9e8282f81e9bc3319aff325f6bb}{ADC}} \{\}\\
+\>\mbox{\hyperlink{unionDeviceEnable}{DeviceEnable}} \mbox{\hyperlink{unionSettingsPacket_a16612c7e52ef453c1c81af5b06820bf8}{DeviceStart}} \{\}\\
+\} \mbox{\hyperlink{unionSettingsPacket_aa5b69e8b2608f73a3c91ccd7c2ad37ed}{settings}}\\
+
+\end{tabbing}\item 
+uint8\+\_\+t \mbox{\hyperlink{unionSettingsPacket_acc04ab1640a2bc3e9c6042b1b8c88d8e}{raw\+\_\+bytes}} \mbox{[}sizeof(\mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}})+sizeof(\mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}})+sizeof(\mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}})\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{unionSettingsPacket_a57fad9e8282f81e9bc3319aff325f6bb}\label{unionSettingsPacket_a57fad9e8282f81e9bc3319aff325f6bb}} 
+\index{SettingsPacket@{SettingsPacket}!ADC@{ADC}}
+\index{ADC@{ADC}!SettingsPacket@{SettingsPacket}}
+\doxysubsubsection{\texorpdfstring{ADC}{ADC}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}} Settings\+Packet\+::\+A\+DC \{\}}
+
+\mbox{\Hypertarget{unionSettingsPacket_ad0412cbd196afe79d6f657446c2cd59e}\label{unionSettingsPacket_ad0412cbd196afe79d6f657446c2cd59e}} 
+\index{SettingsPacket@{SettingsPacket}!ADS@{ADS}}
+\index{ADS@{ADS}!SettingsPacket@{SettingsPacket}}
+\doxysubsubsection{\texorpdfstring{ADS}{ADS}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} Settings\+Packet\+::\+A\+DS \{\}}
+
+\mbox{\Hypertarget{unionSettingsPacket_a16612c7e52ef453c1c81af5b06820bf8}\label{unionSettingsPacket_a16612c7e52ef453c1c81af5b06820bf8}} 
+\index{SettingsPacket@{SettingsPacket}!DeviceStart@{DeviceStart}}
+\index{DeviceStart@{DeviceStart}!SettingsPacket@{SettingsPacket}}
+\doxysubsubsection{\texorpdfstring{DeviceStart}{DeviceStart}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}} Settings\+Packet\+::\+Device\+Start \{\}}
+
+\mbox{\Hypertarget{unionSettingsPacket_acc04ab1640a2bc3e9c6042b1b8c88d8e}\label{unionSettingsPacket_acc04ab1640a2bc3e9c6042b1b8c88d8e}} 
+\index{SettingsPacket@{SettingsPacket}!raw\_bytes@{raw\_bytes}}
+\index{raw\_bytes@{raw\_bytes}!SettingsPacket@{SettingsPacket}}
+\doxysubsubsection{\texorpdfstring{raw\_bytes}{raw\_bytes}}
+{\footnotesize\ttfamily uint8\+\_\+t Settings\+Packet\+::raw\+\_\+bytes\mbox{[}sizeof(\mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}})+sizeof(\mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}})+sizeof(\mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}})\mbox{]}}
+
+\mbox{\Hypertarget{unionSettingsPacket_aa5b69e8b2608f73a3c91ccd7c2ad37ed}\label{unionSettingsPacket_aa5b69e8b2608f73a3c91ccd7c2ad37ed}} 
+\index{SettingsPacket@{SettingsPacket}!settings@{settings}}
+\index{settings@{settings}!SettingsPacket@{SettingsPacket}}
+\doxysubsubsection{\texorpdfstring{settings}{settings}}
+{\footnotesize\ttfamily struct \{ ... \}  Settings\+Packet\+::settings}
+
+
+
+The documentation for this union was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Tag\+Settings/\mbox{\hyperlink{TagSettings_8h}{Tag\+Settings.\+h}}\end{DoxyCompactItemize}

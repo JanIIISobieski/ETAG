@@ -1,0 +1,145 @@
+\hypertarget{classBufferBase}{}\doxysection{Buffer\+Base Class Reference}
+\label{classBufferBase}\index{BufferBase@{BufferBase}}
+
+
+{\ttfamily \#include $<$Buffer\+Base.\+h$>$}
+
+
+
+Inheritance diagram for Buffer\+Base\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classBufferBase__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classBufferBase_ae2b8d3ea9f3f46dcd9509ab7725c0626}{Buffer\+Base}} (size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}, size\+\_\+t length\+\_\+buffers, uint8\+\_\+t \mbox{\hyperlink{Test__Tag__ADC_8h_a1e6927fa1486224044e568f9c370519b}{id}})
+\begin{DoxyCompactList}\small\item\em Construct a new Abstract Buffer object. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}{reset}} ()=0
+\begin{DoxyCompactList}\small\item\em Pure virtual function to reset the buffers to their initial state. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classBufferBase_a45c0c1377b6b587b1eb60de41abd6b13}{get\+\_\+num\+\_\+buffers}} ()
+\begin{DoxyCompactList}\small\item\em Get the number of buffers. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classBufferBase_aa3e767e90fd6cb6f65f6c89001798fee}{get\+\_\+current\+\_\+index}} ()
+\begin{DoxyCompactList}\small\item\em Get the current index object. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classBufferBase_a4fd7b96b0b4c95db13658192e4528e68}{identifier}}
+\item 
+size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{classBufferBase_adc511687b5c8adb382c73123ccbd0a36}{buffer\+\_\+selector}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{classBufferBase_ab3a6bf62f640291225cbeb0568b8f4af}{buffer\+\_\+trigger\+\_\+count}}
+\item 
+volatile size\+\_\+t \mbox{\hyperlink{classBufferBase_a09f61c60aa7753ae971ba19886743fd5}{current\+\_\+index}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classBufferBase_ae2b8d3ea9f3f46dcd9509ab7725c0626}\label{classBufferBase_ae2b8d3ea9f3f46dcd9509ab7725c0626}} 
+\index{BufferBase@{BufferBase}!BufferBase@{BufferBase}}
+\index{BufferBase@{BufferBase}!BufferBase@{BufferBase}}
+\doxysubsubsection{\texorpdfstring{BufferBase()}{BufferBase()}}
+{\footnotesize\ttfamily Buffer\+Base\+::\+Buffer\+Base (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{num\+\_\+buffers,  }\item[{size\+\_\+t}]{length\+\_\+buffers,  }\item[{uint8\+\_\+t}]{id }\end{DoxyParamCaption})}
+
+
+
+Construct a new Abstract Buffer object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buff\+\_\+vec} & A pointer to an array containing pointers to buffers of type T \\
+\hline
+{\em num\+\_\+buffers} & The number of buffers (length of the buff\+\_\+vec array) \\
+\hline
+{\em length\+\_\+buffers} & The length of each array passed in buff\+\_\+vec \\
+\hline
+{\em id} & Sets the identification bytes for each buffer \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classBufferBase_aa3e767e90fd6cb6f65f6c89001798fee}\label{classBufferBase_aa3e767e90fd6cb6f65f6c89001798fee}} 
+\index{BufferBase@{BufferBase}!get\_current\_index@{get\_current\_index}}
+\index{get\_current\_index@{get\_current\_index}!BufferBase@{BufferBase}}
+\doxysubsubsection{\texorpdfstring{get\_current\_index()}{get\_current\_index()}}
+{\footnotesize\ttfamily size\+\_\+t Buffer\+Base\+::get\+\_\+current\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the current index object. 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The index of the buffer currently being filled 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBufferBase_a45c0c1377b6b587b1eb60de41abd6b13}\label{classBufferBase_a45c0c1377b6b587b1eb60de41abd6b13}} 
+\index{BufferBase@{BufferBase}!get\_num\_buffers@{get\_num\_buffers}}
+\index{get\_num\_buffers@{get\_num\_buffers}!BufferBase@{BufferBase}}
+\doxysubsubsection{\texorpdfstring{get\_num\_buffers()}{get\_num\_buffers()}}
+{\footnotesize\ttfamily size\+\_\+t Buffer\+Base\+::get\+\_\+num\+\_\+buffers (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the number of buffers. 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The number of buffers 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}\label{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}} 
+\index{BufferBase@{BufferBase}!reset@{reset}}
+\index{reset@{reset}!BufferBase@{BufferBase}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily virtual void Buffer\+Base\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Pure virtual function to reset the buffers to their initial state. 
+
+
+
+Implemented in \mbox{\hyperlink{classADCBuffer_a57fcb4d574d32308ac504bd4558ec41b}{A\+D\+C\+Buffer}}, \mbox{\hyperlink{classEEGBuffer_a30553892c183b95cf84d7d4f5089b240}{E\+E\+G\+Buffer}}, \mbox{\hyperlink{classIMUBuffer_a4967c9aa67b845a81751f611ab8e12dd}{I\+M\+U\+Buffer}}, \mbox{\hyperlink{classADCBuffer2_ab1e50bfab9642a269248648f26d0c390}{A\+D\+C\+Buffer2}}, \mbox{\hyperlink{classNIRSBuffer_a4b6683f4f290e11bb2ad4ca7558c49f1}{N\+I\+R\+S\+Buffer}}, \mbox{\hyperlink{classPressureBuffer_a1daca8ebbc756d804348a428b8dabd4b}{Pressure\+Buffer}}, and \mbox{\hyperlink{classSpeedBuffer_a2abcabf66d8ce3be3e6f0a9b36c9d227}{Speed\+Buffer}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classBufferBase_adc511687b5c8adb382c73123ccbd0a36}\label{classBufferBase_adc511687b5c8adb382c73123ccbd0a36}} 
+\index{BufferBase@{BufferBase}!buffer\_selector@{buffer\_selector}}
+\index{buffer\_selector@{buffer\_selector}!BufferBase@{BufferBase}}
+\doxysubsubsection{\texorpdfstring{buffer\_selector}{buffer\_selector}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t Buffer\+Base\+::buffer\+\_\+selector\hspace{0.3cm}{\ttfamily [protected]}}
+
+An index selecting the current active buffer \mbox{\Hypertarget{classBufferBase_ab3a6bf62f640291225cbeb0568b8f4af}\label{classBufferBase_ab3a6bf62f640291225cbeb0568b8f4af}} 
+\index{BufferBase@{BufferBase}!buffer\_trigger\_count@{buffer\_trigger\_count}}
+\index{buffer\_trigger\_count@{buffer\_trigger\_count}!BufferBase@{BufferBase}}
+\doxysubsubsection{\texorpdfstring{buffer\_trigger\_count}{buffer\_trigger\_count}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t Buffer\+Base\+::buffer\+\_\+trigger\+\_\+count\hspace{0.3cm}{\ttfamily [protected]}}
+
+The number of times any buffer was sent to the SD card \mbox{\Hypertarget{classBufferBase_a09f61c60aa7753ae971ba19886743fd5}\label{classBufferBase_a09f61c60aa7753ae971ba19886743fd5}} 
+\index{BufferBase@{BufferBase}!current\_index@{current\_index}}
+\index{current\_index@{current\_index}!BufferBase@{BufferBase}}
+\doxysubsubsection{\texorpdfstring{current\_index}{current\_index}}
+{\footnotesize\ttfamily volatile size\+\_\+t Buffer\+Base\+::current\+\_\+index\hspace{0.3cm}{\ttfamily [protected]}}
+
+The current location in a buffer \mbox{\Hypertarget{classBufferBase_a4fd7b96b0b4c95db13658192e4528e68}\label{classBufferBase_a4fd7b96b0b4c95db13658192e4528e68}} 
+\index{BufferBase@{BufferBase}!identifier@{identifier}}
+\index{identifier@{identifier}!BufferBase@{BufferBase}}
+\doxysubsubsection{\texorpdfstring{identifier}{identifier}}
+{\footnotesize\ttfamily uint8\+\_\+t Buffer\+Base\+::identifier\hspace{0.3cm}{\ttfamily [protected]}}
+
+The identifier byte for the buffers \mbox{\Hypertarget{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}\label{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}} 
+\index{BufferBase@{BufferBase}!num\_buffers@{num\_buffers}}
+\index{num\_buffers@{num\_buffers}!BufferBase@{BufferBase}}
+\doxysubsubsection{\texorpdfstring{num\_buffers}{num\_buffers}}
+{\footnotesize\ttfamily size\+\_\+t Buffer\+Base\+::num\+\_\+buffers\hspace{0.3cm}{\ttfamily [protected]}}
+
+The number of buffers 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Buffer\+Base/\mbox{\hyperlink{BufferBase_8h}{Buffer\+Base.\+h}}\item 
+lib/\+Buffer\+Base/\mbox{\hyperlink{BufferBase_8cpp}{Buffer\+Base.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['magbias_1262',['magBias',['../classMPU9250.html#a1f3b364d6efca22837dd944c60effce5',1,'MPU9250']]],
+  ['magcount_1263',['magCount',['../classMPU9250.html#aff92db5334c43a72f5c2f1fc8ee6f596',1,'MPU9250']]],
+  ['magnetometer_5fbiases_1264',['magnetometer_biases',['../structIMUCalibration.html#a37f26a5823562808fec8219f6a4d9cb6',1,'IMUCalibration']]],
+  ['magnetometer_5fcalibration_1265',['magnetometer_calibration',['../structIMUCalibration.html#a5f9711c17be295d91c899c102c9438a2',1,'IMUCalibration']]],
+  ['magnetometer_5fresolution_1266',['magnetometer_resolution',['../structIMUCalibration.html#adf086b546084bac1eb04e44f41303f2a',1,'IMUCalibration']]],
+  ['magscale_1267',['magScale',['../classMPU9250.html#a09f641aa48a5c7228a6ea5034e0391c3',1,'MPU9250']]],
+  ['max_5fdiff_1268',['max_diff',['../structTimingMetadata.html#a6ce0cdf6276ac3d94ff199d09b80092b',1,'TimingMetadata']]],
+  ['mem_5foffset_1269',['mem_offset',['../classRegister.html#a3d8cea48ea52451f3e1990e9517f1c81',1,'Register']]],
+  ['micro_5fusb_1270',['MICRO_USB',['../initialize__variables_8h.html#a71b4b373a6d1863c38f1f9a5014a258c',1,'initialize_variables.h']]],
+  ['min_5fdiff_1271',['min_diff',['../structTimingMetadata.html#a2851256fcf80e6da8a6d36f64bb371ab',1,'TimingMetadata']]],
+  ['misc1_1272',['misc1',['../classEEGSettings.html#aa027b4c1be27f8049648fba1dfd34e0e',1,'EEGSettings::misc1()'],['../structADS1299Settings_1_1ADSRegisters.html#aa2c8f207a069c0b6b74ba6e540596f92',1,'ADS1299Settings::ADSRegisters::misc1()']]],
+  ['misc2_1273',['misc2',['../classEEGSettings.html#ad908b018b5f2835606e43631ab3c2232',1,'EEGSettings']]],
+  ['mmode_1274',['Mmode',['../classMPU9250.html#a7e36453e794f2b4c13e2ed871ad3139b',1,'MPU9250']]],
+  ['mres_1275',['mRes',['../classMPU9250.html#a173e0594b9d3ecb6ece2b71f9f59fc50',1,'MPU9250']]],
+  ['mscale_1276',['Mscale',['../classMPU9250.html#ad9a2d2083ebc8e645a7d83b77ae6ac07',1,'MPU9250']]],
+  ['mv_5fscale_5ffactor_1277',['mV_scale_factor',['../classADS1299.html#aba3afe9a064638fb5a639af427c2add1',1,'ADS1299']]],
+  ['mx_1278',['mx',['../classMPU9250.html#aa4cc8b2c9417304d1106bdbd988ac607',1,'MPU9250']]],
+  ['my_1279',['my',['../classMPU9250.html#ad7cf9fe3134d24f46705881b2e002f31',1,'MPU9250']]],
+  ['mz_1280',['mz',['../classMPU9250.html#af11072922aa71ffb125fe3786f848653',1,'MPU9250']]]
+];

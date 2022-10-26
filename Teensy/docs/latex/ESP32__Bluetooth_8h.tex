@@ -1,0 +1,93 @@
+\hypertarget{ESP32__Bluetooth_8h}{}\doxysection{lib/\+E\+S\+P32\+\_\+\+Bluetooth/\+E\+S\+P32\+\_\+\+Bluetooth.h File Reference}
+\label{ESP32__Bluetooth_8h}\index{lib/ESP32\_Bluetooth/ESP32\_Bluetooth.h@{lib/ESP32\_Bluetooth/ESP32\_Bluetooth.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$Serial\+Communicator.\+h$>$}\newline
+Include dependency graph for E\+S\+P32\+\_\+\+Bluetooth.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{ESP32__Bluetooth_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=336pt]{ESP32__Bluetooth_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+union \mbox{\hyperlink{unionTimePressureTemperature}{Time\+Pressure\+Temperature}}
+\item 
+struct \mbox{\hyperlink{structTimePressureTemperature_1_1DataStruct}{Time\+Pressure\+Temperature\+::\+Data\+Struct}}
+\item 
+union \mbox{\hyperlink{unionTimeSpeed}{Time\+Speed}}
+\item 
+struct \mbox{\hyperlink{structTimeSpeed_1_1DataStruct}{Time\+Speed\+::\+Data\+Struct}}
+\item 
+class \mbox{\hyperlink{classESP32__Bluetooth}{E\+S\+P32\+\_\+\+Bluetooth}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{ESP32__Bluetooth_8h_a3fd011bf67d509f91bcf98e53bedf1b0}{F\+I\+L\+E\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+ZE}}~2048
+\item 
+\#define \mbox{\hyperlink{ESP32__Bluetooth_8h_a740724cdf362d35ad6f5a0c10483496e}{B\+L\+U\+E\+T\+O\+O\+T\+H\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE}}~64
+\item 
+\#define \mbox{\hyperlink{ESP32__Bluetooth_8h_aa611b649dbc899450362b606c151d6e5}{B\+L\+U\+E\+T\+O\+O\+T\+H\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+U\+F\+F\+ER}}~64
+\item 
+\#define \mbox{\hyperlink{ESP32__Bluetooth_8h_a7ada9109359c9ae8604b743bb86ed1b7}{M\+I\+N\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+L\+AY}}~10
+\item 
+\#define \mbox{\hyperlink{ESP32__Bluetooth_8h_a2550186088c39f7dfcb1e43f83f7b089}{M\+I\+N\+\_\+\+P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+D\+E\+L\+AY}}~10
+\item 
+\#define \mbox{\hyperlink{ESP32__Bluetooth_8h_ab9c7b627206977212153a85342481368}{E\+S\+P32\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+TE}}~115200
+\item 
+\#define \mbox{\hyperlink{ESP32__Bluetooth_8h_a86e62bd4976b44af4c902cf7e8e9f4f0}{P\+H\+R\+A\+S\+E\+\_\+\+L\+EN}}~7
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{ESP32__Bluetooth_8h_a740724cdf362d35ad6f5a0c10483496e}\label{ESP32__Bluetooth_8h_a740724cdf362d35ad6f5a0c10483496e}} 
+\index{ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}!BLUETOOTH\_BUFFER\_SIZE@{BLUETOOTH\_BUFFER\_SIZE}}
+\index{BLUETOOTH\_BUFFER\_SIZE@{BLUETOOTH\_BUFFER\_SIZE}!ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}}
+\doxysubsubsection{\texorpdfstring{BLUETOOTH\_BUFFER\_SIZE}{BLUETOOTH\_BUFFER\_SIZE}}
+{\footnotesize\ttfamily \#define B\+L\+U\+E\+T\+O\+O\+T\+H\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+S\+I\+ZE~64}
+
+\mbox{\Hypertarget{ESP32__Bluetooth_8h_aa611b649dbc899450362b606c151d6e5}\label{ESP32__Bluetooth_8h_aa611b649dbc899450362b606c151d6e5}} 
+\index{ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}!BLUETOOTH\_WRITE\_BUFFER@{BLUETOOTH\_WRITE\_BUFFER}}
+\index{BLUETOOTH\_WRITE\_BUFFER@{BLUETOOTH\_WRITE\_BUFFER}!ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}}
+\doxysubsubsection{\texorpdfstring{BLUETOOTH\_WRITE\_BUFFER}{BLUETOOTH\_WRITE\_BUFFER}}
+{\footnotesize\ttfamily \#define B\+L\+U\+E\+T\+O\+O\+T\+H\+\_\+\+W\+R\+I\+T\+E\+\_\+\+B\+U\+F\+F\+ER~64}
+
+\mbox{\Hypertarget{ESP32__Bluetooth_8h_ab9c7b627206977212153a85342481368}\label{ESP32__Bluetooth_8h_ab9c7b627206977212153a85342481368}} 
+\index{ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}!ESP32\_BAUD\_RATE@{ESP32\_BAUD\_RATE}}
+\index{ESP32\_BAUD\_RATE@{ESP32\_BAUD\_RATE}!ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}}
+\doxysubsubsection{\texorpdfstring{ESP32\_BAUD\_RATE}{ESP32\_BAUD\_RATE}}
+{\footnotesize\ttfamily \#define E\+S\+P32\+\_\+\+B\+A\+U\+D\+\_\+\+R\+A\+TE~115200}
+
+\mbox{\Hypertarget{ESP32__Bluetooth_8h_a3fd011bf67d509f91bcf98e53bedf1b0}\label{ESP32__Bluetooth_8h_a3fd011bf67d509f91bcf98e53bedf1b0}} 
+\index{ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}!FILE\_READ\_SIZE@{FILE\_READ\_SIZE}}
+\index{FILE\_READ\_SIZE@{FILE\_READ\_SIZE}!ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}}
+\doxysubsubsection{\texorpdfstring{FILE\_READ\_SIZE}{FILE\_READ\_SIZE}}
+{\footnotesize\ttfamily \#define F\+I\+L\+E\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+ZE~2048}
+
+\mbox{\Hypertarget{ESP32__Bluetooth_8h_a2550186088c39f7dfcb1e43f83f7b089}\label{ESP32__Bluetooth_8h_a2550186088c39f7dfcb1e43f83f7b089}} 
+\index{ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}!MIN\_PRESSURE\_DELAY@{MIN\_PRESSURE\_DELAY}}
+\index{MIN\_PRESSURE\_DELAY@{MIN\_PRESSURE\_DELAY}!ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_PRESSURE\_DELAY}{MIN\_PRESSURE\_DELAY}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+D\+E\+L\+AY~10}
+
+\mbox{\Hypertarget{ESP32__Bluetooth_8h_a7ada9109359c9ae8604b743bb86ed1b7}\label{ESP32__Bluetooth_8h_a7ada9109359c9ae8604b743bb86ed1b7}} 
+\index{ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}!MIN\_SPEED\_DELAY@{MIN\_SPEED\_DELAY}}
+\index{MIN\_SPEED\_DELAY@{MIN\_SPEED\_DELAY}!ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}}
+\doxysubsubsection{\texorpdfstring{MIN\_SPEED\_DELAY}{MIN\_SPEED\_DELAY}}
+{\footnotesize\ttfamily \#define M\+I\+N\+\_\+\+S\+P\+E\+E\+D\+\_\+\+D\+E\+L\+AY~10}
+
+\mbox{\Hypertarget{ESP32__Bluetooth_8h_a86e62bd4976b44af4c902cf7e8e9f4f0}\label{ESP32__Bluetooth_8h_a86e62bd4976b44af4c902cf7e8e9f4f0}} 
+\index{ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}!PHRASE\_LEN@{PHRASE\_LEN}}
+\index{PHRASE\_LEN@{PHRASE\_LEN}!ESP32\_Bluetooth.h@{ESP32\_Bluetooth.h}}
+\doxysubsubsection{\texorpdfstring{PHRASE\_LEN}{PHRASE\_LEN}}
+{\footnotesize\ttfamily \#define P\+H\+R\+A\+S\+E\+\_\+\+L\+EN~7}
+

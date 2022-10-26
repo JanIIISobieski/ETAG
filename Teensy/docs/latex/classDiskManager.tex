@@ -1,0 +1,358 @@
+\hypertarget{classDiskManager}{}\doxysection{Disk\+Manager Class Reference}
+\label{classDiskManager}\index{DiskManager@{DiskManager}}
+
+
+Class to manage the SD card and files for the tag.  
+
+
+
+
+{\ttfamily \#include $<$Disk\+Manager.\+h$>$}
+
+
+
+Inheritance diagram for Disk\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=154pt]{classDiskManager__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Disk\+Manager\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=158pt]{classDiskManager__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classDiskManager_a7013f70e240394d2aba7d66952626381}{Disk\+Manager}} (\mbox{\hyperlink{classRunData}{Run\+Data}} $\ast$\mbox{\hyperlink{classWriter_a1c7b2e7632942f083b0aa7867d2e328e}{run\+\_\+data}})
+\begin{DoxyCompactList}\small\item\em Construct a new Disk Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classDiskManager_a60837a3b8064649adf23e3143c85aed7}{$\sim$\+Disk\+Manager}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Disk Manager object. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDiskManager_a48d7d129739b07b07241ff264a8d939c}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initalizes the SD card. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDiskManager_a455f35143f3ada1201f8fa494916624a}{pre\+\_\+sampling\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em Opens file for recieving data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDiskManager_acb98ecc45432bfeaefeb3ccd67a20dce}{post\+\_\+sampling\+\_\+conclude}} ()
+\begin{DoxyCompactList}\small\item\em Ends sampling. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classDiskManager_a1009efe61faf71974c20b207ac6e8ff5}{update\+\_\+file\+\_\+num}} ()
+\begin{DoxyCompactList}\small\item\em Gets the total number of files present. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDiskManager_a42eae769049ed54dd3a9a7beddd37720}{delete\+\_\+file}} (uint8\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Deletes the file at the ith index. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classDiskManager_a60128e433703d8be76182853ce378dd0}{get\+\_\+filename}} (uint8\+\_\+t i)
+\begin{DoxyCompactList}\small\item\em Get the filename. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDiskManager_a4e98f64d03cc9f842f8c8789218fcb5b}{stop}} ()
+\begin{DoxyCompactList}\small\item\em Stop the device and files. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{structFileReadData}{File\+Read\+Data}} $\ast$ \mbox{\hyperlink{classDiskManager_aec70dadf72cda7b0180d5bf0da9f834a}{get\+\_\+file\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em Get the file data object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classDiskManager_add6c490a6ea4952dc32d5fba34c2ba06}{open\+\_\+data\+\_\+file}} (String filename)
+\begin{DoxyCompactList}\small\item\em Opens a data file for reading. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDiskManager_a347bf373acf8f75a7c602f34433b8472}{create\+\_\+data\+\_\+file}} (String filename)
+\begin{DoxyCompactList}\small\item\em Create a file object. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classDiskManager_a91afbfba534f045558431083439f1710}{write\+\_\+header}} ()
+\begin{DoxyCompactList}\small\item\em Writes the \mbox{\hyperlink{classRunData}{Run\+Data}} metadata as the header for the data file. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDiskManager_a809abf3b19760415d893be2f6d43951d}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Closes all files, restarts the SD card, and reopens the files. \end{DoxyCompactList}\item 
+uint64\+\_\+t \mbox{\hyperlink{classDiskManager_a71a06cdc2762b73f67bfdc12557d9ca6}{get\+\_\+file\+\_\+size}} ()
+\begin{DoxyCompactList}\small\item\em Get the file size object. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classDiskManager_a1ab3e8d854d0bb041c475568bfed0912}{write\+\_\+data}} (void $\ast$\mbox{\hyperlink{Test__Tag__ADC_8h_a88574756faaf8ed20796d8267bb2907a}{buffer\+\_\+ptr}}, size\+\_\+t num\+\_\+bytes)
+\begin{DoxyCompactList}\small\item\em Writes the data to the file, implements function from the abstract class \mbox{\hyperlink{classWriter}{Writer}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classDiskManager_acf8a79739e488f1b92cff0c82f2c0df2}{close\+\_\+file}} ()
+\begin{DoxyCompactList}\small\item\em Closes the data file, as well as bring the file cursor back to the beginning. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Static Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+static Sd\+Fs \mbox{\hyperlink{classDiskManager_a88d083d7f84408e12ba89ad3a535ef77}{sd}}
+\item 
+static Fs\+File \mbox{\hyperlink{classDiskManager_a88f78d1baecb251f2ec8413174588d19}{file}}
+\item 
+static Fs\+File \mbox{\hyperlink{classDiskManager_acd70f2728592bc3395b118c6f3d53402}{folder}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Detailed Description}
+Class to manage the SD card and files for the tag. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classDiskManager_a7013f70e240394d2aba7d66952626381}\label{classDiskManager_a7013f70e240394d2aba7d66952626381}} 
+\index{DiskManager@{DiskManager}!DiskManager@{DiskManager}}
+\index{DiskManager@{DiskManager}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{DiskManager()}{DiskManager()}}
+{\footnotesize\ttfamily Disk\+Manager\+::\+Disk\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classRunData}{Run\+Data}} $\ast$}]{run\+\_\+data }\end{DoxyParamCaption})}
+
+
+
+Construct a new Disk Manager object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em run\+\_\+data} & A pointer to a \mbox{\hyperlink{classRunData}{Run\+Data}} structure that contains metadata for the trial \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDiskManager_a60837a3b8064649adf23e3143c85aed7}\label{classDiskManager_a60837a3b8064649adf23e3143c85aed7}} 
+\index{DiskManager@{DiskManager}!````~DiskManager@{$\sim$DiskManager}}
+\index{````~DiskManager@{$\sim$DiskManager}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$DiskManager()}{~DiskManager()}}
+{\footnotesize\ttfamily Disk\+Manager\+::$\sim$\+Disk\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the Disk Manager object. 
+
+Should never be called 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classDiskManager_acf8a79739e488f1b92cff0c82f2c0df2}\label{classDiskManager_acf8a79739e488f1b92cff0c82f2c0df2}} 
+\index{DiskManager@{DiskManager}!close\_file@{close\_file}}
+\index{close\_file@{close\_file}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{close\_file()}{close\_file()}}
+{\footnotesize\ttfamily bool Disk\+Manager\+::close\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes the data file, as well as bring the file cursor back to the beginning. 
+
+\begin{DoxyReturn}{Returns}
+true File successfully closed 
+
+false File did not close successfully
+\end{DoxyReturn}
+Closes data file \mbox{\Hypertarget{classDiskManager_a347bf373acf8f75a7c602f34433b8472}\label{classDiskManager_a347bf373acf8f75a7c602f34433b8472}} 
+\index{DiskManager@{DiskManager}!create\_data\_file@{create\_data\_file}}
+\index{create\_data\_file@{create\_data\_file}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{create\_data\_file()}{create\_data\_file()}}
+{\footnotesize\ttfamily bool Disk\+Manager\+::create\+\_\+data\+\_\+file (\begin{DoxyParamCaption}\item[{String}]{filename }\end{DoxyParamCaption})}
+
+
+
+Create a file object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em filename} & The name of the file to create and open \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classDiskManager_a42eae769049ed54dd3a9a7beddd37720}\label{classDiskManager_a42eae769049ed54dd3a9a7beddd37720}} 
+\index{DiskManager@{DiskManager}!delete\_file@{delete\_file}}
+\index{delete\_file@{delete\_file}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{delete\_file()}{delete\_file()}}
+{\footnotesize\ttfamily bool Disk\+Manager\+::delete\+\_\+file (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i }\end{DoxyParamCaption})}
+
+
+
+Deletes the file at the ith index. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the file (measured from the beginning of the root folder) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true File was successfully deleted 
+
+false File was not successfully deleted, some error occured 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDiskManager_aec70dadf72cda7b0180d5bf0da9f834a}\label{classDiskManager_aec70dadf72cda7b0180d5bf0da9f834a}} 
+\index{DiskManager@{DiskManager}!get\_file\_data@{get\_file\_data}}
+\index{get\_file\_data@{get\_file\_data}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{get\_file\_data()}{get\_file\_data()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{structFileReadData}{File\+Read\+Data}} $\ast$ Disk\+Manager\+::get\+\_\+file\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Get the file data object. 
+
+\begin{DoxyReturn}{Returns}
+File\+Read\+Data$\ast$ pointer to the file data object
+\end{DoxyReturn}
+This function will return a data object that contains the number of bytes read, as well as the location to where the data was written. \mbox{\Hypertarget{classDiskManager_a71a06cdc2762b73f67bfdc12557d9ca6}\label{classDiskManager_a71a06cdc2762b73f67bfdc12557d9ca6}} 
+\index{DiskManager@{DiskManager}!get\_file\_size@{get\_file\_size}}
+\index{get\_file\_size@{get\_file\_size}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{get\_file\_size()}{get\_file\_size()}}
+{\footnotesize\ttfamily uint64\+\_\+t Disk\+Manager\+::get\+\_\+file\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the file size object. 
+
+\begin{DoxyReturn}{Returns}
+uint64\+\_\+t The size of the file in bytes 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDiskManager_a60128e433703d8be76182853ce378dd0}\label{classDiskManager_a60128e433703d8be76182853ce378dd0}} 
+\index{DiskManager@{DiskManager}!get\_filename@{get\_filename}}
+\index{get\_filename@{get\_filename}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{get\_filename()}{get\_filename()}}
+{\footnotesize\ttfamily String Disk\+Manager\+::get\+\_\+filename (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{i }\end{DoxyParamCaption})}
+
+
+
+Get the filename. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em i} & Index of the file (measured from the beginning of the root folder) \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String the name of the file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classDiskManager_a48d7d129739b07b07241ff264a8d939c}\label{classDiskManager_a48d7d129739b07b07241ff264a8d939c}} 
+\index{DiskManager@{DiskManager}!init@{init}}
+\index{init@{init}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Disk\+Manager\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initalizes the SD card. 
+
+\begin{DoxyReturn}{Returns}
+bool Whether successful start up or not
+\end{DoxyReturn}
+Opens the SD card, opens up the root folder \mbox{\Hypertarget{classDiskManager_add6c490a6ea4952dc32d5fba34c2ba06}\label{classDiskManager_add6c490a6ea4952dc32d5fba34c2ba06}} 
+\index{DiskManager@{DiskManager}!open\_data\_file@{open\_data\_file}}
+\index{open\_data\_file@{open\_data\_file}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{open\_data\_file()}{open\_data\_file()}}
+{\footnotesize\ttfamily void Disk\+Manager\+::open\+\_\+data\+\_\+file (\begin{DoxyParamCaption}\item[{String}]{filename }\end{DoxyParamCaption})}
+
+
+
+Opens a data file for reading. 
+
+\mbox{\Hypertarget{classDiskManager_acb98ecc45432bfeaefeb3ccd67a20dce}\label{classDiskManager_acb98ecc45432bfeaefeb3ccd67a20dce}} 
+\index{DiskManager@{DiskManager}!post\_sampling\_conclude@{post\_sampling\_conclude}}
+\index{post\_sampling\_conclude@{post\_sampling\_conclude}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{post\_sampling\_conclude()}{post\_sampling\_conclude()}}
+{\footnotesize\ttfamily void Disk\+Manager\+::post\+\_\+sampling\+\_\+conclude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Ends sampling. 
+
+Closes file, and rewinds the directory to the beginning 
+
+Implements \mbox{\hyperlink{classWriter_af901795041c72fd3d7d71618527bb420}{Writer}}.
+
+\mbox{\Hypertarget{classDiskManager_a455f35143f3ada1201f8fa494916624a}\label{classDiskManager_a455f35143f3ada1201f8fa494916624a}} 
+\index{DiskManager@{DiskManager}!pre\_sampling\_setup@{pre\_sampling\_setup}}
+\index{pre\_sampling\_setup@{pre\_sampling\_setup}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{pre\_sampling\_setup()}{pre\_sampling\_setup()}}
+{\footnotesize\ttfamily void Disk\+Manager\+::pre\+\_\+sampling\+\_\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Opens file for recieving data. 
+
+Opens the file, calls the Date\+Time callback, and writes the file header 
+
+Implements \mbox{\hyperlink{classWriter_a37b50645d34760cc163ce69fa601caa0}{Writer}}.
+
+\mbox{\Hypertarget{classDiskManager_a809abf3b19760415d893be2f6d43951d}\label{classDiskManager_a809abf3b19760415d893be2f6d43951d}} 
+\index{DiskManager@{DiskManager}!reset@{reset}}
+\index{reset@{reset}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily bool Disk\+Manager\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Closes all files, restarts the SD card, and reopens the files. 
+
+Returns true if successfully restarted, otherwise false \mbox{\Hypertarget{classDiskManager_a4e98f64d03cc9f842f8c8789218fcb5b}\label{classDiskManager_a4e98f64d03cc9f842f8c8789218fcb5b}} 
+\index{DiskManager@{DiskManager}!stop@{stop}}
+\index{stop@{stop}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily void Disk\+Manager\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stop the device and files. 
+
+\mbox{\Hypertarget{classDiskManager_a1009efe61faf71974c20b207ac6e8ff5}\label{classDiskManager_a1009efe61faf71974c20b207ac6e8ff5}} 
+\index{DiskManager@{DiskManager}!update\_file\_num@{update\_file\_num}}
+\index{update\_file\_num@{update\_file\_num}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{update\_file\_num()}{update\_file\_num()}}
+{\footnotesize\ttfamily size\+\_\+t Disk\+Manager\+::update\+\_\+file\+\_\+num (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Gets the total number of files present. 
+
+\mbox{\Hypertarget{classDiskManager_a1ab3e8d854d0bb041c475568bfed0912}\label{classDiskManager_a1ab3e8d854d0bb041c475568bfed0912}} 
+\index{DiskManager@{DiskManager}!write\_data@{write\_data}}
+\index{write\_data@{write\_data}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{write\_data()}{write\_data()}}
+{\footnotesize\ttfamily size\+\_\+t Disk\+Manager\+::write\+\_\+data (\begin{DoxyParamCaption}\item[{void $\ast$}]{buffer\+\_\+ptr,  }\item[{size\+\_\+t}]{num\+\_\+bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Writes the data to the file, implements function from the abstract class \mbox{\hyperlink{classWriter}{Writer}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer\+\_\+ptr} & The pointer of the data to write \\
+\hline
+{\em num\+\_\+bytes} & The number of bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The number of bytes written 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classWriter_ac189f80d1fb1fffef55725dace730892}{Writer}}.
+
+\mbox{\Hypertarget{classDiskManager_a91afbfba534f045558431083439f1710}\label{classDiskManager_a91afbfba534f045558431083439f1710}} 
+\index{DiskManager@{DiskManager}!write\_header@{write\_header}}
+\index{write\_header@{write\_header}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{write\_header()}{write\_header()}}
+{\footnotesize\ttfamily size\+\_\+t Disk\+Manager\+::write\+\_\+header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Writes the \mbox{\hyperlink{classRunData}{Run\+Data}} metadata as the header for the data file. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em run\+\_\+data} & Pointer to the \mbox{\hyperlink{classRunData}{Run\+Data}} object \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Returns the number of bytes written as the header 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classWriter_aa408827bcbd650655b8b6c5a2a7a5a7b}{Writer}}.
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classDiskManager_a88f78d1baecb251f2ec8413174588d19}\label{classDiskManager_a88f78d1baecb251f2ec8413174588d19}} 
+\index{DiskManager@{DiskManager}!file@{file}}
+\index{file@{file}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{file}{file}}
+{\footnotesize\ttfamily Fs\+File Disk\+Manager\+::file\hspace{0.3cm}{\ttfamily [static]}}
+
+Declares a file, used for opening and closing files \mbox{\Hypertarget{classDiskManager_acd70f2728592bc3395b118c6f3d53402}\label{classDiskManager_acd70f2728592bc3395b118c6f3d53402}} 
+\index{DiskManager@{DiskManager}!folder@{folder}}
+\index{folder@{folder}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{folder}{folder}}
+{\footnotesize\ttfamily Fs\+File Disk\+Manager\+::folder\hspace{0.3cm}{\ttfamily [static]}}
+
+Declares a folder, used for iterating through the root directory, and rewinding directory back to start \mbox{\Hypertarget{classDiskManager_a88d083d7f84408e12ba89ad3a535ef77}\label{classDiskManager_a88d083d7f84408e12ba89ad3a535ef77}} 
+\index{DiskManager@{DiskManager}!sd@{sd}}
+\index{sd@{sd}!DiskManager@{DiskManager}}
+\doxysubsubsection{\texorpdfstring{sd}{sd}}
+{\footnotesize\ttfamily Sd\+Fs Disk\+Manager\+::sd\hspace{0.3cm}{\ttfamily [static]}}
+
+Declares the SD card 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Disk\+Manager/\mbox{\hyperlink{DiskManager_8h}{Disk\+Manager.\+h}}\item 
+lib/\+Disk\+Manager/\mbox{\hyperlink{DiskManager_8cpp}{Disk\+Manager.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,881 @@
+\hypertarget{classMPU9250}{}\doxysection{M\+P\+U9250 Class Reference}
+\label{classMPU9250}\index{MPU9250@{MPU9250}}
+
+
+Class to implement \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} functionality.  
+
+
+
+
+{\ttfamily \#include $<$M\+P\+U9250.\+h$>$}
+
+
+
+Inheritance diagram for M\+P\+U9250\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classMPU9250__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for M\+P\+U9250\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classMPU9250__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Types}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541}{Ascale}} \{ \mbox{\hyperlink{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a03a62f2f294f281d30b1420d04c25afd}{A\+F\+S\+\_\+2G}} = 0, 
+\mbox{\hyperlink{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a2d1d8182c99a2b8b9fccda692c1dd1e7}{A\+F\+S\+\_\+4G}}, 
+\mbox{\hyperlink{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a27257df617d37a7e043002e1beac668d}{A\+F\+S\+\_\+8G}}, 
+\mbox{\hyperlink{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a59596b9d88b49922da6fb954b1443df0}{A\+F\+S\+\_\+16G}}
+ \}
+\begin{DoxyCompactList}\small\item\em Accelerometer resolution. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{classMPU9250_ad9b27398aae48c110685cce78352acd7}{Gscale}} \{ \mbox{\hyperlink{classMPU9250_ad9b27398aae48c110685cce78352acd7acbac0d61786d1813a146966c57bf59e8}{G\+F\+S\+\_\+250\+D\+PS}} = 0, 
+\mbox{\hyperlink{classMPU9250_ad9b27398aae48c110685cce78352acd7a5c7f8c2be18d7457ab2f622836096f3d}{G\+F\+S\+\_\+500\+D\+PS}}, 
+\mbox{\hyperlink{classMPU9250_ad9b27398aae48c110685cce78352acd7a3492e581c40ec3bea6a8f26a8dad933d}{G\+F\+S\+\_\+1000\+D\+PS}}, 
+\mbox{\hyperlink{classMPU9250_ad9b27398aae48c110685cce78352acd7a45a7e83bc8552f1c634ff19f6f4aaf50}{G\+F\+S\+\_\+2000\+D\+PS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Gyroscope resolution. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0}{Mscale}} \{ \mbox{\hyperlink{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0a8366482c23c79bf8ae118d5f125b8d02}{M\+F\+S\+\_\+14\+B\+I\+TS}} = 0, 
+\mbox{\hyperlink{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0ac3c6c6175324df8b68ff9d20b5970423}{M\+F\+S\+\_\+16\+B\+I\+TS}}
+ \}
+\begin{DoxyCompactList}\small\item\em Magnetometer resolution. \end{DoxyCompactList}\item 
+enum \mbox{\hyperlink{classMPU9250_aabd235da5831a854e2ca6776db40d554}{M\+\_\+\+M\+O\+DE}} \{ \mbox{\hyperlink{classMPU9250_aabd235da5831a854e2ca6776db40d554af82607fbb58bef94a309b11d541e072e}{M\+\_\+8\+HZ}} = 0x02, 
+\mbox{\hyperlink{classMPU9250_aabd235da5831a854e2ca6776db40d554a0d58b3cae6d9c114233cd2ae0bc86611}{M\+\_\+100\+HZ}} = 0x06
+ \}
+\begin{DoxyCompactList}\small\item\em Magentometer sampling mode. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a8aecb5cee3b3799ff509097fa4a4cf27}{write\+Byte\+Wire}} (uint8\+\_\+t, uint8\+\_\+t, uint8\+\_\+t)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a6c506252ccf3e44625e2b9a0a6d96106}{write\+Byte\+S\+PI}} (uint8\+\_\+t, uint8\+\_\+t)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a2134a9c3142fe3b299ddf8f500a2569a}{write\+Mag\+Byte\+S\+PI}} (uint8\+\_\+t sub\+Address, uint8\+\_\+t data)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a67ad0904fb8141074c827f2df43aa70d}{read\+Byte\+S\+PI}} (uint8\+\_\+t sub\+Address)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a4a0722eb04f796944bc303b0993bc364}{read\+Mag\+Byte\+S\+PI}} (uint8\+\_\+t sub\+Address)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_afdc7817669826ecbee8a8271a290dcfd}{read\+Byte\+Wire}} (uint8\+\_\+t address, uint8\+\_\+t sub\+Address)
+\item 
+bool \mbox{\hyperlink{classMPU9250_a0f737e40c58553b1b1005c13671107ad}{mag\+Init}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_a66c7362933b321c0f6a624866f044ee7}{kick\+Hardware}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_a156454fe8a285772173d56da95bb5c2f}{select}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_a2d502b10deb13e5a29920cd6a2b38801}{deselect}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_af400d7b68c8026518a7d1e930114a5e6}{setup\+Mag\+For\+S\+PI}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a542af7820cd1fccef7110367d1cc8860}{ak8963\+Who\+Am\+I\+\_\+\+S\+PI}} ()
+\item 
+\mbox{\hyperlink{classMPU9250_ad07ca8710dcecb05f08bc0df27590455}{M\+P\+U9250}} (int8\+\_\+t cs\+Pin, S\+P\+I\+Class \&spi\+Interface=S\+PI, uint32\+\_\+t spi\+\_\+freq=\mbox{\hyperlink{MPU9250__Definitions_8h_a0de801d4b65fd425f8b677787e23dfe2}{S\+P\+I\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+TE}})
+\item 
+\mbox{\hyperlink{classMPU9250_aaac5c4c9b3021ebcd7734a7d00e45884}{M\+P\+U9250}} (uint8\+\_\+t address=\mbox{\hyperlink{MPU9250__Definitions_8h_a99c4ac0475ad1aa13a7aef83c83ef343}{M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+A\+D0}}, Two\+Wire \&wire\+Port=Wire, uint32\+\_\+t clock\+\_\+frequency=100000)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} object using default settings. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMPU9250_ab6b113da9b2fb006eb44dc8078e699c5}{get\+Mres}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_afd804ec9bd68961fc0084af461104304}{get\+Gres}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_a1c7dba3645913bf97f8b47d2bd4af2b0}{get\+Ares}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_a9ad1847d56ff8d3660a9eb6fee3a9d9b}{read\+Accel\+Data}} (int16\+\_\+t $\ast$)
+\item 
+void \mbox{\hyperlink{classMPU9250_a7f0f6be23ed65146391cf91e4739ccc0}{read\+Gyro\+Data}} (int16\+\_\+t $\ast$)
+\item 
+void \mbox{\hyperlink{classMPU9250_a5d3589bd83a003da56546474dd9ca519}{read\+Mag\+Data}} (int16\+\_\+t $\ast$)
+\item 
+bool \mbox{\hyperlink{classMPU9250_aa68e908a30404b5af41dcdde4ded593f}{sample}} ()
+\item 
+int16\+\_\+t \mbox{\hyperlink{classMPU9250_a3ab318a519e0f85a38d0e40d4bedc89f}{read\+Temp\+Data}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_a39e17cffe3de219d3f991b6476833e40}{update\+Time}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_aab7b6d912fdc88c4fedfad90abe2aeab}{init\+A\+K8963}} (float $\ast$)
+\item 
+void \mbox{\hyperlink{classMPU9250_a03803202142ac461867daa9dd06fdd80}{init\+M\+P\+U9250}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_aeac1ae4402a4eb9a74bea5ad8af929c1}{calibrate\+M\+P\+U9250}} (float $\ast$\mbox{\hyperlink{classMPU9250_a4fc2232b3fdbd61bc1024c86842ddf9a}{gyro\+Bias}}, float $\ast$\mbox{\hyperlink{classMPU9250_a7b0e6389baccd5592c95cae9d24d1317}{accel\+Bias}})
+\item 
+void \mbox{\hyperlink{classMPU9250_ad3bbdef687191a70354ee2f900352993}{M\+P\+U9250\+Self\+Test}} (float $\ast$destination)
+\item 
+void \mbox{\hyperlink{classMPU9250_ad2ebbfb1d321b9c3312f4ae298214020}{mag\+Cal\+M\+P\+U9250}} (float $\ast$dest1, float $\ast$dest2)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a136cd20820be776769c6214640c4130e}{write\+Byte}} (uint8\+\_\+t, uint8\+\_\+t, uint8\+\_\+t)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a846032e6a6d737f4ff62065ca0e1568f}{read\+Byte}} (uint8\+\_\+t, uint8\+\_\+t)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a083e837c203b46e9af4a5900b731770f}{read\+Bytes}} (uint8\+\_\+t, uint8\+\_\+t, uint8\+\_\+t, uint8\+\_\+t $\ast$)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a9845d64636a0c0eb1a3ba99eb44ebdd4}{read\+Bytes\+S\+PI}} (uint8\+\_\+t, uint8\+\_\+t, uint8\+\_\+t $\ast$)
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a79ec9d87d525be62139a4d31d0538ba3}{read\+Bytes\+Wire}} (uint8\+\_\+t, uint8\+\_\+t, uint8\+\_\+t, uint8\+\_\+t $\ast$)
+\item 
+bool \mbox{\hyperlink{classMPU9250_a300c6b7aec33beeea2e3bbea4365c9ee}{is\+In\+I2c\+Mode}} ()
+\item 
+void \mbox{\hyperlink{classMPU9250_a1bc9746dc599999ea2812c1256519224}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Changes the sampling flag to true to allow for reads during the \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop()}} function. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classMPU9250_a0a759bc9e68a12a2ccaa627e57c3e201}{end}} ()
+\begin{DoxyCompactList}\small\item\em Changes the sampling flag to false to stop reads during the \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop()}} function. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classMPU9250_a3fc68680fcf61c71255c3b100232ac65}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initializes the \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Two\+Wire $\ast$ \mbox{\hyperlink{classMPU9250_a97ea5b5dff008240d93864e721847876}{\+\_\+wire}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_af0f50a5920fab5bbbe02569a4a1266da}{\+\_\+\+I2\+Caddr}} = \mbox{\hyperlink{MPU9250__Definitions_8h_a99c4ac0475ad1aa13a7aef83c83ef343}{M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+A\+D0}}
+\item 
+S\+P\+I\+Class $\ast$ \mbox{\hyperlink{classMPU9250_aa5e9683db4797e33cfcf58171fde5032}{\+\_\+spi}}
+\item 
+int8\+\_\+t \mbox{\hyperlink{classMPU9250_a8524a8a4789cb0db87b80db3ada3131b}{\+\_\+cs\+Pin}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMPU9250_a144144fdd9b0b2467a455adb3ae476c2}{\+\_\+interface\+Speed}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a4a060e8a9ab44dd99496e6333faa003d}{Gscale}} = \mbox{\hyperlink{classMPU9250_ad9b27398aae48c110685cce78352acd7acbac0d61786d1813a146966c57bf59e8}{G\+F\+S\+\_\+250\+D\+PS}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_acd30d6bcc3d5b12e43b5da17c67ea87d}{Ascale}} = \mbox{\hyperlink{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a03a62f2f294f281d30b1420d04c25afd}{A\+F\+S\+\_\+2G}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_ad9a2d2083ebc8e645a7d83b77ae6ac07}{Mscale}} = \mbox{\hyperlink{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0ac3c6c6175324df8b68ff9d20b5970423}{M\+F\+S\+\_\+16\+B\+I\+TS}}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classMPU9250_a7e36453e794f2b4c13e2ed871ad3139b}{Mmode}} = \mbox{\hyperlink{classMPU9250_aabd235da5831a854e2ca6776db40d554af82607fbb58bef94a309b11d541e072e}{M\+\_\+8\+HZ}}
+\item 
+float \mbox{\hyperlink{classMPU9250_ab3d0117a094b81ac2e07f5c2d68aa5f4}{pitch}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a0493fbbf09cb14b8695a1eb804136e34}{yaw}}
+\item 
+float \mbox{\hyperlink{classMPU9250_ad394d6659aa446adff547feaa4985f94}{roll}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a2190394242c2b74ff53c20f8180af287}{temperature}}
+\item 
+int16\+\_\+t \mbox{\hyperlink{classMPU9250_a8fa1b4fa4bc8db4bd162bc4f8ee8f0ea}{temp\+Count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMPU9250_a4d6b6338685120de2e21aa30d9d89389}{delt\+\_\+t}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMPU9250_a9d231520d019ba7879c60ef7b72707a5}{count}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMPU9250_a604d036ab632885152ab770b3c64676a}{sum\+Count}} = 0
+\item 
+float \mbox{\hyperlink{classMPU9250_a1e53d31ab289b64a0d6393b17e8b807e}{deltat}} = 0.\+0f
+\item 
+float \mbox{\hyperlink{classMPU9250_ac40db4e2fb94e9b33ec0b821c0b6ed2d}{sum}} = 0.\+0f
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMPU9250_af60ee039dadb9eb5f4ade404ddfd878b}{last\+Update}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMPU9250_a4ea2c930abf4529a3888885f9d928cf4}{first\+Update}} = 0
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classMPU9250_a96b7d70d685ed53744c69acc9f7ef1af}{Now}} = 0
+\item 
+int16\+\_\+t \mbox{\hyperlink{classMPU9250_a14ab2e2ab741ca245007cb9a134e07f3}{gyro\+Count}} \mbox{[}3\mbox{]}
+\item 
+int16\+\_\+t \mbox{\hyperlink{classMPU9250_aff92db5334c43a72f5c2f1fc8ee6f596}{mag\+Count}} \mbox{[}3\mbox{]}
+\item 
+float \mbox{\hyperlink{classMPU9250_afa89af2772cead0f76a4ddd92ec5f6a8}{a\+Res}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a2c137b20138d3c80c4828691d5656d92}{g\+Res}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a173e0594b9d3ecb6ece2b71f9f59fc50}{m\+Res}}
+\item 
+float \mbox{\hyperlink{classMPU9250_aea8a7622821bf8aca55fcef71d91e29f}{ax}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a5129e95dbe12544fa34cc53b5644ff71}{ay}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a8ab7a335476e40a26aba80f867ac7da9}{az}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a59b6d7bd37738bac258da24ad330feef}{gx}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a126311c382d2667b7bc7cbe1f9b38b51}{gy}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a756658ca06a3807ef426ab87022a15c9}{gz}}
+\item 
+float \mbox{\hyperlink{classMPU9250_aa4cc8b2c9417304d1106bdbd988ac607}{mx}}
+\item 
+float \mbox{\hyperlink{classMPU9250_ad7cf9fe3134d24f46705881b2e002f31}{my}}
+\item 
+float \mbox{\hyperlink{classMPU9250_af11072922aa71ffb125fe3786f848653}{mz}}
+\item 
+float \mbox{\hyperlink{classMPU9250_a30d462461868e4f306c2f47d1adbd1d2}{factory\+Mag\+Calibration}} \mbox{[}3\mbox{]} = \{0, 0, 0\}
+\item 
+float \mbox{\hyperlink{classMPU9250_af34938d098b83ec910bee1b51a41972f}{factory\+Mag\+Bias}} \mbox{[}3\mbox{]} = \{0, 0, 0\}
+\item 
+float \mbox{\hyperlink{classMPU9250_a4fc2232b3fdbd61bc1024c86842ddf9a}{gyro\+Bias}} \mbox{[}3\mbox{]} = \{0, 0, 0\}
+\item 
+float \mbox{\hyperlink{classMPU9250_a7b0e6389baccd5592c95cae9d24d1317}{accel\+Bias}} \mbox{[}3\mbox{]} = \{0, 0, 0\}
+\item 
+float \mbox{\hyperlink{classMPU9250_a1f3b364d6efca22837dd944c60effce5}{mag\+Bias}} \mbox{[}3\mbox{]} = \{0, 0, 0\}
+\item 
+float \mbox{\hyperlink{classMPU9250_a09f641aa48a5c7228a6ea5034e0391c3}{mag\+Scale}} \mbox{[}3\mbox{]} = \{0, 0, 0\}
+\item 
+float \mbox{\hyperlink{classMPU9250_afd15093e18fc34ce15e526f464fc557a}{self\+Test}} \mbox{[}6\mbox{]}
+\item 
+int16\+\_\+t \mbox{\hyperlink{classMPU9250_adb56df6ceaf1dc204f97270540ac8b14}{accel\+Count}} \mbox{[}3\mbox{]}
+\item 
+int16\+\_\+t \mbox{\hyperlink{classMPU9250_a93f12ae60bdffa42919abf32ccc8b113}{buffer}} \mbox{[}9\mbox{]}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to implement \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} functionality. 
+
+Based on the libary written by Sparkfun (see \href{https://github.com/sparkfun/SparkFun_MPU-9250_Breakout_Arduino_Library}{\texttt{ here}}), which itself implemented a library by Kris Winer (see \href{https://github.com/kriswiner/MPU9250}{\texttt{ here}}). The interface of these libraries was updated to work with the Abstract Device scheme.
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000002}{Todo}}]Rewrite this library in a much cleaner way, eliminating the jank and lack of extensibility, and write proper getter and setter methods for the device status.\end{DoxyRefDesc}
+
+
+\begin{DoxyRefDesc}{Todo}
+\item[\mbox{\hyperlink{todo__todo000003}{Todo}}]Finish documentation, but this will likely be finished only after this code is refactored \end{DoxyRefDesc}
+
+
+\doxysubsection{Member Enumeration Documentation}
+\mbox{\Hypertarget{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541}\label{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541}} 
+\index{MPU9250@{MPU9250}!Ascale@{Ascale}}
+\index{Ascale@{Ascale}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{Ascale}{Ascale}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541}{M\+P\+U9250\+::\+Ascale}}}
+
+
+
+Accelerometer resolution. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AFS\_2G@{AFS\_2G}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!AFS\_2G@{AFS\_2G}}}\mbox{\Hypertarget{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a03a62f2f294f281d30b1420d04c25afd}\label{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a03a62f2f294f281d30b1420d04c25afd}} 
+A\+F\+S\+\_\+2G&2g acceleration \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AFS\_4G@{AFS\_4G}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!AFS\_4G@{AFS\_4G}}}\mbox{\Hypertarget{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a2d1d8182c99a2b8b9fccda692c1dd1e7}\label{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a2d1d8182c99a2b8b9fccda692c1dd1e7}} 
+A\+F\+S\+\_\+4G&4g acceleration \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AFS\_8G@{AFS\_8G}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!AFS\_8G@{AFS\_8G}}}\mbox{\Hypertarget{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a27257df617d37a7e043002e1beac668d}\label{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a27257df617d37a7e043002e1beac668d}} 
+A\+F\+S\+\_\+8G&8g acceleration \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{AFS\_16G@{AFS\_16G}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!AFS\_16G@{AFS\_16G}}}\mbox{\Hypertarget{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a59596b9d88b49922da6fb954b1443df0}\label{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a59596b9d88b49922da6fb954b1443df0}} 
+A\+F\+S\+\_\+16G&16g acceleration \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classMPU9250_ad9b27398aae48c110685cce78352acd7}\label{classMPU9250_ad9b27398aae48c110685cce78352acd7}} 
+\index{MPU9250@{MPU9250}!Gscale@{Gscale}}
+\index{Gscale@{Gscale}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{Gscale}{Gscale}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMPU9250_ad9b27398aae48c110685cce78352acd7}{M\+P\+U9250\+::\+Gscale}}}
+
+
+
+Gyroscope resolution. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GFS\_250DPS@{GFS\_250DPS}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!GFS\_250DPS@{GFS\_250DPS}}}\mbox{\Hypertarget{classMPU9250_ad9b27398aae48c110685cce78352acd7acbac0d61786d1813a146966c57bf59e8}\label{classMPU9250_ad9b27398aae48c110685cce78352acd7acbac0d61786d1813a146966c57bf59e8}} 
+G\+F\+S\+\_\+250\+D\+PS&250 degrees per second \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GFS\_500DPS@{GFS\_500DPS}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!GFS\_500DPS@{GFS\_500DPS}}}\mbox{\Hypertarget{classMPU9250_ad9b27398aae48c110685cce78352acd7a5c7f8c2be18d7457ab2f622836096f3d}\label{classMPU9250_ad9b27398aae48c110685cce78352acd7a5c7f8c2be18d7457ab2f622836096f3d}} 
+G\+F\+S\+\_\+500\+D\+PS&500 degrees per second \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GFS\_1000DPS@{GFS\_1000DPS}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!GFS\_1000DPS@{GFS\_1000DPS}}}\mbox{\Hypertarget{classMPU9250_ad9b27398aae48c110685cce78352acd7a3492e581c40ec3bea6a8f26a8dad933d}\label{classMPU9250_ad9b27398aae48c110685cce78352acd7a3492e581c40ec3bea6a8f26a8dad933d}} 
+G\+F\+S\+\_\+1000\+D\+PS&1000 degrees per second \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{GFS\_2000DPS@{GFS\_2000DPS}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!GFS\_2000DPS@{GFS\_2000DPS}}}\mbox{\Hypertarget{classMPU9250_ad9b27398aae48c110685cce78352acd7a45a7e83bc8552f1c634ff19f6f4aaf50}\label{classMPU9250_ad9b27398aae48c110685cce78352acd7a45a7e83bc8552f1c634ff19f6f4aaf50}} 
+G\+F\+S\+\_\+2000\+D\+PS&2000 degrees per second \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classMPU9250_aabd235da5831a854e2ca6776db40d554}\label{classMPU9250_aabd235da5831a854e2ca6776db40d554}} 
+\index{MPU9250@{MPU9250}!M\_MODE@{M\_MODE}}
+\index{M\_MODE@{M\_MODE}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{M\_MODE}{M\_MODE}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMPU9250_aabd235da5831a854e2ca6776db40d554}{M\+P\+U9250\+::\+M\+\_\+\+M\+O\+DE}}}
+
+
+
+Magentometer sampling mode. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M\_8HZ@{M\_8HZ}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!M\_8HZ@{M\_8HZ}}}\mbox{\Hypertarget{classMPU9250_aabd235da5831a854e2ca6776db40d554af82607fbb58bef94a309b11d541e072e}\label{classMPU9250_aabd235da5831a854e2ca6776db40d554af82607fbb58bef94a309b11d541e072e}} 
+M\+\_\+8\+HZ&8 Hz update \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{M\_100HZ@{M\_100HZ}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!M\_100HZ@{M\_100HZ}}}\mbox{\Hypertarget{classMPU9250_aabd235da5831a854e2ca6776db40d554a0d58b3cae6d9c114233cd2ae0bc86611}\label{classMPU9250_aabd235da5831a854e2ca6776db40d554a0d58b3cae6d9c114233cd2ae0bc86611}} 
+M\+\_\+100\+HZ&100 Hz continuous magnetometer \\
+\hline
+
+\end{DoxyEnumFields}
+\mbox{\Hypertarget{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0}\label{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0}} 
+\index{MPU9250@{MPU9250}!Mscale@{Mscale}}
+\index{Mscale@{Mscale}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{Mscale}{Mscale}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0}{M\+P\+U9250\+::\+Mscale}}}
+
+
+
+Magnetometer resolution. 
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MFS\_14BITS@{MFS\_14BITS}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!MFS\_14BITS@{MFS\_14BITS}}}\mbox{\Hypertarget{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0a8366482c23c79bf8ae118d5f125b8d02}\label{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0a8366482c23c79bf8ae118d5f125b8d02}} 
+M\+F\+S\+\_\+14\+B\+I\+TS&0.\+6 mG per L\+SB \\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{MFS\_16BITS@{MFS\_16BITS}!MPU9250@{MPU9250}}\index{MPU9250@{MPU9250}!MFS\_16BITS@{MFS\_16BITS}}}\mbox{\Hypertarget{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0ac3c6c6175324df8b68ff9d20b5970423}\label{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0ac3c6c6175324df8b68ff9d20b5970423}} 
+M\+F\+S\+\_\+16\+B\+I\+TS&0.\+15 mG per L\+SB \\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classMPU9250_ad07ca8710dcecb05f08bc0df27590455}\label{classMPU9250_ad07ca8710dcecb05f08bc0df27590455}} 
+\index{MPU9250@{MPU9250}!MPU9250@{MPU9250}}
+\index{MPU9250@{MPU9250}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{MPU9250()}{MPU9250()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily M\+P\+U9250\+::\+M\+P\+U9250 (\begin{DoxyParamCaption}\item[{int8\+\_\+t}]{cs\+Pin,  }\item[{S\+P\+I\+Class \&}]{spi\+Interface = {\ttfamily SPI},  }\item[{uint32\+\_\+t}]{spi\+\_\+freq = {\ttfamily \mbox{\hyperlink{MPU9250__Definitions_8h_a0de801d4b65fd425f8b677787e23dfe2}{S\+P\+I\+\_\+\+D\+A\+T\+A\+\_\+\+R\+A\+TE}}} }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_aaac5c4c9b3021ebcd7734a7d00e45884}\label{classMPU9250_aaac5c4c9b3021ebcd7734a7d00e45884}} 
+\index{MPU9250@{MPU9250}!MPU9250@{MPU9250}}
+\index{MPU9250@{MPU9250}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{MPU9250()}{MPU9250()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily M\+P\+U9250\+::\+M\+P\+U9250 (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address = {\ttfamily \mbox{\hyperlink{MPU9250__Definitions_8h_a99c4ac0475ad1aa13a7aef83c83ef343}{M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+A\+D0}}},  }\item[{Two\+Wire \&}]{wire\+Port = {\ttfamily Wire},  }\item[{uint32\+\_\+t}]{clock\+\_\+frequency = {\ttfamily 100000} }\end{DoxyParamCaption})}
+
+
+
+Construct a new \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} object using default settings. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Default address is M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+A\+D0 \\
+\hline
+{\em wire\+Port} & Default write port is Wire \\
+\hline
+{\em clock\+\_\+frequency} & Default clock frequency is 100000 \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classMPU9250_a542af7820cd1fccef7110367d1cc8860}\label{classMPU9250_a542af7820cd1fccef7110367d1cc8860}} 
+\index{MPU9250@{MPU9250}!ak8963WhoAmI\_SPI@{ak8963WhoAmI\_SPI}}
+\index{ak8963WhoAmI\_SPI@{ak8963WhoAmI\_SPI}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{ak8963WhoAmI\_SPI()}{ak8963WhoAmI\_SPI()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::ak8963\+Who\+Am\+I\+\_\+\+S\+PI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a1bc9746dc599999ea2812c1256519224}\label{classMPU9250_a1bc9746dc599999ea2812c1256519224}} 
+\index{MPU9250@{MPU9250}!begin@{begin}}
+\index{begin@{begin}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Changes the sampling flag to true to allow for reads during the \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop()}} function. 
+
+This device is queried during the loop function, does not work off interrupts just yet. 
+
+Implements \mbox{\hyperlink{classAbstractDevice_a89f4760b7a46e04ae41b624565c09517}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classMPU9250_aeac1ae4402a4eb9a74bea5ad8af929c1}\label{classMPU9250_aeac1ae4402a4eb9a74bea5ad8af929c1}} 
+\index{MPU9250@{MPU9250}!calibrateMPU9250@{calibrateMPU9250}}
+\index{calibrateMPU9250@{calibrateMPU9250}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{calibrateMPU9250()}{calibrateMPU9250()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::calibrate\+M\+P\+U9250 (\begin{DoxyParamCaption}\item[{float $\ast$}]{gyro\+Bias,  }\item[{float $\ast$}]{accel\+Bias }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a2d502b10deb13e5a29920cd6a2b38801}\label{classMPU9250_a2d502b10deb13e5a29920cd6a2b38801}} 
+\index{MPU9250@{MPU9250}!deselect@{deselect}}
+\index{deselect@{deselect}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{deselect()}{deselect()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::deselect (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a0a759bc9e68a12a2ccaa627e57c3e201}\label{classMPU9250_a0a759bc9e68a12a2ccaa627e57c3e201}} 
+\index{MPU9250@{MPU9250}!end@{end}}
+\index{end@{end}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Changes the sampling flag to false to stop reads during the \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop()}} function. 
+
+
+
+Implements \mbox{\hyperlink{classAbstractDevice_a3be2e4a734196c00d317ed5bc19995c7}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classMPU9250_a1c7dba3645913bf97f8b47d2bd4af2b0}\label{classMPU9250_a1c7dba3645913bf97f8b47d2bd4af2b0}} 
+\index{MPU9250@{MPU9250}!getAres@{getAres}}
+\index{getAres@{getAres}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{getAres()}{getAres()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::get\+Ares (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_afd804ec9bd68961fc0084af461104304}\label{classMPU9250_afd804ec9bd68961fc0084af461104304}} 
+\index{MPU9250@{MPU9250}!getGres@{getGres}}
+\index{getGres@{getGres}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{getGres()}{getGres()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::get\+Gres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_ab6b113da9b2fb006eb44dc8078e699c5}\label{classMPU9250_ab6b113da9b2fb006eb44dc8078e699c5}} 
+\index{MPU9250@{MPU9250}!getMres@{getMres}}
+\index{getMres@{getMres}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{getMres()}{getMres()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::get\+Mres (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a3fc68680fcf61c71255c3b100232ac65}\label{classMPU9250_a3fc68680fcf61c71255c3b100232ac65}} 
+\index{MPU9250@{MPU9250}!init@{init}}
+\index{init@{init}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool M\+P\+U9250\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initializes the \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}}. 
+
+\begin{DoxyReturn}{Returns}
+true once finishedd
+\end{DoxyReturn}
+Runs a self test, calibrates the device, starts both the \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} (accel/gyro), and then starts the A\+K8963 (magnetometer), as well as updating the resolutions of all the devices based on the settings. 
+
+Implements \mbox{\hyperlink{classAbstractDevice_a79fcd0fd5b748a233fe9488195b080a0}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classMPU9250_aab7b6d912fdc88c4fedfad90abe2aeab}\label{classMPU9250_aab7b6d912fdc88c4fedfad90abe2aeab}} 
+\index{MPU9250@{MPU9250}!initAK8963@{initAK8963}}
+\index{initAK8963@{initAK8963}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{initAK8963()}{initAK8963()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::init\+A\+K8963 (\begin{DoxyParamCaption}\item[{float $\ast$}]{destination }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a03803202142ac461867daa9dd06fdd80}\label{classMPU9250_a03803202142ac461867daa9dd06fdd80}} 
+\index{MPU9250@{MPU9250}!initMPU9250@{initMPU9250}}
+\index{initMPU9250@{initMPU9250}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{initMPU9250()}{initMPU9250()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::init\+M\+P\+U9250 (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a300c6b7aec33beeea2e3bbea4365c9ee}\label{classMPU9250_a300c6b7aec33beeea2e3bbea4365c9ee}} 
+\index{MPU9250@{MPU9250}!isInI2cMode@{isInI2cMode}}
+\index{isInI2cMode@{isInI2cMode}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{isInI2cMode()}{isInI2cMode()}}
+{\footnotesize\ttfamily bool M\+P\+U9250\+::is\+In\+I2c\+Mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classMPU9250_a66c7362933b321c0f6a624866f044ee7}\label{classMPU9250_a66c7362933b321c0f6a624866f044ee7}} 
+\index{MPU9250@{MPU9250}!kickHardware@{kickHardware}}
+\index{kickHardware@{kickHardware}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{kickHardware()}{kickHardware()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::kick\+Hardware (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_ad2ebbfb1d321b9c3312f4ae298214020}\label{classMPU9250_ad2ebbfb1d321b9c3312f4ae298214020}} 
+\index{MPU9250@{MPU9250}!magCalMPU9250@{magCalMPU9250}}
+\index{magCalMPU9250@{magCalMPU9250}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{magCalMPU9250()}{magCalMPU9250()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::mag\+Cal\+M\+P\+U9250 (\begin{DoxyParamCaption}\item[{float $\ast$}]{dest1,  }\item[{float $\ast$}]{dest2 }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a0f737e40c58553b1b1005c13671107ad}\label{classMPU9250_a0f737e40c58553b1b1005c13671107ad}} 
+\index{MPU9250@{MPU9250}!magInit@{magInit}}
+\index{magInit@{magInit}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{magInit()}{magInit()}}
+{\footnotesize\ttfamily bool M\+P\+U9250\+::mag\+Init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_ad3bbdef687191a70354ee2f900352993}\label{classMPU9250_ad3bbdef687191a70354ee2f900352993}} 
+\index{MPU9250@{MPU9250}!MPU9250SelfTest@{MPU9250SelfTest}}
+\index{MPU9250SelfTest@{MPU9250SelfTest}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{MPU9250SelfTest()}{MPU9250SelfTest()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::\+M\+P\+U9250\+Self\+Test (\begin{DoxyParamCaption}\item[{float $\ast$}]{destination }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a9ad1847d56ff8d3660a9eb6fee3a9d9b}\label{classMPU9250_a9ad1847d56ff8d3660a9eb6fee3a9d9b}} 
+\index{MPU9250@{MPU9250}!readAccelData@{readAccelData}}
+\index{readAccelData@{readAccelData}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readAccelData()}{readAccelData()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::read\+Accel\+Data (\begin{DoxyParamCaption}\item[{int16\+\_\+t $\ast$}]{destination }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a846032e6a6d737f4ff62065ca0e1568f}\label{classMPU9250_a846032e6a6d737f4ff62065ca0e1568f}} 
+\index{MPU9250@{MPU9250}!readByte@{readByte}}
+\index{readByte@{readByte}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readByte()}{readByte()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::read\+Byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{device\+Address,  }\item[{uint8\+\_\+t}]{register\+Address }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a083e837c203b46e9af4a5900b731770f}\label{classMPU9250_a083e837c203b46e9af4a5900b731770f}} 
+\index{MPU9250@{MPU9250}!readBytes@{readBytes}}
+\index{readBytes@{readBytes}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readBytes()}{readBytes()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::read\+Bytes (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{device\+Address,  }\item[{uint8\+\_\+t}]{register\+Address,  }\item[{uint8\+\_\+t}]{count,  }\item[{uint8\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a67ad0904fb8141074c827f2df43aa70d}\label{classMPU9250_a67ad0904fb8141074c827f2df43aa70d}} 
+\index{MPU9250@{MPU9250}!readByteSPI@{readByteSPI}}
+\index{readByteSPI@{readByteSPI}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readByteSPI()}{readByteSPI()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::read\+Byte\+S\+PI (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{sub\+Address }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a9845d64636a0c0eb1a3ba99eb44ebdd4}\label{classMPU9250_a9845d64636a0c0eb1a3ba99eb44ebdd4}} 
+\index{MPU9250@{MPU9250}!readBytesSPI@{readBytesSPI}}
+\index{readBytesSPI@{readBytesSPI}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readBytesSPI()}{readBytesSPI()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::read\+Bytes\+S\+PI (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{register\+Address,  }\item[{uint8\+\_\+t}]{count,  }\item[{uint8\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a79ec9d87d525be62139a4d31d0538ba3}\label{classMPU9250_a79ec9d87d525be62139a4d31d0538ba3}} 
+\index{MPU9250@{MPU9250}!readBytesWire@{readBytesWire}}
+\index{readBytesWire@{readBytesWire}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readBytesWire()}{readBytesWire()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::read\+Bytes\+Wire (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{device\+Address,  }\item[{uint8\+\_\+t}]{register\+Address,  }\item[{uint8\+\_\+t}]{count,  }\item[{uint8\+\_\+t $\ast$}]{dest }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_afdc7817669826ecbee8a8271a290dcfd}\label{classMPU9250_afdc7817669826ecbee8a8271a290dcfd}} 
+\index{MPU9250@{MPU9250}!readByteWire@{readByteWire}}
+\index{readByteWire@{readByteWire}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readByteWire()}{readByteWire()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::read\+Byte\+Wire (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address,  }\item[{uint8\+\_\+t}]{sub\+Address }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a7f0f6be23ed65146391cf91e4739ccc0}\label{classMPU9250_a7f0f6be23ed65146391cf91e4739ccc0}} 
+\index{MPU9250@{MPU9250}!readGyroData@{readGyroData}}
+\index{readGyroData@{readGyroData}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readGyroData()}{readGyroData()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::read\+Gyro\+Data (\begin{DoxyParamCaption}\item[{int16\+\_\+t $\ast$}]{destination }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a4a0722eb04f796944bc303b0993bc364}\label{classMPU9250_a4a0722eb04f796944bc303b0993bc364}} 
+\index{MPU9250@{MPU9250}!readMagByteSPI@{readMagByteSPI}}
+\index{readMagByteSPI@{readMagByteSPI}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readMagByteSPI()}{readMagByteSPI()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::read\+Mag\+Byte\+S\+PI (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{sub\+Address }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a5d3589bd83a003da56546474dd9ca519}\label{classMPU9250_a5d3589bd83a003da56546474dd9ca519}} 
+\index{MPU9250@{MPU9250}!readMagData@{readMagData}}
+\index{readMagData@{readMagData}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readMagData()}{readMagData()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::read\+Mag\+Data (\begin{DoxyParamCaption}\item[{int16\+\_\+t $\ast$}]{destination }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a3ab318a519e0f85a38d0e40d4bedc89f}\label{classMPU9250_a3ab318a519e0f85a38d0e40d4bedc89f}} 
+\index{MPU9250@{MPU9250}!readTempData@{readTempData}}
+\index{readTempData@{readTempData}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{readTempData()}{readTempData()}}
+{\footnotesize\ttfamily int16\+\_\+t M\+P\+U9250\+::read\+Temp\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_aa68e908a30404b5af41dcdde4ded593f}\label{classMPU9250_aa68e908a30404b5af41dcdde4ded593f}} 
+\index{MPU9250@{MPU9250}!sample@{sample}}
+\index{sample@{sample}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{sample()}{sample()}}
+{\footnotesize\ttfamily bool M\+P\+U9250\+::sample (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a156454fe8a285772173d56da95bb5c2f}\label{classMPU9250_a156454fe8a285772173d56da95bb5c2f}} 
+\index{MPU9250@{MPU9250}!select@{select}}
+\index{select@{select}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{select()}{select()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::select (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_af400d7b68c8026518a7d1e930114a5e6}\label{classMPU9250_af400d7b68c8026518a7d1e930114a5e6}} 
+\index{MPU9250@{MPU9250}!setupMagForSPI@{setupMagForSPI}}
+\index{setupMagForSPI@{setupMagForSPI}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{setupMagForSPI()}{setupMagForSPI()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::setup\+Mag\+For\+S\+PI (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a39e17cffe3de219d3f991b6476833e40}\label{classMPU9250_a39e17cffe3de219d3f991b6476833e40}} 
+\index{MPU9250@{MPU9250}!updateTime@{updateTime}}
+\index{updateTime@{updateTime}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{updateTime()}{updateTime()}}
+{\footnotesize\ttfamily void M\+P\+U9250\+::update\+Time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a136cd20820be776769c6214640c4130e}\label{classMPU9250_a136cd20820be776769c6214640c4130e}} 
+\index{MPU9250@{MPU9250}!writeByte@{writeByte}}
+\index{writeByte@{writeByte}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{writeByte()}{writeByte()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::write\+Byte (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{device\+Address,  }\item[{uint8\+\_\+t}]{register\+Address,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a6c506252ccf3e44625e2b9a0a6d96106}\label{classMPU9250_a6c506252ccf3e44625e2b9a0a6d96106}} 
+\index{MPU9250@{MPU9250}!writeByteSPI@{writeByteSPI}}
+\index{writeByteSPI@{writeByteSPI}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{writeByteSPI()}{writeByteSPI()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::write\+Byte\+S\+PI (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{register\+Address,  }\item[{uint8\+\_\+t}]{write\+Data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a8aecb5cee3b3799ff509097fa4a4cf27}\label{classMPU9250_a8aecb5cee3b3799ff509097fa4a4cf27}} 
+\index{MPU9250@{MPU9250}!writeByteWire@{writeByteWire}}
+\index{writeByteWire@{writeByteWire}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{writeByteWire()}{writeByteWire()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::write\+Byte\+Wire (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{device\+Address,  }\item[{uint8\+\_\+t}]{register\+Address,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classMPU9250_a2134a9c3142fe3b299ddf8f500a2569a}\label{classMPU9250_a2134a9c3142fe3b299ddf8f500a2569a}} 
+\index{MPU9250@{MPU9250}!writeMagByteSPI@{writeMagByteSPI}}
+\index{writeMagByteSPI@{writeMagByteSPI}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{writeMagByteSPI()}{writeMagByteSPI()}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::write\+Mag\+Byte\+S\+PI (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{sub\+Address,  }\item[{uint8\+\_\+t}]{data }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classMPU9250_a8524a8a4789cb0db87b80db3ada3131b}\label{classMPU9250_a8524a8a4789cb0db87b80db3ada3131b}} 
+\index{MPU9250@{MPU9250}!\_csPin@{\_csPin}}
+\index{\_csPin@{\_csPin}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{\_csPin}{\_csPin}}
+{\footnotesize\ttfamily int8\+\_\+t M\+P\+U9250\+::\+\_\+cs\+Pin}
+
+S\+PI chip select pin \mbox{\Hypertarget{classMPU9250_af0f50a5920fab5bbbe02569a4a1266da}\label{classMPU9250_af0f50a5920fab5bbbe02569a4a1266da}} 
+\index{MPU9250@{MPU9250}!\_I2Caddr@{\_I2Caddr}}
+\index{\_I2Caddr@{\_I2Caddr}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{\_I2Caddr}{\_I2Caddr}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::\+\_\+\+I2\+Caddr = \mbox{\hyperlink{MPU9250__Definitions_8h_a99c4ac0475ad1aa13a7aef83c83ef343}{M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+A\+D0}}}
+
+Use A\+D0 by default \mbox{\Hypertarget{classMPU9250_a144144fdd9b0b2467a455adb3ae476c2}\label{classMPU9250_a144144fdd9b0b2467a455adb3ae476c2}} 
+\index{MPU9250@{MPU9250}!\_interfaceSpeed@{\_interfaceSpeed}}
+\index{\_interfaceSpeed@{\_interfaceSpeed}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{\_interfaceSpeed}{\_interfaceSpeed}}
+{\footnotesize\ttfamily uint32\+\_\+t M\+P\+U9250\+::\+\_\+interface\+Speed}
+
+Stores the desired I2C or S\+Pi clock rate \mbox{\Hypertarget{classMPU9250_aa5e9683db4797e33cfcf58171fde5032}\label{classMPU9250_aa5e9683db4797e33cfcf58171fde5032}} 
+\index{MPU9250@{MPU9250}!\_spi@{\_spi}}
+\index{\_spi@{\_spi}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{\_spi}{\_spi}}
+{\footnotesize\ttfamily S\+P\+I\+Class$\ast$ M\+P\+U9250\+::\+\_\+spi}
+
+Allows for use of different S\+PI ports \mbox{\Hypertarget{classMPU9250_a97ea5b5dff008240d93864e721847876}\label{classMPU9250_a97ea5b5dff008240d93864e721847876}} 
+\index{MPU9250@{MPU9250}!\_wire@{\_wire}}
+\index{\_wire@{\_wire}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{\_wire}{\_wire}}
+{\footnotesize\ttfamily Two\+Wire$\ast$ M\+P\+U9250\+::\+\_\+wire}
+
+Allows for use of various I2C ports \mbox{\Hypertarget{classMPU9250_a7b0e6389baccd5592c95cae9d24d1317}\label{classMPU9250_a7b0e6389baccd5592c95cae9d24d1317}} 
+\index{MPU9250@{MPU9250}!accelBias@{accelBias}}
+\index{accelBias@{accelBias}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{accelBias}{accelBias}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::accel\+Bias\mbox{[}3\mbox{]} = \{0, 0, 0\}}
+
+\mbox{\Hypertarget{classMPU9250_adb56df6ceaf1dc204f97270540ac8b14}\label{classMPU9250_adb56df6ceaf1dc204f97270540ac8b14}} 
+\index{MPU9250@{MPU9250}!accelCount@{accelCount}}
+\index{accelCount@{accelCount}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{accelCount}{accelCount}}
+{\footnotesize\ttfamily int16\+\_\+t M\+P\+U9250\+::accel\+Count\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{classMPU9250_afa89af2772cead0f76a4ddd92ec5f6a8}\label{classMPU9250_afa89af2772cead0f76a4ddd92ec5f6a8}} 
+\index{MPU9250@{MPU9250}!aRes@{aRes}}
+\index{aRes@{aRes}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{aRes}{aRes}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::a\+Res}
+
+\mbox{\Hypertarget{classMPU9250_acd30d6bcc3d5b12e43b5da17c67ea87d}\label{classMPU9250_acd30d6bcc3d5b12e43b5da17c67ea87d}} 
+\index{MPU9250@{MPU9250}!Ascale@{Ascale}}
+\index{Ascale@{Ascale}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{Ascale}{Ascale}}
+{\footnotesize\ttfamily uint8\+\_\+t \mbox{\hyperlink{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541}{M\+P\+U9250\+::\+Ascale}} = \mbox{\hyperlink{classMPU9250_aaad7ce09b161856a8e0f46289a1d4541a03a62f2f294f281d30b1420d04c25afd}{A\+F\+S\+\_\+2G}}}
+
+Specifiers the accelerometer scale \mbox{\Hypertarget{classMPU9250_aea8a7622821bf8aca55fcef71d91e29f}\label{classMPU9250_aea8a7622821bf8aca55fcef71d91e29f}} 
+\index{MPU9250@{MPU9250}!ax@{ax}}
+\index{ax@{ax}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{ax}{ax}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::ax}
+
+\mbox{\Hypertarget{classMPU9250_a5129e95dbe12544fa34cc53b5644ff71}\label{classMPU9250_a5129e95dbe12544fa34cc53b5644ff71}} 
+\index{MPU9250@{MPU9250}!ay@{ay}}
+\index{ay@{ay}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{ay}{ay}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::ay}
+
+\mbox{\Hypertarget{classMPU9250_a8ab7a335476e40a26aba80f867ac7da9}\label{classMPU9250_a8ab7a335476e40a26aba80f867ac7da9}} 
+\index{MPU9250@{MPU9250}!az@{az}}
+\index{az@{az}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{az}{az}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::az}
+
+\mbox{\Hypertarget{classMPU9250_a93f12ae60bdffa42919abf32ccc8b113}\label{classMPU9250_a93f12ae60bdffa42919abf32ccc8b113}} 
+\index{MPU9250@{MPU9250}!buffer@{buffer}}
+\index{buffer@{buffer}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{buffer}{buffer}}
+{\footnotesize\ttfamily int16\+\_\+t M\+P\+U9250\+::buffer\mbox{[}9\mbox{]}}
+
+\mbox{\Hypertarget{classMPU9250_a9d231520d019ba7879c60ef7b72707a5}\label{classMPU9250_a9d231520d019ba7879c60ef7b72707a5}} 
+\index{MPU9250@{MPU9250}!count@{count}}
+\index{count@{count}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{count}{count}}
+{\footnotesize\ttfamily uint32\+\_\+t M\+P\+U9250\+::count = 0}
+
+\mbox{\Hypertarget{classMPU9250_a4d6b6338685120de2e21aa30d9d89389}\label{classMPU9250_a4d6b6338685120de2e21aa30d9d89389}} 
+\index{MPU9250@{MPU9250}!delt\_t@{delt\_t}}
+\index{delt\_t@{delt\_t}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{delt\_t}{delt\_t}}
+{\footnotesize\ttfamily uint32\+\_\+t M\+P\+U9250\+::delt\+\_\+t = 0}
+
+\mbox{\Hypertarget{classMPU9250_a1e53d31ab289b64a0d6393b17e8b807e}\label{classMPU9250_a1e53d31ab289b64a0d6393b17e8b807e}} 
+\index{MPU9250@{MPU9250}!deltat@{deltat}}
+\index{deltat@{deltat}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{deltat}{deltat}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::deltat = 0.\+0f}
+
+\mbox{\Hypertarget{classMPU9250_af34938d098b83ec910bee1b51a41972f}\label{classMPU9250_af34938d098b83ec910bee1b51a41972f}} 
+\index{MPU9250@{MPU9250}!factoryMagBias@{factoryMagBias}}
+\index{factoryMagBias@{factoryMagBias}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{factoryMagBias}{factoryMagBias}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::factory\+Mag\+Bias\mbox{[}3\mbox{]} = \{0, 0, 0\}}
+
+\mbox{\Hypertarget{classMPU9250_a30d462461868e4f306c2f47d1adbd1d2}\label{classMPU9250_a30d462461868e4f306c2f47d1adbd1d2}} 
+\index{MPU9250@{MPU9250}!factoryMagCalibration@{factoryMagCalibration}}
+\index{factoryMagCalibration@{factoryMagCalibration}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{factoryMagCalibration}{factoryMagCalibration}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::factory\+Mag\+Calibration\mbox{[}3\mbox{]} = \{0, 0, 0\}}
+
+\mbox{\Hypertarget{classMPU9250_a4ea2c930abf4529a3888885f9d928cf4}\label{classMPU9250_a4ea2c930abf4529a3888885f9d928cf4}} 
+\index{MPU9250@{MPU9250}!firstUpdate@{firstUpdate}}
+\index{firstUpdate@{firstUpdate}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{firstUpdate}{firstUpdate}}
+{\footnotesize\ttfamily uint32\+\_\+t M\+P\+U9250\+::first\+Update = 0}
+
+\mbox{\Hypertarget{classMPU9250_a2c137b20138d3c80c4828691d5656d92}\label{classMPU9250_a2c137b20138d3c80c4828691d5656d92}} 
+\index{MPU9250@{MPU9250}!gRes@{gRes}}
+\index{gRes@{gRes}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{gRes}{gRes}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::g\+Res}
+
+\mbox{\Hypertarget{classMPU9250_a4a060e8a9ab44dd99496e6333faa003d}\label{classMPU9250_a4a060e8a9ab44dd99496e6333faa003d}} 
+\index{MPU9250@{MPU9250}!Gscale@{Gscale}}
+\index{Gscale@{Gscale}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{Gscale}{Gscale}}
+{\footnotesize\ttfamily uint8\+\_\+t \mbox{\hyperlink{classMPU9250_ad9b27398aae48c110685cce78352acd7}{M\+P\+U9250\+::\+Gscale}} = \mbox{\hyperlink{classMPU9250_ad9b27398aae48c110685cce78352acd7acbac0d61786d1813a146966c57bf59e8}{G\+F\+S\+\_\+250\+D\+PS}}}
+
+T\+O\+DO\+: Add setter methods for this hard coded stuff Specifies the gyroscope scale \mbox{\Hypertarget{classMPU9250_a59b6d7bd37738bac258da24ad330feef}\label{classMPU9250_a59b6d7bd37738bac258da24ad330feef}} 
+\index{MPU9250@{MPU9250}!gx@{gx}}
+\index{gx@{gx}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{gx}{gx}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::gx}
+
+\mbox{\Hypertarget{classMPU9250_a126311c382d2667b7bc7cbe1f9b38b51}\label{classMPU9250_a126311c382d2667b7bc7cbe1f9b38b51}} 
+\index{MPU9250@{MPU9250}!gy@{gy}}
+\index{gy@{gy}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{gy}{gy}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::gy}
+
+\mbox{\Hypertarget{classMPU9250_a4fc2232b3fdbd61bc1024c86842ddf9a}\label{classMPU9250_a4fc2232b3fdbd61bc1024c86842ddf9a}} 
+\index{MPU9250@{MPU9250}!gyroBias@{gyroBias}}
+\index{gyroBias@{gyroBias}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{gyroBias}{gyroBias}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::gyro\+Bias\mbox{[}3\mbox{]} = \{0, 0, 0\}}
+
+\mbox{\Hypertarget{classMPU9250_a14ab2e2ab741ca245007cb9a134e07f3}\label{classMPU9250_a14ab2e2ab741ca245007cb9a134e07f3}} 
+\index{MPU9250@{MPU9250}!gyroCount@{gyroCount}}
+\index{gyroCount@{gyroCount}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{gyroCount}{gyroCount}}
+{\footnotesize\ttfamily int16\+\_\+t M\+P\+U9250\+::gyro\+Count\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{classMPU9250_a756658ca06a3807ef426ab87022a15c9}\label{classMPU9250_a756658ca06a3807ef426ab87022a15c9}} 
+\index{MPU9250@{MPU9250}!gz@{gz}}
+\index{gz@{gz}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{gz}{gz}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::gz}
+
+\mbox{\Hypertarget{classMPU9250_af60ee039dadb9eb5f4ade404ddfd878b}\label{classMPU9250_af60ee039dadb9eb5f4ade404ddfd878b}} 
+\index{MPU9250@{MPU9250}!lastUpdate@{lastUpdate}}
+\index{lastUpdate@{lastUpdate}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{lastUpdate}{lastUpdate}}
+{\footnotesize\ttfamily uint32\+\_\+t M\+P\+U9250\+::last\+Update = 0}
+
+\mbox{\Hypertarget{classMPU9250_a1f3b364d6efca22837dd944c60effce5}\label{classMPU9250_a1f3b364d6efca22837dd944c60effce5}} 
+\index{MPU9250@{MPU9250}!magBias@{magBias}}
+\index{magBias@{magBias}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{magBias}{magBias}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::mag\+Bias\mbox{[}3\mbox{]} = \{0, 0, 0\}}
+
+\mbox{\Hypertarget{classMPU9250_aff92db5334c43a72f5c2f1fc8ee6f596}\label{classMPU9250_aff92db5334c43a72f5c2f1fc8ee6f596}} 
+\index{MPU9250@{MPU9250}!magCount@{magCount}}
+\index{magCount@{magCount}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{magCount}{magCount}}
+{\footnotesize\ttfamily int16\+\_\+t M\+P\+U9250\+::mag\+Count\mbox{[}3\mbox{]}}
+
+\mbox{\Hypertarget{classMPU9250_a09f641aa48a5c7228a6ea5034e0391c3}\label{classMPU9250_a09f641aa48a5c7228a6ea5034e0391c3}} 
+\index{MPU9250@{MPU9250}!magScale@{magScale}}
+\index{magScale@{magScale}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{magScale}{magScale}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::mag\+Scale\mbox{[}3\mbox{]} = \{0, 0, 0\}}
+
+\mbox{\Hypertarget{classMPU9250_a7e36453e794f2b4c13e2ed871ad3139b}\label{classMPU9250_a7e36453e794f2b4c13e2ed871ad3139b}} 
+\index{MPU9250@{MPU9250}!Mmode@{Mmode}}
+\index{Mmode@{Mmode}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{Mmode}{Mmode}}
+{\footnotesize\ttfamily uint8\+\_\+t M\+P\+U9250\+::\+Mmode = \mbox{\hyperlink{classMPU9250_aabd235da5831a854e2ca6776db40d554af82607fbb58bef94a309b11d541e072e}{M\+\_\+8\+HZ}}}
+
+Specifiers the sampling rate of mangetometer \mbox{\Hypertarget{classMPU9250_a173e0594b9d3ecb6ece2b71f9f59fc50}\label{classMPU9250_a173e0594b9d3ecb6ece2b71f9f59fc50}} 
+\index{MPU9250@{MPU9250}!mRes@{mRes}}
+\index{mRes@{mRes}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{mRes}{mRes}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::m\+Res}
+
+\mbox{\Hypertarget{classMPU9250_ad9a2d2083ebc8e645a7d83b77ae6ac07}\label{classMPU9250_ad9a2d2083ebc8e645a7d83b77ae6ac07}} 
+\index{MPU9250@{MPU9250}!Mscale@{Mscale}}
+\index{Mscale@{Mscale}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{Mscale}{Mscale}}
+{\footnotesize\ttfamily uint8\+\_\+t \mbox{\hyperlink{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0}{M\+P\+U9250\+::\+Mscale}} = \mbox{\hyperlink{classMPU9250_aebb5b9eac8f24d656e9dc5fe6bf43bc0ac3c6c6175324df8b68ff9d20b5970423}{M\+F\+S\+\_\+16\+B\+I\+TS}}}
+
+Specifiers resolution of magnetometer \mbox{\Hypertarget{classMPU9250_aa4cc8b2c9417304d1106bdbd988ac607}\label{classMPU9250_aa4cc8b2c9417304d1106bdbd988ac607}} 
+\index{MPU9250@{MPU9250}!mx@{mx}}
+\index{mx@{mx}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{mx}{mx}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::mx}
+
+\mbox{\Hypertarget{classMPU9250_ad7cf9fe3134d24f46705881b2e002f31}\label{classMPU9250_ad7cf9fe3134d24f46705881b2e002f31}} 
+\index{MPU9250@{MPU9250}!my@{my}}
+\index{my@{my}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{my}{my}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::my}
+
+\mbox{\Hypertarget{classMPU9250_af11072922aa71ffb125fe3786f848653}\label{classMPU9250_af11072922aa71ffb125fe3786f848653}} 
+\index{MPU9250@{MPU9250}!mz@{mz}}
+\index{mz@{mz}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{mz}{mz}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::mz}
+
+\mbox{\Hypertarget{classMPU9250_a96b7d70d685ed53744c69acc9f7ef1af}\label{classMPU9250_a96b7d70d685ed53744c69acc9f7ef1af}} 
+\index{MPU9250@{MPU9250}!Now@{Now}}
+\index{Now@{Now}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{Now}{Now}}
+{\footnotesize\ttfamily uint32\+\_\+t M\+P\+U9250\+::\+Now = 0}
+
+\mbox{\Hypertarget{classMPU9250_ab3d0117a094b81ac2e07f5c2d68aa5f4}\label{classMPU9250_ab3d0117a094b81ac2e07f5c2d68aa5f4}} 
+\index{MPU9250@{MPU9250}!pitch@{pitch}}
+\index{pitch@{pitch}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{pitch}{pitch}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::pitch}
+
+\mbox{\Hypertarget{classMPU9250_ad394d6659aa446adff547feaa4985f94}\label{classMPU9250_ad394d6659aa446adff547feaa4985f94}} 
+\index{MPU9250@{MPU9250}!roll@{roll}}
+\index{roll@{roll}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{roll}{roll}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::roll}
+
+\mbox{\Hypertarget{classMPU9250_afd15093e18fc34ce15e526f464fc557a}\label{classMPU9250_afd15093e18fc34ce15e526f464fc557a}} 
+\index{MPU9250@{MPU9250}!selfTest@{selfTest}}
+\index{selfTest@{selfTest}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{selfTest}{selfTest}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::self\+Test\mbox{[}6\mbox{]}}
+
+\mbox{\Hypertarget{classMPU9250_ac40db4e2fb94e9b33ec0b821c0b6ed2d}\label{classMPU9250_ac40db4e2fb94e9b33ec0b821c0b6ed2d}} 
+\index{MPU9250@{MPU9250}!sum@{sum}}
+\index{sum@{sum}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{sum}{sum}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::sum = 0.\+0f}
+
+\mbox{\Hypertarget{classMPU9250_a604d036ab632885152ab770b3c64676a}\label{classMPU9250_a604d036ab632885152ab770b3c64676a}} 
+\index{MPU9250@{MPU9250}!sumCount@{sumCount}}
+\index{sumCount@{sumCount}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{sumCount}{sumCount}}
+{\footnotesize\ttfamily uint32\+\_\+t M\+P\+U9250\+::sum\+Count = 0}
+
+\mbox{\Hypertarget{classMPU9250_a8fa1b4fa4bc8db4bd162bc4f8ee8f0ea}\label{classMPU9250_a8fa1b4fa4bc8db4bd162bc4f8ee8f0ea}} 
+\index{MPU9250@{MPU9250}!tempCount@{tempCount}}
+\index{tempCount@{tempCount}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{tempCount}{tempCount}}
+{\footnotesize\ttfamily int16\+\_\+t M\+P\+U9250\+::temp\+Count}
+
+\mbox{\Hypertarget{classMPU9250_a2190394242c2b74ff53c20f8180af287}\label{classMPU9250_a2190394242c2b74ff53c20f8180af287}} 
+\index{MPU9250@{MPU9250}!temperature@{temperature}}
+\index{temperature@{temperature}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{temperature}{temperature}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::temperature}
+
+\mbox{\Hypertarget{classMPU9250_a0493fbbf09cb14b8695a1eb804136e34}\label{classMPU9250_a0493fbbf09cb14b8695a1eb804136e34}} 
+\index{MPU9250@{MPU9250}!yaw@{yaw}}
+\index{yaw@{yaw}!MPU9250@{MPU9250}}
+\doxysubsubsection{\texorpdfstring{yaw}{yaw}}
+{\footnotesize\ttfamily float M\+P\+U9250\+::yaw}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+M\+P\+U9250/\mbox{\hyperlink{MPU9250_8h}{M\+P\+U9250.\+h}}\item 
+lib/\+M\+P\+U9250/\mbox{\hyperlink{MPU9250_8cpp}{M\+P\+U9250.\+cpp}}\end{DoxyCompactItemize}

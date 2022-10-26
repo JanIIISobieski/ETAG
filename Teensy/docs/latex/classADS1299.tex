@@ -1,0 +1,398 @@
+\hypertarget{classADS1299}{}\doxysection{A\+D\+S1299 Class Reference}
+\label{classADS1299}\index{ADS1299@{ADS1299}}
+
+
+Implements the interface to use with the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} chip for electroencephalography.  
+
+
+
+
+{\ttfamily \#include $<$A\+D\+S1299.\+h$>$}
+
+
+
+Inheritance diagram for A\+D\+S1299\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classADS1299__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for A\+D\+S1299\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=164pt]{classADS1299__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classADS1299_a71718e0cbb1aa6bf723a9520c67b8bb1}{A\+D\+S1299}} (uint32\+\_\+t data\+\_\+ready, uint32\+\_\+t chip\+\_\+select, uint32\+\_\+t reset\+\_\+pin, uint32\+\_\+t start\+\_\+pin, uint32\+\_\+t power\+\_\+down, \mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} $\ast$settings)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classADS1299_a740bdab2b37fa2324d3cb24ebaedc789}{setup}} (uint32\+\_\+t \+\_\+\+D\+R\+DY, uint32\+\_\+t \+\_\+\+CS)
+\item 
+String \mbox{\hyperlink{classADS1299_ad84741b6a6f66253c668568cdb9f0f39}{initialize}} ()
+\item 
+void \mbox{\hyperlink{classADS1299_ad168821e9a9632e6c42c3c95601d06fe}{spi\+\_\+start}} (uint32\+\_\+t \+\_\+\+CS, S\+P\+I\+Settings \+\_\+\+S\+P\+I\+\_\+settings)
+\item 
+void \mbox{\hyperlink{classADS1299_a6830e6d297c76a0279a23142f97f7742}{spi\+\_\+end}} (uint32\+\_\+t \+\_\+\+CS)
+\item 
+void \mbox{\hyperlink{classADS1299_aa5b57bbfa5d795be4f5745db5d4648e2}{send\+\_\+command}} (uint8\+\_\+t cmd)
+\item 
+void \mbox{\hyperlink{classADS1299_a1c4748c9e351b0b5a782b5fbf7cde4c2}{wakeup}} ()
+\item 
+void \mbox{\hyperlink{classADS1299_a65ecc29c703281ffbba57fb1996c9774}{standby}} ()
+\item 
+String \mbox{\hyperlink{classADS1299_af30ccd03f39c269d9588771d474abba9}{reset}} ()
+\item 
+String \mbox{\hyperlink{classADS1299_a520ae2d06526ce73e18e0ad20b4c8058}{start}} ()
+\item 
+String \mbox{\hyperlink{classADS1299_abd4ec6908b47cc990233bdda9cf94978}{stop}} ()
+\item 
+void \mbox{\hyperlink{classADS1299_ae92e8152516c555c9ca7712b17570d5f}{rdatac}} ()
+\item 
+void \mbox{\hyperlink{classADS1299_ac0ae0c0a2ec1469771d6750d3f913aa1}{sdatac}} ()
+\item 
+void \mbox{\hyperlink{classADS1299_a74e91378f203c9038c279294e90bb0ef}{rdata}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classADS1299_acc028305a488e312df834de539b48b07}{get\+\_\+id}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classADS1299_a2ed23b9bf10b1afad2f42c1d753ff2a3}{rreg}} (uint8\+\_\+t address)
+\begin{DoxyCompactList}\small\item\em Read the register at the specified address of the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classADS1299_accb89a45889f8f9c7450f6cc325c2e49}{wreg}} (uint8\+\_\+t address, uint8\+\_\+t value)
+\begin{DoxyCompactList}\small\item\em Write to the register at the specified address of the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classADS1299_ae7506d67ffa5cc965459e35d71f99253}{update\+\_\+data}} ()
+\begin{DoxyCompactList}\small\item\em Samples the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} and sends the data to the appropriate buffer\+: \mbox{\hyperlink{classADS1299_a8f34d9ce65ee388406811935e42316ce}{channel\+\_\+data}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classADS1299_a3e8e4c19aba2f06beefedc905a06329f}{init}} ()
+\begin{DoxyCompactList}\small\item\em Initalize the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} for sampling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classADS1299_a5980cfe928dd40e9a7b3a13b2c9adb9d}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Starts continous sampling of the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classADS1299_af1b2c31438262ba8a1c0f055c300f1ab}{end}} ()
+\begin{DoxyCompactList}\small\item\em Ends continous sampling of the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classADS1299_aaa57c4e772dea623eacbc26f1f3309af}{drdy}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classADS1299_aa5189bd39a585a2817fe358af7d001c9}{cs}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classADS1299_a45c3807c2393b8d5891104f8d113276e}{rst}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classADS1299_a52d8c3ca210ed23dc750ae86c52410fd}{strt}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classADS1299_a34a92521b4ebb1a1f4fc351bbcb41883}{pwrdwn}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classADS1299_a68c104201c75b777d840671f67afdf5b}{output\+\_\+count}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{classADS1299_aa834c203554fa480fd4c7b6bf6d4c505}{ads\+\_\+status}}
+\item 
+int32\+\_\+t \mbox{\hyperlink{classADS1299_a8f34d9ce65ee388406811935e42316ce}{channel\+\_\+data}} \mbox{[}\mbox{\hyperlink{ADS1299__Definitions_8h_a376b53b0d3fdde2d30caf48f2c991d60}{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+P\+E\+R\+\_\+\+S\+A\+M\+P\+LE}}\mbox{]}
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classADS1299_ad8bedc0b2e9e89f38766e40dbb89568e}{raw\+\_\+channel\+\_\+data}} \mbox{[}\mbox{\hyperlink{ADS1299__Definitions_8h_a376b53b0d3fdde2d30caf48f2c991d60}{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+P\+E\+R\+\_\+\+S\+A\+M\+P\+LE}} $\ast$\mbox{\hyperlink{ADS1299__Definitions_8h_adae06110967108a4b485f8a5b09221be}{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+C\+H\+A\+N\+N\+EL}}\mbox{]}
+\item 
+float \mbox{\hyperlink{classADS1299_aba3afe9a064638fb5a639af427c2add1}{m\+V\+\_\+scale\+\_\+factor}}
+\item 
+volatile uint8\+\_\+t \mbox{\hyperlink{classADS1299_a428cc5a30ef1828d5aaa95048c593cff}{raw\+\_\+data}} \mbox{[}\mbox{\hyperlink{ADS1299__Definitions_8h_a25065cd833bcfecfb404093aed3edaca}{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+A\+M\+P\+LE}}\mbox{]}
+\item 
+S\+P\+I\+Settings \mbox{\hyperlink{classADS1299_ab8620c1e43db84bd716ad24d0caccc36}{A\+D\+S\+\_\+\+S\+P\+I\+\_\+settings}}
+\item 
+Event\+Responder \mbox{\hyperlink{classADS1299_a444ad5749cc667bb480f28296df6cb91}{dma\+\_\+spi\+\_\+transfer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements the interface to use with the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} chip for electroencephalography. 
+
+\href{https://www.ti.com/lit/ds/symlink/ads1299.pdf?ts=1642008610691}{\texttt{ A\+D\+S129 Documentation}} for reference 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classADS1299_a71718e0cbb1aa6bf723a9520c67b8bb1}\label{classADS1299_a71718e0cbb1aa6bf723a9520c67b8bb1}} 
+\index{ADS1299@{ADS1299}!ADS1299@{ADS1299}}
+\index{ADS1299@{ADS1299}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{ADS1299()}{ADS1299()}}
+{\footnotesize\ttfamily A\+D\+S1299\+::\+A\+D\+S1299 (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{data\+\_\+ready,  }\item[{uint32\+\_\+t}]{chip\+\_\+select,  }\item[{uint32\+\_\+t}]{reset\+\_\+pin,  }\item[{uint32\+\_\+t}]{start\+\_\+pin,  }\item[{uint32\+\_\+t}]{power\+\_\+down,  }\item[{\mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} $\ast$}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em data\+\_\+ready} & The pin used for the interrupt that flags when new data is ready on the chip \\
+\hline
+{\em chip\+\_\+select} & The pin used for S\+PI chip select \\
+\hline
+{\em reset\+\_\+pin} & The pin used for resetting the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} \\
+\hline
+{\em start\+\_\+pin} & The pin used for starting the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} \\
+\hline
+{\em power\+\_\+down} & The pin used for powering down the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classADS1299_a5980cfe928dd40e9a7b3a13b2c9adb9d}\label{classADS1299_a5980cfe928dd40e9a7b3a13b2c9adb9d}} 
+\index{ADS1299@{ADS1299}!begin@{begin}}
+\index{begin@{begin}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Starts continous sampling of the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. 
+
+
+
+Implements \mbox{\hyperlink{classAbstractDevice_a89f4760b7a46e04ae41b624565c09517}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classADS1299_af1b2c31438262ba8a1c0f055c300f1ab}\label{classADS1299_af1b2c31438262ba8a1c0f055c300f1ab}} 
+\index{ADS1299@{ADS1299}!end@{end}}
+\index{end@{end}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Ends continous sampling of the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. 
+
+
+
+Implements \mbox{\hyperlink{classAbstractDevice_a3be2e4a734196c00d317ed5bc19995c7}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classADS1299_acc028305a488e312df834de539b48b07}\label{classADS1299_acc028305a488e312df834de539b48b07}} 
+\index{ADS1299@{ADS1299}!get\_id@{get\_id}}
+\index{get\_id@{get\_id}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{get\_id()}{get\_id()}}
+{\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+::get\+\_\+id (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_a3e8e4c19aba2f06beefedc905a06329f}\label{classADS1299_a3e8e4c19aba2f06beefedc905a06329f}} 
+\index{ADS1299@{ADS1299}!init@{init}}
+\index{init@{init}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool A\+D\+S1299\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Initalize the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} for sampling. 
+
+Uses the \mbox{\hyperlink{classADS1299_a740bdab2b37fa2324d3cb24ebaedc789}{setup}} command. \mbox{\hyperlink{classADS1299_a3e8e4c19aba2f06beefedc905a06329f}{init()}} is the method that has to be called for the \mbox{\hyperlink{classDeviceManager}{Device\+Manager}} to work 
+
+Implements \mbox{\hyperlink{classAbstractDevice_a79fcd0fd5b748a233fe9488195b080a0}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classADS1299_ad84741b6a6f66253c668568cdb9f0f39}\label{classADS1299_ad84741b6a6f66253c668568cdb9f0f39}} 
+\index{ADS1299@{ADS1299}!initialize@{initialize}}
+\index{initialize@{initialize}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{initialize()}{initialize()}}
+{\footnotesize\ttfamily String A\+D\+S1299\+::initialize (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_a74e91378f203c9038c279294e90bb0ef}\label{classADS1299_a74e91378f203c9038c279294e90bb0ef}} 
+\index{ADS1299@{ADS1299}!rdata@{rdata}}
+\index{rdata@{rdata}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{rdata()}{rdata()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::rdata (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_ae92e8152516c555c9ca7712b17570d5f}\label{classADS1299_ae92e8152516c555c9ca7712b17570d5f}} 
+\index{ADS1299@{ADS1299}!rdatac@{rdatac}}
+\index{rdatac@{rdatac}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{rdatac()}{rdatac()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::rdatac (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_af30ccd03f39c269d9588771d474abba9}\label{classADS1299_af30ccd03f39c269d9588771d474abba9}} 
+\index{ADS1299@{ADS1299}!reset@{reset}}
+\index{reset@{reset}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily String A\+D\+S1299\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_a2ed23b9bf10b1afad2f42c1d753ff2a3}\label{classADS1299_a2ed23b9bf10b1afad2f42c1d753ff2a3}} 
+\index{ADS1299@{ADS1299}!rreg@{rreg}}
+\index{rreg@{rreg}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{rreg()}{rreg()}}
+{\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+::rreg (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})}
+
+
+
+Read the register at the specified address of the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Address on the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+uint8\+\_\+t the read value of the register 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classADS1299_ac0ae0c0a2ec1469771d6750d3f913aa1}\label{classADS1299_ac0ae0c0a2ec1469771d6750d3f913aa1}} 
+\index{ADS1299@{ADS1299}!sdatac@{sdatac}}
+\index{sdatac@{sdatac}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{sdatac()}{sdatac()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::sdatac (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_aa5b57bbfa5d795be4f5745db5d4648e2}\label{classADS1299_aa5b57bbfa5d795be4f5745db5d4648e2}} 
+\index{ADS1299@{ADS1299}!send\_command@{send\_command}}
+\index{send\_command@{send\_command}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{send\_command()}{send\_command()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::send\+\_\+command (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{cmd }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_a740bdab2b37fa2324d3cb24ebaedc789}\label{classADS1299_a740bdab2b37fa2324d3cb24ebaedc789}} 
+\index{ADS1299@{ADS1299}!setup@{setup}}
+\index{setup@{setup}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{setup()}{setup()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::setup (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{\+\_\+\+D\+R\+DY,  }\item[{uint32\+\_\+t}]{\+\_\+\+CS }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_a6830e6d297c76a0279a23142f97f7742}\label{classADS1299_a6830e6d297c76a0279a23142f97f7742}} 
+\index{ADS1299@{ADS1299}!spi\_end@{spi\_end}}
+\index{spi\_end@{spi\_end}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{spi\_end()}{spi\_end()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::spi\+\_\+end (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{\+\_\+\+CS }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_ad168821e9a9632e6c42c3c95601d06fe}\label{classADS1299_ad168821e9a9632e6c42c3c95601d06fe}} 
+\index{ADS1299@{ADS1299}!spi\_start@{spi\_start}}
+\index{spi\_start@{spi\_start}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{spi\_start()}{spi\_start()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::spi\+\_\+start (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{\+\_\+\+CS,  }\item[{S\+P\+I\+Settings}]{\+\_\+\+S\+P\+I\+\_\+settings }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_a65ecc29c703281ffbba57fb1996c9774}\label{classADS1299_a65ecc29c703281ffbba57fb1996c9774}} 
+\index{ADS1299@{ADS1299}!standby@{standby}}
+\index{standby@{standby}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{standby()}{standby()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::standby (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_a520ae2d06526ce73e18e0ad20b4c8058}\label{classADS1299_a520ae2d06526ce73e18e0ad20b4c8058}} 
+\index{ADS1299@{ADS1299}!start@{start}}
+\index{start@{start}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{start()}{start()}}
+{\footnotesize\ttfamily String A\+D\+S1299\+::start (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_abd4ec6908b47cc990233bdda9cf94978}\label{classADS1299_abd4ec6908b47cc990233bdda9cf94978}} 
+\index{ADS1299@{ADS1299}!stop@{stop}}
+\index{stop@{stop}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{stop()}{stop()}}
+{\footnotesize\ttfamily String A\+D\+S1299\+::stop (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_ae7506d67ffa5cc965459e35d71f99253}\label{classADS1299_ae7506d67ffa5cc965459e35d71f99253}} 
+\index{ADS1299@{ADS1299}!update\_data@{update\_data}}
+\index{update\_data@{update\_data}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{update\_data()}{update\_data()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::update\+\_\+data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Samples the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} and sends the data to the appropriate buffer\+: \mbox{\hyperlink{classADS1299_a8f34d9ce65ee388406811935e42316ce}{channel\+\_\+data}}. 
+
+This should only be used if explicitly sampling in the main loop \mbox{\Hypertarget{classADS1299_a1c4748c9e351b0b5a782b5fbf7cde4c2}\label{classADS1299_a1c4748c9e351b0b5a782b5fbf7cde4c2}} 
+\index{ADS1299@{ADS1299}!wakeup@{wakeup}}
+\index{wakeup@{wakeup}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{wakeup()}{wakeup()}}
+{\footnotesize\ttfamily void A\+D\+S1299\+::wakeup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classADS1299_accb89a45889f8f9c7450f6cc325c2e49}\label{classADS1299_accb89a45889f8f9c7450f6cc325c2e49}} 
+\index{ADS1299@{ADS1299}!wreg@{wreg}}
+\index{wreg@{wreg}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{wreg()}{wreg()}}
+{\footnotesize\ttfamily String A\+D\+S1299\+::wreg (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address,  }\item[{uint8\+\_\+t}]{value }\end{DoxyParamCaption})}
+
+
+
+Write to the register at the specified address of the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em address} & Address on the chip \\
+\hline
+{\em value} & Value to write to the chip \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String Confirms modification of the register 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classADS1299_ab8620c1e43db84bd716ad24d0caccc36}\label{classADS1299_ab8620c1e43db84bd716ad24d0caccc36}} 
+\index{ADS1299@{ADS1299}!ADS\_SPI\_settings@{ADS\_SPI\_settings}}
+\index{ADS\_SPI\_settings@{ADS\_SPI\_settings}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{ADS\_SPI\_settings}{ADS\_SPI\_settings}}
+{\footnotesize\ttfamily S\+P\+I\+Settings A\+D\+S1299\+::\+A\+D\+S\+\_\+\+S\+P\+I\+\_\+settings}
+
+\mbox{\Hypertarget{classADS1299_aa834c203554fa480fd4c7b6bf6d4c505}\label{classADS1299_aa834c203554fa480fd4c7b6bf6d4c505}} 
+\index{ADS1299@{ADS1299}!ads\_status@{ads\_status}}
+\index{ads\_status@{ads\_status}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{ads\_status}{ads\_status}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D\+S1299\+::ads\+\_\+status}
+
+\mbox{\Hypertarget{classADS1299_a8f34d9ce65ee388406811935e42316ce}\label{classADS1299_a8f34d9ce65ee388406811935e42316ce}} 
+\index{ADS1299@{ADS1299}!channel\_data@{channel\_data}}
+\index{channel\_data@{channel\_data}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{channel\_data}{channel\_data}}
+{\footnotesize\ttfamily int32\+\_\+t A\+D\+S1299\+::channel\+\_\+data\mbox{[}\mbox{\hyperlink{ADS1299__Definitions_8h_a376b53b0d3fdde2d30caf48f2c991d60}{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+P\+E\+R\+\_\+\+S\+A\+M\+P\+LE}}\mbox{]}}
+
+\mbox{\Hypertarget{classADS1299_aa5189bd39a585a2817fe358af7d001c9}\label{classADS1299_aa5189bd39a585a2817fe358af7d001c9}} 
+\index{ADS1299@{ADS1299}!cs@{cs}}
+\index{cs@{cs}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{cs}{cs}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D\+S1299\+::cs}
+
+\mbox{\Hypertarget{classADS1299_a444ad5749cc667bb480f28296df6cb91}\label{classADS1299_a444ad5749cc667bb480f28296df6cb91}} 
+\index{ADS1299@{ADS1299}!dma\_spi\_transfer@{dma\_spi\_transfer}}
+\index{dma\_spi\_transfer@{dma\_spi\_transfer}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{dma\_spi\_transfer}{dma\_spi\_transfer}}
+{\footnotesize\ttfamily Event\+Responder A\+D\+S1299\+::dma\+\_\+spi\+\_\+transfer}
+
+\mbox{\Hypertarget{classADS1299_aaa57c4e772dea623eacbc26f1f3309af}\label{classADS1299_aaa57c4e772dea623eacbc26f1f3309af}} 
+\index{ADS1299@{ADS1299}!drdy@{drdy}}
+\index{drdy@{drdy}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{drdy}{drdy}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D\+S1299\+::drdy}
+
+\mbox{\Hypertarget{classADS1299_aba3afe9a064638fb5a639af427c2add1}\label{classADS1299_aba3afe9a064638fb5a639af427c2add1}} 
+\index{ADS1299@{ADS1299}!mV\_scale\_factor@{mV\_scale\_factor}}
+\index{mV\_scale\_factor@{mV\_scale\_factor}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{mV\_scale\_factor}{mV\_scale\_factor}}
+{\footnotesize\ttfamily float A\+D\+S1299\+::m\+V\+\_\+scale\+\_\+factor}
+
+\mbox{\Hypertarget{classADS1299_a68c104201c75b777d840671f67afdf5b}\label{classADS1299_a68c104201c75b777d840671f67afdf5b}} 
+\index{ADS1299@{ADS1299}!output\_count@{output\_count}}
+\index{output\_count@{output\_count}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{output\_count}{output\_count}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D\+S1299\+::output\+\_\+count}
+
+\mbox{\Hypertarget{classADS1299_a34a92521b4ebb1a1f4fc351bbcb41883}\label{classADS1299_a34a92521b4ebb1a1f4fc351bbcb41883}} 
+\index{ADS1299@{ADS1299}!pwrdwn@{pwrdwn}}
+\index{pwrdwn@{pwrdwn}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{pwrdwn}{pwrdwn}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D\+S1299\+::pwrdwn}
+
+\mbox{\Hypertarget{classADS1299_ad8bedc0b2e9e89f38766e40dbb89568e}\label{classADS1299_ad8bedc0b2e9e89f38766e40dbb89568e}} 
+\index{ADS1299@{ADS1299}!raw\_channel\_data@{raw\_channel\_data}}
+\index{raw\_channel\_data@{raw\_channel\_data}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{raw\_channel\_data}{raw\_channel\_data}}
+{\footnotesize\ttfamily uint8\+\_\+t A\+D\+S1299\+::raw\+\_\+channel\+\_\+data\mbox{[}\mbox{\hyperlink{ADS1299__Definitions_8h_a376b53b0d3fdde2d30caf48f2c991d60}{C\+H\+A\+N\+N\+E\+L\+S\+\_\+\+P\+E\+R\+\_\+\+S\+A\+M\+P\+LE}} $\ast$\mbox{\hyperlink{ADS1299__Definitions_8h_adae06110967108a4b485f8a5b09221be}{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+C\+H\+A\+N\+N\+EL}}\mbox{]}}
+
+\mbox{\Hypertarget{classADS1299_a428cc5a30ef1828d5aaa95048c593cff}\label{classADS1299_a428cc5a30ef1828d5aaa95048c593cff}} 
+\index{ADS1299@{ADS1299}!raw\_data@{raw\_data}}
+\index{raw\_data@{raw\_data}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{raw\_data}{raw\_data}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t A\+D\+S1299\+::raw\+\_\+data\mbox{[}\mbox{\hyperlink{ADS1299__Definitions_8h_a25065cd833bcfecfb404093aed3edaca}{B\+Y\+T\+E\+S\+\_\+\+P\+E\+R\+\_\+\+S\+A\+M\+P\+LE}}\mbox{]}}
+
+\mbox{\Hypertarget{classADS1299_a45c3807c2393b8d5891104f8d113276e}\label{classADS1299_a45c3807c2393b8d5891104f8d113276e}} 
+\index{ADS1299@{ADS1299}!rst@{rst}}
+\index{rst@{rst}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{rst}{rst}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D\+S1299\+::rst}
+
+\mbox{\Hypertarget{classADS1299_a52d8c3ca210ed23dc750ae86c52410fd}\label{classADS1299_a52d8c3ca210ed23dc750ae86c52410fd}} 
+\index{ADS1299@{ADS1299}!strt@{strt}}
+\index{strt@{strt}!ADS1299@{ADS1299}}
+\doxysubsubsection{\texorpdfstring{strt}{strt}}
+{\footnotesize\ttfamily uint32\+\_\+t A\+D\+S1299\+::strt}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+A\+D\+S1299\+\_\+\+Library/\mbox{\hyperlink{ADS1299_8h}{A\+D\+S1299.\+h}}\item 
+lib/\+A\+D\+S1299\+\_\+\+Library/\mbox{\hyperlink{ADS1299_8cpp}{A\+D\+S1299.\+cpp}}\end{DoxyCompactItemize}

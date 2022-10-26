@@ -1,0 +1,81 @@
+\hypertarget{Logger_8h}{}\doxysection{lib/\+Logger/\+Logger.h File Reference}
+\label{Logger_8h}\index{lib/Logger/Logger.h@{lib/Logger/Logger.h}}
+{\ttfamily \#include \char`\"{}Arduino.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Linked\+List.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}D\+M\+A\+Channel.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Abstract\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Arduino\+Json.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Sd\+Fat.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tag\+Settings.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+D\+S1299.\+h\char`\"{}}\newline
+Include dependency graph for Logger.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Logger_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Logger_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}}
+\begin{DoxyCompactList}\small\item\em Structure to store the timing between various functions (filling buffers, main loop timing, etc.) \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structSamplingMetadata}{Sampling\+Metadata}}
+\begin{DoxyCompactList}\small\item\em Structure hold for how long sampling lasted. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structPrintTimer}{Print\+Timer}}
+\begin{DoxyCompactList}\small\item\em Structure to hold a timer and a delta time to use for printing variables every so often. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classVarPrinter}{Var\+Printer}}
+\begin{DoxyCompactList}\small\item\em Implements assorted printing of variables in various forms. \end{DoxyCompactList}\item 
+class \mbox{\hyperlink{classLogger}{Logger}}
+\begin{DoxyCompactList}\small\item\em The main logging class responsible for logging. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{Logger_8h_af23850844233c9f5cb0694d1a6a6a9f4}{V\+A\+R\+I\+A\+B\+L\+E\+\_\+\+T\+O\+\_\+\+S\+T\+R\+I\+NG}}(variable)~(void(variable), \#variable)
+\item 
+\#define \mbox{\hyperlink{Logger_8h_aaafd906d75a01118c1ba07d04562cccd}{N\+U\+M\+\_\+\+A\+D\+S1299\+\_\+\+Registers}}~24
+\end{DoxyCompactItemize}
+\doxysubsection*{Typedefs}
+\begin{DoxyCompactItemize}
+\item 
+using \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} = \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}}
+\item 
+using \mbox{\hyperlink{Logger_8h_a2093ab4d1c1464417761a58faef15d28}{Print\+Timing}} = \mbox{\hyperlink{structPrintTimer}{Print\+Timer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{Logger_8h_aaafd906d75a01118c1ba07d04562cccd}\label{Logger_8h_aaafd906d75a01118c1ba07d04562cccd}} 
+\index{Logger.h@{Logger.h}!NUM\_ADS1299\_Registers@{NUM\_ADS1299\_Registers}}
+\index{NUM\_ADS1299\_Registers@{NUM\_ADS1299\_Registers}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_ADS1299\_Registers}{NUM\_ADS1299\_Registers}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+A\+D\+S1299\+\_\+\+Registers~24}
+
+\mbox{\Hypertarget{Logger_8h_af23850844233c9f5cb0694d1a6a6a9f4}\label{Logger_8h_af23850844233c9f5cb0694d1a6a6a9f4}} 
+\index{Logger.h@{Logger.h}!VARIABLE\_TO\_STRING@{VARIABLE\_TO\_STRING}}
+\index{VARIABLE\_TO\_STRING@{VARIABLE\_TO\_STRING}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{VARIABLE\_TO\_STRING}{VARIABLE\_TO\_STRING}}
+{\footnotesize\ttfamily \#define V\+A\+R\+I\+A\+B\+L\+E\+\_\+\+T\+O\+\_\+\+S\+T\+R\+I\+NG(\begin{DoxyParamCaption}\item[{}]{variable }\end{DoxyParamCaption})~(void(variable), \#variable)}
+
+
+
+\doxysubsection{Typedef Documentation}
+\mbox{\Hypertarget{Logger_8h_a2093ab4d1c1464417761a58faef15d28}\label{Logger_8h_a2093ab4d1c1464417761a58faef15d28}} 
+\index{Logger.h@{Logger.h}!PrintTiming@{PrintTiming}}
+\index{PrintTiming@{PrintTiming}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{PrintTiming}{PrintTiming}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{Logger_8h_a2093ab4d1c1464417761a58faef15d28}{Print\+Timing}} =  \mbox{\hyperlink{structPrintTimer}{Print\+Timer}}}
+
+\mbox{\Hypertarget{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}\label{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}} 
+\index{Logger.h@{Logger.h}!TimingData@{TimingData}}
+\index{TimingData@{TimingData}!Logger.h@{Logger.h}}
+\doxysubsubsection{\texorpdfstring{TimingData}{TimingData}}
+{\footnotesize\ttfamily using \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} =  \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}}}
+

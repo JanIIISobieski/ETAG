@@ -1,0 +1,101 @@
+\hypertarget{structBufferHelper}{}\doxysection{Buffer\+Helper$<$ T $>$ Struct Template Reference}
+\label{structBufferHelper}\index{BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}}
+
+
+Template structure containing the important descriptors for each buffer.  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+Buffer.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile T $\ast$ \mbox{\hyperlink{structBufferHelper_a9930784c0f3c0350615a96c2d3fc76a3}{head\+\_\+ptr}}
+\item 
+volatile uint8\+\_\+t $\ast$ \mbox{\hyperlink{structBufferHelper_a8b3f270986da17108a09f26a6cdcb81a}{id\+\_\+ptr}}
+\item 
+volatile uint8\+\_\+t $\ast$ \mbox{\hyperlink{structBufferHelper_a00efe81540125e5d2966b5cda66a7d97}{count\+\_\+ptr}}
+\item 
+volatile uint32\+\_\+t $\ast$ \mbox{\hyperlink{structBufferHelper_a0f5f5cf7b516b0489b3d2dcc84c1fa47}{time\+\_\+ptr}}
+\item 
+volatile T $\ast$ \mbox{\hyperlink{structBufferHelper_a950f2f1bd93baf9964cd39a1892f81a1}{data\+\_\+ptr}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structBufferHelper_aac167c4c9a64b0cac7911afd117ae52e}{length}}
+\item 
+size\+\_\+t \mbox{\hyperlink{structBufferHelper_abb8728cf4f55b6bd512f607c104aeb4c}{data\+\_\+length}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+\subsubsection*{template$<$class T$>$\newline
+struct Buffer\+Helper$<$ T $>$}
+
+Template structure containing the important descriptors for each buffer. 
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any valid type (e.\+g. uint32\+\_\+t, int16\+\_\+t, unsigned char, etc.)\\
+\hline
+\end{DoxyTemplParams}
+Each buffer is of the form\+:~\newline
+{\ttfamily \mbox{[} ID $\vert$ Count $\vert$ -\/-\/-\/ Time -\/-\/-\/ $\vert$ -\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/Data-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\mbox{]}}~\newline
+{\ttfamily \mbox{[} 1 byte $\vert$ 1 Byte $\vert$ 4 bytes $\vert$ -\/-\/-\/-\/-\/-\/-\/-\/-\/Remaining Bytes-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/-\/\mbox{]}}~\newline
+ 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structBufferHelper_a00efe81540125e5d2966b5cda66a7d97}\label{structBufferHelper_a00efe81540125e5d2966b5cda66a7d97}} 
+\index{BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}!count\_ptr@{count\_ptr}}
+\index{count\_ptr@{count\_ptr}!BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{count\_ptr}{count\_ptr}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+volatile uint8\+\_\+t$\ast$ \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$\+::count\+\_\+ptr}
+
+Pointer to the count, which counts the total number of times a buffer for this specific device was pushed to the SD card (will overflow) \mbox{\Hypertarget{structBufferHelper_abb8728cf4f55b6bd512f607c104aeb4c}\label{structBufferHelper_abb8728cf4f55b6bd512f607c104aeb4c}} 
+\index{BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}!data\_length@{data\_length}}
+\index{data\_length@{data\_length}!BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{data\_length}{data\_length}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$\+::data\+\_\+length}
+
+Metadata for the total length of the data\+\_\+buffer, using the size of type T to measure (an 8192 buffer minus the 6 byte header gives a data length of 4093) \mbox{\Hypertarget{structBufferHelper_a950f2f1bd93baf9964cd39a1892f81a1}\label{structBufferHelper_a950f2f1bd93baf9964cd39a1892f81a1}} 
+\index{BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}!data\_ptr@{data\_ptr}}
+\index{data\_ptr@{data\_ptr}!BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{data\_ptr}{data\_ptr}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+volatile T$\ast$ \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$\+::data\+\_\+ptr}
+
+Pointer to the start of the data section, as type T \mbox{\Hypertarget{structBufferHelper_a9930784c0f3c0350615a96c2d3fc76a3}\label{structBufferHelper_a9930784c0f3c0350615a96c2d3fc76a3}} 
+\index{BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}!head\_ptr@{head\_ptr}}
+\index{head\_ptr@{head\_ptr}!BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{head\_ptr}{head\_ptr}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+volatile T$\ast$ \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$\+::head\+\_\+ptr}
+
+Pointer to the start of the buffer, as type T \mbox{\Hypertarget{structBufferHelper_a8b3f270986da17108a09f26a6cdcb81a}\label{structBufferHelper_a8b3f270986da17108a09f26a6cdcb81a}} 
+\index{BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}!id\_ptr@{id\_ptr}}
+\index{id\_ptr@{id\_ptr}!BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{id\_ptr}{id\_ptr}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+volatile uint8\+\_\+t$\ast$ \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$\+::id\+\_\+ptr}
+
+Pointer to the id pointer, the first byte of the buffer, which identifies the sampling device this data comes from \mbox{\Hypertarget{structBufferHelper_aac167c4c9a64b0cac7911afd117ae52e}\label{structBufferHelper_aac167c4c9a64b0cac7911afd117ae52e}} 
+\index{BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}!length@{length}}
+\index{length@{length}!BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{length}{length}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+size\+\_\+t \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$\+::length}
+
+Metadata for the total length of the buffer, using the size of type T to measure (an 8192 byte buffer of type uint16\+\_\+t would read 4096) \mbox{\Hypertarget{structBufferHelper_a0f5f5cf7b516b0489b3d2dcc84c1fa47}\label{structBufferHelper_a0f5f5cf7b516b0489b3d2dcc84c1fa47}} 
+\index{BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}!time\_ptr@{time\_ptr}}
+\index{time\_ptr@{time\_ptr}!BufferHelper$<$ T $>$@{BufferHelper$<$ T $>$}}
+\doxysubsubsection{\texorpdfstring{time\_ptr}{time\_ptr}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+volatile uint32\+\_\+t$\ast$ \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$\+::time\+\_\+ptr}
+
+Pointer to the time, which is the time at which the buffer was filled 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Abstract\+Buffer/\mbox{\hyperlink{AbstractBuffer_8h}{Abstract\+Buffer.\+h}}\end{DoxyCompactItemize}

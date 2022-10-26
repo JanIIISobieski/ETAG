@@ -1,0 +1,114 @@
+\hypertarget{classTag__Queue}{}\doxysection{Tag\+\_\+\+Queue Class Reference}
+\label{classTag__Queue}\index{Tag\_Queue@{Tag\_Queue}}
+
+
+{\ttfamily \#include $<$Tag\+\_\+\+Queue.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTag__Queue_a33fa0f2e6219141ef53345bbca543aeb}{Tag\+\_\+\+Queue}} ()
+\item 
+\mbox{\hyperlink{classTag__Queue_aa547b091b05a9b541d5b6bce79abec8f}{$\sim$\+Tag\+\_\+\+Queue}} ()
+\item 
+void \mbox{\hyperlink{classTag__Queue_a9a8f90b8a23d22fec487c9bf98971508}{enqueue}} (volatile uint8\+\_\+t $\ast$ptr)
+\item 
+volatile uint8\+\_\+t $\ast$ \mbox{\hyperlink{classTag__Queue_ad9ad1eba0565fac283cc91b65cab4d4b}{dequeue}} ()
+\item 
+int \mbox{\hyperlink{classTag__Queue_aed27ac070066eadfdace65bbe5f4e774}{num\+\_\+to\+\_\+write}} ()
+\item 
+int \mbox{\hyperlink{classTag__Queue_ad9e6be578304ace726fd376a359691c1}{get\+\_\+max\+\_\+size}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classTag__Queue_acb665df3e5e9ec07f03fb913cbda1c9f}{get\+\_\+pop\+\_\+index}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classTag__Queue_aba34781fe2e6ec02494413d9194bee2e}{get\+\_\+write\+\_\+index}} ()
+\item 
+volatile uint8\+\_\+t $\ast$ \mbox{\hyperlink{classTag__Queue_ad386b99fdaf4b051dc22b1162902c1d0}{get\+\_\+popped}} ()
+\item 
+void \mbox{\hyperlink{classTag__Queue_a6d63c40e39ebaec49097cfe4919b0a19}{reset}} ()
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class that mananges the buffer pointers that are ready for writing to the SD card.
+
+This class effectively emulates a First-\/\+In/\+First-\/\+Out (F\+I\+FO) circular buffer to which pointers are written (enqueued) consecutively, starting from the 0th index. Pointers are dequeued consecutively as well, starting from the 0th index. Pointers not yet written will be overwritten by a push. Should that occur, the \mbox{\hyperlink{classTag__Queue_aed27ac070066eadfdace65bbe5f4e774}{num\+\_\+to\+\_\+write()}} function will return a value greater than its size (which is returned from \mbox{\hyperlink{classTag__Queue_ad9e6be578304ace726fd376a359691c1}{get\+\_\+max\+\_\+size()}}). As there is a data race between filling the buffers and in writing the buffers, there is no guarantee that 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTag__Queue_a33fa0f2e6219141ef53345bbca543aeb}\label{classTag__Queue_a33fa0f2e6219141ef53345bbca543aeb}} 
+\index{Tag\_Queue@{Tag\_Queue}!Tag\_Queue@{Tag\_Queue}}
+\index{Tag\_Queue@{Tag\_Queue}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{Tag\_Queue()}{Tag\_Queue()}}
+{\footnotesize\ttfamily Tag\+\_\+\+Queue\+::\+Tag\+\_\+\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Class constructor.
+
+The total size of the queue is given by Q\+U\+E\+U\+E\+\_\+\+M\+A\+X\+\_\+\+L\+E\+N\+G\+TH in the top of this file. \mbox{\Hypertarget{classTag__Queue_aa547b091b05a9b541d5b6bce79abec8f}\label{classTag__Queue_aa547b091b05a9b541d5b6bce79abec8f}} 
+\index{Tag\_Queue@{Tag\_Queue}!````~Tag\_Queue@{$\sim$Tag\_Queue}}
+\index{````~Tag\_Queue@{$\sim$Tag\_Queue}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{$\sim$Tag\_Queue()}{~Tag\_Queue()}}
+{\footnotesize\ttfamily Tag\+\_\+\+Queue\+::$\sim$\+Tag\+\_\+\+Queue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Class destructor. 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTag__Queue_ad9ad1eba0565fac283cc91b65cab4d4b}\label{classTag__Queue_ad9ad1eba0565fac283cc91b65cab4d4b}} 
+\index{Tag\_Queue@{Tag\_Queue}!dequeue@{dequeue}}
+\index{dequeue@{dequeue}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{dequeue()}{dequeue()}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t $\ast$ Tag\+\_\+\+Queue\+::dequeue (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Method to dequeue the volatile pointers from the queue, returning a uint16\+\_\+t pointer.
+
+This pointer is written to \#popped, while the previous \#popped is written to \#prev\+\_\+popped. This method also decrements the buffer counter of buffers that are to be written. The pointer is returned while the current buffer location in the queue becomes replaced with a nullptr. \mbox{\Hypertarget{classTag__Queue_a9a8f90b8a23d22fec487c9bf98971508}\label{classTag__Queue_a9a8f90b8a23d22fec487c9bf98971508}} 
+\index{Tag\_Queue@{Tag\_Queue}!enqueue@{enqueue}}
+\index{enqueue@{enqueue}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{enqueue()}{enqueue()}}
+{\footnotesize\ttfamily void Tag\+\_\+\+Queue\+::enqueue (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$}]{ptr }\end{DoxyParamCaption})}
+
+Method to enqueue volatile pointers to the queue, returns nothing.
+
+Write at the current location of the to\+\_\+write index the pointer to the buffer. Also increments the counter for the number of buffers that are to be written. This function is used in the interrupt routines of the my\+Analog\+Buffer\+Class(). \mbox{\Hypertarget{classTag__Queue_ad9e6be578304ace726fd376a359691c1}\label{classTag__Queue_ad9e6be578304ace726fd376a359691c1}} 
+\index{Tag\_Queue@{Tag\_Queue}!get\_max\_size@{get\_max\_size}}
+\index{get\_max\_size@{get\_max\_size}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{get\_max\_size()}{get\_max\_size()}}
+{\footnotesize\ttfamily int Tag\+\_\+\+Queue\+::get\+\_\+max\+\_\+size (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter method for the maximum size of the queue. \mbox{\Hypertarget{classTag__Queue_acb665df3e5e9ec07f03fb913cbda1c9f}\label{classTag__Queue_acb665df3e5e9ec07f03fb913cbda1c9f}} 
+\index{Tag\_Queue@{Tag\_Queue}!get\_pop\_index@{get\_pop\_index}}
+\index{get\_pop\_index@{get\_pop\_index}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{get\_pop\_index()}{get\_pop\_index()}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+\_\+\+Queue\+::get\+\_\+pop\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter method for the current index of the buffer whose pointer will be returned by pop(). \mbox{\Hypertarget{classTag__Queue_ad386b99fdaf4b051dc22b1162902c1d0}\label{classTag__Queue_ad386b99fdaf4b051dc22b1162902c1d0}} 
+\index{Tag\_Queue@{Tag\_Queue}!get\_popped@{get\_popped}}
+\index{get\_popped@{get\_popped}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{get\_popped()}{get\_popped()}}
+{\footnotesize\ttfamily volatile uint8\+\_\+t$\ast$ Tag\+\_\+\+Queue\+::get\+\_\+popped (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter method for the pointer that was just popped. \mbox{\Hypertarget{classTag__Queue_aba34781fe2e6ec02494413d9194bee2e}\label{classTag__Queue_aba34781fe2e6ec02494413d9194bee2e}} 
+\index{Tag\_Queue@{Tag\_Queue}!get\_write\_index@{get\_write\_index}}
+\index{get\_write\_index@{get\_write\_index}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{get\_write\_index()}{get\_write\_index()}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+\_\+\+Queue\+::get\+\_\+write\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter method for the current index of the buffer that will be written to by push(). \mbox{\Hypertarget{classTag__Queue_aed27ac070066eadfdace65bbe5f4e774}\label{classTag__Queue_aed27ac070066eadfdace65bbe5f4e774}} 
+\index{Tag\_Queue@{Tag\_Queue}!num\_to\_write@{num\_to\_write}}
+\index{num\_to\_write@{num\_to\_write}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{num\_to\_write()}{num\_to\_write()}}
+{\footnotesize\ttfamily int Tag\+\_\+\+Queue\+::num\+\_\+to\+\_\+write (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+Getter method for the number of buffers left to write in the queue \mbox{\Hypertarget{classTag__Queue_a6d63c40e39ebaec49097cfe4919b0a19}\label{classTag__Queue_a6d63c40e39ebaec49097cfe4919b0a19}} 
+\index{Tag\_Queue@{Tag\_Queue}!reset@{reset}}
+\index{reset@{reset}!Tag\_Queue@{Tag\_Queue}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Tag\+\_\+\+Queue\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+Resets the Queue buffer
+
+All elements inside are replaced with a {\ttfamily nullptr}, the pushing and popping pointers are reset to the 0th element, and the value returned by \mbox{\hyperlink{classTag__Queue_aed27ac070066eadfdace65bbe5f4e774}{num\+\_\+to\+\_\+write()}} is set to 0. Size of queue remains unchanged. 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Tag\+\_\+\+Queue/\mbox{\hyperlink{Tag__Queue_8h}{Tag\+\_\+\+Queue.\+h}}\item 
+lib/\+Tag\+\_\+\+Queue/\mbox{\hyperlink{Tag__Queue_8cpp}{Tag\+\_\+\+Queue.\+cpp}}\end{DoxyCompactItemize}

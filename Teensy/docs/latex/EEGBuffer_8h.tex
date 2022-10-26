@@ -1,0 +1,115 @@
+\hypertarget{EEGBuffer_8h}{}\doxysection{lib/\+E\+E\+G\+Buffer/\+E\+E\+G\+Buffer.h File Reference}
+\label{EEGBuffer_8h}\index{lib/EEGBuffer/EEGBuffer.h@{lib/EEGBuffer/EEGBuffer.h}}
+{\ttfamily \#include \char`\"{}Abstract\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tag\+\_\+\+Queue.\+h\char`\"{}}\newline
+{\ttfamily \#include $<$S\+P\+I.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Logger.\+h\char`\"{}}\newline
+Include dependency graph for E\+E\+G\+Buffer.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{EEGBuffer_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{EEGBuffer_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}}
+\begin{DoxyCompactList}\small\item\em Class that manages the buffers for the E\+EG. \end{DoxyCompactList}\item 
+struct \mbox{\hyperlink{structEEGBuffer_1_1DataBuffer_1_1Data}{E\+E\+G\+Buffer\+::\+Data\+Buffer\+::\+Data}}
+\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{EEGBuffer_8h_a178502ac3013fc8082efa13624e5c101}{E\+E\+G\+\_\+\+D\+M\+A\+\_\+\+S\+P\+I\+\_\+\+S\+P\+E\+ED}}~2000000
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{EEGBuffer_8h_a370274f6ac82f8f924cb00394c5e0331}{dma\+\_\+spi\+\_\+finished}} (Event\+Responder\+Ref event)
+\begin{DoxyCompactList}\small\item\em Event responder to a completion of a D\+MA S\+PI transfer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{EEGBuffer_8h_a00c9550fcdbeffd8f0c38d43aa4fad83}{dma\+\_\+spi\+\_\+finished\+\_\+streaming}} (Event\+Responder\+Ref event)
+\begin{DoxyCompactList}\small\item\em Event responder to a completion of a D\+MA S\+PI transfer when wanting to stream the data. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{EEGBuffer_8h_a6c6d962b5f2f27d7e6876abbe2b0adf8}{ads\+\_\+\+I\+SR}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} data ready I\+SR. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger}{Logger}} \mbox{\hyperlink{EEGBuffer_8h_a5b27630dbcf231bfda3a7d79e1eefce5}{logger}}
+\item 
+\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} \mbox{\hyperlink{EEGBuffer_8h_ad119f431a322223c1591d2eaa77a4a54}{eeg\+\_\+buffer\+\_\+push}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{EEGBuffer_8h_a178502ac3013fc8082efa13624e5c101}\label{EEGBuffer_8h_a178502ac3013fc8082efa13624e5c101}} 
+\index{EEGBuffer.h@{EEGBuffer.h}!EEG\_DMA\_SPI\_SPEED@{EEG\_DMA\_SPI\_SPEED}}
+\index{EEG\_DMA\_SPI\_SPEED@{EEG\_DMA\_SPI\_SPEED}!EEGBuffer.h@{EEGBuffer.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_DMA\_SPI\_SPEED}{EEG\_DMA\_SPI\_SPEED}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+D\+M\+A\+\_\+\+S\+P\+I\+\_\+\+S\+P\+E\+ED~2000000}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{EEGBuffer_8h_a6c6d962b5f2f27d7e6876abbe2b0adf8}\label{EEGBuffer_8h_a6c6d962b5f2f27d7e6876abbe2b0adf8}} 
+\index{EEGBuffer.h@{EEGBuffer.h}!ads\_ISR@{ads\_ISR}}
+\index{ads\_ISR@{ads\_ISR}!EEGBuffer.h@{EEGBuffer.h}}
+\doxysubsubsection{\texorpdfstring{ads\_ISR()}{ads\_ISR()}}
+{\footnotesize\ttfamily void ads\+\_\+\+I\+SR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classADS1299}{A\+D\+S1299}} data ready I\+SR. 
+
+Whenever the data ready pin goes L\+OW, the S\+PI transaction begins, the Chip Select pin is set to low, and the D\+MA transfer is initalized to save the transferred data to the \mbox{\hyperlink{initialize__variables_8h_afe020ac5160d3e8471fa965580ff9424}{eeg\+\_\+buffer}} in \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}}. \mbox{\Hypertarget{EEGBuffer_8h_a370274f6ac82f8f924cb00394c5e0331}\label{EEGBuffer_8h_a370274f6ac82f8f924cb00394c5e0331}} 
+\index{EEGBuffer.h@{EEGBuffer.h}!dma\_spi\_finished@{dma\_spi\_finished}}
+\index{dma\_spi\_finished@{dma\_spi\_finished}!EEGBuffer.h@{EEGBuffer.h}}
+\doxysubsubsection{\texorpdfstring{dma\_spi\_finished()}{dma\_spi\_finished()}}
+{\footnotesize\ttfamily void dma\+\_\+spi\+\_\+finished (\begin{DoxyParamCaption}\item[{Event\+Responder\+Ref}]{event }\end{DoxyParamCaption})}
+
+
+
+Event responder to a completion of a D\+MA S\+PI transfer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event to which this function will respond to (a reference to an Event\+Responder)\\
+\hline
+\end{DoxyParams}
+This function will set the chip select to H\+I\+GH, end the S\+PI transation, and write the data to the E\+EG Buffer. Pass this to dma\+\_\+spi\+\_\+transfer.\+attatch() in this class\textquotesingle{}s init(). \mbox{\Hypertarget{EEGBuffer_8h_a00c9550fcdbeffd8f0c38d43aa4fad83}\label{EEGBuffer_8h_a00c9550fcdbeffd8f0c38d43aa4fad83}} 
+\index{EEGBuffer.h@{EEGBuffer.h}!dma\_spi\_finished\_streaming@{dma\_spi\_finished\_streaming}}
+\index{dma\_spi\_finished\_streaming@{dma\_spi\_finished\_streaming}!EEGBuffer.h@{EEGBuffer.h}}
+\doxysubsubsection{\texorpdfstring{dma\_spi\_finished\_streaming()}{dma\_spi\_finished\_streaming()}}
+{\footnotesize\ttfamily void dma\+\_\+spi\+\_\+finished\+\_\+streaming (\begin{DoxyParamCaption}\item[{Event\+Responder\+Ref}]{event }\end{DoxyParamCaption})}
+
+
+
+Event responder to a completion of a D\+MA S\+PI transfer when wanting to stream the data. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event to which this function will respond to (a reference to an Event\+Responder)\\
+\hline
+\end{DoxyParams}
+This function will set the chip select to H\+I\+GH, end the S\+PI transation, and write the data to the E\+EG Buffer, while also setting a new\+\_\+data flag to true. Pass this to dma\+\_\+spi\+\_\+transfer.\+attatch() to this class\textquotesingle{}s init(). 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{EEGBuffer_8h_ad119f431a322223c1591d2eaa77a4a54}\label{EEGBuffer_8h_ad119f431a322223c1591d2eaa77a4a54}} 
+\index{EEGBuffer.h@{EEGBuffer.h}!eeg\_buffer\_push@{eeg\_buffer\_push}}
+\index{eeg\_buffer\_push@{eeg\_buffer\_push}!EEGBuffer.h@{EEGBuffer.h}}
+\doxysubsubsection{\texorpdfstring{eeg\_buffer\_push}{eeg\_buffer\_push}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} eeg\+\_\+buffer\+\_\+push}
+
+\mbox{\Hypertarget{EEGBuffer_8h_a5b27630dbcf231bfda3a7d79e1eefce5}\label{EEGBuffer_8h_a5b27630dbcf231bfda3a7d79e1eefce5}} 
+\index{EEGBuffer.h@{EEGBuffer.h}!logger@{logger}}
+\index{logger@{logger}!EEGBuffer.h@{EEGBuffer.h}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} logger}
+

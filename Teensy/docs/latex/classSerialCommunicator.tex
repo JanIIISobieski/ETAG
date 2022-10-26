@@ -1,0 +1,389 @@
+\hypertarget{classSerialCommunicator}{}\doxysection{Serial\+Communicator Class Reference}
+\label{classSerialCommunicator}\index{SerialCommunicator@{SerialCommunicator}}
+
+
+This abstract class establishes the interface for serial communication.  
+
+
+
+
+{\ttfamily \#include $<$Serial\+Communicator.\+h$>$}
+
+
+
+Inheritance diagram for Serial\+Communicator\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classSerialCommunicator__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Serial\+Communicator\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classSerialCommunicator__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classSerialCommunicator_ac7b378967d83ad256159fa6ca6d6b0ed}{Serial\+Communicator}} (Stream $\ast$serial, \mbox{\hyperlink{classDiskManager}{Disk\+Manager}} $\ast$disk\+Manager\+Ptr)
+\begin{DoxyCompactList}\small\item\em Construct a new Serial Communicator object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classSerialCommunicator_adf113eec4ac2a38d007616c7231c5033}{$\sim$\+Serial\+Communicator}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Serial Communicator object. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classSerialCommunicator_a9727921e92d264af553fe854d8c08d82}{read}} ()
+\begin{DoxyCompactList}\small\item\em reads a byte from the stream \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classSerialCommunicator_ae2b4ca467a09ba23925870eebd27e6a6}{write}} (uint8\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Write a byte to the stream. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classSerialCommunicator_a604e7041a36304fa43c5017007d64508}{write}} (uint8\+\_\+t $\ast$buffer, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Write an array to the stream. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classSerialCommunicator_a3dcef8bd5e0a63df6f8403338db72c95}{write}} (uint16\+\_\+t $\ast$buffer, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Write an array to the stream. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classSerialCommunicator_a55b0a234d61adf1445ba3a0ccf7fce5e}{write}} (const uint8\+\_\+t buffer\mbox{[}$\,$\mbox{]}, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Send constant buffers to be written. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classSerialCommunicator_ab741e7abefb35639975aec6431138de4}{read}} (uint8\+\_\+t $\ast$buffer, size\+\_\+t size)
+\begin{DoxyCompactList}\small\item\em Read an array from the stream. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classSerialCommunicator_a607fbfcbf381f62945b6ce6ad87407d6}{println}} (String string)
+\begin{DoxyCompactList}\small\item\em Print string to the stream, followed by a newline. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classSerialCommunicator_aa4a54a77c2fd036f1f63b0e269360edf}{println}} (unsigned char n, int base)
+\begin{DoxyCompactList}\small\item\em Print a character using the given base to the stream. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classSerialCommunicator_ae3981bba3d757a0fe696d9a2f7fa6967}{print}} (String string)
+\begin{DoxyCompactList}\small\item\em Print string to the stream, with no newline. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classSerialCommunicator_af117f8b0b87b69c41128b34a24fa1329}{read\+String\+Until}} (char terminator, size\+\_\+t max)
+\begin{DoxyCompactList}\small\item\em Read from the stream until a character is reached. \end{DoxyCompactList}\item 
+virtual bool \mbox{\hyperlink{classSerialCommunicator_aa9e65ef3189c3ca6307023e5f6c5bf61}{file\+\_\+send}} (String file\+\_\+name)=0
+\begin{DoxyCompactList}\small\item\em Send a file over the stream. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classSerialCommunicator_ac5afd664dee76b558329037826e5014d}{await\+\_\+acknowledgment}} ()
+\begin{DoxyCompactList}\small\item\em Wait for acknowledgement from the Stream, blocking read. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{classSerialCommunicator_a36bf3238ba738805a58d519efb84c37d}{read\+\_\+type}} (\mbox{\hyperlink{SerialCommunicator_8h_a78deea855ceabf11be8b5a63f415cf53}{Byte\+Array}}$<$ T $>$ \&array)
+\begin{DoxyCompactList}\small\item\em Reads bytes from the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} as a standard data type. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Stream $\ast$ \mbox{\hyperlink{classSerialCommunicator_acefbb5e34b0add3fa1c4699320ffa3bc}{\+\_\+serial}}
+\item 
+int \mbox{\hyperlink{classSerialCommunicator_a0466ccf7ff84889308b7f1025305e6d8}{read\+\_\+byte}}
+\item 
+\mbox{\hyperlink{classDiskManager}{Disk\+Manager}} $\ast$ \mbox{\hyperlink{classSerialCommunicator_a255233b705ef193d2c97e444bcc4b989}{\+\_\+disk\+Manager\+Ptr}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+This abstract class establishes the interface for serial communication. 
+
+Alias template for the \mbox{\hyperlink{unionbyte__array}{byte\+\_\+array}} union to enable its use as a data type Note that this class cannot inherit from Stream, as Stream does not itself implement the code required for sending data over U\+SB or Serial. Thus, this function instead delegates the write and print functions to the write and print functions that are written in the implementation of Stream class (like usb\+\_\+serial\+\_\+class or Hardware\+Serial).
+
+\mbox{\hyperlink{classTag__USB}{Tag\+\_\+\+U\+SB}} and Tag\+\_\+\+Bluetooth inherit from \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}} for their functions. \mbox{\hyperlink{classSerialCommunicator_aa9e65ef3189c3ca6307023e5f6c5bf61}{file\+\_\+send}} is the function that has to be implemented in any dervied class as it is a pure virtual function. This interface thus allows for there to be one communications manager that can query all the available communication devices. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classSerialCommunicator_ac7b378967d83ad256159fa6ca6d6b0ed}\label{classSerialCommunicator_ac7b378967d83ad256159fa6ca6d6b0ed}} 
+\index{SerialCommunicator@{SerialCommunicator}!SerialCommunicator@{SerialCommunicator}}
+\index{SerialCommunicator@{SerialCommunicator}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{SerialCommunicator()}{SerialCommunicator()}}
+{\footnotesize\ttfamily Serial\+Communicator\+::\+Serial\+Communicator (\begin{DoxyParamCaption}\item[{Stream $\ast$}]{serial,  }\item[{\mbox{\hyperlink{classDiskManager}{Disk\+Manager}} $\ast$}]{disk\+Manager\+Ptr }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Serial Communicator object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em serial} & pointer to a Stream \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classSerialCommunicator_adf113eec4ac2a38d007616c7231c5033}\label{classSerialCommunicator_adf113eec4ac2a38d007616c7231c5033}} 
+\index{SerialCommunicator@{SerialCommunicator}!````~SerialCommunicator@{$\sim$SerialCommunicator}}
+\index{````~SerialCommunicator@{$\sim$SerialCommunicator}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{$\sim$SerialCommunicator()}{~SerialCommunicator()}}
+{\footnotesize\ttfamily Serial\+Communicator\+::$\sim$\+Serial\+Communicator (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Destroy the Serial Communicator object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classSerialCommunicator_ac5afd664dee76b558329037826e5014d}\label{classSerialCommunicator_ac5afd664dee76b558329037826e5014d}} 
+\index{SerialCommunicator@{SerialCommunicator}!await\_acknowledgment@{await\_acknowledgment}}
+\index{await\_acknowledgment@{await\_acknowledgment}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{await\_acknowledgment()}{await\_acknowledgment()}}
+{\footnotesize\ttfamily bool Serial\+Communicator\+::await\+\_\+acknowledgment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Wait for acknowledgement from the Stream, blocking read. 
+
+Typically waiting for the A\+S\+C\+II A\+CK (value of 6)
+
+\begin{DoxyReturn}{Returns}
+true Acknowledgment recieved 
+
+false Acknowledgement not recieved 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_aa9e65ef3189c3ca6307023e5f6c5bf61}\label{classSerialCommunicator_aa9e65ef3189c3ca6307023e5f6c5bf61}} 
+\index{SerialCommunicator@{SerialCommunicator}!file\_send@{file\_send}}
+\index{file\_send@{file\_send}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{file\_send()}{file\_send()}}
+{\footnotesize\ttfamily virtual bool Serial\+Communicator\+::file\+\_\+send (\begin{DoxyParamCaption}\item[{String}]{file\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Send a file over the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & Name of file to send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true File was successfully sent 
+
+false File was not successfully sent 
+\end{DoxyReturn}
+
+
+Implemented in \mbox{\hyperlink{classRN42__Bluetooth_a352b25833f897ad12b882c5e00e072cc}{R\+N42\+\_\+\+Bluetooth}}, \mbox{\hyperlink{classESP32__Bluetooth_a1570d056fdfb96f89557ee326768c958}{E\+S\+P32\+\_\+\+Bluetooth}}, and \mbox{\hyperlink{classTag__USB_a3db937ecf0087339dc60a561ce702ccc}{Tag\+\_\+\+U\+SB}}.
+
+\mbox{\Hypertarget{classSerialCommunicator_ae3981bba3d757a0fe696d9a2f7fa6967}\label{classSerialCommunicator_ae3981bba3d757a0fe696d9a2f7fa6967}} 
+\index{SerialCommunicator@{SerialCommunicator}!print@{print}}
+\index{print@{print}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily size\+\_\+t Serial\+Communicator\+::print (\begin{DoxyParamCaption}\item[{String}]{string }\end{DoxyParamCaption})}
+
+
+
+Print string to the stream, with no newline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to print \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_a607fbfcbf381f62945b6ce6ad87407d6}\label{classSerialCommunicator_a607fbfcbf381f62945b6ce6ad87407d6}} 
+\index{SerialCommunicator@{SerialCommunicator}!println@{println}}
+\index{println@{println}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{println()}{println()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily size\+\_\+t Serial\+Communicator\+::println (\begin{DoxyParamCaption}\item[{String}]{string }\end{DoxyParamCaption})}
+
+
+
+Print string to the stream, followed by a newline. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em string} & String to print \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_aa4a54a77c2fd036f1f63b0e269360edf}\label{classSerialCommunicator_aa4a54a77c2fd036f1f63b0e269360edf}} 
+\index{SerialCommunicator@{SerialCommunicator}!println@{println}}
+\index{println@{println}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{println()}{println()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily size\+\_\+t Serial\+Communicator\+::println (\begin{DoxyParamCaption}\item[{unsigned char}]{n,  }\item[{int}]{base }\end{DoxyParamCaption})}
+
+
+
+Print a character using the given base to the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em n} & character to write \\
+\hline
+{\em base} & base of the character to print \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Number of byes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_a9727921e92d264af553fe854d8c08d82}\label{classSerialCommunicator_a9727921e92d264af553fe854d8c08d82}} 
+\index{SerialCommunicator@{SerialCommunicator}!read@{read}}
+\index{read@{read}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily int Serial\+Communicator\+::read (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+reads a byte from the stream 
+
+\begin{DoxyReturn}{Returns}
+int -\/1 if no byte read, otherwise the byte read will be int \& 0x\+FF 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_ab741e7abefb35639975aec6431138de4}\label{classSerialCommunicator_ab741e7abefb35639975aec6431138de4}} 
+\index{SerialCommunicator@{SerialCommunicator}!read@{read}}
+\index{read@{read}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily size\+\_\+t Serial\+Communicator\+::read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Read an array from the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & Head of the array where the data should be written to \\
+\hline
+{\em size} & Number of bytes to read from the stream \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Number of bytes read 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_a36bf3238ba738805a58d519efb84c37d}\label{classSerialCommunicator_a36bf3238ba738805a58d519efb84c37d}} 
+\index{SerialCommunicator@{SerialCommunicator}!read\_type@{read\_type}}
+\index{read\_type@{read\_type}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{read\_type()}{read\_type()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t Serial\+Communicator\+::read\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SerialCommunicator_8h_a78deea855ceabf11be8b5a63f415cf53}{Byte\+Array}}$<$ T $>$ \&}]{array }\end{DoxyParamCaption})}
+
+
+
+Reads bytes from the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} as a standard data type. 
+
+This function enforces waiting for the bytes to go through. Will not return unless the bytes are read. As this is a template function, it can take any standard data type.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em array} & Byte\+Array of any standard type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Number of bytes read 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_af117f8b0b87b69c41128b34a24fa1329}\label{classSerialCommunicator_af117f8b0b87b69c41128b34a24fa1329}} 
+\index{SerialCommunicator@{SerialCommunicator}!readStringUntil@{readStringUntil}}
+\index{readStringUntil@{readStringUntil}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{readStringUntil()}{readStringUntil()}}
+{\footnotesize\ttfamily String Serial\+Communicator\+::read\+String\+Until (\begin{DoxyParamCaption}\item[{char}]{terminator,  }\item[{size\+\_\+t}]{max }\end{DoxyParamCaption})}
+
+
+
+Read from the stream until a character is reached. 
+
+For example, the stream {\ttfamily abcdef$\vert$ghijk$>$} with read\+String\+Until(\textquotesingle{}$\vert$\textquotesingle{}, 12) will yield {\ttfamily abcdef}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em terminator} & The character until which the stream will be read \\
+\hline
+{\em max} & The maximum number of bytes to read before reaching the terminator \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String The string of characters read from the stream up to (but not including) the terminator 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_a55b0a234d61adf1445ba3a0ccf7fce5e}\label{classSerialCommunicator_a55b0a234d61adf1445ba3a0ccf7fce5e}} 
+\index{SerialCommunicator@{SerialCommunicator}!write@{write}}
+\index{write@{write}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily size\+\_\+t Serial\+Communicator\+::write (\begin{DoxyParamCaption}\item[{const uint8\+\_\+t}]{buffer\mbox{[}$\,$\mbox{]},  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Send constant buffers to be written. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & head of the array \\
+\hline
+{\em size} & number of bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_a3dcef8bd5e0a63df6f8403338db72c95}\label{classSerialCommunicator_a3dcef8bd5e0a63df6f8403338db72c95}} 
+\index{SerialCommunicator@{SerialCommunicator}!write@{write}}
+\index{write@{write}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily size\+\_\+t Serial\+Communicator\+::write (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{buffer,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Write an array to the stream. 
+
+Note, this is the S\+I\+ZE of the array, not length. An array of length 6 of uint16\+\_\+t has a size of 12!
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & head of the array \\
+\hline
+{\em size} & number of bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_a604e7041a36304fa43c5017007d64508}\label{classSerialCommunicator_a604e7041a36304fa43c5017007d64508}} 
+\index{SerialCommunicator@{SerialCommunicator}!write@{write}}
+\index{write@{write}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily size\+\_\+t Serial\+Communicator\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{size\+\_\+t}]{size }\end{DoxyParamCaption})}
+
+
+
+Write an array to the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & head of the array \\
+\hline
+{\em size} & number of bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classSerialCommunicator_ae2b4ca467a09ba23925870eebd27e6a6}\label{classSerialCommunicator_ae2b4ca467a09ba23925870eebd27e6a6}} 
+\index{SerialCommunicator@{SerialCommunicator}!write@{write}}
+\index{write@{write}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily size\+\_\+t Serial\+Communicator\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Write a byte to the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & value to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t number of bytes written 
+\end{DoxyReturn}
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classSerialCommunicator_a255233b705ef193d2c97e444bcc4b989}\label{classSerialCommunicator_a255233b705ef193d2c97e444bcc4b989}} 
+\index{SerialCommunicator@{SerialCommunicator}!\_diskManagerPtr@{\_diskManagerPtr}}
+\index{\_diskManagerPtr@{\_diskManagerPtr}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{\_diskManagerPtr}{\_diskManagerPtr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDiskManager}{Disk\+Manager}}$\ast$ Serial\+Communicator\+::\+\_\+disk\+Manager\+Ptr\hspace{0.3cm}{\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classSerialCommunicator_acefbb5e34b0add3fa1c4699320ffa3bc}\label{classSerialCommunicator_acefbb5e34b0add3fa1c4699320ffa3bc}} 
+\index{SerialCommunicator@{SerialCommunicator}!\_serial@{\_serial}}
+\index{\_serial@{\_serial}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{\_serial}{\_serial}}
+{\footnotesize\ttfamily Stream$\ast$ Serial\+Communicator\+::\+\_\+serial\hspace{0.3cm}{\ttfamily [protected]}}
+
+pointer to a Stream to which characters will be sent from, read \mbox{\Hypertarget{classSerialCommunicator_a0466ccf7ff84889308b7f1025305e6d8}\label{classSerialCommunicator_a0466ccf7ff84889308b7f1025305e6d8}} 
+\index{SerialCommunicator@{SerialCommunicator}!read\_byte@{read\_byte}}
+\index{read\_byte@{read\_byte}!SerialCommunicator@{SerialCommunicator}}
+\doxysubsubsection{\texorpdfstring{read\_byte}{read\_byte}}
+{\footnotesize\ttfamily int Serial\+Communicator\+::read\+\_\+byte\hspace{0.3cm}{\ttfamily [protected]}}
+
+pre-\/allocate the storage of the read-\/byte 
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Serial\+Communicator/\mbox{\hyperlink{SerialCommunicator_8h}{Serial\+Communicator.\+h}}\item 
+lib/\+Serial\+Communicator/\mbox{\hyperlink{SerialCommunicator_8cpp}{Serial\+Communicator.\+cpp}}\end{DoxyCompactItemize}

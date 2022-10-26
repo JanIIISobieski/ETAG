@@ -1,0 +1,73 @@
+\hypertarget{Tag__NIRS_8h}{}\doxysection{lib/\+Tag\+\_\+\+N\+I\+R\+S/\+Tag\+\_\+\+N\+I\+RS.h File Reference}
+\label{Tag__NIRS_8h}\index{lib/Tag\_NIRS/Tag\_NIRS.h@{lib/Tag\_NIRS/Tag\_NIRS.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Abstract\+Device.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Logger.\+h\char`\"{}}\newline
+Include dependency graph for Tag\+\_\+\+N\+I\+R\+S.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Tag__NIRS_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{Tag__NIRS_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+class \mbox{\hyperlink{classNIRS}{N\+I\+RS}}
+\begin{DoxyCompactList}\small\item\em Implements the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} control. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940}{N\+I\+R\+S\+\_\+state}} \{ \mbox{\hyperlink{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940a54d551eead05b0791463fc0bc0f2e8f6}{power\+\_\+off}} = 0, 
+\mbox{\hyperlink{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940a1c5796d0cf6171776aeec052a5010bcc}{power\+\_\+on}} = 1, 
+\mbox{\hyperlink{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940a1f73fb20638f8b0c715001a284f5c3b9}{recording}} = 2
+ \}
+\begin{DoxyCompactList}\small\item\em Track the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system state. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger}{Logger}} \mbox{\hyperlink{Tag__NIRS_8h_a5b27630dbcf231bfda3a7d79e1eefce5}{logger}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940}\label{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940}} 
+\index{Tag\_NIRS.h@{Tag\_NIRS.h}!NIRS\_state@{NIRS\_state}}
+\index{NIRS\_state@{NIRS\_state}!Tag\_NIRS.h@{Tag\_NIRS.h}}
+\doxysubsubsection{\texorpdfstring{NIRS\_state}{NIRS\_state}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940}{N\+I\+R\+S\+\_\+state}}}
+
+
+
+Track the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system state. 
+
+Note that the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system functions in parallel to the tag. The tag merely emulates button presses. Thus, to use the Artinis \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system, a laptop containing the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} software will have to be used to interface with the system for setting sampling parameters. The tag controls can merely turn the device on or off, start/stop sampling, and create event timers (that can then be used to align the data with the tag). \begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{power\_off@{power\_off}!Tag\_NIRS.h@{Tag\_NIRS.h}}\index{Tag\_NIRS.h@{Tag\_NIRS.h}!power\_off@{power\_off}}}\mbox{\Hypertarget{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940a54d551eead05b0791463fc0bc0f2e8f6}\label{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940a54d551eead05b0791463fc0bc0f2e8f6}} 
+power\+\_\+off&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{power\_on@{power\_on}!Tag\_NIRS.h@{Tag\_NIRS.h}}\index{Tag\_NIRS.h@{Tag\_NIRS.h}!power\_on@{power\_on}}}\mbox{\Hypertarget{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940a1c5796d0cf6171776aeec052a5010bcc}\label{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940a1c5796d0cf6171776aeec052a5010bcc}} 
+power\+\_\+on&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{recording@{recording}!Tag\_NIRS.h@{Tag\_NIRS.h}}\index{Tag\_NIRS.h@{Tag\_NIRS.h}!recording@{recording}}}\mbox{\Hypertarget{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940a1f73fb20638f8b0c715001a284f5c3b9}\label{Tag__NIRS_8h_ad9c464e428c743cbf18fdeaeaf6f2940a1f73fb20638f8b0c715001a284f5c3b9}} 
+recording&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{Tag__NIRS_8h_a5b27630dbcf231bfda3a7d79e1eefce5}\label{Tag__NIRS_8h_a5b27630dbcf231bfda3a7d79e1eefce5}} 
+\index{Tag\_NIRS.h@{Tag\_NIRS.h}!logger@{logger}}
+\index{logger@{logger}!Tag\_NIRS.h@{Tag\_NIRS.h}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} logger}
+

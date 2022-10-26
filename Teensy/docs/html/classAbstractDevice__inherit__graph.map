@@ -1,0 +1,8 @@
+<map id="AbstractDevice" name="AbstractDevice">
+<area shape="rect" id="node1" title="Sets the interface for each Device." alt="" coords="242,5,354,32"/>
+<area shape="rect" id="node2" href="$classADS1299.html" title="Implements the interface to use with the ADS1299 chip for electroencephalography." alt="" coords="5,80,84,107"/>
+<area shape="rect" id="node3" href="$classESP32__Bluetooth.html" title=" " alt="" coords="109,80,234,107"/>
+<area shape="rect" id="node4" href="$classMPU9250.html" title="Class to implement MPU9250 functionality." alt="" coords="258,80,338,107"/>
+<area shape="rect" id="node5" href="$classNIRS.html" title="Implements the NIRS control." alt="" coords="363,80,417,107"/>
+<area shape="rect" id="node6" href="$classTag__ADC.html" title="Class to implement an Abstract device for the ADC control." alt="" coords="441,80,520,107"/>
+</map>

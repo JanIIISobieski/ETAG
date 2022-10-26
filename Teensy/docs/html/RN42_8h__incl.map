@@ -1,0 +1,25 @@
+<map id="lib/RN42/RN42.h" name="lib/RN42/RN42.h">
+<area shape="rect" id="node1" title=" " alt="" coords="835,5,957,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="657,677,735,704"/>
+<area shape="rect" id="node3" href="$SerialCommunicator_8h.html" title=" " alt="" coords="643,80,794,107"/>
+<area shape="rect" id="node4" href="$Tag__SD_8h.html" title="Defines SD card." alt="" coords="551,229,631,256"/>
+<area shape="rect" id="node6" href="$Tag__Info_8h.html" title=" " alt="" coords="472,304,555,331"/>
+<area shape="rect" id="node13" href="$Logger_8h.html" title=" " alt="" coords="587,453,658,480"/>
+<area shape="rect" id="node22" href="$DiskManager_8h.html" title=" " alt="" coords="765,155,875,181"/>
+<area shape="rect" id="node5" title=" " alt="" coords="978,528,1046,555"/>
+<area shape="rect" id="node7" title=" " alt="" coords="501,379,579,405"/>
+<area shape="rect" id="node8" href="$MPU9250_8h.html" title=" " alt="" coords="271,379,361,405"/>
+<area shape="rect" id="node9" title=" " alt="" coords="45,603,99,629"/>
+<area shape="rect" id="node10" title=" " alt="" coords="95,453,155,480"/>
+<area shape="rect" id="node11" href="$MPU9250__Definitions_8h.html" title=" " alt="" coords="180,453,340,480"/>
+<area shape="rect" id="node12" href="$AbstractDevice_8h.html" title=" " alt="" coords="485,603,608,629"/>
+<area shape="rect" id="node14" href="$LinkedList_8h.html" title=" " alt="" coords="458,528,550,555"/>
+<area shape="rect" id="node15" title=" " alt="" coords="574,528,685,555"/>
+<area shape="rect" id="node16" href="$AbstractBuffer_8h.html" title=" " alt="" coords="709,528,825,555"/>
+<area shape="rect" id="node18" title=" " alt="" coords="849,528,954,555"/>
+<area shape="rect" id="node19" href="$TagSettings_8h.html" title=" " alt="" coords="123,603,226,629"/>
+<area shape="rect" id="node20" href="$ADS1299_8h.html" title=" " alt="" coords="227,528,317,555"/>
+<area shape="rect" id="node17" href="$BufferBase_8h.html" title=" " alt="" coords="733,603,832,629"/>
+<area shape="rect" id="node21" href="$ADS1299__Definitions_8h.html" title=" " alt="" coords="302,603,461,629"/>
+<area shape="rect" id="node23" href="$Writer_8h.html" title=" " alt="" coords="837,229,904,256"/>
+</map>

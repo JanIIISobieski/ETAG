@@ -1,0 +1,93 @@
+\hypertarget{DiskManager_8h}{}\doxysection{lib/\+Disk\+Manager/\+Disk\+Manager.h File Reference}
+\label{DiskManager_8h}\index{lib/DiskManager/DiskManager.h@{lib/DiskManager/DiskManager.h}}
+{\ttfamily \#include $<$Time\+Lib.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Abstract\+Device.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Sd\+Fat.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Writer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Logger.\+h\char`\"{}}\newline
+Include dependency graph for Disk\+Manager.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{DiskManager_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{DiskManager_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Classes}
+\begin{DoxyCompactItemize}
+\item 
+struct \mbox{\hyperlink{structFileReadData}{File\+Read\+Data}}
+\item 
+class \mbox{\hyperlink{classDiskManager}{Disk\+Manager}}
+\begin{DoxyCompactList}\small\item\em Class to manage the SD card and files for the tag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{DiskManager_8h_a9d436f6d0aa20565ae633ef3d6e4bd82}{F\+I\+L\+E\+\_\+\+N\+A\+M\+E\+\_\+\+C\+H\+A\+R\+\_\+\+N\+UM}}~30
+\item 
+\#define \mbox{\hyperlink{DiskManager_8h_a3fd011bf67d509f91bcf98e53bedf1b0}{F\+I\+L\+E\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+ZE}}~2048
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{DiskManager_8h_a02459ac1211c779c4fc2aee607f416d3}{date\+Time}} (uint16\+\_\+t $\ast$date, uint16\+\_\+t $\ast$time, uint8\+\_\+t $\ast$ms10)
+\begin{DoxyCompactList}\small\item\em Date\+Time callback for establishing the proper time datetime on files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classLogger}{Logger}} \mbox{\hyperlink{DiskManager_8h_a5b27630dbcf231bfda3a7d79e1eefce5}{logger}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{DiskManager_8h_a9d436f6d0aa20565ae633ef3d6e4bd82}\label{DiskManager_8h_a9d436f6d0aa20565ae633ef3d6e4bd82}} 
+\index{DiskManager.h@{DiskManager.h}!FILE\_NAME\_CHAR\_NUM@{FILE\_NAME\_CHAR\_NUM}}
+\index{FILE\_NAME\_CHAR\_NUM@{FILE\_NAME\_CHAR\_NUM}!DiskManager.h@{DiskManager.h}}
+\doxysubsubsection{\texorpdfstring{FILE\_NAME\_CHAR\_NUM}{FILE\_NAME\_CHAR\_NUM}}
+{\footnotesize\ttfamily \#define F\+I\+L\+E\+\_\+\+N\+A\+M\+E\+\_\+\+C\+H\+A\+R\+\_\+\+N\+UM~30}
+
+\mbox{\Hypertarget{DiskManager_8h_a3fd011bf67d509f91bcf98e53bedf1b0}\label{DiskManager_8h_a3fd011bf67d509f91bcf98e53bedf1b0}} 
+\index{DiskManager.h@{DiskManager.h}!FILE\_READ\_SIZE@{FILE\_READ\_SIZE}}
+\index{FILE\_READ\_SIZE@{FILE\_READ\_SIZE}!DiskManager.h@{DiskManager.h}}
+\doxysubsubsection{\texorpdfstring{FILE\_READ\_SIZE}{FILE\_READ\_SIZE}}
+{\footnotesize\ttfamily \#define F\+I\+L\+E\+\_\+\+R\+E\+A\+D\+\_\+\+S\+I\+ZE~2048}
+
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{DiskManager_8h_a02459ac1211c779c4fc2aee607f416d3}\label{DiskManager_8h_a02459ac1211c779c4fc2aee607f416d3}} 
+\index{DiskManager.h@{DiskManager.h}!dateTime@{dateTime}}
+\index{dateTime@{dateTime}!DiskManager.h@{DiskManager.h}}
+\doxysubsubsection{\texorpdfstring{dateTime()}{dateTime()}}
+{\footnotesize\ttfamily void date\+Time (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{date,  }\item[{uint16\+\_\+t $\ast$}]{time,  }\item[{uint8\+\_\+t $\ast$}]{ms10 }\end{DoxyParamCaption})}
+
+
+
+Date\+Time callback for establishing the proper time datetime on files. 
+
+Originates from the \href{https://github.com/greiman/SdFat}{\texttt{ SD Fat}} library.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Pointer to the date will be saved \\
+\hline
+{\em time} & Pointer to the time will be saved \\
+\hline
+{\em ms10} & Pointer to where milliseconds to the nearest 10 will be saved \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{DiskManager_8h_a5b27630dbcf231bfda3a7d79e1eefce5}\label{DiskManager_8h_a5b27630dbcf231bfda3a7d79e1eefce5}} 
+\index{DiskManager.h@{DiskManager.h}!logger@{logger}}
+\index{logger@{logger}!DiskManager.h@{DiskManager.h}}
+\doxysubsubsection{\texorpdfstring{logger}{logger}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} logger}
+

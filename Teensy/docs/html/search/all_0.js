@@ -1,0 +1,25 @@
+var searchData=
+[
+  ['_5factiveobjectperadc_0',['_activeObjectPerADC',['../classADCBuffer.html#a14d7dc19304392c86e3ffb6f3c92042b',1,'ADCBuffer::_activeObjectPerADC()'],['../classADCBuffer2.html#a1465be8ee5183d0daf723b77fa53cce2',1,'ADCBuffer2::_activeObjectPerADC()']]],
+  ['_5fcspin_1',['_csPin',['../classMPU9250.html#a8524a8a4789cb0db87b80db3ada3131b',1,'MPU9250']]],
+  ['_5fdiskmanagerptr_2',['_diskManagerPtr',['../classSerialCommunicator.html#a255233b705ef193d2c97e444bcc4b989',1,'SerialCommunicator']]],
+  ['_5fdmachannel_5fadc_3',['_dmachannel_adc',['../classADCBuffer.html#a4e8c54f0b6685182c72742550e0345a4',1,'ADCBuffer::_dmachannel_adc()'],['../classADCBuffer2.html#a8381eaed1b2bb3a0b865e9901550c350',1,'ADCBuffer2::_dmachannel_adc()']]],
+  ['_5fdmasettings_5fadc_4',['_dmasettings_adc',['../classADCBuffer.html#a5b578fe45abdb437b48e318d7f6dfa45',1,'ADCBuffer::_dmasettings_adc()'],['../classADCBuffer2.html#a15e9c6e58862383933ae0964cd6fb1fa',1,'ADCBuffer2::_dmasettings_adc()']]],
+  ['_5fi2caddr_5',['_I2Caddr',['../classMPU9250.html#af0f50a5920fab5bbbe02569a4a1266da',1,'MPU9250']]],
+  ['_5finterfacespeed_6',['_interfaceSpeed',['../classMPU9250.html#a144144fdd9b0b2467a455adb3ae476c2',1,'MPU9250']]],
+  ['_5fqueue_7',['_queue',['../classADCBuffer.html#aef7937cdd0bdd4d9274a067b2cad2184',1,'ADCBuffer']]],
+  ['_5frdata_8',['_RDATA',['../ADS1299__Definitions_8h.html#a0902995cb5c5c4c46e34653033f74e08',1,'ADS1299_Definitions.h']]],
+  ['_5frdatac_9',['_RDATAC',['../ADS1299__Definitions_8h.html#ab1c685ad3f69a4c28f19b19a13c725d0',1,'ADS1299_Definitions.h']]],
+  ['_5freset_10',['_RESET',['../ADS1299__Definitions_8h.html#ae0b867da2bcc6a8910ba93baec7380ec',1,'ADS1299_Definitions.h']]],
+  ['_5frreg_11',['_RREG',['../ADS1299__Definitions_8h.html#a93c6aa7557599fcf53086f7f53d296da',1,'ADS1299_Definitions.h']]],
+  ['_5fsdatac_12',['_SDATAC',['../ADS1299__Definitions_8h.html#a4f962a0b8818881f4dd33aeb8dedd5b2',1,'ADS1299_Definitions.h']]],
+  ['_5fserial_13',['_serial',['../classVarPrinter.html#afd69df8d6553e5fb15d3425892357f3f',1,'VarPrinter::_serial()'],['../classSerialCommunicator.html#acefbb5e34b0add3fa1c4699320ffa3bc',1,'SerialCommunicator::_serial()']]],
+  ['_5fspi_14',['_spi',['../classMPU9250.html#aa5e9683db4797e33cfcf58171fde5032',1,'MPU9250']]],
+  ['_5fstandby_15',['_STANDBY',['../ADS1299__Definitions_8h.html#ae75728a5fdc9a5761a4e9cd52d5c45a0',1,'ADS1299_Definitions.h']]],
+  ['_5fstart_16',['_START',['../ADS1299__Definitions_8h.html#a484ccc8af4c825fd4897a25683e63745',1,'ADS1299_Definitions.h']]],
+  ['_5fstop_17',['_STOP',['../ADS1299__Definitions_8h.html#abaa9184ccb1f6768e6f8b6b3e86e1b5e',1,'ADS1299_Definitions.h']]],
+  ['_5fstop_5fon_5fcompletion_18',['_stop_on_completion',['../classADCBuffer.html#a4779034bc5771199124d88a38220f6ed',1,'ADCBuffer']]],
+  ['_5fwakeup_19',['_WAKEUP',['../ADS1299__Definitions_8h.html#a86c38abe57dc4854705d1ca395e65a54',1,'ADS1299_Definitions.h']]],
+  ['_5fwire_20',['_wire',['../classMPU9250.html#a97ea5b5dff008240d93864e721847876',1,'MPU9250']]],
+  ['_5fwreg_21',['_WREG',['../ADS1299__Definitions_8h.html#ae0f32db63ae6f056a3b754993a82d018',1,'ADS1299_Definitions.h']]]
+];

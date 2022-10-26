@@ -1,0 +1,521 @@
+\hypertarget{classVarPrinter}{}\doxysection{Var\+Printer Class Reference}
+\label{classVarPrinter}\index{VarPrinter@{VarPrinter}}
+
+
+Implements assorted printing of variables in various forms.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+
+
+Inheritance diagram for Var\+Printer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=139pt]{classVarPrinter__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classVarPrinter_acbb52f3ae065198d7880ad67662926e0}{Var\+Printer}} (Stream $\ast$comms)
+\begin{DoxyCompactList}\small\item\em Construct a new Var Printer object. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classVarPrinter_af73723ea2b9c930aff0699b422b3b0b6}{print\+\_\+array}} (String var\+\_\+name, T $\ast$head, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Prints an array. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classVarPrinter_afbc681223732a8b231874ea7aa9e8349}{print\+\_\+variable}} (String var\+\_\+name, T var)
+\begin{DoxyCompactList}\small\item\em Print a single variable. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classVarPrinter_ad79729326bbd1e838b3ce366d20a0acd}{print\+\_\+variable\+\_\+with\+\_\+time}} (String var\+\_\+name, T var)
+\begin{DoxyCompactList}\small\item\em Prints a variable along with an associated time. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVarPrinter_a9e5fe39b22529038a27b88516354229c}{print\+\_\+timing\+\_\+metadata}} (String var\+\_\+name, \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} $\ast$var)
+\begin{DoxyCompactList}\small\item\em Prints the \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVarPrinter_ab498ef710d4ec59f58d83408988fe818}{print\+\_\+message}} (String message)
+\begin{DoxyCompactList}\small\item\em Prints a message. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVarPrinter_aabcdcccf30fb2d645b8858359f8dcbd2}{print\+\_\+\+D\+M\+A\+\_\+settings}} (String name, D\+M\+A\+Base\+Class $\ast$dmabc)
+\begin{DoxyCompactList}\small\item\em Prints D\+MA Settings (like the ones used in \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}}) \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classVarPrinter_ae9a405974cafd928625570d1b9e6282b}{print\+\_\+buffer\+\_\+headers}} (String var\+\_\+name, volatile \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$ $\ast$\mbox{\hyperlink{initialize__variables_8h_aae30ad14d13faeec7415dc39cee45bce}{buffers}}, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Prints the header bytes of buffers stored in classes that inherit from \mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}} (e.\+g. \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}}, \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}}, \mbox{\hyperlink{classIMUBuffer}{I\+M\+U\+Buffer}}) \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVarPrinter_a392634ca819a9a6473755e339be99eb6}{print\+\_\+json}} (const Json\+Document \&doc)
+\begin{DoxyCompactList}\small\item\em Serialize a Json\+Document over the serial. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classVarPrinter_a02cee311358bab9abe982eb455036ec1}{print\+\_\+timed\+\_\+variables}} (\mbox{\hyperlink{Logger_8h_a2093ab4d1c1464417761a58faef15d28}{Print\+Timing}} \&print\+\_\+timer, String var\+\_\+name, T var)
+\begin{DoxyCompactList}\small\item\em Print a variable with at least a minimum period in between prints. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVarPrinter_a78a63467bcde1142803473ac6f7658de}{print\+\_\+memory}} (String var\+\_\+name, void $\ast$var)
+\begin{DoxyCompactList}\small\item\em Prints the memory address of an object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVarPrinter_a691a7ca41afed5594f3579b22bace3e0}{print\+\_\+\+S\+D\+\_\+error}} (Sd\+Fs \&\mbox{\hyperlink{Tag__SD_8h_a6385eecb021ea6dc1e9b5597cfe94b85}{sd}})
+\begin{DoxyCompactList}\small\item\em Prints out the SD card error code. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVarPrinter_ae78847a04e2b0f16a2d7fc7ba75f754d}{print\+\_\+\+A\+D\+S1299\+\_\+settings}} (String var\+\_\+name, \mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} \&settings)
+\begin{DoxyCompactList}\small\item\em Print the settable registers for the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVarPrinter_a992de1d1253ea9262e842c3fc2b2fbf9}{print\+\_\+\+A\+D\+C\+\_\+settings}} (String var\+\_\+name, \mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}} \&settings)
+\begin{DoxyCompactList}\small\item\em Print the settings for the hydrophone sampling. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classVarPrinter_ae9c847e140756da67efb145114ad5ed2}{print\+\_\+\+Device\+Enable\+\_\+settings}} (String var\+\_\+name, \mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}} \&settings)
+\begin{DoxyCompactList}\small\item\em Print the device enable settings for the tag. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Protected Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classVarPrinter_adc271df67eabad323d5607dbca73d377}{print\+\_\+array}} (T $\ast$head, size\+\_\+t len)
+\item 
+{\footnotesize template$<$class T $>$ }\\void \mbox{\hyperlink{classVarPrinter_ab8a26ee5a09c0c27f38cf31e81f52007}{print\+\_\+variable}} (T var)
+\item 
+void \mbox{\hyperlink{classVarPrinter_a3c73d6724cf1e173a1b196a3bcd71b37}{print\+\_\+variable}} (uint64\+\_\+t var)
+\item 
+{\footnotesize template$<$typename T $>$ }\\void \mbox{\hyperlink{classVarPrinter_a3277ba121d8db88877accf7f0280a5cf}{print\+\_\+variable\+\_\+with\+\_\+time}} (T var)
+\item 
+void \mbox{\hyperlink{classVarPrinter_a5a9ab7daaacd821aa914d0727b194853}{print\+\_\+timing\+\_\+metadata}} (\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} $\ast$metadata)
+\item 
+void \mbox{\hyperlink{classVarPrinter_a0b673fca84429b8072e929242084d286}{print\+\_\+sampling\+\_\+metadata}} (\mbox{\hyperlink{structSamplingMetadata}{Sampling\+Metadata}} $\ast$metadata)
+\item 
+void \mbox{\hyperlink{classVarPrinter_a77ee7821afde45f5cdeab8314f5230d9}{print\+\_\+\+D\+M\+A\+\_\+settings}} (D\+M\+A\+Base\+Class $\ast$dmabc)
+\item 
+void \mbox{\hyperlink{classVarPrinter_a64900e11393a39910dff05dedaba7c2a}{print\+\_\+\+A\+D\+S1299\+\_\+settings}} (\mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} \&settings)
+\item 
+void \mbox{\hyperlink{classVarPrinter_a5f094be186f7371777ac26b6aab552c2}{print\+\_\+\+A\+D\+C\+\_\+settings}} (\mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}} \&settings)
+\item 
+void \mbox{\hyperlink{classVarPrinter_ae635fea68779fa789e2379b7e1b9ceb7}{print\+\_\+\+Device\+Enable\+\_\+settings}} (\mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}} \&settings)
+\item 
+void \mbox{\hyperlink{classVarPrinter_a755b03e535c590369d4919a2d9e3c8f6}{read\+\_\+and\+\_\+print\+\_\+all\+\_\+\+E\+E\+G\+\_\+registers}} (\mbox{\hyperlink{classADS1299}{A\+D\+S1299}} \&\mbox{\hyperlink{initialize__variables_8h_a815f88b2d311f9d06cd983ab601c6cc9}{eeg}})
+\item 
+void \mbox{\hyperlink{classVarPrinter_ab86b10b88ba6106bc7e92977cb8b9947}{read\+\_\+and\+\_\+print\+\_\+\+E\+E\+G\+\_\+register}} (\mbox{\hyperlink{classADS1299}{A\+D\+S1299}} \&\mbox{\hyperlink{initialize__variables_8h_a815f88b2d311f9d06cd983ab601c6cc9}{eeg}}, uint8\+\_\+t address)
+\item 
+String \mbox{\hyperlink{classVarPrinter_a04945f7966052ba59d91a744d5b52301}{get\+\_\+\+A\+D\+S1299\+\_\+register\+\_\+name}} (uint8\+\_\+t address)
+\end{DoxyCompactItemize}
+\doxysubsection*{Protected Attributes}
+\begin{DoxyCompactItemize}
+\item 
+Stream $\ast$ \mbox{\hyperlink{classVarPrinter_afd69df8d6553e5fb15d3425892357f3f}{\+\_\+serial}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Implements assorted printing of variables in various forms. 
+
+For the code structure, the protected methods are responsible for just the printing of the variable itself. The public methods include a E\+T\+A\+G\+\_\+\+L\+O\+G\+\_\+\+L\+E\+V\+EL (defined at compile time\+: teensy40, then E\+T\+A\+G\+\_\+\+L\+O\+G\+\_\+\+L\+E\+V\+EL is 0\+: O\+FF, if logger, then E\+T\+A\+G\+\_\+\+L\+O\+G\+\_\+\+L\+E\+V\+EL is 1\+: ON). See .platformio file for references to teensy40 and logger. Thus, the public methods will only print to the log only if the E\+T\+A\+G\+\_\+\+L\+O\+G\+\_\+\+L\+E\+V\+EL is 1.
+
+For the logging scheme to work, -\/D U\+S\+B\+\_\+\+D\+U\+A\+L\+\_\+\+S\+E\+R\+I\+AL must be enabled in compile options, and Serial\+U\+S\+B1 used as the Stream. Data cannot be streamed over Serial as Serial is used for U\+SB communication with the G\+UI to interface with the tag. Bluetooth is not meant in its current state to handle logging either, as the G\+UI itself cannot differentiate between the commands from the tag and logging data if they are sent over the same line. Instead, two different ports are used for data and logging. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classVarPrinter_acbb52f3ae065198d7880ad67662926e0}\label{classVarPrinter_acbb52f3ae065198d7880ad67662926e0}} 
+\index{VarPrinter@{VarPrinter}!VarPrinter@{VarPrinter}}
+\index{VarPrinter@{VarPrinter}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{VarPrinter()}{VarPrinter()}}
+{\footnotesize\ttfamily Var\+Printer\+::\+Var\+Printer (\begin{DoxyParamCaption}\item[{Stream $\ast$}]{comms }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new Var Printer object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em comms} & Pointer to a Stream (or something that inherited Stream) to be used to send the logging data to \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classVarPrinter_a04945f7966052ba59d91a744d5b52301}\label{classVarPrinter_a04945f7966052ba59d91a744d5b52301}} 
+\index{VarPrinter@{VarPrinter}!get\_ADS1299\_register\_name@{get\_ADS1299\_register\_name}}
+\index{get\_ADS1299\_register\_name@{get\_ADS1299\_register\_name}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{get\_ADS1299\_register\_name()}{get\_ADS1299\_register\_name()}}
+{\footnotesize\ttfamily String Var\+Printer\+::get\+\_\+\+A\+D\+S1299\+\_\+register\+\_\+name (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_a5f094be186f7371777ac26b6aab552c2}\label{classVarPrinter_a5f094be186f7371777ac26b6aab552c2}} 
+\index{VarPrinter@{VarPrinter}!print\_ADC\_settings@{print\_ADC\_settings}}
+\index{print\_ADC\_settings@{print\_ADC\_settings}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_ADC\_settings()}{print\_ADC\_settings()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+\+A\+D\+C\+\_\+settings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}} \&}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_a992de1d1253ea9262e842c3fc2b2fbf9}\label{classVarPrinter_a992de1d1253ea9262e842c3fc2b2fbf9}} 
+\index{VarPrinter@{VarPrinter}!print\_ADC\_settings@{print\_ADC\_settings}}
+\index{print\_ADC\_settings@{print\_ADC\_settings}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_ADC\_settings()}{print\_ADC\_settings()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+\+A\+D\+C\+\_\+settings (\begin{DoxyParamCaption}\item[{String}]{var\+\_\+name,  }\item[{\mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}} \&}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Print the settings for the hydrophone sampling. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+name} & The name to call the A\+DC settings \\
+\hline
+{\em settings} & The settings to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_a64900e11393a39910dff05dedaba7c2a}\label{classVarPrinter_a64900e11393a39910dff05dedaba7c2a}} 
+\index{VarPrinter@{VarPrinter}!print\_ADS1299\_settings@{print\_ADS1299\_settings}}
+\index{print\_ADS1299\_settings@{print\_ADS1299\_settings}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_ADS1299\_settings()}{print\_ADS1299\_settings()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+\+A\+D\+S1299\+\_\+settings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} \&}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_ae78847a04e2b0f16a2d7fc7ba75f754d}\label{classVarPrinter_ae78847a04e2b0f16a2d7fc7ba75f754d}} 
+\index{VarPrinter@{VarPrinter}!print\_ADS1299\_settings@{print\_ADS1299\_settings}}
+\index{print\_ADS1299\_settings@{print\_ADS1299\_settings}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_ADS1299\_settings()}{print\_ADS1299\_settings()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+\+A\+D\+S1299\+\_\+settings (\begin{DoxyParamCaption}\item[{String}]{var\+\_\+name,  }\item[{\mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} \&}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Print the settable registers for the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+name} & Name to call the \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} Settings \\
+\hline
+{\em settings} & A pointer to the structure containing the settings \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_af73723ea2b9c930aff0699b422b3b0b6}\label{classVarPrinter_af73723ea2b9c930aff0699b422b3b0b6}} 
+\index{VarPrinter@{VarPrinter}!print\_array@{print\_array}}
+\index{print\_array@{print\_array}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_array()}{print\_array()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Var\+Printer\+::print\+\_\+array (\begin{DoxyParamCaption}\item[{String}]{var\+\_\+name,  }\item[{T $\ast$}]{head,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints an array. 
+
+Array will be printed in the following form\+:~\newline
+{\ttfamily var\+\_\+name\+: \mbox{[}array\mbox{]}}~\newline
+ 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Must be a typename recognized by println (note that uint64\+\_\+t will likely not work, but other types like size\+\_\+t, unsigned char, int16\+\_\+t should all work) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+name} & The name to call the printed variable \\
+\hline
+{\em head} & Pointer to the head of the array to print \\
+\hline
+{\em len} & The length of the array to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_adc271df67eabad323d5607dbca73d377}\label{classVarPrinter_adc271df67eabad323d5607dbca73d377}} 
+\index{VarPrinter@{VarPrinter}!print\_array@{print\_array}}
+\index{print\_array@{print\_array}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_array()}{print\_array()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Var\+Printer\+::print\+\_\+array (\begin{DoxyParamCaption}\item[{T $\ast$}]{head,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_ae9a405974cafd928625570d1b9e6282b}\label{classVarPrinter_ae9a405974cafd928625570d1b9e6282b}} 
+\index{VarPrinter@{VarPrinter}!print\_buffer\_headers@{print\_buffer\_headers}}
+\index{print\_buffer\_headers@{print\_buffer\_headers}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_buffer\_headers()}{print\_buffer\_headers()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Var\+Printer\+::print\+\_\+buffer\+\_\+headers (\begin{DoxyParamCaption}\item[{String}]{var\+\_\+name,  }\item[{volatile \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}}$<$ T $>$ $\ast$}]{buffers,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints the header bytes of buffers stored in classes that inherit from \mbox{\hyperlink{classAbstractBuffer}{Abstract\+Buffer}} (e.\+g. \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}}, \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}}, \mbox{\hyperlink{classIMUBuffer}{I\+M\+U\+Buffer}}) 
+
+Will be printed in the following form\+:~\newline
+{\ttfamily var\+\_\+name} {\ttfamily ==========} {\ttfamily ID\+: d Count\+: d Time\+: lu}
+
+The formatting follows printf conventions, namely\+:
+\begin{DoxyItemize}
+\item {\ttfamily d}\+: signed decimal integer
+\item {\ttfamily lu}\+: unsigned long
+\end{DoxyItemize}
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Any primeary data type \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+name} & The name to call the printed variable \\
+\hline
+{\em buffers} & Pointer to the buffers object, an array of \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}} pointers \\
+\hline
+{\em len} & Length of the array of \mbox{\hyperlink{structBufferHelper}{Buffer\+Helper}} pointers \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_ae635fea68779fa789e2379b7e1b9ceb7}\label{classVarPrinter_ae635fea68779fa789e2379b7e1b9ceb7}} 
+\index{VarPrinter@{VarPrinter}!print\_DeviceEnable\_settings@{print\_DeviceEnable\_settings}}
+\index{print\_DeviceEnable\_settings@{print\_DeviceEnable\_settings}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_DeviceEnable\_settings()}{print\_DeviceEnable\_settings()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+\+Device\+Enable\+\_\+settings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}} \&}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_ae9c847e140756da67efb145114ad5ed2}\label{classVarPrinter_ae9c847e140756da67efb145114ad5ed2}} 
+\index{VarPrinter@{VarPrinter}!print\_DeviceEnable\_settings@{print\_DeviceEnable\_settings}}
+\index{print\_DeviceEnable\_settings@{print\_DeviceEnable\_settings}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_DeviceEnable\_settings()}{print\_DeviceEnable\_settings()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+\+Device\+Enable\+\_\+settings (\begin{DoxyParamCaption}\item[{String}]{var\+\_\+name,  }\item[{\mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}} \&}]{settings }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Print the device enable settings for the tag. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+name} & The name to call the device settings \\
+\hline
+{\em settings} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_a77ee7821afde45f5cdeab8314f5230d9}\label{classVarPrinter_a77ee7821afde45f5cdeab8314f5230d9}} 
+\index{VarPrinter@{VarPrinter}!print\_DMA\_settings@{print\_DMA\_settings}}
+\index{print\_DMA\_settings@{print\_DMA\_settings}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_DMA\_settings()}{print\_DMA\_settings()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+\+D\+M\+A\+\_\+settings (\begin{DoxyParamCaption}\item[{D\+M\+A\+Base\+Class $\ast$}]{dmabc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_aabcdcccf30fb2d645b8858359f8dcbd2}\label{classVarPrinter_aabcdcccf30fb2d645b8858359f8dcbd2}} 
+\index{VarPrinter@{VarPrinter}!print\_DMA\_settings@{print\_DMA\_settings}}
+\index{print\_DMA\_settings@{print\_DMA\_settings}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_DMA\_settings()}{print\_DMA\_settings()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+\+D\+M\+A\+\_\+settings (\begin{DoxyParamCaption}\item[{String}]{name,  }\item[{D\+M\+A\+Base\+Class $\ast$}]{dmabc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints D\+MA Settings (like the ones used in \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}}) 
+
+Will be printed in the following form\+:~\newline
+{\ttfamily S\+A\+D\+DR\+:x S\+O\+FF\+:d A\+T\+TR\+:x N\+B\+Y\+T\+ES\+:x S\+L\+A\+ST\+:d D\+A\+D\+DR\+:x D\+O\+FF\+: d C\+I\+T\+ER\+:x D\+L\+A\+S\+T\+S\+GA\+:x C\+SR\+:x B\+I\+T\+ER\+:x},
+
+where S\+A\+D\+DR, S\+O\+FF, A\+T\+TR, N\+B\+Y\+T\+ES, S\+L\+A\+ST, D\+A\+D\+DR, D\+O\+FF, C\+I\+T\+ER, D\+L\+A\+S\+T\+S\+GA, C\+SR, and B\+I\+T\+ER refer to the D\+MA registers (see the i.\+MX R\+T1060 Processor Reference Manual, Chapter 5 for details)
+
+The formatting follows printf conventions, namely\+:
+\begin{DoxyItemize}
+\item {\ttfamily x}\+: Unsiged hexadecimal integer
+\item {\ttfamily d}\+: Signed decimal integer
+\end{DoxyItemize}
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name to call the printed D\+MA settings \\
+\hline
+{\em dmabc} & D\+M\+A\+Base\+Class pointer which stores the D\+MA settings \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_a392634ca819a9a6473755e339be99eb6}\label{classVarPrinter_a392634ca819a9a6473755e339be99eb6}} 
+\index{VarPrinter@{VarPrinter}!print\_json@{print\_json}}
+\index{print\_json@{print\_json}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_json()}{print\_json()}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+json (\begin{DoxyParamCaption}\item[{const Json\+Document \&}]{doc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Serialize a Json\+Document over the serial. 
+
+Note that the internal \+\_\+serial is a Stream$\ast$, while serialize\+Json\+Pretty this function calls must instead be a Stream, and thus \+\_\+serial must be derefrenced in the function call. A new line must be printed as well as there is no trailing new line after serialize\+Json\+Pretty.
+
+For more information about Arduino\+Json which is used for J\+S\+ON Serialization, see the\href{https://arduinojson.org/}{\texttt{ Arduino J\+S\+ON documentation}}.
+
+
+\begin{DoxyParams}{Parameters}
+{\em doc} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_a78a63467bcde1142803473ac6f7658de}\label{classVarPrinter_a78a63467bcde1142803473ac6f7658de}} 
+\index{VarPrinter@{VarPrinter}!print\_memory@{print\_memory}}
+\index{print\_memory@{print\_memory}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_memory()}{print\_memory()}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+memory (\begin{DoxyParamCaption}\item[{String}]{var\+\_\+name,  }\item[{void $\ast$}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints the memory address of an object. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+name} & The name to call the printed memory address \\
+\hline
+{\em var} & The memory address to print (as a void$\ast$) \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_ab498ef710d4ec59f58d83408988fe818}\label{classVarPrinter_ab498ef710d4ec59f58d83408988fe818}} 
+\index{VarPrinter@{VarPrinter}!print\_message@{print\_message}}
+\index{print\_message@{print\_message}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_message()}{print\_message()}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+message (\begin{DoxyParamCaption}\item[{String}]{message }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints a message. 
+
+Will be printed in the following form\+:~\newline
+ {\ttfamily message string}
+
+
+\begin{DoxyParams}{Parameters}
+{\em message} & String to print to the logging output \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_a0b673fca84429b8072e929242084d286}\label{classVarPrinter_a0b673fca84429b8072e929242084d286}} 
+\index{VarPrinter@{VarPrinter}!print\_sampling\_metadata@{print\_sampling\_metadata}}
+\index{print\_sampling\_metadata@{print\_sampling\_metadata}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_sampling\_metadata()}{print\_sampling\_metadata()}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+sampling\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{structSamplingMetadata}{Sampling\+Metadata}} $\ast$}]{metadata }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_a691a7ca41afed5594f3579b22bace3e0}\label{classVarPrinter_a691a7ca41afed5594f3579b22bace3e0}} 
+\index{VarPrinter@{VarPrinter}!print\_SD\_error@{print\_SD\_error}}
+\index{print\_SD\_error@{print\_SD\_error}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_SD\_error()}{print\_SD\_error()}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+\+S\+D\+\_\+error (\begin{DoxyParamCaption}\item[{Sd\+Fs \&}]{sd }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints out the SD card error code. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em sd} & Sd\+FS object which to query for SD error \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_a02cee311358bab9abe982eb455036ec1}\label{classVarPrinter_a02cee311358bab9abe982eb455036ec1}} 
+\index{VarPrinter@{VarPrinter}!print\_timed\_variables@{print\_timed\_variables}}
+\index{print\_timed\_variables@{print\_timed\_variables}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_timed\_variables()}{print\_timed\_variables()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Var\+Printer\+::print\+\_\+timed\+\_\+variables (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Logger_8h_a2093ab4d1c1464417761a58faef15d28}{Print\+Timing}} \&}]{print\+\_\+timer,  }\item[{String}]{var\+\_\+name,  }\item[{T}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Print a variable with at least a minimum period in between prints. 
+
+This ensures that the serial output does not get overwhelemed by repeated calls to print very often. This function is most useful for printing a variable in the main \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop()}}. The other functions are fine to use for functions that are called more rarely.
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em print\+\_\+timer} & \\
+\hline
+{\em var\+\_\+name} & \\
+\hline
+{\em var} & \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_a9e5fe39b22529038a27b88516354229c}\label{classVarPrinter_a9e5fe39b22529038a27b88516354229c}} 
+\index{VarPrinter@{VarPrinter}!print\_timing\_metadata@{print\_timing\_metadata}}
+\index{print\_timing\_metadata@{print\_timing\_metadata}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_timing\_metadata()}{print\_timing\_metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+timing\+\_\+metadata (\begin{DoxyParamCaption}\item[{String}]{var\+\_\+name,  }\item[{\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} $\ast$}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints the \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}}. 
+
+Will be printed in the following form\+:~\newline
+ \`{} var\+\_\+name\+: Num triggers\+: value~\newline
+Min diff\+: value~\newline
+Max diff\+: value~\newline
+Avg diff\+: value~\newline
+First trigger\+: value~\newline
+\`{} 
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+name} & The name to call the printed variable \\
+\hline
+{\em var} & The \mbox{\hyperlink{structTimingMetadata}{Timing\+Metadata}} object to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_a5a9ab7daaacd821aa914d0727b194853}\label{classVarPrinter_a5a9ab7daaacd821aa914d0727b194853}} 
+\index{VarPrinter@{VarPrinter}!print\_timing\_metadata@{print\_timing\_metadata}}
+\index{print\_timing\_metadata@{print\_timing\_metadata}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_timing\_metadata()}{print\_timing\_metadata()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+timing\+\_\+metadata (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} $\ast$}]{metadata }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_afbc681223732a8b231874ea7aa9e8349}\label{classVarPrinter_afbc681223732a8b231874ea7aa9e8349}} 
+\index{VarPrinter@{VarPrinter}!print\_variable@{print\_variable}}
+\index{print\_variable@{print\_variable}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_variable()}{print\_variable()}\hspace{0.1cm}{\footnotesize\ttfamily [1/3]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Var\+Printer\+::print\+\_\+variable (\begin{DoxyParamCaption}\item[{String}]{var\+\_\+name,  }\item[{T}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Print a single variable. 
+
+Variable will be printed in the following form\+:~\newline
+{\ttfamily var\+\_\+name\+: var}~\newline
+ 
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Must be a typename recognized by print (note that uint64\+\_\+t will work due to overload) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+name} & The name to call the printed variable \\
+\hline
+{\em var} & The variable value to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_ab8a26ee5a09c0c27f38cf31e81f52007}\label{classVarPrinter_ab8a26ee5a09c0c27f38cf31e81f52007}} 
+\index{VarPrinter@{VarPrinter}!print\_variable@{print\_variable}}
+\index{print\_variable@{print\_variable}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_variable()}{print\_variable()}\hspace{0.1cm}{\footnotesize\ttfamily [2/3]}}
+{\footnotesize\ttfamily template$<$class T $>$ \\
+void Var\+Printer\+::print\+\_\+variable (\begin{DoxyParamCaption}\item[{T}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_a3c73d6724cf1e173a1b196a3bcd71b37}\label{classVarPrinter_a3c73d6724cf1e173a1b196a3bcd71b37}} 
+\index{VarPrinter@{VarPrinter}!print\_variable@{print\_variable}}
+\index{print\_variable@{print\_variable}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_variable()}{print\_variable()}\hspace{0.1cm}{\footnotesize\ttfamily [3/3]}}
+{\footnotesize\ttfamily void Var\+Printer\+::print\+\_\+variable (\begin{DoxyParamCaption}\item[{uint64\+\_\+t}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_ad79729326bbd1e838b3ce366d20a0acd}\label{classVarPrinter_ad79729326bbd1e838b3ce366d20a0acd}} 
+\index{VarPrinter@{VarPrinter}!print\_variable\_with\_time@{print\_variable\_with\_time}}
+\index{print\_variable\_with\_time@{print\_variable\_with\_time}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_variable\_with\_time()}{print\_variable\_with\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Var\+Printer\+::print\+\_\+variable\+\_\+with\+\_\+time (\begin{DoxyParamCaption}\item[{String}]{var\+\_\+name,  }\item[{T}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Prints a variable along with an associated time. 
+
+Variable will be printed in the following form\+:~\newline
+{\ttfamily var\+\_\+name\+: var time}~\newline
+ The time is from device start (Teensy turning on, not since sampling start)
+
+
+\begin{DoxyTemplParams}{Template Parameters}
+{\em T} & Must be a typename recognized by print (64 byte variables will likely not work) \\
+\hline
+\end{DoxyTemplParams}
+
+\begin{DoxyParams}{Parameters}
+{\em var\+\_\+name} & The name to call the printed variable \\
+\hline
+{\em var} & The variable value to print \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classVarPrinter_a3277ba121d8db88877accf7f0280a5cf}\label{classVarPrinter_a3277ba121d8db88877accf7f0280a5cf}} 
+\index{VarPrinter@{VarPrinter}!print\_variable\_with\_time@{print\_variable\_with\_time}}
+\index{print\_variable\_with\_time@{print\_variable\_with\_time}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{print\_variable\_with\_time()}{print\_variable\_with\_time()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+void Var\+Printer\+::print\+\_\+variable\+\_\+with\+\_\+time (\begin{DoxyParamCaption}\item[{T}]{var }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_a755b03e535c590369d4919a2d9e3c8f6}\label{classVarPrinter_a755b03e535c590369d4919a2d9e3c8f6}} 
+\index{VarPrinter@{VarPrinter}!read\_and\_print\_all\_EEG\_registers@{read\_and\_print\_all\_EEG\_registers}}
+\index{read\_and\_print\_all\_EEG\_registers@{read\_and\_print\_all\_EEG\_registers}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{read\_and\_print\_all\_EEG\_registers()}{read\_and\_print\_all\_EEG\_registers()}}
+{\footnotesize\ttfamily void Var\+Printer\+::read\+\_\+and\+\_\+print\+\_\+all\+\_\+\+E\+E\+G\+\_\+registers (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classADS1299}{A\+D\+S1299}} \&}]{eeg }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+\mbox{\Hypertarget{classVarPrinter_ab86b10b88ba6106bc7e92977cb8b9947}\label{classVarPrinter_ab86b10b88ba6106bc7e92977cb8b9947}} 
+\index{VarPrinter@{VarPrinter}!read\_and\_print\_EEG\_register@{read\_and\_print\_EEG\_register}}
+\index{read\_and\_print\_EEG\_register@{read\_and\_print\_EEG\_register}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{read\_and\_print\_EEG\_register()}{read\_and\_print\_EEG\_register()}}
+{\footnotesize\ttfamily void Var\+Printer\+::read\+\_\+and\+\_\+print\+\_\+\+E\+E\+G\+\_\+register (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classADS1299}{A\+D\+S1299}} \&}]{eeg,  }\item[{uint8\+\_\+t}]{address }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [protected]}}
+
+
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{classVarPrinter_afd69df8d6553e5fb15d3425892357f3f}\label{classVarPrinter_afd69df8d6553e5fb15d3425892357f3f}} 
+\index{VarPrinter@{VarPrinter}!\_serial@{\_serial}}
+\index{\_serial@{\_serial}!VarPrinter@{VarPrinter}}
+\doxysubsubsection{\texorpdfstring{\_serial}{\_serial}}
+{\footnotesize\ttfamily Stream$\ast$ Var\+Printer\+::\+\_\+serial\hspace{0.3cm}{\ttfamily [protected]}}
+
+Pointer to Stream which is where these values will be printed to 
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Logger/\mbox{\hyperlink{Logger_8h}{Logger.\+h}}\end{DoxyCompactItemize}

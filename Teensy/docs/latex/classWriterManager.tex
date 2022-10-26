@@ -1,0 +1,139 @@
+\hypertarget{classWriterManager}{}\doxysection{Writer\+Manager Class Reference}
+\label{classWriterManager}\index{WriterManager@{WriterManager}}
+
+
+Class to manage the classes that inherit from \mbox{\hyperlink{classWriter}{Writer}}.  
+
+
+
+
+{\ttfamily \#include $<$Writer\+Manager.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWriterManager_af67903cd02e735433d1f4d086a1ecf5f}{Writer\+Manager}} (\mbox{\hyperlink{classWriter}{Writer}} $\ast$$\ast$\mbox{\hyperlink{initialize__variables_8h_a8fa5c943751b85fe402cb1b74879ee64}{writers}}, size\+\_\+t num\+\_\+writers)
+\begin{DoxyCompactList}\small\item\em Construct a new \mbox{\hyperlink{classWriter}{Writer}} Manager object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classWriterManager_acafb697c3adb7e344405c5ae0644c9b3}{$\sim$\+Writer\+Manager}} ()
+\item 
+void \mbox{\hyperlink{classWriterManager_a21571df2f953fdea0e8780b217ad1cba}{select\+\_\+writer}} (size\+\_\+t index)
+\begin{DoxyCompactList}\small\item\em Updates the writer\+\_\+ind to use. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classWriterManager_ac98baec151ec46631e1fd73a28ff29b3}{write\+\_\+data}} (void $\ast$buff\+\_\+ptr, size\+\_\+t num\+\_\+bytes)
+\begin{DoxyCompactList}\small\item\em Writes the data buffer using the \mbox{\hyperlink{classWriter}{Writer}} corresponding to the writer\+\_\+ind. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classWriterManager_a3741af9c341c45eeb87ce7b3fb880907}{write\+\_\+header}} ()
+\begin{DoxyCompactList}\small\item\em Writes the data header using the \mbox{\hyperlink{classWriter}{Writer}} corresponding to the writer\+\_\+ind. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWriterManager_acb90c4adf27dfe7c07bd3137e43018fe}{pre\+\_\+sampling\+\_\+setup}} ()
+\begin{DoxyCompactList}\small\item\em This routine is run just before sampling, running the pre\+\_\+sampling\+\_\+setup of the \mbox{\hyperlink{classWriter}{Writer}} corresponding to the writer\+\_\+ind. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classWriterManager_ab21a701dd512bb85f12d5ba75ea9c5b6}{post\+\_\+sampling\+\_\+conclude}} ()
+\begin{DoxyCompactList}\small\item\em This routine is run after sampling is stopped, running the post\+\_\+sampling\+\_\+conclude of the \mbox{\hyperlink{classWriter}{Writer}} corresponding to the writer\+\_\+ind. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to manage the classes that inherit from \mbox{\hyperlink{classWriter}{Writer}}. 
+
+This class forwards the calls for writing data, writing headers, pre and post sampling routines, to the appropriate \mbox{\hyperlink{classWriter}{Writer}}.
+
+An index of 0 corresponds to the bluetooth, and index of 1 corresponds to the U\+SB, while an index of 2 corresponds to the SD card (through \mbox{\hyperlink{classDiskManager}{Disk\+Manager}}). 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classWriterManager_af67903cd02e735433d1f4d086a1ecf5f}\label{classWriterManager_af67903cd02e735433d1f4d086a1ecf5f}} 
+\index{WriterManager@{WriterManager}!WriterManager@{WriterManager}}
+\index{WriterManager@{WriterManager}!WriterManager@{WriterManager}}
+\doxysubsubsection{\texorpdfstring{WriterManager()}{WriterManager()}}
+{\footnotesize\ttfamily Writer\+Manager\+::\+Writer\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classWriter}{Writer}} $\ast$$\ast$}]{writers,  }\item[{size\+\_\+t}]{num\+\_\+writers }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Construct a new \mbox{\hyperlink{classWriter}{Writer}} Manager object. 
+
+By default, writer\+\_\+ind will be initialized to 2 (corresponding to the SD card index)
+
+
+\begin{DoxyParams}{Parameters}
+{\em writers} & An array of pointers to \mbox{\hyperlink{classWriter}{Writer}} objects \\
+\hline
+{\em num\+\_\+writers} & The length of the writers array \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWriterManager_acafb697c3adb7e344405c5ae0644c9b3}\label{classWriterManager_acafb697c3adb7e344405c5ae0644c9b3}} 
+\index{WriterManager@{WriterManager}!````~WriterManager@{$\sim$WriterManager}}
+\index{````~WriterManager@{$\sim$WriterManager}!WriterManager@{WriterManager}}
+\doxysubsubsection{\texorpdfstring{$\sim$WriterManager()}{~WriterManager()}}
+{\footnotesize\ttfamily Writer\+Manager\+::$\sim$\+Writer\+Manager (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classWriterManager_ab21a701dd512bb85f12d5ba75ea9c5b6}\label{classWriterManager_ab21a701dd512bb85f12d5ba75ea9c5b6}} 
+\index{WriterManager@{WriterManager}!post\_sampling\_conclude@{post\_sampling\_conclude}}
+\index{post\_sampling\_conclude@{post\_sampling\_conclude}!WriterManager@{WriterManager}}
+\doxysubsubsection{\texorpdfstring{post\_sampling\_conclude()}{post\_sampling\_conclude()}}
+{\footnotesize\ttfamily void Writer\+Manager\+::post\+\_\+sampling\+\_\+conclude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This routine is run after sampling is stopped, running the post\+\_\+sampling\+\_\+conclude of the \mbox{\hyperlink{classWriter}{Writer}} corresponding to the writer\+\_\+ind. 
+
+\mbox{\Hypertarget{classWriterManager_acb90c4adf27dfe7c07bd3137e43018fe}\label{classWriterManager_acb90c4adf27dfe7c07bd3137e43018fe}} 
+\index{WriterManager@{WriterManager}!pre\_sampling\_setup@{pre\_sampling\_setup}}
+\index{pre\_sampling\_setup@{pre\_sampling\_setup}!WriterManager@{WriterManager}}
+\doxysubsubsection{\texorpdfstring{pre\_sampling\_setup()}{pre\_sampling\_setup()}}
+{\footnotesize\ttfamily void Writer\+Manager\+::pre\+\_\+sampling\+\_\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+This routine is run just before sampling, running the pre\+\_\+sampling\+\_\+setup of the \mbox{\hyperlink{classWriter}{Writer}} corresponding to the writer\+\_\+ind. 
+
+\mbox{\Hypertarget{classWriterManager_a21571df2f953fdea0e8780b217ad1cba}\label{classWriterManager_a21571df2f953fdea0e8780b217ad1cba}} 
+\index{WriterManager@{WriterManager}!select\_writer@{select\_writer}}
+\index{select\_writer@{select\_writer}!WriterManager@{WriterManager}}
+\doxysubsubsection{\texorpdfstring{select\_writer()}{select\_writer()}}
+{\footnotesize\ttfamily void Writer\+Manager\+::select\+\_\+writer (\begin{DoxyParamCaption}\item[{size\+\_\+t}]{index }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Updates the writer\+\_\+ind to use. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em index} & The new index to use for calling the functions \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classWriterManager_ac98baec151ec46631e1fd73a28ff29b3}\label{classWriterManager_ac98baec151ec46631e1fd73a28ff29b3}} 
+\index{WriterManager@{WriterManager}!write\_data@{write\_data}}
+\index{write\_data@{write\_data}!WriterManager@{WriterManager}}
+\doxysubsubsection{\texorpdfstring{write\_data()}{write\_data()}}
+{\footnotesize\ttfamily size\+\_\+t Writer\+Manager\+::write\+\_\+data (\begin{DoxyParamCaption}\item[{void $\ast$}]{buff\+\_\+ptr,  }\item[{size\+\_\+t}]{num\+\_\+bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes the data buffer using the \mbox{\hyperlink{classWriter}{Writer}} corresponding to the writer\+\_\+ind. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buff\+\_\+ptr} & The address of the buffer to be written \\
+\hline
+{\em num\+\_\+bytes} & The number of bytes to write from the buffer \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The number of bytes actually written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classWriterManager_a3741af9c341c45eeb87ce7b3fb880907}\label{classWriterManager_a3741af9c341c45eeb87ce7b3fb880907}} 
+\index{WriterManager@{WriterManager}!write\_header@{write\_header}}
+\index{write\_header@{write\_header}!WriterManager@{WriterManager}}
+\doxysubsubsection{\texorpdfstring{write\_header()}{write\_header()}}
+{\footnotesize\ttfamily size\+\_\+t Writer\+Manager\+::write\+\_\+header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Writes the data header using the \mbox{\hyperlink{classWriter}{Writer}} corresponding to the writer\+\_\+ind. 
+
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The number of bytes written 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Writer\+Manager/\mbox{\hyperlink{WriterManager_8h}{Writer\+Manager.\+h}}\end{DoxyCompactItemize}

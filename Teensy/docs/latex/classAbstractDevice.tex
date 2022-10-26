@@ -1,0 +1,87 @@
+\hypertarget{classAbstractDevice}{}\doxysection{Abstract\+Device Class Reference}
+\label{classAbstractDevice}\index{AbstractDevice@{AbstractDevice}}
+
+
+Sets the interface for each Device.  
+
+
+
+
+{\ttfamily \#include $<$Abstract\+Device.\+h$>$}
+
+
+
+Inheritance diagram for Abstract\+Device\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{classAbstractDevice__inherit__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+virtual bool \mbox{\hyperlink{classAbstractDevice_a79fcd0fd5b748a233fe9488195b080a0}{init}} ()=0
+\begin{DoxyCompactList}\small\item\em Defines the initalizer for the device. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classAbstractDevice_a89f4760b7a46e04ae41b624565c09517}{begin}} ()=0
+\begin{DoxyCompactList}\small\item\em Defines the begin sampling methods for the device. \end{DoxyCompactList}\item 
+virtual void \mbox{\hyperlink{classAbstractDevice_a3be2e4a734196c00d317ed5bc19995c7}{end}} ()=0
+\begin{DoxyCompactList}\small\item\em Defines the end sampling methods for the device. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Sets the interface for each Device. 
+
+Each function is a pure virtual function, and thus will need to be overwritten by any class that inherits from this one 
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classAbstractDevice_a89f4760b7a46e04ae41b624565c09517}\label{classAbstractDevice_a89f4760b7a46e04ae41b624565c09517}} 
+\index{AbstractDevice@{AbstractDevice}!begin@{begin}}
+\index{begin@{begin}!AbstractDevice@{AbstractDevice}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily virtual void Abstract\+Device\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Defines the begin sampling methods for the device. 
+
+This function is to set the device to be ready for sampling 
+
+Implemented in \mbox{\hyperlink{classMPU9250_a1bc9746dc599999ea2812c1256519224}{M\+P\+U9250}}, \mbox{\hyperlink{classADS1299_a5980cfe928dd40e9a7b3a13b2c9adb9d}{A\+D\+S1299}}, \mbox{\hyperlink{classESP32__Bluetooth_a67429e599ccfb95a0302900a330a4003}{E\+S\+P32\+\_\+\+Bluetooth}}, \mbox{\hyperlink{classNIRS_a42f2dbbb15de68a0b84486c6ebc81a2f}{N\+I\+RS}}, and \mbox{\hyperlink{classTag__ADC_ac44df4c7105436285fbd20b7d348388a}{Tag\+\_\+\+A\+DC}}.
+
+\mbox{\Hypertarget{classAbstractDevice_a3be2e4a734196c00d317ed5bc19995c7}\label{classAbstractDevice_a3be2e4a734196c00d317ed5bc19995c7}} 
+\index{AbstractDevice@{AbstractDevice}!end@{end}}
+\index{end@{end}!AbstractDevice@{AbstractDevice}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily virtual void Abstract\+Device\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Defines the end sampling methods for the device. 
+
+This function is to stop sampling and power down the device 
+
+Implemented in \mbox{\hyperlink{classMPU9250_a0a759bc9e68a12a2ccaa627e57c3e201}{M\+P\+U9250}}, \mbox{\hyperlink{classADS1299_af1b2c31438262ba8a1c0f055c300f1ab}{A\+D\+S1299}}, \mbox{\hyperlink{classNIRS_a1bdf3266cff740679c110d8fc48f0185}{N\+I\+RS}}, \mbox{\hyperlink{classESP32__Bluetooth_a84cb460755aeba6650e69dd65ecc5996}{E\+S\+P32\+\_\+\+Bluetooth}}, and \mbox{\hyperlink{classTag__ADC_a7d7048a340318e24e9b5d15dce11b395}{Tag\+\_\+\+A\+DC}}.
+
+\mbox{\Hypertarget{classAbstractDevice_a79fcd0fd5b748a233fe9488195b080a0}\label{classAbstractDevice_a79fcd0fd5b748a233fe9488195b080a0}} 
+\index{AbstractDevice@{AbstractDevice}!init@{init}}
+\index{init@{init}!AbstractDevice@{AbstractDevice}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily virtual bool Abstract\+Device\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [pure virtual]}}
+
+
+
+Defines the initalizer for the device. 
+
+\begin{DoxyReturn}{Returns}
+true for success or false for failure
+\end{DoxyReturn}
+This initializer is called from Device\+Manager.\+init(), which runs when \mbox{\hyperlink{initialize__variables_8h_a1cc1a8a26d1818565992a466cd25b6b9}{initalize\+\_\+devices()}} is called 
+
+Implemented in \mbox{\hyperlink{classMPU9250_a3fc68680fcf61c71255c3b100232ac65}{M\+P\+U9250}}, \mbox{\hyperlink{classADS1299_a3e8e4c19aba2f06beefedc905a06329f}{A\+D\+S1299}}, \mbox{\hyperlink{classESP32__Bluetooth_ad98e05bc9e4bea3c2d74587bfd830f6b}{E\+S\+P32\+\_\+\+Bluetooth}}, \mbox{\hyperlink{classTag__ADC_a1576331f5cd817cd64287fdef2fb2c6f}{Tag\+\_\+\+A\+DC}}, and \mbox{\hyperlink{classNIRS_a7dca6431c9adfb4fb2957df2dba2f35d}{N\+I\+RS}}.
+
+
+
+The documentation for this class was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Abstract\+Device/\mbox{\hyperlink{AbstractDevice_8h}{Abstract\+Device.\+h}}\end{DoxyCompactItemize}

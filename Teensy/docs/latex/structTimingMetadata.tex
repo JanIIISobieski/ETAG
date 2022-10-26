@@ -1,0 +1,83 @@
+\hypertarget{structTimingMetadata}{}\doxysection{Timing\+Metadata Struct Reference}
+\label{structTimingMetadata}\index{TimingMetadata@{TimingMetadata}}
+
+
+Structure to store the timing between various functions (filling buffers, main loop timing, etc.)  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+volatile size\+\_\+t \mbox{\hyperlink{structTimingMetadata_a1eea5440c67a296a02065d73d8688248}{counter}}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{structTimingMetadata_a2851256fcf80e6da8a6d36f64bb371ab}{min\+\_\+diff}}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{structTimingMetadata_a6ce0cdf6276ac3d94ff199d09b80092b}{max\+\_\+diff}}
+\item 
+volatile float \mbox{\hyperlink{structTimingMetadata_a07068810cdaa4628392341bace76a834}{avg\+\_\+diff}}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{structTimingMetadata_a37a3c8cb40acd283166e6ffae48befbb}{prior\+\_\+time}}
+\item 
+volatile uint32\+\_\+t \mbox{\hyperlink{structTimingMetadata_abe74937da473fcad02377d60361f5122}{first\+\_\+trigger}}
+\item 
+volatile bool \mbox{\hyperlink{structTimingMetadata_aa03ba9a4f67ae0f265d0316a06434772}{was\+\_\+triggered}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to store the timing between various functions (filling buffers, main loop timing, etc.) 
+
+This allows for updating the timing information and storing it for later printing. Otherwise, attempting to print the differences in between calls while they happen could result in spending excessive time printing to the output buffer. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structTimingMetadata_a07068810cdaa4628392341bace76a834}\label{structTimingMetadata_a07068810cdaa4628392341bace76a834}} 
+\index{TimingMetadata@{TimingMetadata}!avg\_diff@{avg\_diff}}
+\index{avg\_diff@{avg\_diff}!TimingMetadata@{TimingMetadata}}
+\doxysubsubsection{\texorpdfstring{avg\_diff}{avg\_diff}}
+{\footnotesize\ttfamily volatile float Timing\+Metadata\+::avg\+\_\+diff}
+
+The average difference in times between updates \mbox{\Hypertarget{structTimingMetadata_a1eea5440c67a296a02065d73d8688248}\label{structTimingMetadata_a1eea5440c67a296a02065d73d8688248}} 
+\index{TimingMetadata@{TimingMetadata}!counter@{counter}}
+\index{counter@{counter}!TimingMetadata@{TimingMetadata}}
+\doxysubsubsection{\texorpdfstring{counter}{counter}}
+{\footnotesize\ttfamily volatile size\+\_\+t Timing\+Metadata\+::counter}
+
+How many times was this structure updated \mbox{\Hypertarget{structTimingMetadata_abe74937da473fcad02377d60361f5122}\label{structTimingMetadata_abe74937da473fcad02377d60361f5122}} 
+\index{TimingMetadata@{TimingMetadata}!first\_trigger@{first\_trigger}}
+\index{first\_trigger@{first\_trigger}!TimingMetadata@{TimingMetadata}}
+\doxysubsubsection{\texorpdfstring{first\_trigger}{first\_trigger}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t Timing\+Metadata\+::first\+\_\+trigger}
+
+Time since program start of the first update \mbox{\Hypertarget{structTimingMetadata_a6ce0cdf6276ac3d94ff199d09b80092b}\label{structTimingMetadata_a6ce0cdf6276ac3d94ff199d09b80092b}} 
+\index{TimingMetadata@{TimingMetadata}!max\_diff@{max\_diff}}
+\index{max\_diff@{max\_diff}!TimingMetadata@{TimingMetadata}}
+\doxysubsubsection{\texorpdfstring{max\_diff}{max\_diff}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t Timing\+Metadata\+::max\+\_\+diff}
+
+The maximum difference in times between updates \mbox{\Hypertarget{structTimingMetadata_a2851256fcf80e6da8a6d36f64bb371ab}\label{structTimingMetadata_a2851256fcf80e6da8a6d36f64bb371ab}} 
+\index{TimingMetadata@{TimingMetadata}!min\_diff@{min\_diff}}
+\index{min\_diff@{min\_diff}!TimingMetadata@{TimingMetadata}}
+\doxysubsubsection{\texorpdfstring{min\_diff}{min\_diff}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t Timing\+Metadata\+::min\+\_\+diff}
+
+The minimum difference in times between updates \mbox{\Hypertarget{structTimingMetadata_a37a3c8cb40acd283166e6ffae48befbb}\label{structTimingMetadata_a37a3c8cb40acd283166e6ffae48befbb}} 
+\index{TimingMetadata@{TimingMetadata}!prior\_time@{prior\_time}}
+\index{prior\_time@{prior\_time}!TimingMetadata@{TimingMetadata}}
+\doxysubsubsection{\texorpdfstring{prior\_time}{prior\_time}}
+{\footnotesize\ttfamily volatile uint32\+\_\+t Timing\+Metadata\+::prior\+\_\+time}
+
+Needed to store the previous time of the trigger from which the difference can be calculated \mbox{\Hypertarget{structTimingMetadata_aa03ba9a4f67ae0f265d0316a06434772}\label{structTimingMetadata_aa03ba9a4f67ae0f265d0316a06434772}} 
+\index{TimingMetadata@{TimingMetadata}!was\_triggered@{was\_triggered}}
+\index{was\_triggered@{was\_triggered}!TimingMetadata@{TimingMetadata}}
+\doxysubsubsection{\texorpdfstring{was\_triggered}{was\_triggered}}
+{\footnotesize\ttfamily volatile bool Timing\+Metadata\+::was\+\_\+triggered}
+
+True if this was ever updated, otherwise false 
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Logger/\mbox{\hyperlink{Logger_8h}{Logger.\+h}}\end{DoxyCompactItemize}

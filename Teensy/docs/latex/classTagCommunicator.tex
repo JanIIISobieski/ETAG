@@ -1,0 +1,360 @@
+\hypertarget{classTagCommunicator}{}\doxysection{Tag\+Communicator Class Reference}
+\label{classTagCommunicator}\index{TagCommunicator@{TagCommunicator}}
+
+
+Class for managing communication over U\+SB and Bluetooth.  
+
+
+
+
+{\ttfamily \#include $<$Tag\+Communicator.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTagCommunicator_a6a3704592534ab7e7e151dee8ee4df2f}{Tag\+Communicator}} (\mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} $\ast$$\ast$ptr, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Class Initializer. \end{DoxyCompactList}\item 
+int \mbox{\hyperlink{classTagCommunicator_a83440bef67a352276e19d61b13177cbb}{check\+\_\+for\+\_\+commands}} ()
+\begin{DoxyCompactList}\small\item\em Checks for available commands from each managed \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. \end{DoxyCompactList}\item 
+{\footnotesize template$<$typename T $>$ }\\size\+\_\+t \mbox{\hyperlink{classTagCommunicator_a74ca2b9244c26594dd938b3c82cb6435}{read\+\_\+type}} (\mbox{\hyperlink{SerialCommunicator_8h_a78deea855ceabf11be8b5a63f415cf53}{Byte\+Array}}$<$ T $>$ \&array)
+\begin{DoxyCompactList}\small\item\em Reads bytes from the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} as a standard data type. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTagCommunicator_a59c88bb0a1a0e2fa20393421228be78e}{read}} (uint8\+\_\+t $\ast$buffer, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Read a certain number of bytes into a buffer. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTagCommunicator_abfe95365f11d11645e3ee68e3b47616e}{read\+\_\+settings}} (\mbox{\hyperlink{unionSettingsPacket}{Settings\+Packet}} \&settings)
+\begin{DoxyCompactList}\small\item\em Read data for the device settings over a \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTagCommunicator_a1e753f46ca3458ad2f4b3f1ae2417ca7}{send\+\_\+file}} (String filename)
+\begin{DoxyCompactList}\small\item\em Function to send a specfic file over one of the Serial Communicators. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTagCommunicator_ad84fd71c03277cbd94c9d44558c0bc47}{write}} (uint8\+\_\+t port, uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em Write a byte to the specified port. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTagCommunicator_a6875885782002997fdce56135cdda7ae}{write}} (uint8\+\_\+t port, uint8\+\_\+t $\ast$buffer, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Write a buffer to the specified port. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTagCommunicator_a29aa6ebbc9b34761ea413de0cd6d18a6}{write}} (uint8\+\_\+t byte)
+\begin{DoxyCompactList}\small\item\em Write a byte to the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTagCommunicator_a76bfc82998f5212be32ede5e09604788}{write}} (uint8\+\_\+t $\ast$buffer, size\+\_\+t len)
+\begin{DoxyCompactList}\small\item\em Write a buffer to the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTagCommunicator_a877141b5bcba2fc74036df35e859254c}{print}} (String string)
+\begin{DoxyCompactList}\small\item\em Print to the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTagCommunicator_ad65ed5a70c85bed60dbe875f360adcd6}{println}} (String string)
+\begin{DoxyCompactList}\small\item\em Print with a newline to the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. \end{DoxyCompactList}\item 
+size\+\_\+t \mbox{\hyperlink{classTagCommunicator_a6ca7fe634fd2dbe47405f3ba72212b55}{println}} (unsigned char n, int base)
+\begin{DoxyCompactList}\small\item\em Print an unsigned char in a specific base. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classTagCommunicator_a1e4772d0c368f234da0194a335a95af0}{await\+\_\+acknowledgment}} ()
+\begin{DoxyCompactList}\small\item\em Wait for data over the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classTagCommunicator_a220729d5fc0c36e1b29809dacc73c706}{read\+String\+Until}} (char terminator, size\+\_\+t max=120U)
+\begin{DoxyCompactList}\small\item\em Returns a String up to the specificied terminator. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classTagCommunicator_ae70e8f01295284d2ab2a960bd95331c3}{read\+\_\+byte\+\_\+from\+\_\+active\+\_\+port}} ()
+\begin{DoxyCompactList}\small\item\em Read byte from active port. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class for managing communication over U\+SB and Bluetooth. 
+
+Rather than writing seperate code in main(), this class manages reading data from the available sources, and writing data using the appropriate method. This method can handle arbitrary number of communicators, as long as each inherits from the \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} class. Important assumption\+: when calling a function that does not sample (i.\+e. syncing time or dowloading files), this class assumes that the data should be sent back over the same communicator that sent the command (i.\+e. if Bluetooth sent the command \textquotesingle{}c\textquotesingle{} for time syncing, Bluetooth will be used for acknowledgment of the command and for recieving more data from the computer). Sampling can be stopped using either method, no matter which method was used to start sampling. File download is recommended to only use with the U\+SB. Ports can also be passed to the write functions to send data over a specified line. 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTagCommunicator_a6a3704592534ab7e7e151dee8ee4df2f}\label{classTagCommunicator_a6a3704592534ab7e7e151dee8ee4df2f}} 
+\index{TagCommunicator@{TagCommunicator}!TagCommunicator@{TagCommunicator}}
+\index{TagCommunicator@{TagCommunicator}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{TagCommunicator()}{TagCommunicator()}}
+{\footnotesize\ttfamily Tag\+Communicator\+::\+Tag\+Communicator (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} $\ast$$\ast$}]{ptr,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Class Initializer. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em ptr} & a pointer to an array of Serial\+Communicator$\ast$ \\
+\hline
+\mbox{\texttt{ in}}  & {\em baud\+\_\+rates} & a pointer to an array of baud\+\_\+rates, with indices corresponding to that of \#ptr \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & the length of both arrays (must be equal) \\
+\hline
+\mbox{\texttt{ in}}  & {\em run\+\_\+data$\ast$} & pointer to the \mbox{\hyperlink{classRunData}{Run\+Data}} structure \\
+\hline
+\end{DoxyParams}
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTagCommunicator_a1e4772d0c368f234da0194a335a95af0}\label{classTagCommunicator_a1e4772d0c368f234da0194a335a95af0}} 
+\index{TagCommunicator@{TagCommunicator}!await\_acknowledgment@{await\_acknowledgment}}
+\index{await\_acknowledgment@{await\_acknowledgment}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{await\_acknowledgment()}{await\_acknowledgment()}}
+{\footnotesize\ttfamily bool Tag\+Communicator\+::await\+\_\+acknowledgment (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Wait for data over the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. 
+
+Blocking. Will wait for new data to be sent over the line.
+
+\begin{DoxyReturn}{Returns}
+bool returns True once finished. 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a83440bef67a352276e19d61b13177cbb}\label{classTagCommunicator_a83440bef67a352276e19d61b13177cbb}} 
+\index{TagCommunicator@{TagCommunicator}!check\_for\_commands@{check\_for\_commands}}
+\index{check\_for\_commands@{check\_for\_commands}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{check\_for\_commands()}{check\_for\_commands()}}
+{\footnotesize\ttfamily int Tag\+Communicator\+::check\+\_\+for\+\_\+commands (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Checks for available commands from each managed \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. 
+
+This function specifies which \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} to use for any further communication (until function returns)
+
+\begin{DoxyReturn}{Returns}
+int Integer read from the Serial\+Communicators. If nothing read, returns -\/1. Else, the byte read is the last byte of the int\+: i.\+e. the result of int \& 0x\+FF 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a877141b5bcba2fc74036df35e859254c}\label{classTagCommunicator_a877141b5bcba2fc74036df35e859254c}} 
+\index{TagCommunicator@{TagCommunicator}!print@{print}}
+\index{print@{print}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{print()}{print()}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+Communicator\+::print (\begin{DoxyParamCaption}\item[{String}]{string }\end{DoxyParamCaption})}
+
+
+
+Print to the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em string} & String to write to the \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_ad65ed5a70c85bed60dbe875f360adcd6}\label{classTagCommunicator_ad65ed5a70c85bed60dbe875f360adcd6}} 
+\index{TagCommunicator@{TagCommunicator}!println@{println}}
+\index{println@{println}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{println()}{println()}\hspace{0.1cm}{\footnotesize\ttfamily [1/2]}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+Communicator\+::println (\begin{DoxyParamCaption}\item[{String}]{string }\end{DoxyParamCaption})}
+
+
+
+Print with a newline to the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em string} & String to write to the \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a6ca7fe634fd2dbe47405f3ba72212b55}\label{classTagCommunicator_a6ca7fe634fd2dbe47405f3ba72212b55}} 
+\index{TagCommunicator@{TagCommunicator}!println@{println}}
+\index{println@{println}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{println()}{println()}\hspace{0.1cm}{\footnotesize\ttfamily [2/2]}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+Communicator\+::println (\begin{DoxyParamCaption}\item[{unsigned char}]{n,  }\item[{int}]{base }\end{DoxyParamCaption})}
+
+
+
+Print an unsigned char in a specific base. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em n} & the value to print \\
+\hline
+\mbox{\texttt{ in}}  & {\em base} & the base in which to print the value \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a59c88bb0a1a0e2fa20393421228be78e}\label{classTagCommunicator_a59c88bb0a1a0e2fa20393421228be78e}} 
+\index{TagCommunicator@{TagCommunicator}!read@{read}}
+\index{read@{read}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{read()}{read()}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+Communicator\+::read (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Read a certain number of bytes into a buffer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em buffer} & The pointer to the start of the buffer \\
+\hline
+{\em len} & The number of bytes to read \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The number of bytes read 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_ae70e8f01295284d2ab2a960bd95331c3}\label{classTagCommunicator_ae70e8f01295284d2ab2a960bd95331c3}} 
+\index{TagCommunicator@{TagCommunicator}!read\_byte\_from\_active\_port@{read\_byte\_from\_active\_port}}
+\index{read\_byte\_from\_active\_port@{read\_byte\_from\_active\_port}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{read\_byte\_from\_active\_port()}{read\_byte\_from\_active\_port()}}
+{\footnotesize\ttfamily uint8\+\_\+t Tag\+Communicator\+::read\+\_\+byte\+\_\+from\+\_\+active\+\_\+port (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Read byte from active port. 
+
+\begin{DoxyReturn}{Returns}
+The byte read from the port 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_abfe95365f11d11645e3ee68e3b47616e}\label{classTagCommunicator_abfe95365f11d11645e3ee68e3b47616e}} 
+\index{TagCommunicator@{TagCommunicator}!read\_settings@{read\_settings}}
+\index{read\_settings@{read\_settings}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{read\_settings()}{read\_settings()}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+Communicator\+::read\+\_\+settings (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{unionSettingsPacket}{Settings\+Packet}} \&}]{settings }\end{DoxyParamCaption})}
+
+
+
+Read data for the device settings over a \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. 
+
+This function, like \mbox{\hyperlink{classTagCommunicator_a74ca2b9244c26594dd938b3c82cb6435}{read\+\_\+type()}}, enforces waiting for the bytes. Will not return unless the bytes are read. 
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em settings} & \mbox{\hyperlink{unionSettingsPacket}{Settings\+Packet}} to which the settings will be written\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t the number of bytes counted 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a74ca2b9244c26594dd938b3c82cb6435}\label{classTagCommunicator_a74ca2b9244c26594dd938b3c82cb6435}} 
+\index{TagCommunicator@{TagCommunicator}!read\_type@{read\_type}}
+\index{read\_type@{read\_type}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{read\_type()}{read\_type()}}
+{\footnotesize\ttfamily template$<$typename T $>$ \\
+size\+\_\+t Tag\+Communicator\+::read\+\_\+type (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{SerialCommunicator_8h_a78deea855ceabf11be8b5a63f415cf53}{Byte\+Array}}$<$ T $>$ \&}]{array }\end{DoxyParamCaption})}
+
+
+
+Reads bytes from the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} as a standard data type. 
+
+This function enforces waiting for the bytes to go through. Will not return unless the bytes are read. As this is a template function, it can take any standard data type.
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ out}}  & {\em array} & Byte\+Array of any standard type. \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t Number of bytes read 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a220729d5fc0c36e1b29809dacc73c706}\label{classTagCommunicator_a220729d5fc0c36e1b29809dacc73c706}} 
+\index{TagCommunicator@{TagCommunicator}!readStringUntil@{readStringUntil}}
+\index{readStringUntil@{readStringUntil}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{readStringUntil()}{readStringUntil()}}
+{\footnotesize\ttfamily String Tag\+Communicator\+::read\+String\+Until (\begin{DoxyParamCaption}\item[{char}]{terminator,  }\item[{size\+\_\+t}]{max = {\ttfamily 120U} }\end{DoxyParamCaption})}
+
+
+
+Returns a String up to the specificied terminator. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em terminator} & the character at which reading will stop \\
+\hline
+\mbox{\texttt{ in}}  & {\em max} & the maximum chars to read before timeout. Default is 120.\\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+String the character string until the terminator character 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a1e753f46ca3458ad2f4b3f1ae2417ca7}\label{classTagCommunicator_a1e753f46ca3458ad2f4b3f1ae2417ca7}} 
+\index{TagCommunicator@{TagCommunicator}!send\_file@{send\_file}}
+\index{send\_file@{send\_file}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{send\_file()}{send\_file()}}
+{\footnotesize\ttfamily bool Tag\+Communicator\+::send\+\_\+file (\begin{DoxyParamCaption}\item[{String}]{filename }\end{DoxyParamCaption})}
+
+
+
+Function to send a specfic file over one of the Serial Communicators. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em filename} & The name of the file to send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+bool If files written successfully, returns true, otherwise returns false 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a76bfc82998f5212be32ede5e09604788}\label{classTagCommunicator_a76bfc82998f5212be32ede5e09604788}} 
+\index{TagCommunicator@{TagCommunicator}!write@{write}}
+\index{write@{write}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [1/4]}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+Communicator\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Write a buffer to the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em buffer} & pointer to an array buffer \\
+\hline
+\mbox{\texttt{ in}}  & {\em len} & The number of bytes to write from array \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a29aa6ebbc9b34761ea413de0cd6d18a6}\label{classTagCommunicator_a29aa6ebbc9b34761ea413de0cd6d18a6}} 
+\index{TagCommunicator@{TagCommunicator}!write@{write}}
+\index{write@{write}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [2/4]}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+Communicator\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+
+
+
+Write a byte to the last read \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}. 
+
+
+\begin{DoxyParams}[1]{Parameters}
+\mbox{\texttt{ in}}  & {\em byte} & byte to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t number of bytes written 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_a6875885782002997fdce56135cdda7ae}\label{classTagCommunicator_a6875885782002997fdce56135cdda7ae}} 
+\index{TagCommunicator@{TagCommunicator}!write@{write}}
+\index{write@{write}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [3/4]}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+Communicator\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t $\ast$}]{buffer,  }\item[{size\+\_\+t}]{len }\end{DoxyParamCaption})}
+
+
+
+Write a buffer to the specified port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & 0 for Bluetooth, 1 for U\+SB, see Ports in initalize\+\_\+variables.\+h \\
+\hline
+{\em buffer} & Pointer to the head of the buffer to write \\
+\hline
+{\em len} & Number of bytes to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classTagCommunicator_ad84fd71c03277cbd94c9d44558c0bc47}\label{classTagCommunicator_ad84fd71c03277cbd94c9d44558c0bc47}} 
+\index{TagCommunicator@{TagCommunicator}!write@{write}}
+\index{write@{write}!TagCommunicator@{TagCommunicator}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}\hspace{0.1cm}{\footnotesize\ttfamily [4/4]}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+Communicator\+::write (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{port,  }\item[{uint8\+\_\+t}]{byte }\end{DoxyParamCaption})}
+
+
+
+Write a byte to the specified port. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em port} & 0 for Bluetooth, 1 for U\+SB, see Ports in initalize\+\_\+variables.\+h \\
+\hline
+{\em byte} & Byte to write \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+size\+\_\+t The number of bytes written 
+\end{DoxyReturn}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Tag\+Communicator/\mbox{\hyperlink{TagCommunicator_8h}{Tag\+Communicator.\+h}}\item 
+lib/\+Tag\+Communicator/\mbox{\hyperlink{TagCommunicator_8cpp}{Tag\+Communicator.\+cpp}}\end{DoxyCompactItemize}

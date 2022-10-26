@@ -1,0 +1,13 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node1" href="$classAbstractDevice.html" title="Sets the interface for each Device." alt="" coords="19,259,131,285"/>
+<area shape="rect" id="node2" href="$classADS1299.html" title="Implements the interface to use with the ADS1299 chip for electroencephalography." alt="" coords="217,208,295,235"/>
+<area shape="rect" id="node3" href="$classESP32__Bluetooth.html" title=" " alt="" coords="193,107,319,133"/>
+<area shape="rect" id="node4" href="$classMPU9250.html" title="Class to implement MPU9250 functionality." alt="" coords="216,259,296,285"/>
+<area shape="rect" id="node5" href="$classNIRS.html" title="Implements the NIRS control." alt="" coords="229,309,283,336"/>
+<area shape="rect" id="node6" href="$classTag__ADC.html" title="Class to implement an Abstract device for the ADC control." alt="" coords="217,360,295,387"/>
+<area shape="rect" id="node7" href="$classSerialCommunicator.html" title="This abstract class establishes the interface for serial communication." alt="" coords="5,56,145,83"/>
+<area shape="rect" id="node8" href="$classRN42__Bluetooth.html" title=" " alt="" coords="197,5,315,32"/>
+<area shape="rect" id="node9" href="$classTag__USB.html" title=" " alt="" coords="217,56,295,83"/>
+<area shape="rect" id="node10" href="$classWriter.html" title=" " alt="" coords="47,107,103,133"/>
+<area shape="rect" id="node11" href="$classDiskManager.html" title="Class to manage the SD card and files for the tag." alt="" coords="207,157,305,184"/>
+</map>

@@ -1,0 +1,8 @@
+<map id="SettingsPacket" name="SettingsPacket">
+<area shape="rect" id="node1" title=" " alt="" coords="198,184,309,211"/>
+<area shape="rect" id="node2" href="$unionADS1299Settings.html" title="Settings for the ADS1299 EEG Chip." alt="" coords="51,95,178,121"/>
+<area shape="rect" id="node3" href="$structADS1299Settings_1_1ADSRegisters.html" title="The structure that stores the settable parameters of the ADS1299." alt="" coords="5,5,224,32"/>
+<area shape="rect" id="node4" href="$unionDeviceEnable.html" title=" " alt="" coords="202,95,305,121"/>
+<area shape="rect" id="node5" href="$unionADCSettings.html" title=" " alt="" coords="329,95,428,121"/>
+<area shape="rect" id="node6" href="$structADCSettings_1_1ADCVals.html" title=" " alt="" coords="298,5,459,32"/>
+</map>

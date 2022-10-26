@@ -1,0 +1,18 @@
+<map id="lib/MPU9250/MPU9250.h" name="lib/MPU9250/MPU9250.h">
+<area shape="rect" id="node1" title=" " alt="" coords="398,5,569,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="5,229,60,256"/>
+<area shape="rect" id="node3" title=" " alt="" coords="543,80,603,107"/>
+<area shape="rect" id="node4" href="$MPU9250__Definitions_8h.html" title=" " alt="" coords="627,80,787,107"/>
+<area shape="rect" id="node5" href="$AbstractDevice_8h.html" title=" " alt="" coords="85,229,207,256"/>
+<area shape="rect" id="node6" href="$Logger_8h.html" title=" " alt="" coords="448,80,519,107"/>
+<area shape="rect" id="node7" title=" " alt="" coords="605,304,682,331"/>
+<area shape="rect" id="node8" href="$LinkedList_8h.html" title=" " alt="" coords="819,155,911,181"/>
+<area shape="rect" id="node9" title=" " alt="" coords="935,155,1045,181"/>
+<area shape="rect" id="node10" href="$AbstractBuffer_8h.html" title=" " alt="" coords="585,155,701,181"/>
+<area shape="rect" id="node12" title=" " alt="" coords="176,155,281,181"/>
+<area shape="rect" id="node13" title=" " alt="" coords="305,155,373,181"/>
+<area shape="rect" id="node14" href="$TagSettings_8h.html" title=" " alt="" coords="467,229,569,256"/>
+<area shape="rect" id="node15" href="$ADS1299_8h.html" title=" " alt="" coords="397,155,487,181"/>
+<area shape="rect" id="node11" href="$BufferBase_8h.html" title=" " alt="" coords="594,229,693,256"/>
+<area shape="rect" id="node16" href="$ADS1299__Definitions_8h.html" title=" " alt="" coords="232,229,391,256"/>
+</map>

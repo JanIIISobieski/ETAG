@@ -1,0 +1,22 @@
+var searchData=
+[
+  ['update_5fanimal_5fname_701',['update_animal_name',['../classRunData.html#a4d63ad7596fa36fe7c88087a02f42300',1,'RunData']]],
+  ['update_5fanimal_5fspecies_702',['update_animal_species',['../classRunData.html#a8ee8ff630a50e038999a12c49c7aa25c',1,'RunData']]],
+  ['update_5fdata_703',['update_data',['../classADS1299.html#ae7506d67ffa5cc965459e35d71f99253',1,'ADS1299']]],
+  ['update_5fdatetime_704',['update_datetime',['../classRunData.html#ae9bcb51f1943d95b8a0ce5c38e174f06',1,'RunData']]],
+  ['update_5fdescription_705',['update_description',['../classRunData.html#af0adfb3af0471b2fe74fa278a2dbc37f',1,'RunData']]],
+  ['update_5fevent_706',['update_event',['../classNIRS.html#a610c6d0314f095318676773c58223135',1,'NIRS']]],
+  ['update_5ffile_5fnum_707',['update_file_num',['../classDiskManager.html#a1009efe61faf71974c20b207ac6e8ff5',1,'DiskManager']]],
+  ['update_5ffiles_708',['update_files',['../initialize__variables_8h.html#afcc14e36efc3d59aeb2d6a33f81c8632',1,'update_files():&#160;main.cpp'],['../main_8cpp.html#afcc14e36efc3d59aeb2d6a33f81c8632',1,'update_files():&#160;main.cpp']]],
+  ['update_5fimu_5fcalibration_709',['update_imu_calibration',['../classRunData.html#a98692536866fa0f9519cad88cd758ec4',1,'RunData']]],
+  ['update_5fparameters_710',['update_parameters',['../initialize__variables_8h.html#a74878e0057e5adc4a53ad0dfd107c1b1',1,'update_parameters():&#160;main.cpp'],['../main_8cpp.html#a74878e0057e5adc4a53ad0dfd107c1b1',1,'update_parameters():&#160;main.cpp']]],
+  ['update_5fsettings_711',['update_settings',['../classTag__ADC.html#a29cdc46177d71fb6a1a8e9cdf0b716b2',1,'Tag_ADC']]],
+  ['update_5ftiming_5fdata_712',['update_timing_data',['../classLogger.html#a046b7d44f5c1926107b78e38aa1879af',1,'Logger']]],
+  ['updatetime_713',['updateTime',['../classMPU9250.html#a39e17cffe3de219d3f991b6476833e40',1,'MPU9250']]],
+  ['usb_714',['USB',['../initialize__variables_8h.html#ab979b2cdeb7c5e623b7e7776cb416262a65f6b55fdc64778bf10632a795b97761',1,'initialize_variables.h']]],
+  ['usb_5fbaud_5frate_715',['USB_BAUD_RATE',['../Tag__USB_8h.html#aede2a2fb889cd1c48b6e3537a6b3d1bb',1,'Tag_USB.h']]],
+  ['usb_5fbuffer_5fsize_716',['USB_BUFFER_SIZE',['../Tag__USB_8h.html#a3e9831dce5cda179a0ef5b26f2722c47',1,'Tag_USB.h']]],
+  ['usb_5fserial_5faddress_717',['USB_SERIAL_ADDRESS',['../initialize__variables_8h.html#ae6d2356601b3aa6b7a012e6df3ace33b',1,'initialize_variables.h']]],
+  ['use_5fdma_5fspi_718',['USE_DMA_SPI',['../ADS1299_8h.html#af2c80f8634cbe54baea9e2983ce26529',1,'ADS1299.h']]],
+  ['user_5fctrl_719',['USER_CTRL',['../MPU9250__Definitions_8h.html#abd9eebb35aad7616fe0414952e2d477d',1,'MPU9250_Definitions.h']]]
+];

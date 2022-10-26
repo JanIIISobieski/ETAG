@@ -1,0 +1,4 @@
+<map id="MPU9250" name="MPU9250">
+<area shape="rect" id="node1" title="Class to implement MPU9250 functionality." alt="" coords="21,80,101,107"/>
+<area shape="rect" id="node2" href="$classAbstractDevice.html" title="Sets the interface for each Device." alt="" coords="5,5,117,32"/>
+</map>

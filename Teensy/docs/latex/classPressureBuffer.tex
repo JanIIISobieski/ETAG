@@ -1,0 +1,96 @@
+\hypertarget{classPressureBuffer}{}\doxysection{Pressure\+Buffer Class Reference}
+\label{classPressureBuffer}\index{PressureBuffer@{PressureBuffer}}
+
+
+{\ttfamily \#include $<$Pressure\+Buffer.\+h$>$}
+
+
+
+Inheritance diagram for Pressure\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=207pt]{classPressureBuffer__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Pressure\+Buffer\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=282pt]{classPressureBuffer__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classPressureBuffer_add2a1c62d1a7e1c115cd53a823de740b}{Pressure\+Buffer}} (volatile uint8\+\_\+t $\ast$$\ast$\mbox{\hyperlink{classAbstractBuffer_a478088eb80b91f8eb65cec77656cf31a}{buffers}}, size\+\_\+t \mbox{\hyperlink{classBufferBase_a3ca3d44e3ab64e176d0ee9eda525e101}{num\+\_\+buffers}}, size\+\_\+t buffer\+\_\+length, uint8\+\_\+t \mbox{\hyperlink{Test__Tag__ADC_8h_a1e6927fa1486224044e568f9c370519b}{id}}, \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\item 
+void \mbox{\hyperlink{classPressureBuffer_a978a227a7e91c960f542c9e02d7b24a0}{write}} (volatile uint8\+\_\+t $\ast$source, size\+\_\+t length)
+\item 
+void \mbox{\hyperlink{classPressureBuffer_a1daca8ebbc756d804348a428b8dabd4b}{reset}} ()
+\begin{DoxyCompactList}\small\item\em Pure virtual function to reset the buffers to their initial state. \end{DoxyCompactList}\item 
+uint8\+\_\+t \mbox{\hyperlink{classPressureBuffer_ad02d8eb018f898ac5ed5ff262defa279}{get\+\_\+buffer\+\_\+selector}} ()
+\item 
+uint16\+\_\+t \mbox{\hyperlink{classPressureBuffer_a4ee1bd2798125121882e2deb6f07c696}{get\+\_\+index}} ()
+\item 
+uint8\+\_\+t \mbox{\hyperlink{classPressureBuffer_a85a26db48b8f627e5b8c6ae4c1b83cc5}{get\+\_\+trigger\+\_\+count}} ()
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classPressureBuffer_add2a1c62d1a7e1c115cd53a823de740b}\label{classPressureBuffer_add2a1c62d1a7e1c115cd53a823de740b}} 
+\index{PressureBuffer@{PressureBuffer}!PressureBuffer@{PressureBuffer}}
+\index{PressureBuffer@{PressureBuffer}!PressureBuffer@{PressureBuffer}}
+\doxysubsubsection{\texorpdfstring{PressureBuffer()}{PressureBuffer()}}
+{\footnotesize\ttfamily Pressure\+Buffer\+::\+Pressure\+Buffer (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$$\ast$}]{buffers,  }\item[{size\+\_\+t}]{num\+\_\+buffers,  }\item[{size\+\_\+t}]{buffer\+\_\+length,  }\item[{uint8\+\_\+t}]{id,  }\item[{\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$}]{queue }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classPressureBuffer_ad02d8eb018f898ac5ed5ff262defa279}\label{classPressureBuffer_ad02d8eb018f898ac5ed5ff262defa279}} 
+\index{PressureBuffer@{PressureBuffer}!get\_buffer\_selector@{get\_buffer\_selector}}
+\index{get\_buffer\_selector@{get\_buffer\_selector}!PressureBuffer@{PressureBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_buffer\_selector()}{get\_buffer\_selector()}}
+{\footnotesize\ttfamily uint8\+\_\+t Pressure\+Buffer\+::get\+\_\+buffer\+\_\+selector (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classPressureBuffer_a4ee1bd2798125121882e2deb6f07c696}\label{classPressureBuffer_a4ee1bd2798125121882e2deb6f07c696}} 
+\index{PressureBuffer@{PressureBuffer}!get\_index@{get\_index}}
+\index{get\_index@{get\_index}!PressureBuffer@{PressureBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_index()}{get\_index()}}
+{\footnotesize\ttfamily uint16\+\_\+t Pressure\+Buffer\+::get\+\_\+index (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classPressureBuffer_a85a26db48b8f627e5b8c6ae4c1b83cc5}\label{classPressureBuffer_a85a26db48b8f627e5b8c6ae4c1b83cc5}} 
+\index{PressureBuffer@{PressureBuffer}!get\_trigger\_count@{get\_trigger\_count}}
+\index{get\_trigger\_count@{get\_trigger\_count}!PressureBuffer@{PressureBuffer}}
+\doxysubsubsection{\texorpdfstring{get\_trigger\_count()}{get\_trigger\_count()}}
+{\footnotesize\ttfamily uint8\+\_\+t Pressure\+Buffer\+::get\+\_\+trigger\+\_\+count (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classPressureBuffer_a1daca8ebbc756d804348a428b8dabd4b}\label{classPressureBuffer_a1daca8ebbc756d804348a428b8dabd4b}} 
+\index{PressureBuffer@{PressureBuffer}!reset@{reset}}
+\index{reset@{reset}!PressureBuffer@{PressureBuffer}}
+\doxysubsubsection{\texorpdfstring{reset()}{reset()}}
+{\footnotesize\ttfamily void Pressure\+Buffer\+::reset (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Pure virtual function to reset the buffers to their initial state. 
+
+
+
+Implements \mbox{\hyperlink{classBufferBase_aba09ad39d95969a8efcc6a02fb29322a}{Buffer\+Base}}.
+
+\mbox{\Hypertarget{classPressureBuffer_a978a227a7e91c960f542c9e02d7b24a0}\label{classPressureBuffer_a978a227a7e91c960f542c9e02d7b24a0}} 
+\index{PressureBuffer@{PressureBuffer}!write@{write}}
+\index{write@{write}!PressureBuffer@{PressureBuffer}}
+\doxysubsubsection{\texorpdfstring{write()}{write()}}
+{\footnotesize\ttfamily void Pressure\+Buffer\+::write (\begin{DoxyParamCaption}\item[{volatile uint8\+\_\+t $\ast$}]{source,  }\item[{size\+\_\+t}]{length }\end{DoxyParamCaption})}
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Pressure\+Buffer/\mbox{\hyperlink{PressureBuffer_8h}{Pressure\+Buffer.\+h}}\item 
+lib/\+Pressure\+Buffer/\mbox{\hyperlink{PressureBuffer_8cpp}{Pressure\+Buffer.\+cpp}}\end{DoxyCompactItemize}

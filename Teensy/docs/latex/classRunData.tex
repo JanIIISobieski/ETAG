@@ -1,0 +1,185 @@
+\hypertarget{classRunData}{}\doxysection{Run\+Data Class Reference}
+\label{classRunData}\index{RunData@{RunData}}
+
+
+Class to manage the run metadata.  
+
+
+
+
+{\ttfamily \#include $<$Tag\+\_\+\+Info.\+h$>$}
+
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRunData_a81b201dc85ff4fb709a6b0672e9cee93}{Run\+Data}} ()
+\begin{DoxyCompactList}\small\item\em Construct a new Run Data object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRunData_ae9bcb51f1943d95b8a0ce5c38e174f06}{update\+\_\+datetime}} ()
+\begin{DoxyCompactList}\small\item\em Create a datetime String. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRunData_a98692536866fa0f9519cad88cd758ec4}{update\+\_\+imu\+\_\+calibration}} (\mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} \&imu)
+\begin{DoxyCompactList}\small\item\em Updates the \mbox{\hyperlink{structIMUCalibration}{I\+M\+U\+Calibration}} object with the most recent data from \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRunData_a4d63ad7596fa36fe7c88087a02f42300}{update\+\_\+animal\+\_\+name}} (String name)
+\begin{DoxyCompactList}\small\item\em Update the name of the animal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRunData_a8ee8ff630a50e038999a12c49c7aa25c}{update\+\_\+animal\+\_\+species}} (String species)
+\begin{DoxyCompactList}\small\item\em Update the species of the animal. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRunData_af0adfb3af0471b2fe74fa278a2dbc37f}{update\+\_\+description}} (String desc)
+\begin{DoxyCompactList}\small\item\em Update the description of the run. \end{DoxyCompactList}\item 
+String \mbox{\hyperlink{classRunData_ae91265039e79b670e5daecf19ea9f6b8}{get\+\_\+datetime}} ()
+\begin{DoxyCompactList}\small\item\em Get the datetime object. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structAnimalData}{Animal\+Data}} $\ast$ \mbox{\hyperlink{classRunData_a1e21ea6b407240ff77d55c01f558e136}{get\+\_\+animal}} ()
+\begin{DoxyCompactList}\small\item\em Get the animal object. \end{DoxyCompactList}\item 
+const \mbox{\hyperlink{structIMUCalibration}{I\+M\+U\+Calibration}} $\ast$ \mbox{\hyperlink{classRunData_a43aa11dc460c3679d37964b3d32b2a75}{get\+\_\+imu}} ()
+\begin{DoxyCompactList}\small\item\em Get the imu calibration object. \end{DoxyCompactList}\item 
+const String \mbox{\hyperlink{classRunData_a2b88876e2eaf830c56ca572f78baf0a5}{get\+\_\+description}} ()
+\begin{DoxyCompactList}\small\item\em Get the description. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Class to manage the run metadata. 
+
+Contains update methods to \mbox{\hyperlink{structIMUCalibration}{I\+M\+U\+Calibration}}, \mbox{\hyperlink{structAnimalData}{Animal\+Data}}, and other data 
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRunData_a81b201dc85ff4fb709a6b0672e9cee93}\label{classRunData_a81b201dc85ff4fb709a6b0672e9cee93}} 
+\index{RunData@{RunData}!RunData@{RunData}}
+\index{RunData@{RunData}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{RunData()}{RunData()}}
+{\footnotesize\ttfamily Run\+Data\+::\+Run\+Data (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Construct a new Run Data object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRunData_a1e21ea6b407240ff77d55c01f558e136}\label{classRunData_a1e21ea6b407240ff77d55c01f558e136}} 
+\index{RunData@{RunData}!get\_animal@{get\_animal}}
+\index{get\_animal@{get\_animal}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{get\_animal()}{get\_animal()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structAnimalData}{Animal\+Data}}$\ast$ Run\+Data\+::get\+\_\+animal (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the animal object. 
+
+\begin{DoxyReturn}{Returns}
+const Animal\+Data$\ast$ pointer to the animal data structure (read-\/only) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRunData_ae91265039e79b670e5daecf19ea9f6b8}\label{classRunData_ae91265039e79b670e5daecf19ea9f6b8}} 
+\index{RunData@{RunData}!get\_datetime@{get\_datetime}}
+\index{get\_datetime@{get\_datetime}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{get\_datetime()}{get\_datetime()}}
+{\footnotesize\ttfamily String Run\+Data\+::get\+\_\+datetime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the datetime object. 
+
+\begin{DoxyReturn}{Returns}
+String Get the datetime string 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRunData_a2b88876e2eaf830c56ca572f78baf0a5}\label{classRunData_a2b88876e2eaf830c56ca572f78baf0a5}} 
+\index{RunData@{RunData}!get\_description@{get\_description}}
+\index{get\_description@{get\_description}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{get\_description()}{get\_description()}}
+{\footnotesize\ttfamily const String Run\+Data\+::get\+\_\+description (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the description. 
+
+\begin{DoxyReturn}{Returns}
+const String the header description for the file 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRunData_a43aa11dc460c3679d37964b3d32b2a75}\label{classRunData_a43aa11dc460c3679d37964b3d32b2a75}} 
+\index{RunData@{RunData}!get\_imu@{get\_imu}}
+\index{get\_imu@{get\_imu}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{get\_imu()}{get\_imu()}}
+{\footnotesize\ttfamily const \mbox{\hyperlink{structIMUCalibration}{I\+M\+U\+Calibration}}$\ast$ Run\+Data\+::get\+\_\+imu (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Get the imu calibration object. 
+
+\begin{DoxyReturn}{Returns}
+const I\+M\+U\+Calibration$\ast$ pointer to the I\+MU calibration structure (read-\/only) 
+\end{DoxyReturn}
+\mbox{\Hypertarget{classRunData_a4d63ad7596fa36fe7c88087a02f42300}\label{classRunData_a4d63ad7596fa36fe7c88087a02f42300}} 
+\index{RunData@{RunData}!update\_animal\_name@{update\_animal\_name}}
+\index{update\_animal\_name@{update\_animal\_name}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{update\_animal\_name()}{update\_animal\_name()}}
+{\footnotesize\ttfamily void Run\+Data\+::update\+\_\+animal\+\_\+name (\begin{DoxyParamCaption}\item[{String}]{name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update the name of the animal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em name} & The name of the animal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRunData_a8ee8ff630a50e038999a12c49c7aa25c}\label{classRunData_a8ee8ff630a50e038999a12c49c7aa25c}} 
+\index{RunData@{RunData}!update\_animal\_species@{update\_animal\_species}}
+\index{update\_animal\_species@{update\_animal\_species}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{update\_animal\_species()}{update\_animal\_species()}}
+{\footnotesize\ttfamily void Run\+Data\+::update\+\_\+animal\+\_\+species (\begin{DoxyParamCaption}\item[{String}]{species }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update the species of the animal. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em species} & The species of the animal \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRunData_ae9bcb51f1943d95b8a0ce5c38e174f06}\label{classRunData_ae9bcb51f1943d95b8a0ce5c38e174f06}} 
+\index{RunData@{RunData}!update\_datetime@{update\_datetime}}
+\index{update\_datetime@{update\_datetime}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{update\_datetime()}{update\_datetime()}}
+{\footnotesize\ttfamily void Run\+Data\+::update\+\_\+datetime (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Create a datetime String. 
+
+This String is used as a filename and is in the form\+: {\ttfamily Y\+Y\+Y\+Y-\/\+M\+M\+\_\+\+D\+D\+\_\+\+H\+H-\/mm-\/\+S\+S.\+txt}. This function creates that string based on the time given by now(). \mbox{\Hypertarget{classRunData_af0adfb3af0471b2fe74fa278a2dbc37f}\label{classRunData_af0adfb3af0471b2fe74fa278a2dbc37f}} 
+\index{RunData@{RunData}!update\_description@{update\_description}}
+\index{update\_description@{update\_description}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{update\_description()}{update\_description()}}
+{\footnotesize\ttfamily void Run\+Data\+::update\+\_\+description (\begin{DoxyParamCaption}\item[{String}]{desc }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Update the description of the run. 
+
+This should be fewer than 120 characters.
+
+
+\begin{DoxyParams}{Parameters}
+{\em desc} & A short description that is saved as a header for the file with some information \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRunData_a98692536866fa0f9519cad88cd758ec4}\label{classRunData_a98692536866fa0f9519cad88cd758ec4}} 
+\index{RunData@{RunData}!update\_imu\_calibration@{update\_imu\_calibration}}
+\index{update\_imu\_calibration@{update\_imu\_calibration}!RunData@{RunData}}
+\doxysubsubsection{\texorpdfstring{update\_imu\_calibration()}{update\_imu\_calibration()}}
+{\footnotesize\ttfamily void Run\+Data\+::update\+\_\+imu\+\_\+calibration (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} \&}]{imu }\end{DoxyParamCaption})}
+
+
+
+Updates the \mbox{\hyperlink{structIMUCalibration}{I\+M\+U\+Calibration}} object with the most recent data from \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}}. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em imu} & The I\+MU to be passed by reference \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Tag\+\_\+\+Info/\mbox{\hyperlink{Tag__Info_8h}{Tag\+\_\+\+Info.\+h}}\item 
+lib/\+Tag\+\_\+\+Info/\mbox{\hyperlink{Tag__Info_8cpp}{Tag\+\_\+\+Info.\+cpp}}\end{DoxyCompactItemize}

@@ -1,0 +1,4 @@
+<map id="ADS1299" name="ADS1299">
+<area shape="rect" id="node1" title="Implements the interface to use with the ADS1299 chip for electroencephalography." alt="" coords="22,80,101,107"/>
+<area shape="rect" id="node2" href="$classAbstractDevice.html" title="Sets the interface for each Device." alt="" coords="5,5,117,32"/>
+</map>

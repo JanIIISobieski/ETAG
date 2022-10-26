@@ -1,0 +1,8 @@
+<map id="ESP32_Bluetooth" name="ESP32_Bluetooth">
+<area shape="rect" id="node1" title=" " alt="" coords="72,336,197,363"/>
+<area shape="rect" id="node2" href="$classSerialCommunicator.html" title="This abstract class establishes the interface for serial communication." alt="" coords="65,260,205,287"/>
+<area shape="rect" id="node3" href="$classDiskManager.html" title="Class to manage the SD card and files for the tag." alt="" coords="75,171,173,197"/>
+<area shape="rect" id="node4" href="$classWriter.html" title=" " alt="" coords="15,95,71,121"/>
+<area shape="rect" id="node5" href="$classRunData.html" title="Class to manage the run metadata." alt="" coords="5,5,80,32"/>
+<area shape="rect" id="node6" href="$classAbstractDevice.html" title="Sets the interface for each Device." alt="" coords="229,260,341,287"/>
+</map>

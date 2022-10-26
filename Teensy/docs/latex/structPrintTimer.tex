@@ -1,0 +1,43 @@
+\hypertarget{structPrintTimer}{}\doxysection{Print\+Timer Struct Reference}
+\label{structPrintTimer}\index{PrintTimer@{PrintTimer}}
+
+
+Structure to hold a timer and a delta time to use for printing variables every so often.  
+
+
+
+
+{\ttfamily \#include $<$Logger.\+h$>$}
+
+\doxysubsection*{Public Attributes}
+\begin{DoxyCompactItemize}
+\item 
+elapsed\+Millis \mbox{\hyperlink{structPrintTimer_a52a32e154b06dda82dec2f4849020671}{timer}}
+\item 
+uint32\+\_\+t \mbox{\hyperlink{structPrintTimer_a2d7d565093a2766913b0bf07d401d402}{dt}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Detailed Description}
+Structure to hold a timer and a delta time to use for printing variables every so often. 
+
+If variables have to be printed during active running of the program (and would otherwise overwhelm the serial output if printed in \mbox{\hyperlink{main_8cpp_afe461d27b9c48d5921c00d521181f12f}{loop()}}), this structure is used to initialize a timer and a dt for time in between printing the output. See \mbox{\hyperlink{classVarPrinter_a02cee311358bab9abe982eb455036ec1}{Logger\+::print\+\_\+timed\+\_\+variables()}}. 
+
+\doxysubsection{Member Data Documentation}
+\mbox{\Hypertarget{structPrintTimer_a2d7d565093a2766913b0bf07d401d402}\label{structPrintTimer_a2d7d565093a2766913b0bf07d401d402}} 
+\index{PrintTimer@{PrintTimer}!dt@{dt}}
+\index{dt@{dt}!PrintTimer@{PrintTimer}}
+\doxysubsubsection{\texorpdfstring{dt}{dt}}
+{\footnotesize\ttfamily uint32\+\_\+t Print\+Timer\+::dt}
+
+\mbox{\Hypertarget{structPrintTimer_a52a32e154b06dda82dec2f4849020671}\label{structPrintTimer_a52a32e154b06dda82dec2f4849020671}} 
+\index{PrintTimer@{PrintTimer}!timer@{timer}}
+\index{timer@{timer}!PrintTimer@{PrintTimer}}
+\doxysubsubsection{\texorpdfstring{timer}{timer}}
+{\footnotesize\ttfamily elapsed\+Millis Print\+Timer\+::timer}
+
+
+
+The documentation for this struct was generated from the following file\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Logger/\mbox{\hyperlink{Logger_8h}{Logger.\+h}}\end{DoxyCompactItemize}

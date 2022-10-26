@@ -1,0 +1,285 @@
+\hypertarget{classESP32__Bluetooth}{}\doxysection{E\+S\+P32\+\_\+\+Bluetooth Class Reference}
+\label{classESP32__Bluetooth}\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+
+
+{\ttfamily \#include $<$E\+S\+P32\+\_\+\+Bluetooth.\+h$>$}
+
+
+
+Inheritance diagram for E\+S\+P32\+\_\+\+Bluetooth\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=348pt]{classESP32__Bluetooth__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for E\+S\+P32\+\_\+\+Bluetooth\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=332pt]{classESP32__Bluetooth__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classESP32__Bluetooth_a05d70d393c920519cc63ce2e5f9a77d2}{E\+S\+P32\+\_\+\+Bluetooth}} (Hardware\+Serial $\ast$bt\+\_\+serial, \mbox{\hyperlink{classDiskManager}{Disk\+Manager}} $\ast$disk\+Manager\+Ptr, \mbox{\hyperlink{classRunData}{Run\+Data}} $\ast$\mbox{\hyperlink{classWriter_a1c7b2e7632942f083b0aa7867d2e328e}{run\+\_\+data}})
+\item 
+\mbox{\hyperlink{classESP32__Bluetooth_afe22e71e163533da499886c778b61b87}{$\sim$\+E\+S\+P32\+\_\+\+Bluetooth}} ()
+\item 
+bool \mbox{\hyperlink{classESP32__Bluetooth_a1570d056fdfb96f89557ee326768c958}{file\+\_\+send}} (String file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Send a file over the stream. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classESP32__Bluetooth_a6f7a6980fae23a6aafd2a5aeb5aed031}{sample\+\_\+pressure\+\_\+temperature}} ()
+\item 
+bool \mbox{\hyperlink{classESP32__Bluetooth_ad329a127e139050ce5d8367bd19d86d8}{sample\+\_\+speed}} ()
+\item 
+int32\+\_\+t \mbox{\hyperlink{classESP32__Bluetooth_ae4cb6d85b3911a5b1a2c6ee7575ccef9}{sample\+\_\+saltwater\+\_\+sensor}} ()
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{classESP32__Bluetooth_a63055e52ecd5f9a440a9cbbe2dcf602b}{get\+\_\+pressure\+\_\+temperature}} ()
+\item 
+uint8\+\_\+t $\ast$ \mbox{\hyperlink{classESP32__Bluetooth_a4ce05111140acc77198116e1bd1e7090}{get\+\_\+speed}} ()
+\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_ab206936aa21c9849492efd9cc92f6ba9}{enable\+\_\+saltwater\+\_\+sensor}} ()
+\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_a5239ea1b9f03e53a8b0c03b0a037f3ac}{disable\+\_\+saltwater\+\_\+sensor}} ()
+\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_a9f8c65205f5f98752d0e578edb89902a}{enable\+\_\+release}} ()
+\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_adf1cb7685a32e94652415dd0c452fb65}{disable\+\_\+release}} ()
+\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_a37a7f11f3122c9db798e49e6abea1d3f}{reset\+\_\+pressure}} ()
+\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_af0a124e2dc5ae3a48d8a392adb0350ef}{set\+\_\+\+Wi\+Fi\+\_\+mode}} ()
+\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_abf37079046b3aab5d60f83a300853b5e}{set\+\_\+\+Bluetooth\+\_\+mode}} ()
+\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_a1d8c24f770ce543ff3109745d08557dd}{turn\+\_\+off\+\_\+comms}} ()
+\item 
+bool \mbox{\hyperlink{classESP32__Bluetooth_ad98e05bc9e4bea3c2d74587bfd830f6b}{init}} ()
+\begin{DoxyCompactList}\small\item\em Defines the initalizer for the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_a67429e599ccfb95a0302900a330a4003}{begin}} ()
+\begin{DoxyCompactList}\small\item\em Defines the begin sampling methods for the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_a84cb460755aeba6650e69dd65ecc5996}{end}} ()
+\begin{DoxyCompactList}\small\item\em Defines the end sampling methods for the device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_aad41a6b9f4381754a23ede435291d066}{pre\+\_\+sampling\+\_\+setup}} ()
+\item 
+void \mbox{\hyperlink{classESP32__Bluetooth_a782e00ca5a70bf5b932442f69af0e44c}{post\+\_\+sampling\+\_\+conclude}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classESP32__Bluetooth_ae370f9512d5280110a066a9259a3a3cb}{write\+\_\+header}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classESP32__Bluetooth_af0314d12fb9678fee1c9df85adf213ed}{write\+\_\+data}} (void $\ast$buff\+\_\+ptr, size\+\_\+t num\+\_\+bytes)
+\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classESP32__Bluetooth_a05d70d393c920519cc63ce2e5f9a77d2}\label{classESP32__Bluetooth_a05d70d393c920519cc63ce2e5f9a77d2}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{ESP32\_Bluetooth()}{ESP32\_Bluetooth()}}
+{\footnotesize\ttfamily E\+S\+P32\+\_\+\+Bluetooth\+::\+E\+S\+P32\+\_\+\+Bluetooth (\begin{DoxyParamCaption}\item[{Hardware\+Serial $\ast$}]{bt\+\_\+serial,  }\item[{\mbox{\hyperlink{classDiskManager}{Disk\+Manager}} $\ast$}]{disk\+Manager\+Ptr,  }\item[{\mbox{\hyperlink{classRunData}{Run\+Data}} $\ast$}]{run\+\_\+data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_afe22e71e163533da499886c778b61b87}\label{classESP32__Bluetooth_afe22e71e163533da499886c778b61b87}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!````~ESP32\_Bluetooth@{$\sim$ESP32\_Bluetooth}}
+\index{````~ESP32\_Bluetooth@{$\sim$ESP32\_Bluetooth}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{$\sim$ESP32\_Bluetooth()}{~ESP32\_Bluetooth()}}
+{\footnotesize\ttfamily E\+S\+P32\+\_\+\+Bluetooth\+::$\sim$\+E\+S\+P32\+\_\+\+Bluetooth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classESP32__Bluetooth_a67429e599ccfb95a0302900a330a4003}\label{classESP32__Bluetooth_a67429e599ccfb95a0302900a330a4003}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!begin@{begin}}
+\index{begin@{begin}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{begin()}{begin()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::begin (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Defines the begin sampling methods for the device. 
+
+This function is to set the device to be ready for sampling 
+
+Implements \mbox{\hyperlink{classAbstractDevice_a89f4760b7a46e04ae41b624565c09517}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classESP32__Bluetooth_adf1cb7685a32e94652415dd0c452fb65}\label{classESP32__Bluetooth_adf1cb7685a32e94652415dd0c452fb65}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!disable\_release@{disable\_release}}
+\index{disable\_release@{disable\_release}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{disable\_release()}{disable\_release()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::disable\+\_\+release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a5239ea1b9f03e53a8b0c03b0a037f3ac}\label{classESP32__Bluetooth_a5239ea1b9f03e53a8b0c03b0a037f3ac}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!disable\_saltwater\_sensor@{disable\_saltwater\_sensor}}
+\index{disable\_saltwater\_sensor@{disable\_saltwater\_sensor}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{disable\_saltwater\_sensor()}{disable\_saltwater\_sensor()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::disable\+\_\+saltwater\+\_\+sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a9f8c65205f5f98752d0e578edb89902a}\label{classESP32__Bluetooth_a9f8c65205f5f98752d0e578edb89902a}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!enable\_release@{enable\_release}}
+\index{enable\_release@{enable\_release}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{enable\_release()}{enable\_release()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::enable\+\_\+release (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_ab206936aa21c9849492efd9cc92f6ba9}\label{classESP32__Bluetooth_ab206936aa21c9849492efd9cc92f6ba9}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!enable\_saltwater\_sensor@{enable\_saltwater\_sensor}}
+\index{enable\_saltwater\_sensor@{enable\_saltwater\_sensor}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{enable\_saltwater\_sensor()}{enable\_saltwater\_sensor()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::enable\+\_\+saltwater\+\_\+sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a84cb460755aeba6650e69dd65ecc5996}\label{classESP32__Bluetooth_a84cb460755aeba6650e69dd65ecc5996}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!end@{end}}
+\index{end@{end}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{end()}{end()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::end (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+
+
+Defines the end sampling methods for the device. 
+
+This function is to stop sampling and power down the device 
+
+Implements \mbox{\hyperlink{classAbstractDevice_a3be2e4a734196c00d317ed5bc19995c7}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a1570d056fdfb96f89557ee326768c958}\label{classESP32__Bluetooth_a1570d056fdfb96f89557ee326768c958}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!file\_send@{file\_send}}
+\index{file\_send@{file\_send}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{file\_send()}{file\_send()}}
+{\footnotesize\ttfamily bool E\+S\+P32\+\_\+\+Bluetooth\+::file\+\_\+send (\begin{DoxyParamCaption}\item[{String}]{file\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Send a file over the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & Name of file to send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true File was successfully sent 
+
+false File was not successfully sent 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSerialCommunicator_aa9e65ef3189c3ca6307023e5f6c5bf61}{Serial\+Communicator}}.
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a63055e52ecd5f9a440a9cbbe2dcf602b}\label{classESP32__Bluetooth_a63055e52ecd5f9a440a9cbbe2dcf602b}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!get\_pressure\_temperature@{get\_pressure\_temperature}}
+\index{get\_pressure\_temperature@{get\_pressure\_temperature}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{get\_pressure\_temperature()}{get\_pressure\_temperature()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ E\+S\+P32\+\_\+\+Bluetooth\+::get\+\_\+pressure\+\_\+temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a4ce05111140acc77198116e1bd1e7090}\label{classESP32__Bluetooth_a4ce05111140acc77198116e1bd1e7090}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!get\_speed@{get\_speed}}
+\index{get\_speed@{get\_speed}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{get\_speed()}{get\_speed()}}
+{\footnotesize\ttfamily uint8\+\_\+t$\ast$ E\+S\+P32\+\_\+\+Bluetooth\+::get\+\_\+speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_ad98e05bc9e4bea3c2d74587bfd830f6b}\label{classESP32__Bluetooth_ad98e05bc9e4bea3c2d74587bfd830f6b}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!init@{init}}
+\index{init@{init}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool E\+S\+P32\+\_\+\+Bluetooth\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Defines the initalizer for the device. 
+
+\begin{DoxyReturn}{Returns}
+true for success or false for failure
+\end{DoxyReturn}
+This initializer is called from Device\+Manager.\+init(), which runs when \mbox{\hyperlink{initialize__variables_8h_a1cc1a8a26d1818565992a466cd25b6b9}{initalize\+\_\+devices()}} is called 
+
+Implements \mbox{\hyperlink{classAbstractDevice_a79fcd0fd5b748a233fe9488195b080a0}{Abstract\+Device}}.
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a782e00ca5a70bf5b932442f69af0e44c}\label{classESP32__Bluetooth_a782e00ca5a70bf5b932442f69af0e44c}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!post\_sampling\_conclude@{post\_sampling\_conclude}}
+\index{post\_sampling\_conclude@{post\_sampling\_conclude}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{post\_sampling\_conclude()}{post\_sampling\_conclude()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::post\+\_\+sampling\+\_\+conclude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Pure virtual function to run after sampling to properly conclude sampling 
+
+Implements \mbox{\hyperlink{classWriter_af901795041c72fd3d7d71618527bb420}{Writer}}.
+
+\mbox{\Hypertarget{classESP32__Bluetooth_aad41a6b9f4381754a23ede435291d066}\label{classESP32__Bluetooth_aad41a6b9f4381754a23ede435291d066}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!pre\_sampling\_setup@{pre\_sampling\_setup}}
+\index{pre\_sampling\_setup@{pre\_sampling\_setup}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{pre\_sampling\_setup()}{pre\_sampling\_setup()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::pre\+\_\+sampling\+\_\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Pure virtual function to run any setup before sampling can be started 
+
+Implements \mbox{\hyperlink{classWriter_a37b50645d34760cc163ce69fa601caa0}{Writer}}.
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a37a7f11f3122c9db798e49e6abea1d3f}\label{classESP32__Bluetooth_a37a7f11f3122c9db798e49e6abea1d3f}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!reset\_pressure@{reset\_pressure}}
+\index{reset\_pressure@{reset\_pressure}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{reset\_pressure()}{reset\_pressure()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::reset\+\_\+pressure (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a6f7a6980fae23a6aafd2a5aeb5aed031}\label{classESP32__Bluetooth_a6f7a6980fae23a6aafd2a5aeb5aed031}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!sample\_pressure\_temperature@{sample\_pressure\_temperature}}
+\index{sample\_pressure\_temperature@{sample\_pressure\_temperature}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{sample\_pressure\_temperature()}{sample\_pressure\_temperature()}}
+{\footnotesize\ttfamily bool E\+S\+P32\+\_\+\+Bluetooth\+::sample\+\_\+pressure\+\_\+temperature (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_ae4cb6d85b3911a5b1a2c6ee7575ccef9}\label{classESP32__Bluetooth_ae4cb6d85b3911a5b1a2c6ee7575ccef9}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!sample\_saltwater\_sensor@{sample\_saltwater\_sensor}}
+\index{sample\_saltwater\_sensor@{sample\_saltwater\_sensor}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{sample\_saltwater\_sensor()}{sample\_saltwater\_sensor()}}
+{\footnotesize\ttfamily int32\+\_\+t E\+S\+P32\+\_\+\+Bluetooth\+::sample\+\_\+saltwater\+\_\+sensor (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_ad329a127e139050ce5d8367bd19d86d8}\label{classESP32__Bluetooth_ad329a127e139050ce5d8367bd19d86d8}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!sample\_speed@{sample\_speed}}
+\index{sample\_speed@{sample\_speed}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{sample\_speed()}{sample\_speed()}}
+{\footnotesize\ttfamily bool E\+S\+P32\+\_\+\+Bluetooth\+::sample\+\_\+speed (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_abf37079046b3aab5d60f83a300853b5e}\label{classESP32__Bluetooth_abf37079046b3aab5d60f83a300853b5e}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!set\_Bluetooth\_mode@{set\_Bluetooth\_mode}}
+\index{set\_Bluetooth\_mode@{set\_Bluetooth\_mode}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{set\_Bluetooth\_mode()}{set\_Bluetooth\_mode()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::set\+\_\+\+Bluetooth\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_af0a124e2dc5ae3a48d8a392adb0350ef}\label{classESP32__Bluetooth_af0a124e2dc5ae3a48d8a392adb0350ef}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!set\_WiFi\_mode@{set\_WiFi\_mode}}
+\index{set\_WiFi\_mode@{set\_WiFi\_mode}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{set\_WiFi\_mode()}{set\_WiFi\_mode()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::set\+\_\+\+Wi\+Fi\+\_\+mode (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_a1d8c24f770ce543ff3109745d08557dd}\label{classESP32__Bluetooth_a1d8c24f770ce543ff3109745d08557dd}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!turn\_off\_comms@{turn\_off\_comms}}
+\index{turn\_off\_comms@{turn\_off\_comms}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{turn\_off\_comms()}{turn\_off\_comms()}}
+{\footnotesize\ttfamily void E\+S\+P32\+\_\+\+Bluetooth\+::turn\+\_\+off\+\_\+comms (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classESP32__Bluetooth_af0314d12fb9678fee1c9df85adf213ed}\label{classESP32__Bluetooth_af0314d12fb9678fee1c9df85adf213ed}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!write\_data@{write\_data}}
+\index{write\_data@{write\_data}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{write\_data()}{write\_data()}}
+{\footnotesize\ttfamily size\+\_\+t E\+S\+P32\+\_\+\+Bluetooth\+::write\+\_\+data (\begin{DoxyParamCaption}\item[{void $\ast$}]{buff\+\_\+ptr,  }\item[{size\+\_\+t}]{num\+\_\+bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Pure virtual function to write a data buffer 
+
+Implements \mbox{\hyperlink{classWriter_ac189f80d1fb1fffef55725dace730892}{Writer}}.
+
+\mbox{\Hypertarget{classESP32__Bluetooth_ae370f9512d5280110a066a9259a3a3cb}\label{classESP32__Bluetooth_ae370f9512d5280110a066a9259a3a3cb}} 
+\index{ESP32\_Bluetooth@{ESP32\_Bluetooth}!write\_header@{write\_header}}
+\index{write\_header@{write\_header}!ESP32\_Bluetooth@{ESP32\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{write\_header()}{write\_header()}}
+{\footnotesize\ttfamily size\+\_\+t E\+S\+P32\+\_\+\+Bluetooth\+::write\+\_\+header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Pure virtual function to write the header 
+
+Implements \mbox{\hyperlink{classWriter_aa408827bcbd650655b8b6c5a2a7a5a7b}{Writer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+E\+S\+P32\+\_\+\+Bluetooth/\mbox{\hyperlink{ESP32__Bluetooth_8h}{E\+S\+P32\+\_\+\+Bluetooth.\+h}}\item 
+lib/\+E\+S\+P32\+\_\+\+Bluetooth/\mbox{\hyperlink{ESP32__Bluetooth_8cpp}{E\+S\+P32\+\_\+\+Bluetooth.\+cpp}}\end{DoxyCompactItemize}

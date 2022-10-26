@@ -1,0 +1,59 @@
+\hypertarget{EEGBuffer_8cpp}{}\doxysection{lib/\+E\+E\+G\+Buffer/\+E\+E\+G\+Buffer.cpp File Reference}
+\label{EEGBuffer_8cpp}\index{lib/EEGBuffer/EEGBuffer.cpp@{lib/EEGBuffer/EEGBuffer.cpp}}
+{\ttfamily \#include \char`\"{}E\+E\+G\+Buffer.\+h\char`\"{}}\newline
+Include dependency graph for E\+E\+G\+Buffer.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{EEGBuffer_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{EEGBuffer_8cpp_a370274f6ac82f8f924cb00394c5e0331}{dma\+\_\+spi\+\_\+finished}} (Event\+Responder\+Ref event)
+\begin{DoxyCompactList}\small\item\em Event responder to a completion of a D\+MA S\+PI transfer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{EEGBuffer_8cpp_a6c6d962b5f2f27d7e6876abbe2b0adf8}{ads\+\_\+\+I\+SR}} ()
+\begin{DoxyCompactList}\small\item\em \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} data ready I\+SR. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}} \mbox{\hyperlink{EEGBuffer_8cpp_a37885c5aec7007b28e09a6dab4372239}{eeg\+\_\+buffer}}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{EEGBuffer_8cpp_a6c6d962b5f2f27d7e6876abbe2b0adf8}\label{EEGBuffer_8cpp_a6c6d962b5f2f27d7e6876abbe2b0adf8}} 
+\index{EEGBuffer.cpp@{EEGBuffer.cpp}!ads\_ISR@{ads\_ISR}}
+\index{ads\_ISR@{ads\_ISR}!EEGBuffer.cpp@{EEGBuffer.cpp}}
+\doxysubsubsection{\texorpdfstring{ads\_ISR()}{ads\_ISR()}}
+{\footnotesize\ttfamily void ads\+\_\+\+I\+SR (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+\mbox{\hyperlink{classADS1299}{A\+D\+S1299}} data ready I\+SR. 
+
+Whenever the data ready pin goes L\+OW, the S\+PI transaction begins, the Chip Select pin is set to low, and the D\+MA transfer is initalized to save the transferred data to the \mbox{\hyperlink{initialize__variables_8h_afe020ac5160d3e8471fa965580ff9424}{eeg\+\_\+buffer}} in \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}}. \mbox{\Hypertarget{EEGBuffer_8cpp_a370274f6ac82f8f924cb00394c5e0331}\label{EEGBuffer_8cpp_a370274f6ac82f8f924cb00394c5e0331}} 
+\index{EEGBuffer.cpp@{EEGBuffer.cpp}!dma\_spi\_finished@{dma\_spi\_finished}}
+\index{dma\_spi\_finished@{dma\_spi\_finished}!EEGBuffer.cpp@{EEGBuffer.cpp}}
+\doxysubsubsection{\texorpdfstring{dma\_spi\_finished()}{dma\_spi\_finished()}}
+{\footnotesize\ttfamily void dma\+\_\+spi\+\_\+finished (\begin{DoxyParamCaption}\item[{Event\+Responder\+Ref}]{event }\end{DoxyParamCaption})}
+
+
+
+Event responder to a completion of a D\+MA S\+PI transfer. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em event} & Event to which this function will respond to (a reference to an Event\+Responder)\\
+\hline
+\end{DoxyParams}
+This function will set the chip select to H\+I\+GH, end the S\+PI transation, and write the data to the E\+EG Buffer. Pass this to dma\+\_\+spi\+\_\+transfer.\+attatch() in this class\textquotesingle{}s init(). 
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{EEGBuffer_8cpp_a37885c5aec7007b28e09a6dab4372239}\label{EEGBuffer_8cpp_a37885c5aec7007b28e09a6dab4372239}} 
+\index{EEGBuffer.cpp@{EEGBuffer.cpp}!eeg\_buffer@{eeg\_buffer}}
+\index{eeg\_buffer@{eeg\_buffer}!EEGBuffer.cpp@{EEGBuffer.cpp}}
+\doxysubsubsection{\texorpdfstring{eeg\_buffer}{eeg\_buffer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}} eeg\+\_\+buffer}
+

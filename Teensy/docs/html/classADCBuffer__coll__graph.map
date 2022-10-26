@@ -1,0 +1,7 @@
+<map id="ADCBuffer" name="ADCBuffer">
+<area shape="rect" id="node1" title="ADCBuffer class for managing sampling of pins." alt="" coords="157,184,244,211"/>
+<area shape="rect" id="node2" href="$classAbstractBuffer.html" title=" " alt="" coords="35,95,211,121"/>
+<area shape="rect" id="node3" href="$classBufferBase.html" title=" " alt="" coords="5,5,92,32"/>
+<area shape="rect" id="node4" href="$structBufferHelper.html" title=" " alt="" coords="117,5,282,32"/>
+<area shape="rect" id="node5" href="$classTag__Queue.html" title=" " alt="" coords="235,95,323,121"/>
+</map>

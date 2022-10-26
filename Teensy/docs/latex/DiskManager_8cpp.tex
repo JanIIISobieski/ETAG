@@ -1,0 +1,39 @@
+\hypertarget{DiskManager_8cpp}{}\doxysection{lib/\+Disk\+Manager/\+Disk\+Manager.cpp File Reference}
+\label{DiskManager_8cpp}\index{lib/DiskManager/DiskManager.cpp@{lib/DiskManager/DiskManager.cpp}}
+{\ttfamily \#include $<$Disk\+Manager.\+h$>$}\newline
+Include dependency graph for Disk\+Manager.\+cpp\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{DiskManager_8cpp__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \mbox{\hyperlink{DiskManager_8cpp_a02459ac1211c779c4fc2aee607f416d3}{date\+Time}} (uint16\+\_\+t $\ast$date, uint16\+\_\+t $\ast$time, uint8\+\_\+t $\ast$ms10)
+\begin{DoxyCompactList}\small\item\em Date\+Time callback for establishing the proper time datetime on files. \end{DoxyCompactList}\end{DoxyCompactItemize}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{DiskManager_8cpp_a02459ac1211c779c4fc2aee607f416d3}\label{DiskManager_8cpp_a02459ac1211c779c4fc2aee607f416d3}} 
+\index{DiskManager.cpp@{DiskManager.cpp}!dateTime@{dateTime}}
+\index{dateTime@{dateTime}!DiskManager.cpp@{DiskManager.cpp}}
+\doxysubsubsection{\texorpdfstring{dateTime()}{dateTime()}}
+{\footnotesize\ttfamily void date\+Time (\begin{DoxyParamCaption}\item[{uint16\+\_\+t $\ast$}]{date,  }\item[{uint16\+\_\+t $\ast$}]{time,  }\item[{uint8\+\_\+t $\ast$}]{ms10 }\end{DoxyParamCaption})}
+
+
+
+Date\+Time callback for establishing the proper time datetime on files. 
+
+Originates from the \href{https://github.com/greiman/SdFat}{\texttt{ SD Fat}} library.
+
+
+\begin{DoxyParams}{Parameters}
+{\em date} & Pointer to the date will be saved \\
+\hline
+{\em time} & Pointer to the time will be saved \\
+\hline
+{\em ms10} & Pointer to where milliseconds to the nearest 10 will be saved \\
+\hline
+\end{DoxyParams}

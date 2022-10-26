@@ -1,0 +1,138 @@
+\hypertarget{classTag__USB}{}\doxysection{Tag\+\_\+\+U\+SB Class Reference}
+\label{classTag__USB}\index{Tag\_USB@{Tag\_USB}}
+
+
+{\ttfamily \#include $<$Tag\+\_\+\+U\+S\+B.\+h$>$}
+
+
+
+Inheritance diagram for Tag\+\_\+\+U\+SB\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=246pt]{classTag__USB__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for Tag\+\_\+\+U\+SB\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=252pt]{classTag__USB__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classTag__USB_a8fb9ec0ebf901c63b64191c6d7e4a47b}{Tag\+\_\+\+U\+SB}} (usb\+\_\+serial\+\_\+class $\ast$serial, \mbox{\hyperlink{classDiskManager}{Disk\+Manager}} $\ast$disk\+Manager\+Ptr, \mbox{\hyperlink{classRunData}{Run\+Data}} $\ast$\mbox{\hyperlink{classWriter_a1c7b2e7632942f083b0aa7867d2e328e}{run\+\_\+data}})
+\item 
+\mbox{\hyperlink{classTag__USB_af9e37407f5ddfa85e2b84ddb0940efe3}{$\sim$\+Tag\+\_\+\+U\+SB}} ()
+\item 
+bool \mbox{\hyperlink{classTag__USB_aa3942537cf3de59f6dade257cafb74c1}{init}} ()
+\item 
+void \mbox{\hyperlink{classTag__USB_a9bb8e82a5235503bf0f11a0b56a484a8}{pre\+\_\+sampling\+\_\+setup}} ()
+\item 
+void \mbox{\hyperlink{classTag__USB_abb4bb2860ee65ebe20f293503f1d02d1}{post\+\_\+sampling\+\_\+conclude}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classTag__USB_a42ed4cf1ef85121e9a7ed8133ed93bf7}{write\+\_\+header}} ()
+\item 
+size\+\_\+t \mbox{\hyperlink{classTag__USB_aac35338c37ad79d98a507c182d3ba108}{write\+\_\+data}} (void $\ast$buff\+\_\+ptr, size\+\_\+t num\+\_\+bytes)
+\item 
+bool \mbox{\hyperlink{classTag__USB_a3db937ecf0087339dc60a561ce702ccc}{file\+\_\+send}} (String file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Send a file over the stream. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classTag__USB_a8fb9ec0ebf901c63b64191c6d7e4a47b}\label{classTag__USB_a8fb9ec0ebf901c63b64191c6d7e4a47b}} 
+\index{Tag\_USB@{Tag\_USB}!Tag\_USB@{Tag\_USB}}
+\index{Tag\_USB@{Tag\_USB}!Tag\_USB@{Tag\_USB}}
+\doxysubsubsection{\texorpdfstring{Tag\_USB()}{Tag\_USB()}}
+{\footnotesize\ttfamily Tag\+\_\+\+U\+S\+B\+::\+Tag\+\_\+\+U\+SB (\begin{DoxyParamCaption}\item[{usb\+\_\+serial\+\_\+class $\ast$}]{serial,  }\item[{\mbox{\hyperlink{classDiskManager}{Disk\+Manager}} $\ast$}]{disk\+Manager\+Ptr,  }\item[{\mbox{\hyperlink{classRunData}{Run\+Data}} $\ast$}]{run\+\_\+data }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classTag__USB_af9e37407f5ddfa85e2b84ddb0940efe3}\label{classTag__USB_af9e37407f5ddfa85e2b84ddb0940efe3}} 
+\index{Tag\_USB@{Tag\_USB}!````~Tag\_USB@{$\sim$Tag\_USB}}
+\index{````~Tag\_USB@{$\sim$Tag\_USB}!Tag\_USB@{Tag\_USB}}
+\doxysubsubsection{\texorpdfstring{$\sim$Tag\_USB()}{~Tag\_USB()}}
+{\footnotesize\ttfamily Tag\+\_\+\+U\+S\+B\+::$\sim$\+Tag\+\_\+\+U\+SB (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classTag__USB_a3db937ecf0087339dc60a561ce702ccc}\label{classTag__USB_a3db937ecf0087339dc60a561ce702ccc}} 
+\index{Tag\_USB@{Tag\_USB}!file\_send@{file\_send}}
+\index{file\_send@{file\_send}!Tag\_USB@{Tag\_USB}}
+\doxysubsubsection{\texorpdfstring{file\_send()}{file\_send()}}
+{\footnotesize\ttfamily bool Tag\+\_\+\+U\+S\+B\+::file\+\_\+send (\begin{DoxyParamCaption}\item[{String}]{file\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Send a file over the stream. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & Name of file to send \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true File was successfully sent 
+
+false File was not successfully sent 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSerialCommunicator_aa9e65ef3189c3ca6307023e5f6c5bf61}{Serial\+Communicator}}.
+
+\mbox{\Hypertarget{classTag__USB_aa3942537cf3de59f6dade257cafb74c1}\label{classTag__USB_aa3942537cf3de59f6dade257cafb74c1}} 
+\index{Tag\_USB@{Tag\_USB}!init@{init}}
+\index{init@{init}!Tag\_USB@{Tag\_USB}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily bool Tag\+\_\+\+U\+S\+B\+::init (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{classTag__USB_abb4bb2860ee65ebe20f293503f1d02d1}\label{classTag__USB_abb4bb2860ee65ebe20f293503f1d02d1}} 
+\index{Tag\_USB@{Tag\_USB}!post\_sampling\_conclude@{post\_sampling\_conclude}}
+\index{post\_sampling\_conclude@{post\_sampling\_conclude}!Tag\_USB@{Tag\_USB}}
+\doxysubsubsection{\texorpdfstring{post\_sampling\_conclude()}{post\_sampling\_conclude()}}
+{\footnotesize\ttfamily void Tag\+\_\+\+U\+S\+B\+::post\+\_\+sampling\+\_\+conclude (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Pure virtual function to run after sampling to properly conclude sampling 
+
+Implements \mbox{\hyperlink{classWriter_af901795041c72fd3d7d71618527bb420}{Writer}}.
+
+\mbox{\Hypertarget{classTag__USB_a9bb8e82a5235503bf0f11a0b56a484a8}\label{classTag__USB_a9bb8e82a5235503bf0f11a0b56a484a8}} 
+\index{Tag\_USB@{Tag\_USB}!pre\_sampling\_setup@{pre\_sampling\_setup}}
+\index{pre\_sampling\_setup@{pre\_sampling\_setup}!Tag\_USB@{Tag\_USB}}
+\doxysubsubsection{\texorpdfstring{pre\_sampling\_setup()}{pre\_sampling\_setup()}}
+{\footnotesize\ttfamily void Tag\+\_\+\+U\+S\+B\+::pre\+\_\+sampling\+\_\+setup (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}, {\ttfamily [virtual]}}
+
+Pure virtual function to run any setup before sampling can be started 
+
+Implements \mbox{\hyperlink{classWriter_a37b50645d34760cc163ce69fa601caa0}{Writer}}.
+
+\mbox{\Hypertarget{classTag__USB_aac35338c37ad79d98a507c182d3ba108}\label{classTag__USB_aac35338c37ad79d98a507c182d3ba108}} 
+\index{Tag\_USB@{Tag\_USB}!write\_data@{write\_data}}
+\index{write\_data@{write\_data}!Tag\_USB@{Tag\_USB}}
+\doxysubsubsection{\texorpdfstring{write\_data()}{write\_data()}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+\_\+\+U\+S\+B\+::write\+\_\+data (\begin{DoxyParamCaption}\item[{void $\ast$}]{buff\+\_\+ptr,  }\item[{size\+\_\+t}]{num\+\_\+bytes }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Pure virtual function to write a data buffer 
+
+Implements \mbox{\hyperlink{classWriter_ac189f80d1fb1fffef55725dace730892}{Writer}}.
+
+\mbox{\Hypertarget{classTag__USB_a42ed4cf1ef85121e9a7ed8133ed93bf7}\label{classTag__USB_a42ed4cf1ef85121e9a7ed8133ed93bf7}} 
+\index{Tag\_USB@{Tag\_USB}!write\_header@{write\_header}}
+\index{write\_header@{write\_header}!Tag\_USB@{Tag\_USB}}
+\doxysubsubsection{\texorpdfstring{write\_header()}{write\_header()}}
+{\footnotesize\ttfamily size\+\_\+t Tag\+\_\+\+U\+S\+B\+::write\+\_\+header (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+Pure virtual function to write the header 
+
+Implements \mbox{\hyperlink{classWriter_aa408827bcbd650655b8b6c5a2a7a5a7b}{Writer}}.
+
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+Tag\+\_\+\+U\+S\+B/\mbox{\hyperlink{Tag__USB_8h}{Tag\+\_\+\+U\+S\+B.\+h}}\item 
+lib/\+Tag\+\_\+\+U\+S\+B/\mbox{\hyperlink{Tag__USB_8cpp}{Tag\+\_\+\+U\+S\+B.\+cpp}}\end{DoxyCompactItemize}

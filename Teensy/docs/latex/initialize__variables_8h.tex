@@ -1,0 +1,874 @@
+\hypertarget{initialize__variables_8h}{}\doxysection{src/initialize\+\_\+variables.h File Reference}
+\label{initialize__variables_8h}\index{src/initialize\_variables.h@{src/initialize\_variables.h}}
+{\ttfamily \#include $<$Arduino.\+h$>$}\newline
+{\ttfamily \#include $<$S\+P\+I.\+h$>$}\newline
+{\ttfamily \#include $<$A\+D\+S1299.\+h$>$}\newline
+{\ttfamily \#include \char`\"{}Tag\+\_\+\+A\+D\+C.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tag\+\_\+\+S\+D.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Device\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Disk\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tag\+\_\+\+N\+I\+R\+S.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}M\+P\+U9250.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tag\+Communicator.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E\+S\+P32\+\_\+\+Bluetooth.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tag\+\_\+\+U\+S\+B.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Tag\+\_\+\+Queue.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}E\+E\+G\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}I\+M\+U\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}A\+D\+C\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Logger.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Pressure\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Speed\+Buffer.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Writer\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Buffer\+Manager.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}Linked\+List.\+h\char`\"{}}\newline
+Include dependency graph for initialize\+\_\+variables.\+h\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=350pt]{initialize__variables_8h__incl}
+\end{center}
+\end{figure}
+This graph shows which files directly or indirectly include this file\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=201pt]{initialize__variables_8h__dep__incl}
+\end{center}
+\end{figure}
+\doxysubsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a6f6489887e08bff4887d0bc5dcf214d8}{A\+CK}}~6
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_ae6d2356601b3aa6b7a012e6df3ace33b}{U\+S\+B\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+A\+D\+D\+R\+E\+SS}}~\&Serial
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a6146ba6c24f4fb8f5bfe6cc89ca51d8f}{B\+L\+U\+E\+T\+O\+O\+T\+H\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+A\+D\+D\+R\+E\+SS}}~\&Serial4
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_ad1451c69d1bd4ac4730149df1fb2c2bb}{N\+U\+M\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+O\+RS}}~2
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a464de3c0d06dd6538e689adf191d9a9b}{N\+U\+M\+\_\+\+W\+R\+I\+T\+E\+RS}}~3
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_ae25dd45790c2d64a058357612977baea}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}~128
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a46542598923371328c204737a081c90d}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N\+G\+TH}}~4096
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a277f7738efe738f0fbf4bbd0878d33fc}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+N\+UM}}~2
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_aa7de9d93b2651b85cce136a9b92e8302}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+P\+IN}}~15
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a579ee360eaacbdba855ea40cd51c46e2}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+A\+VG}}~0
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a7d22e3c26071c9fb3f8c05208f165b6c}{H\+Y\+R\+D\+O\+P\+H\+O\+N\+E\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON}}~12
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a382372c6e325e1a7d28a80947185652e}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY}}~40000
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_af4d54e584a662662888836b3a9b9eb08}{M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+SS}}~\mbox{\hyperlink{MPU9250__Definitions_8h_a99c4ac0475ad1aa13a7aef83c83ef343}{M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+A\+D0}}
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a28ea9e55707f4c069f6444df23ae8c4c}{I2\+C\+Port}}~Wire
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a446f4e60399f8a302dd34fb08fc747cd}{I2\+Cclock}}~200000
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a2dc1389b5ff22f88d20a38bf3f97fdef}{I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}~1
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a89344035b6c988218e7c2a8375a33d75}{I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N\+G\+TH}}~4096
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_ac32b9ae77838d35f4f88092770d614fe}{I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+N\+UM}}~4
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_ae936ea9deb3717f5152b05c432792dd5}{N\+I\+R\+S\+\_\+\+L\+E\+F\+T\+\_\+\+B\+U\+T\+T\+ON}}~20
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a707892003668d97048b5956afcf0342d}{N\+I\+R\+S\+\_\+\+R\+I\+G\+H\+T\+\_\+\+B\+U\+T\+T\+ON}}~21
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_aedc0cb374de5b7f13cdb1059361a034f}{N\+I\+R\+S\+\_\+\+S\+H\+O\+R\+T\+\_\+\+P\+R\+E\+SS}}~1000
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a88a97719e413932db90fa7fba8c9ad82}{N\+I\+R\+S\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+SS}}~3000
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a212d0b796fca7e2827d18f0b6a274686}{E\+E\+G\+\_\+\+D\+R\+DY}}~14
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a9b325763873620207c06de0da1f35ebd}{E\+E\+G\+\_\+\+C\+S\+\_\+\+P\+A\+R\+E\+NT}}~8
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a4100da47034f963f143d484ae8953e35}{E\+E\+G\+\_\+\+C\+S\+\_\+\+C\+H\+I\+LD}}~10
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a27313399bae6e153c99d4984e0993219}{E\+E\+G\+\_\+\+R\+ST}}~22
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a46a4dc6c11f8885463589cce3357b5c4}{E\+E\+G\+\_\+\+S\+T\+A\+RT}}~9
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a0bb95f25ddc3aad7a387547964c4f8d5}{E\+E\+G\+\_\+\+P\+W\+DN}}~23
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a25eae6c2b0aa895e579a56611c8890e6}{E\+E\+G\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}~8
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_ac38f2940bfd508ef4beefa953fe27276}{E\+E\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}~8192
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a65135f394af725e56ad201f106af1918}{E\+E\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM}}~4
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_ac33d5bb9e989a4ddbf101948aa857185}{P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}~16
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_ae85f23379ca62ceeabeedcc0d2c07acd}{P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}~8192
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a368a657e9c9661b7451db1c7ebbda3a6}{P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM}}~4
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a862778cc1232d6ad03a5549f94daf707}{S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}~64
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a83c6ac1d98de484dbef3f704826318f2}{S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}~8192
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a92cbb4cc5d65303dc174b93ba5848161}{S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM}}~4
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a2872cb40327b457feb2aa3a37213e2c3}{N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+T\+Y\+P\+ES}}~5
+\item 
+\#define \mbox{\hyperlink{initialize__variables_8h_a7020e20a18e8488cd19315887c473ce2}{N\+U\+M\+\_\+\+D\+E\+V\+I\+C\+ES}}~5
+\end{DoxyCompactItemize}
+\doxysubsection*{Enumerations}
+\begin{DoxyCompactItemize}
+\item 
+enum \mbox{\hyperlink{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262}{Writer\+Location}} \+: uint8\+\_\+t \{ \mbox{\hyperlink{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262acf9d75f7b1a34d02c9d810281f51cf2a}{B\+L\+U\+E\+T\+O\+O\+TH}} = 0, 
+\mbox{\hyperlink{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262a65f6b55fdc64778bf10632a795b97761}{U\+SB}} = 1, 
+\mbox{\hyperlink{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262a8268cafd51299d814aba050e5f54f1ac}{SD}} = 2
+ \}
+\end{DoxyCompactItemize}
+\doxysubsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classWriterManager}{Writer\+Manager}} \mbox{\hyperlink{initialize__variables_8h_add4b801c1aec9db63b2ad5e21a3c1c37}{Write\+Manager}} (\mbox{\hyperlink{initialize__variables_8h_a8fa5c943751b85fe402cb1b74879ee64}{writers}}, \mbox{\hyperlink{initialize__variables_8h_a464de3c0d06dd6538e689adf191d9a9b}{N\+U\+M\+\_\+\+W\+R\+I\+T\+E\+RS}})
+\item 
+\mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} \mbox{\hyperlink{initialize__variables_8h_a90b6c84d61107d420485e1d1cedbf175}{hydrophone\+\_\+buffer}} (adc\+\_\+buffers, \mbox{\hyperlink{initialize__variables_8h_a277f7738efe738f0fbf4bbd0878d33fc}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+N\+UM}}, \mbox{\hyperlink{initialize__variables_8h_a46542598923371328c204737a081c90d}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N\+G\+TH}}, \mbox{\hyperlink{initialize__variables_8h_ae25dd45790c2d64a058357612977baea}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}, \&\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\item 
+\mbox{\hyperlink{classTag__ADC}{Tag\+\_\+\+A\+DC}} \mbox{\hyperlink{initialize__variables_8h_a932adb0f171e9d2082bf4ef07f746447}{hydrophone}} (\mbox{\hyperlink{initialize__variables_8h_aa7de9d93b2651b85cce136a9b92e8302}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+P\+IN}}, \&\mbox{\hyperlink{initialize__variables_8h_a9274d2199ba49255a4b95eab4b135ab5}{adc\+\_\+settings}}, \&\mbox{\hyperlink{initialize__variables_8h_a90b6c84d61107d420485e1d1cedbf175}{hydrophone\+\_\+buffer}})
+\item 
+\mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} \mbox{\hyperlink{initialize__variables_8h_ab404b79cb80fa051c530ff0ad577e066}{I\+MU}} (\mbox{\hyperlink{MPU9250_8h_af4d54e584a662662888836b3a9b9eb08}{M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+SS}}, \mbox{\hyperlink{initialize__variables_8h_a28ea9e55707f4c069f6444df23ae8c4c}{I2\+C\+Port}}, \mbox{\hyperlink{initialize__variables_8h_a446f4e60399f8a302dd34fb08fc747cd}{I2\+Cclock}})
+\item 
+\mbox{\hyperlink{classIMUBuffer}{I\+M\+U\+Buffer}} \mbox{\hyperlink{initialize__variables_8h_ae4dc2a8318e8e8918279d386728ee138}{imu\+\_\+buffer}} (imu\+\_\+buffers, \mbox{\hyperlink{initialize__variables_8h_ac32b9ae77838d35f4f88092770d614fe}{I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+N\+UM}}, \mbox{\hyperlink{initialize__variables_8h_a89344035b6c988218e7c2a8375a33d75}{I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N\+G\+TH}}, \mbox{\hyperlink{initialize__variables_8h_a2dc1389b5ff22f88d20a38bf3f97fdef}{I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}, \&\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\item 
+\mbox{\hyperlink{classNIRS}{N\+I\+RS}} \mbox{\hyperlink{initialize__variables_8h_acf3f85ea2b125dcfe4ad87c58240ca83}{nirs}} (\mbox{\hyperlink{initialize__variables_8h_ae936ea9deb3717f5152b05c432792dd5}{N\+I\+R\+S\+\_\+\+L\+E\+F\+T\+\_\+\+B\+U\+T\+T\+ON}}, \mbox{\hyperlink{initialize__variables_8h_a707892003668d97048b5956afcf0342d}{N\+I\+R\+S\+\_\+\+R\+I\+G\+H\+T\+\_\+\+B\+U\+T\+T\+ON}}, \mbox{\hyperlink{initialize__variables_8h_aedc0cb374de5b7f13cdb1059361a034f}{N\+I\+R\+S\+\_\+\+S\+H\+O\+R\+T\+\_\+\+P\+R\+E\+SS}}, \mbox{\hyperlink{initialize__variables_8h_a88a97719e413932db90fa7fba8c9ad82}{N\+I\+R\+S\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+SS}})
+\item 
+\mbox{\hyperlink{classADS1299}{A\+D\+S1299}} \mbox{\hyperlink{initialize__variables_8h_a815f88b2d311f9d06cd983ab601c6cc9}{eeg}} (\mbox{\hyperlink{initialize__variables_8h_a212d0b796fca7e2827d18f0b6a274686}{E\+E\+G\+\_\+\+D\+R\+DY}}, \mbox{\hyperlink{initialize__variables_8h_a9b325763873620207c06de0da1f35ebd}{E\+E\+G\+\_\+\+C\+S\+\_\+\+P\+A\+R\+E\+NT}}, \mbox{\hyperlink{initialize__variables_8h_a27313399bae6e153c99d4984e0993219}{E\+E\+G\+\_\+\+R\+ST}}, \mbox{\hyperlink{initialize__variables_8h_a46a4dc6c11f8885463589cce3357b5c4}{E\+E\+G\+\_\+\+S\+T\+A\+RT}}, \mbox{\hyperlink{initialize__variables_8h_a0bb95f25ddc3aad7a387547964c4f8d5}{E\+E\+G\+\_\+\+P\+W\+DN}}, \&\mbox{\hyperlink{initialize__variables_8h_a6645f0ffe5452f70a440cf9252986975}{parent\+\_\+eeg\+\_\+settings}})
+\item 
+\mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}} \mbox{\hyperlink{initialize__variables_8h_afe020ac5160d3e8471fa965580ff9424}{eeg\+\_\+buffer}} (ads\+\_\+buffers, \mbox{\hyperlink{initialize__variables_8h_a65135f394af725e56ad201f106af1918}{E\+E\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM}}, \mbox{\hyperlink{initialize__variables_8h_ac38f2940bfd508ef4beefa953fe27276}{E\+E\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}, \mbox{\hyperlink{initialize__variables_8h_a25eae6c2b0aa895e579a56611c8890e6}{E\+E\+G\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}, \&\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\item 
+\mbox{\hyperlink{classPressureBuffer}{Pressure\+Buffer}} \mbox{\hyperlink{initialize__variables_8h_a55b758960ebf9fdc852fe299b2b2bb32}{pressure\+\_\+buffer}} (pressure\+\_\+buffers, \mbox{\hyperlink{initialize__variables_8h_a368a657e9c9661b7451db1c7ebbda3a6}{P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM}}, \mbox{\hyperlink{initialize__variables_8h_ae85f23379ca62ceeabeedcc0d2c07acd}{P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}, \mbox{\hyperlink{initialize__variables_8h_ac33d5bb9e989a4ddbf101948aa857185}{P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}, \&\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\item 
+\mbox{\hyperlink{classSpeedBuffer}{Speed\+Buffer}} \mbox{\hyperlink{initialize__variables_8h_a8d015d863e47046e1a5622d2086695e9}{speed\+\_\+buffer}} (speed\+\_\+buffers, \mbox{\hyperlink{initialize__variables_8h_a92cbb4cc5d65303dc174b93ba5848161}{S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM}}, \mbox{\hyperlink{initialize__variables_8h_a83c6ac1d98de484dbef3f704826318f2}{S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}, \mbox{\hyperlink{initialize__variables_8h_a862778cc1232d6ad03a5549f94daf707}{S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}, \&\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}})
+\item 
+\mbox{\hyperlink{classBufferManager}{Buffer\+Manager}} \mbox{\hyperlink{initialize__variables_8h_a0ed2f8b7d35f48d90c6e1de0f8a41b43}{buffer\+\_\+manager}} (\mbox{\hyperlink{initialize__variables_8h_aae30ad14d13faeec7415dc39cee45bce}{buffers}}, \mbox{\hyperlink{initialize__variables_8h_a2872cb40327b457feb2aa3a37213e2c3}{N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+T\+Y\+P\+ES}})
+\item 
+\mbox{\hyperlink{classDeviceManager}{Device\+Manager}} \mbox{\hyperlink{initialize__variables_8h_a9455b11bb2022166aa7089f3879e3069}{device\+Manager}} (\mbox{\hyperlink{initialize__variables_8h_a9d84f14b7259dc67d7cff8d05858a73c}{devices}}, device\+\_\+settings.\+raw\+\_\+bytes, \mbox{\hyperlink{initialize__variables_8h_a7020e20a18e8488cd19315887c473ce2}{N\+U\+M\+\_\+\+D\+E\+V\+I\+C\+ES}})
+\item 
+void \mbox{\hyperlink{initialize__variables_8h_a32e7a7ed8702a489fd9d67f4edf5dcf8}{sampling}} ()
+\begin{DoxyCompactList}\small\item\em Function to handle sampling of devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_ac4ffd9db24ac31263f4401e7d966f804}{begin\+\_\+sampling}} ()
+\begin{DoxyCompactList}\small\item\em Starts the sampling of all the devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_a8aff2db9386e6e5d6e9dcd2f4e45a112}{stop\+\_\+sampling}} ()
+\begin{DoxyCompactList}\small\item\em Stops the sampling devices and does any post-\/sampling tasks. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_a39d0e278f38d1c73f2f595def6df0070}{test\+\_\+sampling}} ()
+\begin{DoxyCompactList}\small\item\em Function that will test the sampling and stream this data over Bluetooth. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_a74878e0057e5adc4a53ad0dfd107c1b1}{update\+\_\+parameters}} ()
+\begin{DoxyCompactList}\small\item\em This function updates the structures that hold the settings for each sampling device. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_a64bd27b4f76f66c63bc820efa494f442}{sync\+\_\+time}} ()
+\item 
+void \mbox{\hyperlink{initialize__variables_8h_afcc14e36efc3d59aeb2d6a33f81c8632}{update\+\_\+files}} ()
+\begin{DoxyCompactList}\small\item\em This function reads all the available files in the SD card root directory, and sends the file names over the \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}}. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_a8e5d8fba35ea2d7dc097615cd3050e29}{download\+\_\+files}} ()
+\begin{DoxyCompactList}\small\item\em Downloads a file from the tag to the computer. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_a1cc1a8a26d1818565992a466cd25b6b9}{initalize\+\_\+devices}} ()
+\begin{DoxyCompactList}\small\item\em Initialize the sampling devices. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_a36e6a4185b24d4b7681ca565317a602a}{delete\+\_\+file}} ()
+\begin{DoxyCompactList}\small\item\em This function will delete a file from the SD card, freeing up space. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_ad9fdf6797becfdb68010a90b089262c5}{nirs\+\_\+on}} ()
+\begin{DoxyCompactList}\small\item\em Turns on the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_a2b03e8d0eba5599e1a1f402459af7e9d}{nirs\+\_\+off}} ()
+\begin{DoxyCompactList}\small\item\em Turns off the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{initialize__variables_8h_a2e4f0ce332d3c08a9ab4b88fffd775f2}{forward\+\_\+\+E\+S\+P32\+\_\+logging}} ()
+\begin{DoxyCompactList}\small\item\em Forwards logging calls from E\+S\+P32 to the logger. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Variables}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRunData}{Run\+Data}} \mbox{\hyperlink{initialize__variables_8h_ac48baf2ca17a4a74eb16fbd9d0403ab7}{run\+\_\+data}}
+\item 
+size\+\_\+t \mbox{\hyperlink{initialize__variables_8h_ae72fbc89e86f831f7caf86a8f3bc6eef}{bytes\+\_\+written}} = 0
+\item 
+\mbox{\hyperlink{classTag__USB}{Tag\+\_\+\+U\+SB}} \mbox{\hyperlink{initialize__variables_8h_a71b4b373a6d1863c38f1f9a5014a258c}{M\+I\+C\+R\+O\+\_\+\+U\+SB}} = \mbox{\hyperlink{classTag__USB}{Tag\+\_\+\+U\+SB}}(\mbox{\hyperlink{initialize__variables_8h_ae6d2356601b3aa6b7a012e6df3ace33b}{U\+S\+B\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+A\+D\+D\+R\+E\+SS}}, \&disk\+Manager, \&\mbox{\hyperlink{initialize__variables_8h_ac48baf2ca17a4a74eb16fbd9d0403ab7}{run\+\_\+data}})
+\item 
+\mbox{\hyperlink{classESP32__Bluetooth}{E\+S\+P32\+\_\+\+Bluetooth}} \mbox{\hyperlink{initialize__variables_8h_a90ceb46cbd15c6b88397424706dba927}{Tag\+\_\+\+Bluetooth}}
+\item 
+\mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} $\ast$ \mbox{\hyperlink{initialize__variables_8h_a8b1afd27f08c98cc50371b4e2f349abc}{comm\+\_\+array}} \mbox{[}\mbox{\hyperlink{initialize__variables_8h_ad1451c69d1bd4ac4730149df1fb2c2bb}{N\+U\+M\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+O\+RS}}\mbox{]} = \{\&\mbox{\hyperlink{initialize__variables_8h_a90ceb46cbd15c6b88397424706dba927}{Tag\+\_\+\+Bluetooth}}, \&\mbox{\hyperlink{initialize__variables_8h_a71b4b373a6d1863c38f1f9a5014a258c}{M\+I\+C\+R\+O\+\_\+\+U\+SB}}\}
+\item 
+\mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}} \mbox{\hyperlink{initialize__variables_8h_aa25575eb264de682b3b449ccac449cd6}{Tag\+Comms}} = \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}}(\mbox{\hyperlink{initialize__variables_8h_a8b1afd27f08c98cc50371b4e2f349abc}{comm\+\_\+array}}, \mbox{\hyperlink{initialize__variables_8h_ad1451c69d1bd4ac4730149df1fb2c2bb}{N\+U\+M\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+O\+RS}})
+\item 
+char \mbox{\hyperlink{initialize__variables_8h_a25827e9cb2be1cdb757882bea43e0af9}{command}} = \textquotesingle{}0\textquotesingle{}
+\item 
+int \mbox{\hyperlink{initialize__variables_8h_a3f2a08fcd10874911a6f1f9ee064d8d3}{read\+\_\+val}} = -\/1
+\item 
+\mbox{\hyperlink{classWriter}{Writer}} $\ast$ \mbox{\hyperlink{initialize__variables_8h_a8fa5c943751b85fe402cb1b74879ee64}{writers}} \mbox{[}\mbox{\hyperlink{initialize__variables_8h_a464de3c0d06dd6538e689adf191d9a9b}{N\+U\+M\+\_\+\+W\+R\+I\+T\+E\+RS}}\mbox{]} = \{\&\mbox{\hyperlink{initialize__variables_8h_a90ceb46cbd15c6b88397424706dba927}{Tag\+\_\+\+Bluetooth}}, \&\mbox{\hyperlink{initialize__variables_8h_a71b4b373a6d1863c38f1f9a5014a258c}{M\+I\+C\+R\+O\+\_\+\+U\+SB}}, \&disk\+Manager\}
+\item 
+\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} \mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}}
+\item 
+\mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} $\ast$ \mbox{\hyperlink{initialize__variables_8h_a88574756faaf8ed20796d8267bb2907a}{buffer\+\_\+ptr}} = \&\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}}
+\item 
+\mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}} \mbox{\hyperlink{initialize__variables_8h_a9274d2199ba49255a4b95eab4b135ab5}{adc\+\_\+settings}} \{\}
+\item 
+\mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} \mbox{\hyperlink{initialize__variables_8h_a6645f0ffe5452f70a440cf9252986975}{parent\+\_\+eeg\+\_\+settings}} \{\}
+\item 
+\mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} \mbox{\hyperlink{initialize__variables_8h_ad468e15e25a904aabeed55f5afbe1fca}{child\+\_\+eeg\+\_\+settings}} \{\}
+\item 
+\mbox{\hyperlink{classBufferBase}{Buffer\+Base}} $\ast$ \mbox{\hyperlink{initialize__variables_8h_aae30ad14d13faeec7415dc39cee45bce}{buffers}} \mbox{[}\mbox{\hyperlink{initialize__variables_8h_a2872cb40327b457feb2aa3a37213e2c3}{N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+T\+Y\+P\+ES}}\mbox{]} = \{\&\mbox{\hyperlink{initialize__variables_8h_ae4dc2a8318e8e8918279d386728ee138}{imu\+\_\+buffer}}, \&\mbox{\hyperlink{initialize__variables_8h_afe020ac5160d3e8471fa965580ff9424}{eeg\+\_\+buffer}}, \&\mbox{\hyperlink{initialize__variables_8h_a90b6c84d61107d420485e1d1cedbf175}{hydrophone\+\_\+buffer}}, \&\mbox{\hyperlink{initialize__variables_8h_a55b758960ebf9fdc852fe299b2b2bb32}{pressure\+\_\+buffer}}, \&\mbox{\hyperlink{initialize__variables_8h_a8d015d863e47046e1a5622d2086695e9}{speed\+\_\+buffer}}\}
+\item 
+\mbox{\hyperlink{classAbstractDevice}{Abstract\+Device}} $\ast$ \mbox{\hyperlink{initialize__variables_8h_a9d84f14b7259dc67d7cff8d05858a73c}{devices}} \mbox{[}\mbox{\hyperlink{initialize__variables_8h_a7020e20a18e8488cd19315887c473ce2}{N\+U\+M\+\_\+\+D\+E\+V\+I\+C\+ES}}\mbox{]} = \{\&\mbox{\hyperlink{initialize__variables_8h_acf3f85ea2b125dcfe4ad87c58240ca83}{nirs}}, \&\mbox{\hyperlink{Test__MPU9250_8h_a69824787697ff61e67b377dc19f84992}{I\+MU}}, \&\mbox{\hyperlink{initialize__variables_8h_a815f88b2d311f9d06cd983ab601c6cc9}{eeg}}, \&\mbox{\hyperlink{initialize__variables_8h_a932adb0f171e9d2082bf4ef07f746447}{hydrophone}}, \&\mbox{\hyperlink{initialize__variables_8h_a90ceb46cbd15c6b88397424706dba927}{Tag\+\_\+\+Bluetooth}}\}
+\item 
+\mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}} \mbox{\hyperlink{initialize__variables_8h_a75c2b0cf2818e4099805c9d64e489c34}{device\+\_\+settings}} \{\}
+\item 
+\mbox{\hyperlink{classLogger}{Logger}} \mbox{\hyperlink{WriterManager_8h_a5b27630dbcf231bfda3a7d79e1eefce5}{logger}} \& \mbox{\hyperlink{initialize__variables_8h_a2fd3d9a56bac32487e00de41ed300bc0}{Serial\+U\+S\+B1}}
+\item 
+\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} \mbox{\hyperlink{initialize__variables_8h_a9658bfa781f64633adf2cd3ea30803f0}{hydrophone\+\_\+buffer\+\_\+push}} \{\}
+\item 
+\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} \mbox{\hyperlink{initialize__variables_8h_ad119f431a322223c1591d2eaa77a4a54}{eeg\+\_\+buffer\+\_\+push}} \{\}
+\item 
+\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} \mbox{\hyperlink{initialize__variables_8h_aa2a3a971bd163cf883d00df94522f435}{imu\+\_\+buffer\+\_\+push}} \{\}
+\item 
+\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} \mbox{\hyperlink{initialize__variables_8h_afbf5a2a88560bc7715e929d3bed19670}{speed\+\_\+buffer\+\_\+push}} \{\}
+\item 
+\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} \mbox{\hyperlink{initialize__variables_8h_a77695711cbae66260e5048c2193c215e}{pressure\+\_\+buffer\+\_\+push}} \{\}
+\item 
+\mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} \mbox{\hyperlink{initialize__variables_8h_ac166f4c6273f96ee8051b10d3bdeae2a}{sampling\+\_\+loop}} \{\}
+\item 
+\mbox{\hyperlink{Logger_8h_a2093ab4d1c1464417761a58faef15d28}{Print\+Timing}} \mbox{\hyperlink{initialize__variables_8h_a104c46b08fadfcbb5c0b7fe1c257767b}{stop\+On\+Completion\+Timer}} \{\}
+\end{DoxyCompactItemize}
+
+
+\doxysubsection{Macro Definition Documentation}
+\mbox{\Hypertarget{initialize__variables_8h_a6f6489887e08bff4887d0bc5dcf214d8}\label{initialize__variables_8h_a6f6489887e08bff4887d0bc5dcf214d8}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!ACK@{ACK}}
+\index{ACK@{ACK}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{ACK}{ACK}}
+{\footnotesize\ttfamily \#define A\+CK~6}
+
+\mbox{\Hypertarget{initialize__variables_8h_a6146ba6c24f4fb8f5bfe6cc89ca51d8f}\label{initialize__variables_8h_a6146ba6c24f4fb8f5bfe6cc89ca51d8f}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!BLUETOOTH\_SERIAL\_ADDRESS@{BLUETOOTH\_SERIAL\_ADDRESS}}
+\index{BLUETOOTH\_SERIAL\_ADDRESS@{BLUETOOTH\_SERIAL\_ADDRESS}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{BLUETOOTH\_SERIAL\_ADDRESS}{BLUETOOTH\_SERIAL\_ADDRESS}}
+{\footnotesize\ttfamily \#define B\+L\+U\+E\+T\+O\+O\+T\+H\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+A\+D\+D\+R\+E\+SS~\&Serial4}
+
+\mbox{\Hypertarget{initialize__variables_8h_a25eae6c2b0aa895e579a56611c8890e6}\label{initialize__variables_8h_a25eae6c2b0aa895e579a56611c8890e6}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!EEG\_BUFF\_ID@{EEG\_BUFF\_ID}}
+\index{EEG\_BUFF\_ID@{EEG\_BUFF\_ID}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_BUFF\_ID}{EEG\_BUFF\_ID}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+B\+U\+F\+F\+\_\+\+ID~8}
+
+\mbox{\Hypertarget{initialize__variables_8h_ac38f2940bfd508ef4beefa953fe27276}\label{initialize__variables_8h_ac38f2940bfd508ef4beefa953fe27276}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!EEG\_BUFFER\_LENGTH@{EEG\_BUFFER\_LENGTH}}
+\index{EEG\_BUFFER\_LENGTH@{EEG\_BUFFER\_LENGTH}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_BUFFER\_LENGTH}{EEG\_BUFFER\_LENGTH}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH~8192}
+
+\mbox{\Hypertarget{initialize__variables_8h_a65135f394af725e56ad201f106af1918}\label{initialize__variables_8h_a65135f394af725e56ad201f106af1918}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!EEG\_BUFFER\_NUM@{EEG\_BUFFER\_NUM}}
+\index{EEG\_BUFFER\_NUM@{EEG\_BUFFER\_NUM}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_BUFFER\_NUM}{EEG\_BUFFER\_NUM}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM~4}
+
+\mbox{\Hypertarget{initialize__variables_8h_a4100da47034f963f143d484ae8953e35}\label{initialize__variables_8h_a4100da47034f963f143d484ae8953e35}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!EEG\_CS\_CHILD@{EEG\_CS\_CHILD}}
+\index{EEG\_CS\_CHILD@{EEG\_CS\_CHILD}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_CS\_CHILD}{EEG\_CS\_CHILD}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+C\+S\+\_\+\+C\+H\+I\+LD~10}
+
+\mbox{\Hypertarget{initialize__variables_8h_a9b325763873620207c06de0da1f35ebd}\label{initialize__variables_8h_a9b325763873620207c06de0da1f35ebd}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!EEG\_CS\_PARENT@{EEG\_CS\_PARENT}}
+\index{EEG\_CS\_PARENT@{EEG\_CS\_PARENT}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_CS\_PARENT}{EEG\_CS\_PARENT}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+C\+S\+\_\+\+P\+A\+R\+E\+NT~8}
+
+\mbox{\Hypertarget{initialize__variables_8h_a212d0b796fca7e2827d18f0b6a274686}\label{initialize__variables_8h_a212d0b796fca7e2827d18f0b6a274686}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!EEG\_DRDY@{EEG\_DRDY}}
+\index{EEG\_DRDY@{EEG\_DRDY}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_DRDY}{EEG\_DRDY}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+D\+R\+DY~14}
+
+\mbox{\Hypertarget{initialize__variables_8h_a0bb95f25ddc3aad7a387547964c4f8d5}\label{initialize__variables_8h_a0bb95f25ddc3aad7a387547964c4f8d5}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!EEG\_PWDN@{EEG\_PWDN}}
+\index{EEG\_PWDN@{EEG\_PWDN}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_PWDN}{EEG\_PWDN}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+P\+W\+DN~23}
+
+\mbox{\Hypertarget{initialize__variables_8h_a27313399bae6e153c99d4984e0993219}\label{initialize__variables_8h_a27313399bae6e153c99d4984e0993219}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!EEG\_RST@{EEG\_RST}}
+\index{EEG\_RST@{EEG\_RST}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_RST}{EEG\_RST}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+R\+ST~22}
+
+\mbox{\Hypertarget{initialize__variables_8h_a46a4dc6c11f8885463589cce3357b5c4}\label{initialize__variables_8h_a46a4dc6c11f8885463589cce3357b5c4}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!EEG\_START@{EEG\_START}}
+\index{EEG\_START@{EEG\_START}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{EEG\_START}{EEG\_START}}
+{\footnotesize\ttfamily \#define E\+E\+G\+\_\+\+S\+T\+A\+RT~9}
+
+\mbox{\Hypertarget{initialize__variables_8h_a579ee360eaacbdba855ea40cd51c46e2}\label{initialize__variables_8h_a579ee360eaacbdba855ea40cd51c46e2}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!HYDROPHONE\_AVG@{HYDROPHONE\_AVG}}
+\index{HYDROPHONE\_AVG@{HYDROPHONE\_AVG}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{HYDROPHONE\_AVG}{HYDROPHONE\_AVG}}
+{\footnotesize\ttfamily \#define H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+A\+VG~0}
+
+\mbox{\Hypertarget{initialize__variables_8h_ae25dd45790c2d64a058357612977baea}\label{initialize__variables_8h_ae25dd45790c2d64a058357612977baea}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!HYDROPHONE\_BUFF\_ID@{HYDROPHONE\_BUFF\_ID}}
+\index{HYDROPHONE\_BUFF\_ID@{HYDROPHONE\_BUFF\_ID}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{HYDROPHONE\_BUFF\_ID}{HYDROPHONE\_BUFF\_ID}}
+{\footnotesize\ttfamily \#define H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+ID~128}
+
+\mbox{\Hypertarget{initialize__variables_8h_a46542598923371328c204737a081c90d}\label{initialize__variables_8h_a46542598923371328c204737a081c90d}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!HYDROPHONE\_BUFF\_LENGTH@{HYDROPHONE\_BUFF\_LENGTH}}
+\index{HYDROPHONE\_BUFF\_LENGTH@{HYDROPHONE\_BUFF\_LENGTH}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{HYDROPHONE\_BUFF\_LENGTH}{HYDROPHONE\_BUFF\_LENGTH}}
+{\footnotesize\ttfamily \#define H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N\+G\+TH~4096}
+
+\mbox{\Hypertarget{initialize__variables_8h_a277f7738efe738f0fbf4bbd0878d33fc}\label{initialize__variables_8h_a277f7738efe738f0fbf4bbd0878d33fc}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!HYDROPHONE\_BUFF\_NUM@{HYDROPHONE\_BUFF\_NUM}}
+\index{HYDROPHONE\_BUFF\_NUM@{HYDROPHONE\_BUFF\_NUM}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{HYDROPHONE\_BUFF\_NUM}{HYDROPHONE\_BUFF\_NUM}}
+{\footnotesize\ttfamily \#define H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+N\+UM~2}
+
+\mbox{\Hypertarget{initialize__variables_8h_a382372c6e325e1a7d28a80947185652e}\label{initialize__variables_8h_a382372c6e325e1a7d28a80947185652e}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!HYDROPHONE\_SAMPLING\_FREQUENCY@{HYDROPHONE\_SAMPLING\_FREQUENCY}}
+\index{HYDROPHONE\_SAMPLING\_FREQUENCY@{HYDROPHONE\_SAMPLING\_FREQUENCY}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{HYDROPHONE\_SAMPLING\_FREQUENCY}{HYDROPHONE\_SAMPLING\_FREQUENCY}}
+{\footnotesize\ttfamily \#define H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+F\+R\+E\+Q\+U\+E\+N\+CY~40000}
+
+\mbox{\Hypertarget{initialize__variables_8h_aa7de9d93b2651b85cce136a9b92e8302}\label{initialize__variables_8h_aa7de9d93b2651b85cce136a9b92e8302}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!HYDROPHONE\_SAMPLING\_PIN@{HYDROPHONE\_SAMPLING\_PIN}}
+\index{HYDROPHONE\_SAMPLING\_PIN@{HYDROPHONE\_SAMPLING\_PIN}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{HYDROPHONE\_SAMPLING\_PIN}{HYDROPHONE\_SAMPLING\_PIN}}
+{\footnotesize\ttfamily \#define H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+P\+IN~15}
+
+\mbox{\Hypertarget{initialize__variables_8h_a7d22e3c26071c9fb3f8c05208f165b6c}\label{initialize__variables_8h_a7d22e3c26071c9fb3f8c05208f165b6c}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!HYRDOPHONE\_RESOLUTION@{HYRDOPHONE\_RESOLUTION}}
+\index{HYRDOPHONE\_RESOLUTION@{HYRDOPHONE\_RESOLUTION}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{HYRDOPHONE\_RESOLUTION}{HYRDOPHONE\_RESOLUTION}}
+{\footnotesize\ttfamily \#define H\+Y\+R\+D\+O\+P\+H\+O\+N\+E\+\_\+\+R\+E\+S\+O\+L\+U\+T\+I\+ON~12}
+
+\mbox{\Hypertarget{initialize__variables_8h_a446f4e60399f8a302dd34fb08fc747cd}\label{initialize__variables_8h_a446f4e60399f8a302dd34fb08fc747cd}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!I2Cclock@{I2Cclock}}
+\index{I2Cclock@{I2Cclock}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{I2Cclock}{I2Cclock}}
+{\footnotesize\ttfamily \#define I2\+Cclock~200000}
+
+\mbox{\Hypertarget{initialize__variables_8h_a28ea9e55707f4c069f6444df23ae8c4c}\label{initialize__variables_8h_a28ea9e55707f4c069f6444df23ae8c4c}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!I2CPort@{I2CPort}}
+\index{I2CPort@{I2CPort}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{I2CPort}{I2CPort}}
+{\footnotesize\ttfamily \#define I2\+C\+Port~Wire}
+
+\mbox{\Hypertarget{initialize__variables_8h_a2dc1389b5ff22f88d20a38bf3f97fdef}\label{initialize__variables_8h_a2dc1389b5ff22f88d20a38bf3f97fdef}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!IMU\_BUFF\_ID@{IMU\_BUFF\_ID}}
+\index{IMU\_BUFF\_ID@{IMU\_BUFF\_ID}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_BUFF\_ID}{IMU\_BUFF\_ID}}
+{\footnotesize\ttfamily \#define I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+ID~1}
+
+\mbox{\Hypertarget{initialize__variables_8h_a89344035b6c988218e7c2a8375a33d75}\label{initialize__variables_8h_a89344035b6c988218e7c2a8375a33d75}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!IMU\_BUFF\_LENGTH@{IMU\_BUFF\_LENGTH}}
+\index{IMU\_BUFF\_LENGTH@{IMU\_BUFF\_LENGTH}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_BUFF\_LENGTH}{IMU\_BUFF\_LENGTH}}
+{\footnotesize\ttfamily \#define I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N\+G\+TH~4096}
+
+\mbox{\Hypertarget{initialize__variables_8h_ac32b9ae77838d35f4f88092770d614fe}\label{initialize__variables_8h_ac32b9ae77838d35f4f88092770d614fe}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!IMU\_BUFF\_NUM@{IMU\_BUFF\_NUM}}
+\index{IMU\_BUFF\_NUM@{IMU\_BUFF\_NUM}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{IMU\_BUFF\_NUM}{IMU\_BUFF\_NUM}}
+{\footnotesize\ttfamily \#define I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+N\+UM~4}
+
+\mbox{\Hypertarget{initialize__variables_8h_af4d54e584a662662888836b3a9b9eb08}\label{initialize__variables_8h_af4d54e584a662662888836b3a9b9eb08}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!MPU9250\_ADDRESS@{MPU9250\_ADDRESS}}
+\index{MPU9250\_ADDRESS@{MPU9250\_ADDRESS}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{MPU9250\_ADDRESS}{MPU9250\_ADDRESS}}
+{\footnotesize\ttfamily \#define M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+SS~\mbox{\hyperlink{MPU9250__Definitions_8h_a99c4ac0475ad1aa13a7aef83c83ef343}{M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+S\+S\+\_\+\+A\+D0}}}
+
+\mbox{\Hypertarget{initialize__variables_8h_ae936ea9deb3717f5152b05c432792dd5}\label{initialize__variables_8h_ae936ea9deb3717f5152b05c432792dd5}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!NIRS\_LEFT\_BUTTON@{NIRS\_LEFT\_BUTTON}}
+\index{NIRS\_LEFT\_BUTTON@{NIRS\_LEFT\_BUTTON}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{NIRS\_LEFT\_BUTTON}{NIRS\_LEFT\_BUTTON}}
+{\footnotesize\ttfamily \#define N\+I\+R\+S\+\_\+\+L\+E\+F\+T\+\_\+\+B\+U\+T\+T\+ON~20}
+
+\mbox{\Hypertarget{initialize__variables_8h_a88a97719e413932db90fa7fba8c9ad82}\label{initialize__variables_8h_a88a97719e413932db90fa7fba8c9ad82}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!NIRS\_LONG\_PRESS@{NIRS\_LONG\_PRESS}}
+\index{NIRS\_LONG\_PRESS@{NIRS\_LONG\_PRESS}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{NIRS\_LONG\_PRESS}{NIRS\_LONG\_PRESS}}
+{\footnotesize\ttfamily \#define N\+I\+R\+S\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+SS~3000}
+
+\mbox{\Hypertarget{initialize__variables_8h_a707892003668d97048b5956afcf0342d}\label{initialize__variables_8h_a707892003668d97048b5956afcf0342d}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!NIRS\_RIGHT\_BUTTON@{NIRS\_RIGHT\_BUTTON}}
+\index{NIRS\_RIGHT\_BUTTON@{NIRS\_RIGHT\_BUTTON}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{NIRS\_RIGHT\_BUTTON}{NIRS\_RIGHT\_BUTTON}}
+{\footnotesize\ttfamily \#define N\+I\+R\+S\+\_\+\+R\+I\+G\+H\+T\+\_\+\+B\+U\+T\+T\+ON~21}
+
+\mbox{\Hypertarget{initialize__variables_8h_aedc0cb374de5b7f13cdb1059361a034f}\label{initialize__variables_8h_aedc0cb374de5b7f13cdb1059361a034f}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!NIRS\_SHORT\_PRESS@{NIRS\_SHORT\_PRESS}}
+\index{NIRS\_SHORT\_PRESS@{NIRS\_SHORT\_PRESS}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{NIRS\_SHORT\_PRESS}{NIRS\_SHORT\_PRESS}}
+{\footnotesize\ttfamily \#define N\+I\+R\+S\+\_\+\+S\+H\+O\+R\+T\+\_\+\+P\+R\+E\+SS~1000}
+
+\mbox{\Hypertarget{initialize__variables_8h_a2872cb40327b457feb2aa3a37213e2c3}\label{initialize__variables_8h_a2872cb40327b457feb2aa3a37213e2c3}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!NUM\_BUFFER\_TYPES@{NUM\_BUFFER\_TYPES}}
+\index{NUM\_BUFFER\_TYPES@{NUM\_BUFFER\_TYPES}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_BUFFER\_TYPES}{NUM\_BUFFER\_TYPES}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+T\+Y\+P\+ES~5}
+
+\mbox{\Hypertarget{initialize__variables_8h_ad1451c69d1bd4ac4730149df1fb2c2bb}\label{initialize__variables_8h_ad1451c69d1bd4ac4730149df1fb2c2bb}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!NUM\_COMMUNICATORS@{NUM\_COMMUNICATORS}}
+\index{NUM\_COMMUNICATORS@{NUM\_COMMUNICATORS}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_COMMUNICATORS}{NUM\_COMMUNICATORS}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+O\+RS~2}
+
+\mbox{\Hypertarget{initialize__variables_8h_a7020e20a18e8488cd19315887c473ce2}\label{initialize__variables_8h_a7020e20a18e8488cd19315887c473ce2}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!NUM\_DEVICES@{NUM\_DEVICES}}
+\index{NUM\_DEVICES@{NUM\_DEVICES}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_DEVICES}{NUM\_DEVICES}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+D\+E\+V\+I\+C\+ES~5}
+
+\mbox{\Hypertarget{initialize__variables_8h_a464de3c0d06dd6538e689adf191d9a9b}\label{initialize__variables_8h_a464de3c0d06dd6538e689adf191d9a9b}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!NUM\_WRITERS@{NUM\_WRITERS}}
+\index{NUM\_WRITERS@{NUM\_WRITERS}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{NUM\_WRITERS}{NUM\_WRITERS}}
+{\footnotesize\ttfamily \#define N\+U\+M\+\_\+\+W\+R\+I\+T\+E\+RS~3}
+
+Stores the last read value \mbox{\Hypertarget{initialize__variables_8h_ac33d5bb9e989a4ddbf101948aa857185}\label{initialize__variables_8h_ac33d5bb9e989a4ddbf101948aa857185}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!PRESSURE\_BUFF\_ID@{PRESSURE\_BUFF\_ID}}
+\index{PRESSURE\_BUFF\_ID@{PRESSURE\_BUFF\_ID}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{PRESSURE\_BUFF\_ID}{PRESSURE\_BUFF\_ID}}
+{\footnotesize\ttfamily \#define P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+\_\+\+ID~16}
+
+\mbox{\Hypertarget{initialize__variables_8h_ae85f23379ca62ceeabeedcc0d2c07acd}\label{initialize__variables_8h_ae85f23379ca62ceeabeedcc0d2c07acd}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!PRESSURE\_BUFFER\_LENGTH@{PRESSURE\_BUFFER\_LENGTH}}
+\index{PRESSURE\_BUFFER\_LENGTH@{PRESSURE\_BUFFER\_LENGTH}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{PRESSURE\_BUFFER\_LENGTH}{PRESSURE\_BUFFER\_LENGTH}}
+{\footnotesize\ttfamily \#define P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH~8192}
+
+\mbox{\Hypertarget{initialize__variables_8h_a368a657e9c9661b7451db1c7ebbda3a6}\label{initialize__variables_8h_a368a657e9c9661b7451db1c7ebbda3a6}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!PRESSURE\_BUFFER\_NUM@{PRESSURE\_BUFFER\_NUM}}
+\index{PRESSURE\_BUFFER\_NUM@{PRESSURE\_BUFFER\_NUM}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{PRESSURE\_BUFFER\_NUM}{PRESSURE\_BUFFER\_NUM}}
+{\footnotesize\ttfamily \#define P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM~4}
+
+\mbox{\Hypertarget{initialize__variables_8h_a862778cc1232d6ad03a5549f94daf707}\label{initialize__variables_8h_a862778cc1232d6ad03a5549f94daf707}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!SPEED\_BUFF\_ID@{SPEED\_BUFF\_ID}}
+\index{SPEED\_BUFF\_ID@{SPEED\_BUFF\_ID}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{SPEED\_BUFF\_ID}{SPEED\_BUFF\_ID}}
+{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+\_\+\+ID~64}
+
+\mbox{\Hypertarget{initialize__variables_8h_a83c6ac1d98de484dbef3f704826318f2}\label{initialize__variables_8h_a83c6ac1d98de484dbef3f704826318f2}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!SPEED\_BUFFER\_LENGTH@{SPEED\_BUFFER\_LENGTH}}
+\index{SPEED\_BUFFER\_LENGTH@{SPEED\_BUFFER\_LENGTH}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{SPEED\_BUFFER\_LENGTH}{SPEED\_BUFFER\_LENGTH}}
+{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH~8192}
+
+\mbox{\Hypertarget{initialize__variables_8h_a92cbb4cc5d65303dc174b93ba5848161}\label{initialize__variables_8h_a92cbb4cc5d65303dc174b93ba5848161}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!SPEED\_BUFFER\_NUM@{SPEED\_BUFFER\_NUM}}
+\index{SPEED\_BUFFER\_NUM@{SPEED\_BUFFER\_NUM}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{SPEED\_BUFFER\_NUM}{SPEED\_BUFFER\_NUM}}
+{\footnotesize\ttfamily \#define S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM~4}
+
+\mbox{\Hypertarget{initialize__variables_8h_ae6d2356601b3aa6b7a012e6df3ace33b}\label{initialize__variables_8h_ae6d2356601b3aa6b7a012e6df3ace33b}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!USB\_SERIAL\_ADDRESS@{USB\_SERIAL\_ADDRESS}}
+\index{USB\_SERIAL\_ADDRESS@{USB\_SERIAL\_ADDRESS}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{USB\_SERIAL\_ADDRESS}{USB\_SERIAL\_ADDRESS}}
+{\footnotesize\ttfamily \#define U\+S\+B\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+A\+D\+D\+R\+E\+SS~\&Serial}
+
+
+
+\doxysubsection{Enumeration Type Documentation}
+\mbox{\Hypertarget{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262}\label{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!WriterLocation@{WriterLocation}}
+\index{WriterLocation@{WriterLocation}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{WriterLocation}{WriterLocation}}
+{\footnotesize\ttfamily enum \mbox{\hyperlink{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262}{Writer\+Location}} \+: uint8\+\_\+t}
+
+\begin{DoxyEnumFields}{Enumerator}
+\raisebox{\heightof{T}}[0pt][0pt]{\index{BLUETOOTH@{BLUETOOTH}!initialize\_variables.h@{initialize\_variables.h}}\index{initialize\_variables.h@{initialize\_variables.h}!BLUETOOTH@{BLUETOOTH}}}\mbox{\Hypertarget{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262acf9d75f7b1a34d02c9d810281f51cf2a}\label{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262acf9d75f7b1a34d02c9d810281f51cf2a}} 
+B\+L\+U\+E\+T\+O\+O\+TH&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{USB@{USB}!initialize\_variables.h@{initialize\_variables.h}}\index{initialize\_variables.h@{initialize\_variables.h}!USB@{USB}}}\mbox{\Hypertarget{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262a65f6b55fdc64778bf10632a795b97761}\label{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262a65f6b55fdc64778bf10632a795b97761}} 
+U\+SB&\\
+\hline
+
+\raisebox{\heightof{T}}[0pt][0pt]{\index{SD@{SD}!initialize\_variables.h@{initialize\_variables.h}}\index{initialize\_variables.h@{initialize\_variables.h}!SD@{SD}}}\mbox{\Hypertarget{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262a8268cafd51299d814aba050e5f54f1ac}\label{initialize__variables_8h_ab979b2cdeb7c5e623b7e7776cb416262a8268cafd51299d814aba050e5f54f1ac}} 
+SD&\\
+\hline
+
+\end{DoxyEnumFields}
+
+
+\doxysubsection{Function Documentation}
+\mbox{\Hypertarget{initialize__variables_8h_ac4ffd9db24ac31263f4401e7d966f804}\label{initialize__variables_8h_ac4ffd9db24ac31263f4401e7d966f804}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!begin\_sampling@{begin\_sampling}}
+\index{begin\_sampling@{begin\_sampling}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{begin\_sampling()}{begin\_sampling()}}
+{\footnotesize\ttfamily void begin\+\_\+sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Starts the sampling of all the devices. 
+
+This function performs several tasks\+: \#. Reads which writer (see Abstract\+Writer) is going to be responsible for logging the data 0 -\/$>$ Bluetooth, 1 -\/$>$ U\+SB, 2 -\/$>$ SD card \#. Reads any of the additional metadata sent over the \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}} (animal name, animal species, description) \#. Updates the I\+MU calibration structure with last recorded data from the I\+MU \#. Resets the Queue (see \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}}) to the default, empty state \#. Resets each of the buffers to an empty state, with only the ID byte kept for each buffer \#. Runs the pre\+\_\+sampling\+\_\+setup routine for the used \mbox{\hyperlink{classWriter}{Writer}} (see Abstract\+Writer) For these routines, the SD card writing is the one that needs a pre-\/sampling routine to open a file and then write to it. \mbox{\Hypertarget{initialize__variables_8h_a0ed2f8b7d35f48d90c6e1de0f8a41b43}\label{initialize__variables_8h_a0ed2f8b7d35f48d90c6e1de0f8a41b43}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!buffer\_manager@{buffer\_manager}}
+\index{buffer\_manager@{buffer\_manager}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{buffer\_manager()}{buffer\_manager()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBufferManager}{Buffer\+Manager}} buffer\+\_\+manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{initialize__variables_8h_aae30ad14d13faeec7415dc39cee45bce}{buffers}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a2872cb40327b457feb2aa3a37213e2c3}{N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+T\+Y\+P\+ES}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a36e6a4185b24d4b7681ca565317a602a}\label{initialize__variables_8h_a36e6a4185b24d4b7681ca565317a602a}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!delete\_file@{delete\_file}}
+\index{delete\_file@{delete\_file}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{delete\_file()}{delete\_file()}}
+{\footnotesize\ttfamily void delete\+\_\+file (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function will delete a file from the SD card, freeing up space. 
+
+This function first reads a file index (the numerical position of the file from the root). Then, this file is deleted from the SD card. \mbox{\Hypertarget{initialize__variables_8h_a9455b11bb2022166aa7089f3879e3069}\label{initialize__variables_8h_a9455b11bb2022166aa7089f3879e3069}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!deviceManager@{deviceManager}}
+\index{deviceManager@{deviceManager}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{deviceManager()}{deviceManager()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDeviceManager}{Device\+Manager}} device\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{initialize__variables_8h_a9d84f14b7259dc67d7cff8d05858a73c}{devices}}}]{,  }\item[{device\+\_\+settings.}]{raw\+\_\+bytes,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a7020e20a18e8488cd19315887c473ce2}{N\+U\+M\+\_\+\+D\+E\+V\+I\+C\+ES}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a8e5d8fba35ea2d7dc097615cd3050e29}\label{initialize__variables_8h_a8e5d8fba35ea2d7dc097615cd3050e29}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!download\_files@{download\_files}}
+\index{download\_files@{download\_files}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{download\_files()}{download\_files()}}
+{\footnotesize\ttfamily void download\+\_\+files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Downloads a file from the tag to the computer. 
+
+This function will read a file index from the serial line, and then call the appropriate \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}} to send the file. A file is sent in its entirety. \mbox{\Hypertarget{initialize__variables_8h_a815f88b2d311f9d06cd983ab601c6cc9}\label{initialize__variables_8h_a815f88b2d311f9d06cd983ab601c6cc9}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!eeg@{eeg}}
+\index{eeg@{eeg}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{eeg()}{eeg()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classADS1299}{A\+D\+S1299}} eeg (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{initialize__variables_8h_a212d0b796fca7e2827d18f0b6a274686}{E\+E\+G\+\_\+\+D\+R\+DY}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a9b325763873620207c06de0da1f35ebd}{E\+E\+G\+\_\+\+C\+S\+\_\+\+P\+A\+R\+E\+NT}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a27313399bae6e153c99d4984e0993219}{E\+E\+G\+\_\+\+R\+ST}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a46a4dc6c11f8885463589cce3357b5c4}{E\+E\+G\+\_\+\+S\+T\+A\+RT}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a0bb95f25ddc3aad7a387547964c4f8d5}{E\+E\+G\+\_\+\+P\+W\+DN}}}]{,  }\item[{\&}]{parent\+\_\+eeg\+\_\+settings }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_afe020ac5160d3e8471fa965580ff9424}\label{initialize__variables_8h_afe020ac5160d3e8471fa965580ff9424}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!eeg\_buffer@{eeg\_buffer}}
+\index{eeg\_buffer@{eeg\_buffer}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{eeg\_buffer()}{eeg\_buffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classEEGBuffer}{E\+E\+G\+Buffer}} eeg\+\_\+buffer (\begin{DoxyParamCaption}\item[{ads\+\_\+buffers}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a65135f394af725e56ad201f106af1918}{E\+E\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_ac38f2940bfd508ef4beefa953fe27276}{E\+E\+G\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a25eae6c2b0aa895e579a56611c8890e6}{E\+E\+G\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}}]{,  }\item[{\&}]{queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a2e4f0ce332d3c08a9ab4b88fffd775f2}\label{initialize__variables_8h_a2e4f0ce332d3c08a9ab4b88fffd775f2}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!forward\_ESP32\_logging@{forward\_ESP32\_logging}}
+\index{forward\_ESP32\_logging@{forward\_ESP32\_logging}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{forward\_ESP32\_logging()}{forward\_ESP32\_logging()}}
+{\footnotesize\ttfamily void forward\+\_\+\+E\+S\+P32\+\_\+logging (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Forwards logging calls from E\+S\+P32 to the logger. 
+
+All logging calls from the E\+S\+P32 are in the form of L\mbox{[}message\mbox{]}~\newline
+. Thus, when the command is L, the rest of the message will be read and sent to the logger. Additionally, thus function should not be relied upon too heavily. This solves the issue when a logging call comes in while the main() loop is happening. However, if a logging call occurs when the Teensy is currently expecting data, it will result in improper data bein written. I (Gabriel) think the only way of avoiding this is to seperate out another Serial line on the E\+S\+P32 to handle logging. \mbox{\Hypertarget{initialize__variables_8h_a932adb0f171e9d2082bf4ef07f746447}\label{initialize__variables_8h_a932adb0f171e9d2082bf4ef07f746447}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!hydrophone@{hydrophone}}
+\index{hydrophone@{hydrophone}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{hydrophone()}{hydrophone()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTag__ADC}{Tag\+\_\+\+A\+DC}} hydrophone (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{initialize__variables_8h_aa7de9d93b2651b85cce136a9b92e8302}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+S\+A\+M\+P\+L\+I\+N\+G\+\_\+\+P\+IN}}}]{,  }\item[{\&}]{adc\+\_\+settings,  }\item[{\&}]{hydrophone\+\_\+buffer }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a90b6c84d61107d420485e1d1cedbf175}\label{initialize__variables_8h_a90b6c84d61107d420485e1d1cedbf175}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!hydrophone\_buffer@{hydrophone\_buffer}}
+\index{hydrophone\_buffer@{hydrophone\_buffer}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{hydrophone\_buffer()}{hydrophone\_buffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classADCBuffer}{A\+D\+C\+Buffer}} hydrophone\+\_\+buffer (\begin{DoxyParamCaption}\item[{adc\+\_\+buffers}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a277f7738efe738f0fbf4bbd0878d33fc}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+N\+UM}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a46542598923371328c204737a081c90d}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N\+G\+TH}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_ae25dd45790c2d64a058357612977baea}{H\+Y\+D\+R\+O\+P\+H\+O\+N\+E\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}}]{,  }\item[{\&}]{queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_ab404b79cb80fa051c530ff0ad577e066}\label{initialize__variables_8h_ab404b79cb80fa051c530ff0ad577e066}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!IMU@{IMU}}
+\index{IMU@{IMU}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{IMU()}{IMU()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} I\+MU (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{MPU9250_8h_af4d54e584a662662888836b3a9b9eb08}{M\+P\+U9250\+\_\+\+A\+D\+D\+R\+E\+SS}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a28ea9e55707f4c069f6444df23ae8c4c}{I2\+C\+Port}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a446f4e60399f8a302dd34fb08fc747cd}{I2\+Cclock}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_ae4dc2a8318e8e8918279d386728ee138}\label{initialize__variables_8h_ae4dc2a8318e8e8918279d386728ee138}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!imu\_buffer@{imu\_buffer}}
+\index{imu\_buffer@{imu\_buffer}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{imu\_buffer()}{imu\_buffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classIMUBuffer}{I\+M\+U\+Buffer}} imu\+\_\+buffer (\begin{DoxyParamCaption}\item[{imu\+\_\+buffers}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_ac32b9ae77838d35f4f88092770d614fe}{I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+N\+UM}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a89344035b6c988218e7c2a8375a33d75}{I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+L\+E\+N\+G\+TH}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a2dc1389b5ff22f88d20a38bf3f97fdef}{I\+M\+U\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}}]{,  }\item[{\&}]{queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a1cc1a8a26d1818565992a466cd25b6b9}\label{initialize__variables_8h_a1cc1a8a26d1818565992a466cd25b6b9}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!initalize\_devices@{initalize\_devices}}
+\index{initalize\_devices@{initalize\_devices}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{initalize\_devices()}{initalize\_devices()}}
+{\footnotesize\ttfamily void initalize\+\_\+devices (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Initialize the sampling devices. 
+
+Based on the device settings (see \mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}}, \mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}}, \mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}}), the devices are initialized to prepare them for sampling. This function must be run each time \mbox{\hyperlink{initialize__variables_8h_a74878e0057e5adc4a53ad0dfd107c1b1}{update\+\_\+parameters()}} is run, as this function is actually responsible for updating each devices settings, unlike \mbox{\hyperlink{initialize__variables_8h_a74878e0057e5adc4a53ad0dfd107c1b1}{update\+\_\+parameters()}} which only reads the new settings but does not update the devices. \mbox{\Hypertarget{initialize__variables_8h_acf3f85ea2b125dcfe4ad87c58240ca83}\label{initialize__variables_8h_acf3f85ea2b125dcfe4ad87c58240ca83}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!nirs@{nirs}}
+\index{nirs@{nirs}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{nirs()}{nirs()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classNIRS}{N\+I\+RS}} nirs (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{initialize__variables_8h_ae936ea9deb3717f5152b05c432792dd5}{N\+I\+R\+S\+\_\+\+L\+E\+F\+T\+\_\+\+B\+U\+T\+T\+ON}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a707892003668d97048b5956afcf0342d}{N\+I\+R\+S\+\_\+\+R\+I\+G\+H\+T\+\_\+\+B\+U\+T\+T\+ON}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_aedc0cb374de5b7f13cdb1059361a034f}{N\+I\+R\+S\+\_\+\+S\+H\+O\+R\+T\+\_\+\+P\+R\+E\+SS}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a88a97719e413932db90fa7fba8c9ad82}{N\+I\+R\+S\+\_\+\+L\+O\+N\+G\+\_\+\+P\+R\+E\+SS}}}]{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a2b03e8d0eba5599e1a1f402459af7e9d}\label{initialize__variables_8h_a2b03e8d0eba5599e1a1f402459af7e9d}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!nirs\_off@{nirs\_off}}
+\index{nirs\_off@{nirs\_off}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{nirs\_off()}{nirs\_off()}}
+{\footnotesize\ttfamily void nirs\+\_\+off (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turns off the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system. 
+
+Unfortunately, the Teensy does not currently track the state of the E\+S\+P32. Thus, this function only ever presses a button, but does not know when the E\+S\+P32 is actually off. \mbox{\Hypertarget{initialize__variables_8h_ad9fdf6797becfdb68010a90b089262c5}\label{initialize__variables_8h_ad9fdf6797becfdb68010a90b089262c5}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!nirs\_on@{nirs\_on}}
+\index{nirs\_on@{nirs\_on}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{nirs\_on()}{nirs\_on()}}
+{\footnotesize\ttfamily void nirs\+\_\+on (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Turns on the \mbox{\hyperlink{classNIRS}{N\+I\+RS}} system. 
+
+Unfortunately, the Teensy does not currently track the state of the E\+S\+P32. Thus, this function only ever presses a button, but does not know when the E\+S\+P32 is actually on. \mbox{\Hypertarget{initialize__variables_8h_a55b758960ebf9fdc852fe299b2b2bb32}\label{initialize__variables_8h_a55b758960ebf9fdc852fe299b2b2bb32}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!pressure\_buffer@{pressure\_buffer}}
+\index{pressure\_buffer@{pressure\_buffer}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{pressure\_buffer()}{pressure\_buffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classPressureBuffer}{Pressure\+Buffer}} pressure\+\_\+buffer (\begin{DoxyParamCaption}\item[{pressure\+\_\+buffers}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a368a657e9c9661b7451db1c7ebbda3a6}{P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_ae85f23379ca62ceeabeedcc0d2c07acd}{P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_ac33d5bb9e989a4ddbf101948aa857185}{P\+R\+E\+S\+S\+U\+R\+E\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}}]{,  }\item[{\&}]{queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a32e7a7ed8702a489fd9d67f4edf5dcf8}\label{initialize__variables_8h_a32e7a7ed8702a489fd9d67f4edf5dcf8}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!sampling@{sampling}}
+\index{sampling@{sampling}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{sampling()}{sampling()}}
+{\footnotesize\ttfamily void sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Function to handle sampling of devices. 
+
+The devices whose code runs in this sampling loop are set to poll data, and thus run in the main loop. Other devices, such as the Hydrophone (using the A\+DC converter) or the E\+EG (\mbox{\hyperlink{classADS1299}{A\+D\+S1299}} library) sample based on interrupts defined in their corresponding begin() and end() methods for sampling as part of the \mbox{\hyperlink{classAbstractDevice}{Abstract\+Device}} class inheritance. This loop is also responsible for writing data to the corresponding writer (Bluetooth, U\+SB, or SD card) once the \mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}} \mbox{\Hypertarget{initialize__variables_8h_a8d015d863e47046e1a5622d2086695e9}\label{initialize__variables_8h_a8d015d863e47046e1a5622d2086695e9}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!speed\_buffer@{speed\_buffer}}
+\index{speed\_buffer@{speed\_buffer}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{speed\_buffer()}{speed\_buffer()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSpeedBuffer}{Speed\+Buffer}} speed\+\_\+buffer (\begin{DoxyParamCaption}\item[{speed\+\_\+buffers}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a92cbb4cc5d65303dc174b93ba5848161}{S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+N\+UM}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a83c6ac1d98de484dbef3f704826318f2}{S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+L\+E\+N\+G\+TH}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a862778cc1232d6ad03a5549f94daf707}{S\+P\+E\+E\+D\+\_\+\+B\+U\+F\+F\+\_\+\+ID}}}]{,  }\item[{\&}]{queue }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a8aff2db9386e6e5d6e9dcd2f4e45a112}\label{initialize__variables_8h_a8aff2db9386e6e5d6e9dcd2f4e45a112}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!stop\_sampling@{stop\_sampling}}
+\index{stop\_sampling@{stop\_sampling}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{stop\_sampling()}{stop\_sampling()}}
+{\footnotesize\ttfamily void stop\+\_\+sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Stops the sampling devices and does any post-\/sampling tasks. 
+
+The post-\/sampling tasks are especially applicable for the SD card \mbox{\hyperlink{classWriter}{Writer}}, as the file has to be closed and synced. \mbox{\Hypertarget{initialize__variables_8h_a64bd27b4f76f66c63bc820efa494f442}\label{initialize__variables_8h_a64bd27b4f76f66c63bc820efa494f442}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!sync\_time@{sync\_time}}
+\index{sync\_time@{sync\_time}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{sync\_time()}{sync\_time()}}
+{\footnotesize\ttfamily void sync\+\_\+time (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a39d0e278f38d1c73f2f595def6df0070}\label{initialize__variables_8h_a39d0e278f38d1c73f2f595def6df0070}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!test\_sampling@{test\_sampling}}
+\index{test\_sampling@{test\_sampling}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{test\_sampling()}{test\_sampling()}}
+{\footnotesize\ttfamily void test\+\_\+sampling (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Function that will test the sampling and stream this data over Bluetooth. 
+
+Note that this function still has to be implemented. \mbox{\Hypertarget{initialize__variables_8h_afcc14e36efc3d59aeb2d6a33f81c8632}\label{initialize__variables_8h_afcc14e36efc3d59aeb2d6a33f81c8632}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!update\_files@{update\_files}}
+\index{update\_files@{update\_files}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{update\_files()}{update\_files()}}
+{\footnotesize\ttfamily void update\+\_\+files (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function reads all the available files in the SD card root directory, and sends the file names over the \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}}. 
+
+This function reads first the number of files present in the root directory (/) on the SD card, and then sends the filename. Thus, the sents results would look like this\+:
+
+\tabulinesep=1mm
+\begin{longtabu}spread 0pt [c]{*{2}{|X[-1]}|}
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sent to the Teensy }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ File Index  }\\\cline{1-2}
+\endfirsthead
+\hline
+\endfoot
+\hline
+\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ Sent to the Teensy }&\PBS\centering \cellcolor{\tableheadbgcolor}\textbf{ File Index  }\\\cline{1-2}
+\endhead
+Filename1.\+bin &\PBS\centering 0  \\\cline{1-2}
+Filename2.\+bin &\PBS\centering 1  \\\cline{1-2}
+Filename3.\+bin &\PBS\centering 2  \\\cline{1-2}
+Filename4.\+bin &\PBS\centering 3  \\\cline{1-2}
+\end{longtabu}
+
+
+The File Index is what is sent over the \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}} to indicate on which file to do operations. The File Index is sent for download\+\_\+file, \mbox{\hyperlink{main_8cpp_a36e6a4185b24d4b7681ca565317a602a}{delete\+\_\+file}} to indicate which file to download or delete. \mbox{\Hypertarget{initialize__variables_8h_a74878e0057e5adc4a53ad0dfd107c1b1}\label{initialize__variables_8h_a74878e0057e5adc4a53ad0dfd107c1b1}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!update\_parameters@{update\_parameters}}
+\index{update\_parameters@{update\_parameters}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{update\_parameters()}{update\_parameters()}}
+{\footnotesize\ttfamily void update\+\_\+parameters (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+This function updates the structures that hold the settings for each sampling device. 
+
+note that this function only updates the structures for \mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}}, \mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}}, and Device\+Settings. None of the devices get updated with the new settings though. For that, initialize\+\_\+devices() must be run. The data itself comes as a series of raw bytes. \mbox{\Hypertarget{initialize__variables_8h_add4b801c1aec9db63b2ad5e21a3c1c37}\label{initialize__variables_8h_add4b801c1aec9db63b2ad5e21a3c1c37}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!WriteManager@{WriteManager}}
+\index{WriteManager@{WriteManager}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{WriteManager()}{WriteManager()}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWriterManager}{Writer\+Manager}} Write\+Manager (\begin{DoxyParamCaption}\item[{\mbox{\hyperlink{initialize__variables_8h_a8fa5c943751b85fe402cb1b74879ee64}{writers}}}]{,  }\item[{\mbox{\hyperlink{initialize__variables_8h_a464de3c0d06dd6538e689adf191d9a9b}{N\+U\+M\+\_\+\+W\+R\+I\+T\+E\+RS}}}]{ }\end{DoxyParamCaption})}
+
+
+
+\doxysubsection{Variable Documentation}
+\mbox{\Hypertarget{initialize__variables_8h_a9274d2199ba49255a4b95eab4b135ab5}\label{initialize__variables_8h_a9274d2199ba49255a4b95eab4b135ab5}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!adc\_settings@{adc\_settings}}
+\index{adc\_settings@{adc\_settings}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{adc\_settings}{adc\_settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionADCSettings}{A\+D\+C\+Settings}} adc\+\_\+settings \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a88574756faaf8ed20796d8267bb2907a}\label{initialize__variables_8h_a88574756faaf8ed20796d8267bb2907a}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!buffer\_ptr@{buffer\_ptr}}
+\index{buffer\_ptr@{buffer\_ptr}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{buffer\_ptr}{buffer\_ptr}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}}$\ast$ buffer\+\_\+ptr = \&\mbox{\hyperlink{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}{queue}}}
+
+Get the buffer pointer to use as input for various functions \mbox{\Hypertarget{initialize__variables_8h_aae30ad14d13faeec7415dc39cee45bce}\label{initialize__variables_8h_aae30ad14d13faeec7415dc39cee45bce}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!buffers@{buffers}}
+\index{buffers@{buffers}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{buffers}{buffers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classBufferBase}{Buffer\+Base}}$\ast$ buffers\mbox{[}\mbox{\hyperlink{initialize__variables_8h_a2872cb40327b457feb2aa3a37213e2c3}{N\+U\+M\+\_\+\+B\+U\+F\+F\+E\+R\+\_\+\+T\+Y\+P\+ES}}\mbox{]} = \{\&\mbox{\hyperlink{initialize__variables_8h_ae4dc2a8318e8e8918279d386728ee138}{imu\+\_\+buffer}}, \&\mbox{\hyperlink{initialize__variables_8h_afe020ac5160d3e8471fa965580ff9424}{eeg\+\_\+buffer}}, \&\mbox{\hyperlink{initialize__variables_8h_a90b6c84d61107d420485e1d1cedbf175}{hydrophone\+\_\+buffer}}, \&\mbox{\hyperlink{initialize__variables_8h_a55b758960ebf9fdc852fe299b2b2bb32}{pressure\+\_\+buffer}}, \&\mbox{\hyperlink{initialize__variables_8h_a8d015d863e47046e1a5622d2086695e9}{speed\+\_\+buffer}}\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_ae72fbc89e86f831f7caf86a8f3bc6eef}\label{initialize__variables_8h_ae72fbc89e86f831f7caf86a8f3bc6eef}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!bytes\_written@{bytes\_written}}
+\index{bytes\_written@{bytes\_written}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{bytes\_written}{bytes\_written}}
+{\footnotesize\ttfamily size\+\_\+t bytes\+\_\+written = 0}
+
+pre-\/allocate variable in which to write the number of bytes written to the SD card \mbox{\Hypertarget{initialize__variables_8h_ad468e15e25a904aabeed55f5afbe1fca}\label{initialize__variables_8h_ad468e15e25a904aabeed55f5afbe1fca}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!child\_eeg\_settings@{child\_eeg\_settings}}
+\index{child\_eeg\_settings@{child\_eeg\_settings}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{child\_eeg\_settings}{child\_eeg\_settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} child\+\_\+eeg\+\_\+settings \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a8b1afd27f08c98cc50371b4e2f349abc}\label{initialize__variables_8h_a8b1afd27f08c98cc50371b4e2f349abc}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!comm\_array@{comm\_array}}
+\index{comm\_array@{comm\_array}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{comm\_array}{comm\_array}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}}$\ast$ comm\+\_\+array\mbox{[}\mbox{\hyperlink{initialize__variables_8h_ad1451c69d1bd4ac4730149df1fb2c2bb}{N\+U\+M\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+O\+RS}}\mbox{]} = \{\&\mbox{\hyperlink{initialize__variables_8h_a90ceb46cbd15c6b88397424706dba927}{Tag\+\_\+\+Bluetooth}}, \&\mbox{\hyperlink{initialize__variables_8h_a71b4b373a6d1863c38f1f9a5014a258c}{M\+I\+C\+R\+O\+\_\+\+U\+SB}}\}}
+
+has to be pointers. \mbox{\hyperlink{classSerialCommunicator}{Serial\+Communicator}} is an abstract class and so cannot be instantiated. \mbox{\Hypertarget{initialize__variables_8h_a25827e9cb2be1cdb757882bea43e0af9}\label{initialize__variables_8h_a25827e9cb2be1cdb757882bea43e0af9}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!command@{command}}
+\index{command@{command}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{command}{command}}
+{\footnotesize\ttfamily char command = \textquotesingle{}0\textquotesingle{}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a75c2b0cf2818e4099805c9d64e489c34}\label{initialize__variables_8h_a75c2b0cf2818e4099805c9d64e489c34}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!device\_settings@{device\_settings}}
+\index{device\_settings@{device\_settings}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{device\_settings}{device\_settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionDeviceEnable}{Device\+Enable}} device\+\_\+settings \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a9d84f14b7259dc67d7cff8d05858a73c}\label{initialize__variables_8h_a9d84f14b7259dc67d7cff8d05858a73c}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!devices@{devices}}
+\index{devices@{devices}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{devices}{devices}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classAbstractDevice}{Abstract\+Device}}$\ast$ devices\mbox{[}\mbox{\hyperlink{initialize__variables_8h_a7020e20a18e8488cd19315887c473ce2}{N\+U\+M\+\_\+\+D\+E\+V\+I\+C\+ES}}\mbox{]} = \{\&\mbox{\hyperlink{initialize__variables_8h_acf3f85ea2b125dcfe4ad87c58240ca83}{nirs}}, \&\mbox{\hyperlink{Test__MPU9250_8h_a69824787697ff61e67b377dc19f84992}{I\+MU}}, \&\mbox{\hyperlink{initialize__variables_8h_a815f88b2d311f9d06cd983ab601c6cc9}{eeg}}, \&\mbox{\hyperlink{initialize__variables_8h_a932adb0f171e9d2082bf4ef07f746447}{hydrophone}}, \&\mbox{\hyperlink{initialize__variables_8h_a90ceb46cbd15c6b88397424706dba927}{Tag\+\_\+\+Bluetooth}}\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_ad119f431a322223c1591d2eaa77a4a54}\label{initialize__variables_8h_ad119f431a322223c1591d2eaa77a4a54}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!eeg\_buffer\_push@{eeg\_buffer\_push}}
+\index{eeg\_buffer\_push@{eeg\_buffer\_push}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{eeg\_buffer\_push}{eeg\_buffer\_push}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} eeg\+\_\+buffer\+\_\+push \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a9658bfa781f64633adf2cd3ea30803f0}\label{initialize__variables_8h_a9658bfa781f64633adf2cd3ea30803f0}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!hydrophone\_buffer\_push@{hydrophone\_buffer\_push}}
+\index{hydrophone\_buffer\_push@{hydrophone\_buffer\_push}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{hydrophone\_buffer\_push}{hydrophone\_buffer\_push}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} hydrophone\+\_\+buffer\+\_\+push \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_aa2a3a971bd163cf883d00df94522f435}\label{initialize__variables_8h_aa2a3a971bd163cf883d00df94522f435}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!imu\_buffer\_push@{imu\_buffer\_push}}
+\index{imu\_buffer\_push@{imu\_buffer\_push}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{imu\_buffer\_push}{imu\_buffer\_push}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} imu\+\_\+buffer\+\_\+push \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a71b4b373a6d1863c38f1f9a5014a258c}\label{initialize__variables_8h_a71b4b373a6d1863c38f1f9a5014a258c}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!MICRO\_USB@{MICRO\_USB}}
+\index{MICRO\_USB@{MICRO\_USB}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{MICRO\_USB}{MICRO\_USB}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTag__USB}{Tag\+\_\+\+U\+SB}} M\+I\+C\+R\+O\+\_\+\+U\+SB = \mbox{\hyperlink{classTag__USB}{Tag\+\_\+\+U\+SB}}(\mbox{\hyperlink{initialize__variables_8h_ae6d2356601b3aa6b7a012e6df3ace33b}{U\+S\+B\+\_\+\+S\+E\+R\+I\+A\+L\+\_\+\+A\+D\+D\+R\+E\+SS}}, \&disk\+Manager, \&\mbox{\hyperlink{initialize__variables_8h_ac48baf2ca17a4a74eb16fbd9d0403ab7}{run\+\_\+data}})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a6645f0ffe5452f70a440cf9252986975}\label{initialize__variables_8h_a6645f0ffe5452f70a440cf9252986975}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!parent\_eeg\_settings@{parent\_eeg\_settings}}
+\index{parent\_eeg\_settings@{parent\_eeg\_settings}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{parent\_eeg\_settings}{parent\_eeg\_settings}}
+{\footnotesize\ttfamily \mbox{\hyperlink{unionADS1299Settings}{A\+D\+S1299\+Settings}} parent\+\_\+eeg\+\_\+settings \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a77695711cbae66260e5048c2193c215e}\label{initialize__variables_8h_a77695711cbae66260e5048c2193c215e}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!pressure\_buffer\_push@{pressure\_buffer\_push}}
+\index{pressure\_buffer\_push@{pressure\_buffer\_push}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{pressure\_buffer\_push}{pressure\_buffer\_push}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} pressure\+\_\+buffer\+\_\+push \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}\label{initialize__variables_8h_a2386e517d4b5404dc10f893c2f362402}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!queue@{queue}}
+\index{queue@{queue}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{queue}{queue}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTag__Queue}{Tag\+\_\+\+Queue}} queue}
+
+Declare the queue \mbox{\Hypertarget{initialize__variables_8h_a3f2a08fcd10874911a6f1f9ee064d8d3}\label{initialize__variables_8h_a3f2a08fcd10874911a6f1f9ee064d8d3}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!read\_val@{read\_val}}
+\index{read\_val@{read\_val}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{read\_val}{read\_val}}
+{\footnotesize\ttfamily int read\+\_\+val = -\/1}
+
+Stores the current command \mbox{\Hypertarget{initialize__variables_8h_ac48baf2ca17a4a74eb16fbd9d0403ab7}\label{initialize__variables_8h_ac48baf2ca17a4a74eb16fbd9d0403ab7}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!run\_data@{run\_data}}
+\index{run\_data@{run\_data}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{run\_data}{run\_data}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classDiskManager}{Disk\+Manager}} disk\+Manager \& run\+\_\+data}
+
+Header file data \mbox{\Hypertarget{initialize__variables_8h_ac166f4c6273f96ee8051b10d3bdeae2a}\label{initialize__variables_8h_ac166f4c6273f96ee8051b10d3bdeae2a}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!sampling\_loop@{sampling\_loop}}
+\index{sampling\_loop@{sampling\_loop}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{sampling\_loop}{sampling\_loop}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} sampling\+\_\+loop \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a2fd3d9a56bac32487e00de41ed300bc0}\label{initialize__variables_8h_a2fd3d9a56bac32487e00de41ed300bc0}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!SerialUSB1@{SerialUSB1}}
+\index{SerialUSB1@{SerialUSB1}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{SerialUSB1}{SerialUSB1}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classLogger}{Logger}} \mbox{\hyperlink{WriterManager_8h_a5b27630dbcf231bfda3a7d79e1eefce5}{logger}}\& Serial\+U\+S\+B1}
+
+\mbox{\Hypertarget{initialize__variables_8h_afbf5a2a88560bc7715e929d3bed19670}\label{initialize__variables_8h_afbf5a2a88560bc7715e929d3bed19670}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!speed\_buffer\_push@{speed\_buffer\_push}}
+\index{speed\_buffer\_push@{speed\_buffer\_push}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{speed\_buffer\_push}{speed\_buffer\_push}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Logger_8h_a6fd32f4540677ea22ab137ccf53aba32}{Timing\+Data}} speed\+\_\+buffer\+\_\+push \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a104c46b08fadfcbb5c0b7fe1c257767b}\label{initialize__variables_8h_a104c46b08fadfcbb5c0b7fe1c257767b}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!stopOnCompletionTimer@{stopOnCompletionTimer}}
+\index{stopOnCompletionTimer@{stopOnCompletionTimer}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{stopOnCompletionTimer}{stopOnCompletionTimer}}
+{\footnotesize\ttfamily \mbox{\hyperlink{Logger_8h_a2093ab4d1c1464417761a58faef15d28}{Print\+Timing}} stop\+On\+Completion\+Timer \{\}}
+
+\mbox{\Hypertarget{initialize__variables_8h_a90ceb46cbd15c6b88397424706dba927}\label{initialize__variables_8h_a90ceb46cbd15c6b88397424706dba927}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!Tag\_Bluetooth@{Tag\_Bluetooth}}
+\index{Tag\_Bluetooth@{Tag\_Bluetooth}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{Tag\_Bluetooth}{Tag\_Bluetooth}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classESP32__Bluetooth}{E\+S\+P32\+\_\+\+Bluetooth}} Tag\+\_\+\+Bluetooth}
+
+{\bfseries Initial value\+:}
+\begin{DoxyCode}{0}
+\DoxyCodeLine{= \mbox{\hyperlink{classESP32__Bluetooth}{ESP32\_Bluetooth}}(\mbox{\hyperlink{initialize__variables_8h_a6146ba6c24f4fb8f5bfe6cc89ca51d8f}{BLUETOOTH\_SERIAL\_ADDRESS}},}
+\DoxyCodeLine{                                                \&diskManager,}
+\DoxyCodeLine{                                                \&\mbox{\hyperlink{initialize__variables_8h_ac48baf2ca17a4a74eb16fbd9d0403ab7}{run\_data}})}
+
+\end{DoxyCode}
+\mbox{\Hypertarget{initialize__variables_8h_aa25575eb264de682b3b449ccac449cd6}\label{initialize__variables_8h_aa25575eb264de682b3b449ccac449cd6}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!TagComms@{TagComms}}
+\index{TagComms@{TagComms}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{TagComms}{TagComms}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}} Tag\+Comms = \mbox{\hyperlink{classTagCommunicator}{Tag\+Communicator}}(\mbox{\hyperlink{initialize__variables_8h_a8b1afd27f08c98cc50371b4e2f349abc}{comm\+\_\+array}}, \mbox{\hyperlink{initialize__variables_8h_ad1451c69d1bd4ac4730149df1fb2c2bb}{N\+U\+M\+\_\+\+C\+O\+M\+M\+U\+N\+I\+C\+A\+T\+O\+RS}})}
+
+\mbox{\Hypertarget{initialize__variables_8h_a8fa5c943751b85fe402cb1b74879ee64}\label{initialize__variables_8h_a8fa5c943751b85fe402cb1b74879ee64}} 
+\index{initialize\_variables.h@{initialize\_variables.h}!writers@{writers}}
+\index{writers@{writers}!initialize\_variables.h@{initialize\_variables.h}}
+\doxysubsubsection{\texorpdfstring{writers}{writers}}
+{\footnotesize\ttfamily \mbox{\hyperlink{classWriter}{Writer}}$\ast$ writers\mbox{[}\mbox{\hyperlink{initialize__variables_8h_a464de3c0d06dd6538e689adf191d9a9b}{N\+U\+M\+\_\+\+W\+R\+I\+T\+E\+RS}}\mbox{]} = \{\&\mbox{\hyperlink{initialize__variables_8h_a90ceb46cbd15c6b88397424706dba927}{Tag\+\_\+\+Bluetooth}}, \&\mbox{\hyperlink{initialize__variables_8h_a71b4b373a6d1863c38f1f9a5014a258c}{M\+I\+C\+R\+O\+\_\+\+U\+SB}}, \&disk\+Manager\}}
+

@@ -1,0 +1,4 @@
+<map id="Tag_ADC" name="Tag_ADC">
+<area shape="rect" id="node1" title="Class to implement an Abstract device for the ADC control." alt="" coords="22,80,101,107"/>
+<area shape="rect" id="node2" href="$classAbstractDevice.html" title="Sets the interface for each Device." alt="" coords="5,5,117,32"/>
+</map>

@@ -1,0 +1,19 @@
+
+\begin{DoxyRefList}
+\item[Class \mbox{\hyperlink{structIMUCalibration}{I\+M\+U\+Calibration}} ]\label{todo__todo000004}%
+\Hypertarget{todo__todo000004}%
+Interface this better with \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} or any other I\+MU class, right now it\textquotesingle{}s all a bit redundant (functional, but not elegant) 
+\item[Class \mbox{\hyperlink{classLogger}{Logger}} ]\label{todo__todo000001}%
+\Hypertarget{todo__todo000001}%
+Would have been more efficient to make \mbox{\hyperlink{classVarPrinter}{Var\+Printer}} have the protected methods become the public methods, and for the public methods of \mbox{\hyperlink{classVarPrinter}{Var\+Printer}} to be the methods contained in \mbox{\hyperlink{classLogger}{Logger}}. Thus, there is a seperate class that prints variables, and then a \mbox{\hyperlink{classLogger}{Logger}} that inherits the print methods and wraps them in Logging level to be used for logging. Not a critical change, but one that would improve the format of the code.  
+\item[Class \mbox{\hyperlink{classMPU9250}{M\+P\+U9250}} ]\label{todo__todo000002}%
+\Hypertarget{todo__todo000002}%
+Rewrite this library in a much cleaner way, eliminating the jank and lack of extensibility, and write proper getter and setter methods for the device status.
+
+\label{todo__todo000003}%
+\Hypertarget{todo__todo000003}%
+Finish documentation, but this will likely be finished only after this code is refactored  
+\item[File \mbox{\hyperlink{Tag__SD_8h}{Tag\+\_\+\+SD.h}} ]\label{todo__todo000005}%
+\Hypertarget{todo__todo000005}%
+This file is actually extraneous, all that is needed is Sd\+Fat to be imported. Future versions of the code will refactor this file away.
+\end{DoxyRefList}

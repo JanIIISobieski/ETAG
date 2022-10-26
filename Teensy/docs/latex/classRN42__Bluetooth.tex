@@ -1,0 +1,192 @@
+\hypertarget{classRN42__Bluetooth}{}\doxysection{R\+N42\+\_\+\+Bluetooth Class Reference}
+\label{classRN42__Bluetooth}\index{RN42\_Bluetooth@{RN42\_Bluetooth}}
+
+
+{\ttfamily \#include $<$R\+N42.\+h$>$}
+
+
+
+Inheritance diagram for R\+N42\+\_\+\+Bluetooth\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=185pt]{classRN42__Bluetooth__inherit__graph}
+\end{center}
+\end{figure}
+
+
+Collaboration diagram for R\+N42\+\_\+\+Bluetooth\+:\nopagebreak
+\begin{figure}[H]
+\begin{center}
+\leavevmode
+\includegraphics[width=210pt]{classRN42__Bluetooth__coll__graph}
+\end{center}
+\end{figure}
+\doxysubsection*{Public Member Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\hyperlink{classRN42__Bluetooth_a80569d9601f98c3b860a4cc8ded11f1e}{R\+N42\+\_\+\+Bluetooth}} (uint8\+\_\+t bt\+\_\+master, uint8\+\_\+t bt\+\_\+discovery, uint8\+\_\+t bt\+\_\+\+R\+TS, uint8\+\_\+t bt\+\_\+\+C\+TS, Hardware\+Serial $\ast$bt\+\_\+serial, \mbox{\hyperlink{classDiskManager}{Disk\+Manager}} $\ast$disk\+Manager\+Ptr)
+\begin{DoxyCompactList}\small\item\em Construct a new Bluetooth object. \end{DoxyCompactList}\item 
+\mbox{\hyperlink{classRN42__Bluetooth_afd2531e766250da6f91fe7ecfe0cf5b4}{$\sim$\+R\+N42\+\_\+\+Bluetooth}} ()
+\begin{DoxyCompactList}\small\item\em Destroy the Bluetooth object. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRN42__Bluetooth_aa19e1e5bbc73661be2689ab2fe3af392}{set\+\_\+discovery\+\_\+pin}} (uint8\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Set the discovery pin state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRN42__Bluetooth_ada6b06b4bfa7b8b031265a7b449858b5}{set\+\_\+master\+\_\+pin}} (uint8\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Set the master pin state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRN42__Bluetooth_ac6ed9c5d90da39b7078c2cbb6667267f}{set\+\_\+\+C\+T\+S\+\_\+pin}} (uint8\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Set the C\+TS pin state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRN42__Bluetooth_a88b2f4bc71e9aa01e0d5735671ecbed7}{set\+\_\+\+R\+T\+S\+\_\+pin}} (uint8\+\_\+t val)
+\begin{DoxyCompactList}\small\item\em Set the R\+TS pin state. \end{DoxyCompactList}\item 
+void \mbox{\hyperlink{classRN42__Bluetooth_a24c83c2c22504522b468aba6c3cddd17}{init}} (uint32\+\_\+t baud\+\_\+rate)
+\begin{DoxyCompactList}\small\item\em Initalize serial state and the baud rate. \end{DoxyCompactList}\item 
+bool \mbox{\hyperlink{classRN42__Bluetooth_a352b25833f897ad12b882c5e00e072cc}{file\+\_\+send}} (String file\+\_\+name)
+\begin{DoxyCompactList}\small\item\em Methods for sending a file over Bluetooth. \end{DoxyCompactList}\end{DoxyCompactItemize}
+\doxysubsection*{Additional Inherited Members}
+
+
+\doxysubsection{Constructor \& Destructor Documentation}
+\mbox{\Hypertarget{classRN42__Bluetooth_a80569d9601f98c3b860a4cc8ded11f1e}\label{classRN42__Bluetooth_a80569d9601f98c3b860a4cc8ded11f1e}} 
+\index{RN42\_Bluetooth@{RN42\_Bluetooth}!RN42\_Bluetooth@{RN42\_Bluetooth}}
+\index{RN42\_Bluetooth@{RN42\_Bluetooth}!RN42\_Bluetooth@{RN42\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{RN42\_Bluetooth()}{RN42\_Bluetooth()}}
+{\footnotesize\ttfamily R\+N42\+\_\+\+Bluetooth\+::\+R\+N42\+\_\+\+Bluetooth (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{bt\+\_\+master,  }\item[{uint8\+\_\+t}]{bt\+\_\+discovery,  }\item[{uint8\+\_\+t}]{bt\+\_\+\+R\+TS,  }\item[{uint8\+\_\+t}]{bt\+\_\+\+C\+TS,  }\item[{Hardware\+Serial $\ast$}]{bt\+\_\+serial,  }\item[{\mbox{\hyperlink{classDiskManager}{Disk\+Manager}} $\ast$}]{disk\+Manager\+Ptr }\end{DoxyParamCaption})}
+
+
+
+Construct a new Bluetooth object. 
+
+See \href{https://ww1.microchip.com/downloads/en/DeviceDoc/Class-2-Bluetooth-Module-with-EDR-Support-DS50002328B.pdf}{\texttt{ R\+N42 Datasheet}} for more specifics.
+
+
+\begin{DoxyParams}{Parameters}
+{\em bt\+\_\+master} & Master pin for bluetooth \\
+\hline
+{\em bt\+\_\+discovery} & Discovery pin for the bluetooth \\
+\hline
+{\em bt\+\_\+\+R\+TS} & R\+TS Pin (for flow control) \\
+\hline
+{\em bt\+\_\+\+C\+TS} & C\+TS Pin (for flow control) \\
+\hline
+{\em bt\+\_\+serial} & Hardware Serial to use \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRN42__Bluetooth_afd2531e766250da6f91fe7ecfe0cf5b4}\label{classRN42__Bluetooth_afd2531e766250da6f91fe7ecfe0cf5b4}} 
+\index{RN42\_Bluetooth@{RN42\_Bluetooth}!````~RN42\_Bluetooth@{$\sim$RN42\_Bluetooth}}
+\index{````~RN42\_Bluetooth@{$\sim$RN42\_Bluetooth}!RN42\_Bluetooth@{RN42\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{$\sim$RN42\_Bluetooth()}{~RN42\_Bluetooth()}}
+{\footnotesize\ttfamily R\+N42\+\_\+\+Bluetooth\+::$\sim$\+R\+N42\+\_\+\+Bluetooth (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [inline]}}
+
+
+
+Destroy the Bluetooth object. 
+
+
+
+\doxysubsection{Member Function Documentation}
+\mbox{\Hypertarget{classRN42__Bluetooth_a352b25833f897ad12b882c5e00e072cc}\label{classRN42__Bluetooth_a352b25833f897ad12b882c5e00e072cc}} 
+\index{RN42\_Bluetooth@{RN42\_Bluetooth}!file\_send@{file\_send}}
+\index{file\_send@{file\_send}!RN42\_Bluetooth@{RN42\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{file\_send()}{file\_send()}}
+{\footnotesize\ttfamily bool R\+N42\+\_\+\+Bluetooth\+::file\+\_\+send (\begin{DoxyParamCaption}\item[{String}]{file\+\_\+name }\end{DoxyParamCaption})\hspace{0.3cm}{\ttfamily [virtual]}}
+
+
+
+Methods for sending a file over Bluetooth. 
+
+Note that this is not recommended as the file upload method, this method is slow
+
+
+\begin{DoxyParams}{Parameters}
+{\em file\+\_\+name} & Name of file to upload \\
+\hline
+\end{DoxyParams}
+\begin{DoxyReturn}{Returns}
+true File uploaded successfully 
+
+false File not uploaded sucessfully 
+\end{DoxyReturn}
+
+
+Implements \mbox{\hyperlink{classSerialCommunicator_aa9e65ef3189c3ca6307023e5f6c5bf61}{Serial\+Communicator}}.
+
+\mbox{\Hypertarget{classRN42__Bluetooth_a24c83c2c22504522b468aba6c3cddd17}\label{classRN42__Bluetooth_a24c83c2c22504522b468aba6c3cddd17}} 
+\index{RN42\_Bluetooth@{RN42\_Bluetooth}!init@{init}}
+\index{init@{init}!RN42\_Bluetooth@{RN42\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{init()}{init()}}
+{\footnotesize\ttfamily void R\+N42\+\_\+\+Bluetooth\+::init (\begin{DoxyParamCaption}\item[{uint32\+\_\+t}]{baud\+\_\+rate }\end{DoxyParamCaption})}
+
+
+
+Initalize serial state and the baud rate. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em baud\+\_\+rate} & Baud rate \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRN42__Bluetooth_ac6ed9c5d90da39b7078c2cbb6667267f}\label{classRN42__Bluetooth_ac6ed9c5d90da39b7078c2cbb6667267f}} 
+\index{RN42\_Bluetooth@{RN42\_Bluetooth}!set\_CTS\_pin@{set\_CTS\_pin}}
+\index{set\_CTS\_pin@{set\_CTS\_pin}!RN42\_Bluetooth@{RN42\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{set\_CTS\_pin()}{set\_CTS\_pin()}}
+{\footnotesize\ttfamily void R\+N42\+\_\+\+Bluetooth\+::set\+\_\+\+C\+T\+S\+\_\+pin (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Set the C\+TS pin state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & H\+I\+GH or L\+OW \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRN42__Bluetooth_aa19e1e5bbc73661be2689ab2fe3af392}\label{classRN42__Bluetooth_aa19e1e5bbc73661be2689ab2fe3af392}} 
+\index{RN42\_Bluetooth@{RN42\_Bluetooth}!set\_discovery\_pin@{set\_discovery\_pin}}
+\index{set\_discovery\_pin@{set\_discovery\_pin}!RN42\_Bluetooth@{RN42\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{set\_discovery\_pin()}{set\_discovery\_pin()}}
+{\footnotesize\ttfamily void R\+N42\+\_\+\+Bluetooth\+::set\+\_\+discovery\+\_\+pin (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Set the discovery pin state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & H\+I\+GH or L\+OW \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRN42__Bluetooth_ada6b06b4bfa7b8b031265a7b449858b5}\label{classRN42__Bluetooth_ada6b06b4bfa7b8b031265a7b449858b5}} 
+\index{RN42\_Bluetooth@{RN42\_Bluetooth}!set\_master\_pin@{set\_master\_pin}}
+\index{set\_master\_pin@{set\_master\_pin}!RN42\_Bluetooth@{RN42\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{set\_master\_pin()}{set\_master\_pin()}}
+{\footnotesize\ttfamily void R\+N42\+\_\+\+Bluetooth\+::set\+\_\+master\+\_\+pin (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Set the master pin state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & H\+I\+GH or L\+OW \\
+\hline
+\end{DoxyParams}
+\mbox{\Hypertarget{classRN42__Bluetooth_a88b2f4bc71e9aa01e0d5735671ecbed7}\label{classRN42__Bluetooth_a88b2f4bc71e9aa01e0d5735671ecbed7}} 
+\index{RN42\_Bluetooth@{RN42\_Bluetooth}!set\_RTS\_pin@{set\_RTS\_pin}}
+\index{set\_RTS\_pin@{set\_RTS\_pin}!RN42\_Bluetooth@{RN42\_Bluetooth}}
+\doxysubsubsection{\texorpdfstring{set\_RTS\_pin()}{set\_RTS\_pin()}}
+{\footnotesize\ttfamily void R\+N42\+\_\+\+Bluetooth\+::set\+\_\+\+R\+T\+S\+\_\+pin (\begin{DoxyParamCaption}\item[{uint8\+\_\+t}]{val }\end{DoxyParamCaption})}
+
+
+
+Set the R\+TS pin state. 
+
+
+\begin{DoxyParams}{Parameters}
+{\em val} & H\+I\+GH or L\+OW \\
+\hline
+\end{DoxyParams}
+
+
+The documentation for this class was generated from the following files\+:\begin{DoxyCompactItemize}
+\item 
+lib/\+R\+N42/\mbox{\hyperlink{RN42_8h}{R\+N42.\+h}}\item 
+lib/\+R\+N42/\mbox{\hyperlink{RN42_8cpp}{R\+N42.\+cpp}}\end{DoxyCompactItemize}

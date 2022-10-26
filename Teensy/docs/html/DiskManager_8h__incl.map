@@ -1,0 +1,22 @@
+<map id="lib/DiskManager/DiskManager.h" name="lib/DiskManager/DiskManager.h">
+<area shape="rect" id="node1" title=" " alt="" coords="126,5,333,32"/>
+<area shape="rect" id="node2" title=" " alt="" coords="375,229,454,256"/>
+<area shape="rect" id="node3" href="$AbstractDevice_8h.html" title=" " alt="" coords="88,453,211,480"/>
+<area shape="rect" id="node4" title=" " alt="" coords="43,379,111,405"/>
+<area shape="rect" id="node5" href="$Writer_8h.html" title=" " alt="" coords="579,80,645,107"/>
+<area shape="rect" id="node13" href="$Logger_8h.html" title=" " alt="" coords="637,304,707,331"/>
+<area shape="rect" id="node6" title=" " alt="" coords="813,528,891,555"/>
+<area shape="rect" id="node7" title=" " alt="" coords="187,379,293,405"/>
+<area shape="rect" id="node8" href="$Tag__Info_8h.html" title=" " alt="" coords="571,155,653,181"/>
+<area shape="rect" id="node9" href="$MPU9250_8h.html" title=" " alt="" coords="508,229,599,256"/>
+<area shape="rect" id="node10" title=" " alt="" coords="279,453,334,480"/>
+<area shape="rect" id="node11" title=" " alt="" coords="553,304,613,331"/>
+<area shape="rect" id="node12" href="$MPU9250__Definitions_8h.html" title=" " alt="" coords="368,304,528,331"/>
+<area shape="rect" id="node14" href="$LinkedList_8h.html" title=" " alt="" coords="534,379,626,405"/>
+<area shape="rect" id="node15" title=" " alt="" coords="650,379,761,405"/>
+<area shape="rect" id="node16" href="$AbstractBuffer_8h.html" title=" " alt="" coords="785,379,901,405"/>
+<area shape="rect" id="node18" href="$TagSettings_8h.html" title=" " alt="" coords="593,453,695,480"/>
+<area shape="rect" id="node19" href="$ADS1299_8h.html" title=" " alt="" coords="369,379,458,405"/>
+<area shape="rect" id="node17" href="$BufferBase_8h.html" title=" " alt="" coords="803,453,901,480"/>
+<area shape="rect" id="node20" href="$ADS1299__Definitions_8h.html" title=" " alt="" coords="358,453,517,480"/>
+</map>
