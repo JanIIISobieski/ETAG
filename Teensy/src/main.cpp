@@ -65,6 +65,7 @@ inline void sampling() {
     if (queue.num_to_write() > 0) {
         bytes_written = WriteManager.write_data((void *)queue.dequeue(), 8192);
         logger.print_memory("Dequeued", (void *) queue.get_popped());
+        logger.print_variable("Num Queue", queue.num_to_write());
         if (bytes_written != 8192) {
             logger.print_variable("Incorrect number of bytes written", bytes_written);
             if (WriteManager.get_writer_ind() == 2) logger.print_SD_error(DiskManager::sd);
@@ -117,9 +118,11 @@ void begin_sampling() {
 }
 
 void stop_sampling() {
-    WriteManager.write_data((void *)nirs_buffer1, 8192);  //will never fill up otherwise, we have to write this one
+    WriteManager.write_data((void *)nirs_buffer1, 8192);  //will never fill up otherwise, we have to write this one explicitly
     deviceManager.end_sampling();
     WriteManager.post_sampling_conclude();
+    logger.print_variable("Length of queue", queue.num_to_write());
+    queue.reset();
 #ifdef ETAG_DEBUG
     logger.print_variable("Sampling Time", sampling_timer);
     logger.log_timing_metadata();

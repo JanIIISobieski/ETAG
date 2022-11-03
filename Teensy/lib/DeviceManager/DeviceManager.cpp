@@ -21,6 +21,6 @@ void DeviceManager::begin_sampling() {
 
 void DeviceManager::end_sampling() {
     for (size_t i = 0; i < length; i++) {
-        if (device_start[i]) (*(device_ptr + i))->end();
+        if (device_start[length - i - 1]) (*(device_ptr + length - i - 1))->end();
     }
 }

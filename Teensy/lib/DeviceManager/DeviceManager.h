@@ -37,11 +37,21 @@ class DeviceManager {
         
         /**
          * @brief Calls the begin() methods of each device that has a true in the bool array
+         * 
+         * This method starts from the start of the AbstractDevice* array, beginning with the methods that take the longest to initialize
+         * for starting sampling. NIRS is a blocking button press, and is thus initialized first.
+         * Interrupt based methods are initialized closer to the end (hydrophone and eeg).
+         * The Pressure sensor which merely toggles a boolean is initialized last.
          */
         void begin_sampling();
 
         /**
          * @brief Calls the end() methods of each device that has a true in the bool array
+         * 
+         * This array is iterated from the end of the AbstractDevice* array to the beginning. This way, the methods which can keep sending data
+         * (i.e. interrupt based routines) will be stopped first, before a blocking button press on the NIRS will be called (otherwise this would)
+         * result in multiple different buffers to be pushed to the \ref Tag_Queue as the blocking press is happening and the interrupt routines are
+         * still sampling in the background.
          */
         void end_sampling();
 };

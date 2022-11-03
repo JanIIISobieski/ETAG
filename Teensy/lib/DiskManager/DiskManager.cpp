@@ -76,6 +76,9 @@ void DiskManager::pre_sampling_setup() {
 }
 
 void DiskManager::post_sampling_conclude() {
+    logger.print_message("Waiting to finish writing");
+    while (sd.isBusy()) {}
+    logger.print_message("Finished writing");
     close_file();
     folder.rewindDirectory();
     clear_jsons();
