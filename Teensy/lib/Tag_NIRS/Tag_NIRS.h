@@ -21,6 +21,11 @@ enum NIRS_state {
     recording = 2
 };
 
+union Button_toggle {
+    uint32_t time;
+    uint8_t as_bytes[4];
+};
+
 /**
  * @brief Implements the NIRS control
  * 
@@ -88,7 +93,9 @@ class NIRS : public AbstractDevice {
          * The button press occurs at regular intervals only if the event timer is greater than 0.
          * 
          */
-        void update_event();
+        bool update_event();
+
+        uint8_t* get_button_toggle_time_bytes() { return time_of_button_transition.as_bytes; };
 
     private:
         elapsedMillis button_timer;
@@ -110,6 +117,8 @@ class NIRS : public AbstractDevice {
         void event_half_press();
 
         unsigned long int event_counter;
+
+        Button_toggle time_of_button_transition;
 };
 
 #endif //GUARD_TAG_NIRS

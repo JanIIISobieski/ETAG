@@ -44,7 +44,7 @@ void NIRS::turn_off() {
 void NIRS::begin() {
     blocking_press(right_button, long_press);
     logger.print_message("NIRS SAMPLING STARTED");
-    start_event(20000);  //starts a series of events every 10 seconds
+    start_event(5000);  //starts a series of events every 5 seconds
     logger.print_message("Exiting NIRS Begin");
 }
 
@@ -74,12 +74,14 @@ void NIRS::end_event() {
     logger.print_message("Ended events");
 }
 
-void NIRS::update_event() {
+bool NIRS::update_event() {
     if (toggle_flag) {//button state was pressed, need to bring back to LOW after a short button press
         if (button_timer > press_duration) {
             digitalWriteFast(left_button, LOW);
             toggle_flag = false;
-            logger.print_variable("Stopped button press", millis());
+            time_of_button_transition.time = millis();
+            logger.print_variable("Stopped button press", time_of_button_transition.time);
+            return true;
         }
     }
 
@@ -87,6 +89,7 @@ void NIRS::update_event() {
         event_half_press();
     }
 
+    return false;
 }
 
 void NIRS::event_half_press() {

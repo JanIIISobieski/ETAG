@@ -16,7 +16,7 @@ class Tag_USB : public SerialCommunicator, public Writer {
         ~Tag_USB() {};
 
         bool init();
-        void pre_sampling_setup() { await_acknowledgment(); };
+        void pre_sampling_setup() { await_acknowledgment(); logger.print_message("Recieved pre-sampling confirm"); };
         void post_sampling_conclude() { hard_serial->send_now(); clear_jsons(); };
 
         size_t write_header();

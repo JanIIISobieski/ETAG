@@ -58,6 +58,8 @@ class Writer {
         virtual void   pre_sampling_setup() = 0; /**< Pure virtual function to run any setup before sampling can be started */
         virtual void   post_sampling_conclude() = 0; /**< Pure virtual function to run after sampling to properly conclude sampling */
 
+        size_t  get_json_size() { return measureJson(header_info); };
+
         /**
          * @brief Construct a new Writer object
          * 

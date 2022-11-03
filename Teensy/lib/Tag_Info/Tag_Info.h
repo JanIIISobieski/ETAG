@@ -24,12 +24,12 @@ struct AnimalData {
  * 
  */
 struct IMUCalibration {
-    float accel_resolution;
-    float accel_biases[3];
-    float gyro_resolution;
-    float magnetometer_resolution;  
-    float magnetometer_calibration[3];
-    float magnetometer_biases[3];
+    float accel_resolution = {0};
+    float accel_biases[3] = {0};
+    float gyro_resolution = {0};
+    float magnetometer_resolution = {0};  
+    float magnetometer_calibration[3] = {0};
+    float magnetometer_biases[3] = {0};
 };
 
 /**

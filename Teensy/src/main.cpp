@@ -58,14 +58,16 @@ inline void sampling() {
         speed_buffer.write(Tag_Bluetooth.get_speed(), 8);
     }
 
-    nirs.update_event();
+    if (nirs.update_event()) {
+        nirs_buffer.write(nirs.get_button_toggle_time_bytes(), 4);
+    }
 
     if (queue.num_to_write() > 0) {
         bytes_written = WriteManager.write_data((void *)queue.dequeue(), 8192);
         logger.print_memory("Dequeued", (void *) queue.get_popped());
         if (bytes_written != 8192) {
             logger.print_variable("Incorrect number of bytes written", bytes_written);
-            logger.print_SD_error(DiskManager::sd);
+            if (WriteManager.get_writer_ind() == 2) logger.print_SD_error(DiskManager::sd);
         }
     }
 }
@@ -115,6 +117,7 @@ void begin_sampling() {
 }
 
 void stop_sampling() {
+    WriteManager.write_data((void *)nirs_buffer1, 8192);  //will never fill up otherwise, we have to write this one
     deviceManager.end_sampling();
     WriteManager.post_sampling_conclude();
 #ifdef ETAG_DEBUG

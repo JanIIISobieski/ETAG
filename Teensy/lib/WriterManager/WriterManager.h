@@ -44,6 +44,15 @@ class WriterManager {
         }
 
         /**
+         * @brief Get the writer ind object
+         * 
+         * 0 is Bluetooth, 1 is USB, 2 is SD card
+         * 
+         * @return size_t The current writer in use
+         */
+        size_t get_writer_ind() { return writer_ind; };
+
+        /**
          * @brief Writes the data buffer using the Writer corresponding to the writer_ind
          * 
          * @param buff_ptr The address of the buffer to be written

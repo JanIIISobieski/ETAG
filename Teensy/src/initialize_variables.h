@@ -20,6 +20,7 @@
 #include "WriterManager.h"
 #include "BufferManager.h"
 #include "LinkedList.h"
+#include "NIRSBuffer.h"
 
 // Communication
 #define ACK 6
@@ -102,9 +103,17 @@ IMUBuffer imu_buffer(imu_buffers, IMU_BUFF_NUM, IMU_BUFF_LENGTH, IMU_BUFF_ID, &q
 // NIRS
 #define NIRS_LEFT_BUTTON 20
 #define NIRS_RIGHT_BUTTON 21
-#define NIRS_SHORT_PRESS 1000
+#define NIRS_SHORT_PRESS 500
 #define NIRS_LONG_PRESS 3000
 NIRS nirs(NIRS_LEFT_BUTTON, NIRS_RIGHT_BUTTON, NIRS_SHORT_PRESS, NIRS_LONG_PRESS);
+
+#define NIRS_BUFF_ID 2
+#define NIRS_BUFF_LENGTH 8192
+#define NIRS_BUFF_NUM 2
+static volatile uint8_t nirs_buffer1[NIRS_BUFF_LENGTH];
+static volatile uint8_t nirs_buffer2[NIRS_BUFF_LENGTH];
+static volatile uint8_t* nirs_buffers[NIRS_BUFF_NUM] = {nirs_buffer1, nirs_buffer2};
+NIRSBuffer nirs_buffer(nirs_buffers, NIRS_BUFF_NUM, NIRS_BUFF_LENGTH, NIRS_BUFF_ID, &queue);
 
 // EEG
 #define EEG_DRDY         14  // ADS1299 Data Ready pin
