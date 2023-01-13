@@ -277,8 +277,8 @@ void delete_file();
 /**
  * @brief Turns on the NIRS system
  * 
- * Unfortunately, the Teensy does not currently track the state of the ESP32.
- * Thus, this function only ever presses a button, but does not know when the ESP32 is actually on.
+ * Unfortunately, the Teensy does not currently track the state of the NIRS system.
+ * Thus, this function only ever presses a button, but does not know when the NIRS system is actually on.
  * 
  */
 void nirs_on();
@@ -286,8 +286,8 @@ void nirs_on();
 /**
  * @brief Turns off the NIRS system
  * 
- * Unfortunately, the Teensy does not currently track the state of the ESP32.
- * Thus, this function only ever presses a button, but does not know when the ESP32 is actually off.
+ * Unfortunately, the Teensy does not currently track the state of the NIRS system.
+ * Thus, this function only ever presses a button, but does not know when the NIRS is actually off.
  * 
  */
 void nirs_off();
