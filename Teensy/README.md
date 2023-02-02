@@ -107,3 +107,11 @@ The EEG Sampling Chip
   * Sampling
     * 0x60: active pin (PGA Gain of 24, no SRB2 connection and normal electrode input)
     * 0x81: deactivate pin
+
+## ETag Lead Colors Notes
+  * White - Reference
+  * Red - Bias
+  * Orange - Channel 1
+  * Yellow - Channel 2
+  * Green - Channel 3
+  * Blue - Channel 4
