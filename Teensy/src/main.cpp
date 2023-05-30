@@ -71,6 +71,10 @@ inline void sampling() {
             if (WriteManager.get_writer_ind() == 2) logger.print_SD_error(DiskManager::sd);
         }
     }
+
+    if (samplingTimer.check_sampling_time()) {
+        stop_sampling();
+    }
 }
 
 void begin_sampling() {
@@ -115,9 +119,11 @@ void begin_sampling() {
     WriteManager.write_header();
     deviceManager.begin_sampling();
     eeg_buffer.init();
+    samplingTimer.begin();
 }
 
 void stop_sampling() {
+    samplingTimer.end();
     WriteManager.write_data((void *)nirs_buffer1, 8192);  //will never fill up otherwise, we have to write this one explicitly
     deviceManager.end_sampling();
     WriteManager.post_sampling_conclude();

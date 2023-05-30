@@ -21,6 +21,7 @@
 #include "BufferManager.h"
 #include "LinkedList.h"
 #include "NIRSBuffer.h"
+#include "SamplingTimer.h"
 
 // Communication
 #define ACK 6
@@ -170,6 +171,9 @@ AbstractDevice* devices[NUM_DEVICES] = {&nirs, &IMU, &eeg, &hydrophone, &Tag_Blu
 DeviceEnable device_settings {};
 DeviceManager deviceManager(devices, device_settings.raw_bytes, NUM_DEVICES);
 
+// Sampling Timer
+SamplingTimer samplingTimer;
+
 // Helpful Functions
 
 /**
@@ -299,7 +303,7 @@ void nirs_off();
  * Thus, when the command is L, the rest of the message will be read and sent to the logger.
  * Additionally, thus function should not be relied upon too heavily. This solves the issue when
  * a logging call comes in while the main() loop is happening. However, if a logging call occurs
- * when the Teensy is currently expecting data, it will result in improper data bein written.
+ * when the Teensy is currently expecting data, it will result in improper data being written.
  * I (Gabriel) think the only way of avoiding this is to seperate out another Serial line on the
  * ESP32 to handle logging.
  * 
