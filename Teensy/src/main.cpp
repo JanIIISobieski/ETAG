@@ -5,6 +5,7 @@ void setup() {
     MICRO_USB.init();
     Tag_Bluetooth.init();
     SerialUSB1.begin(9600);
+    diskManager.init();
 
 #ifdef ETAG_DEBUG
     logger.assign_metadata(&hydrophone_buffer_push, "Hydrophone Push");
@@ -73,7 +74,9 @@ inline void sampling() {
     }
 
     if (samplingTimer.check_sampling_time()) {
-        stop_sampling();
+        stop_sampling(); // we have reached max time, so stop sampling
+        // Now we need to enable the release of the tag by sending the command to release for the EPS32
+        TagComms.write(0, static_cast<uint8_t>('a')); // see enableRelease(true) in ESP32 folder for rationale for this line
     }
 }
 
@@ -203,8 +206,10 @@ void update_parameters() {
 }
 
 void initalize_devices() {
-    diskManager.init();
     deviceManager.initialize_devices();
+
+    //ensure the release pin is not trying to burn the wire
+    TagComms.write(0, static_cast<uint8_t>('e')); // see enableRelease(false) in ESP32 folder
 
     logger.print_ADC_settings("ADC Settings", adc_settings);
     logger.print_DeviceEnable_settings("Device Enable Settings", device_settings);

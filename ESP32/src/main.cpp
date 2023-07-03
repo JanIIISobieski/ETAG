@@ -178,6 +178,9 @@ void setup() {
 
     pressSens.init(PRES_CS);
 
+    // ensure tag is set to have release off on start
+    enableRelease(false);
+
     // ssid may be changed if different name is desired
     ssid_name   = "Etag Comm Board " + String(chipID);
     ssid = ssid_name.c_str();
