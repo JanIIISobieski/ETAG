@@ -88,10 +88,6 @@ void begin_sampling() {
 
     WriteManager.select_writer(writer_ind.as_type);
     
-    run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
-    run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
-    run_data.update_description(TagComms.readStringUntil('|', 120U));
-
     run_data.update_datetime();
     run_data.update_imu_calibration(IMU);
 
@@ -200,6 +196,10 @@ void update_parameters() {
     TagComms.read(adc_settings.raw_bytes, sizeof(ADCSettings));
     TagComms.read((uint8_t*)device_settings.raw_bytes, sizeof(DeviceEnable));
 
+    run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
+    run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
+    run_data.update_description(TagComms.readStringUntil('|', 120U));
+
     logger.print_ADS1299_settings("ADS Main Settings", parent_eeg_settings);
     logger.print_ADC_settings("Hydrophone Settings", adc_settings);
     logger.print_DeviceEnable_settings("Device Setting", device_settings);
@@ -208,7 +208,7 @@ void update_parameters() {
 void initalize_devices() {
     deviceManager.initialize_devices();
 
-    //ensure the release pin is not trying to burn the wire
+    //ensure the release pin is not trying to burn the wire by sending command to ESP32 (Bluetooth device)
     TagComms.write(0, static_cast<uint8_t>('e')); // see enableRelease(false) in ESP32 folder
 
     logger.print_ADC_settings("ADC Settings", adc_settings);

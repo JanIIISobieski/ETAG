@@ -12,7 +12,7 @@ void ADS1299::setup(uint32_t _DRDY, uint32_t _CS) {
     mV_scale_factor = 1000.0 * V_REF / ((float)(pow(2, 23) - 1)) / 24.0;
     //data_ready = false;
 
-    ADS_SPI_settings = SPISettings(4000000, MSBFIRST, SPI_MODE1);
+    ADS_SPI_settings = SPISettings(5000000, MSBFIRST, SPI_MODE1);
 
     pinMode(drdy, INPUT);
     pinMode(cs, OUTPUT);
@@ -50,7 +50,7 @@ String ADS1299::initialize() {
     wreg(MISC1,      (eeg_settings->fields).misc1);      // 0x20 for SRB1 as reference for all channels, 0x00 for no SRB1 reference to all channels
     */
    
-    wreg(CONFIG1, 0x96);    // 0x90 for 16 kSPS, 0x96 for 250 SPS. Incrementing from 0x90 by one halves the sampling rate, up to 0x96
+    wreg(CONFIG1, 0x92);    // 0x90 for 16 kSPS, 0x96 for 250 SPS. Incrementing from 0x90 by one halves the sampling rate, up to 0x96
 //     wreg(CONFIG2, 0xD5);    // For testing purposes (CAL_AMP = 1, freq = fCLK/2^20)
     wreg(CONFIG3, 0xEC);    // 0xEC for internal bias reference signal, E8 for no bias
     wreg(BIAS_SENSP, 0x00); // 0xFF to add all channels to bias generation, 0x00 for none
@@ -58,7 +58,7 @@ String ADS1299::initialize() {
 //    wreg(LOFF_SENSP, 0xFF); // 0xFF to enable lead-off detection on all channels
     wreg(MISC1, 0x20);      // 0x20 for SRB1 as reference for all channels, 0x00 for no SRB1 reference to all channels
 //    wreg(CONFIG4, 0x02);    // 0x02 to turn on dc lead-off comparators
-    wreg(CH1SET, 0x60);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
+    wreg(CH1SET, 0x60);     // 0x60 for PGA Gain of 24, 0x50->12, 0x40->8, 0x30->6, 0x20->4, 0x10->2, 0x00->1, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
     wreg(CH2SET, 0x60);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
     wreg(CH3SET, 0x60);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)
     wreg(CH4SET, 0x60);     // 0x60 for PGA Gain of 24, no SRB2 connection and normal electrode input, 0x65 for test input, 0x81 for deactivating the pin (short to GND)

@@ -3,8 +3,8 @@
 #include <Arduino.h>
 #include <elapsedMillis.h>
 
-#define MAX_TIME (4*60*60*1000)  //no more than 4 hours of sampling, this time is in milliseconds, MAKE SURE THIS COPY GETS UPLOADED UPON DELIVERY
-//#define MAX_TIME (10*1000)        //no more than 10 seconds of sampling, USE THIS FOR TESTING, COMMENT LINES WITH A // at the beginning of line
+//#define MAX_TIME (4*60*60*1000)  //no more than 4 hours of sampling, this time is in milliseconds, MAKE SURE THIS COPY GETS UPLOADED UPON DELIVERY
+#define MAX_TIME (10*1000)        //no more than 10 seconds of sampling, USE THIS FOR TESTING, COMMENT LINES WITH A // at the beginning of line
 
 class SamplingTimer {
     public:
