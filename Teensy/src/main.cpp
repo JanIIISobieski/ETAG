@@ -23,6 +23,9 @@ void loop() {
     logger.update_timing_data(sampling_loop);
 #endif
     read_val = TagComms.check_for_commands();  // returns -1 if no commands are read
+    if (arming.check_trigger()) {
+        begin_sampling();
+    }
     sampling();
     if (read_val != -1) {
         command = (char)(read_val & 0xFF);
@@ -40,6 +43,7 @@ void loop() {
         else if (command == 'o') Tag_Bluetooth.turn_off_comms();
         else if (command == 'w') Tag_Bluetooth.set_WiFi_mode();
         else if (command == 'y') Tag_Bluetooth.set_Bluetooth_mode();
+        else if (command == 'q') arming.arm();
         else if (command == 'L') forward_ESP32_logging();
         else logger.print_variable("Recieved byte but don't know what to do with it", read_val);
         read_val = -1;
@@ -80,14 +84,7 @@ inline void sampling() {
     }
 }
 
-void begin_sampling() {
-    ByteArray<uint8_t> writer_ind;
-    TagComms.read_type(writer_ind);  //this read is blocking, unlike read() which will return -1 if there is no byte ready
-
-    logger.print_message("Recieved Write Index");
-
-    WriteManager.select_writer(writer_ind.as_type);
-    
+void begin_sampling() {    
     run_data.update_datetime();
     run_data.update_imu_calibration(IMU);
 
@@ -122,6 +119,7 @@ void begin_sampling() {
 }
 
 void stop_sampling() {
+    arming.disarm();
     samplingTimer.end();
     WriteManager.write_data((void *)nirs_buffer1, 8192);  //will never fill up otherwise, we have to write this one explicitly
     deviceManager.end_sampling();
@@ -195,6 +193,9 @@ void update_parameters() {
     TagComms.read(parent_eeg_settings.raw_bytes, sizeof(ADS1299Settings));
     TagComms.read(adc_settings.raw_bytes, sizeof(ADCSettings));
     TagComms.read((uint8_t*)device_settings.raw_bytes, sizeof(DeviceEnable));
+
+    TagComms.read_type(WriterManager::writer_ind);  //this read is blocking, unlike read() which will return -1 if there is no byte ready. Will also update the writer ind automatically, without needing any additoinal calls
+    logger.print_message("Recieved Write Index");
 
     run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
     run_data.update_animal_species(TagComms.readStringUntil('|', 120U));

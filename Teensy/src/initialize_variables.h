@@ -22,6 +22,7 @@
 #include "LinkedList.h"
 #include "NIRSBuffer.h"
 #include "SamplingTimer.h"
+#include "Arming.h"
 
 // Communication
 #define ACK 6
@@ -171,8 +172,11 @@ AbstractDevice* devices[NUM_DEVICES] = {&nirs, &IMU, &eeg, &hydrophone, &Tag_Blu
 DeviceEnable device_settings {};
 DeviceManager deviceManager(devices, device_settings.raw_bytes, NUM_DEVICES);
 
-// Sampling Timer
+// Sampling Timer -> ensures that sampling ends and release is started
 SamplingTimer samplingTimer;
+
+// Tag Arming -> checks the saltwater switch to start sampling
+Arming arming;
 
 // Helpful Functions
 

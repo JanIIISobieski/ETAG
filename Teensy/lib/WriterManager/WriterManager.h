@@ -1,6 +1,7 @@
 #pragma once
 
 #include "Writer.h"
+#include "SerialCommunicator.h"
 
 #include "Logger.h"
 extern Logger logger;
@@ -18,10 +19,11 @@ extern Logger logger;
 class WriterManager {
     private:
         Writer** writer_ptrs; /**< An array of pointers to Writers */
-        size_t len /**< The number of Writers */;
-        size_t writer_ind /**< The index of the writing array that is currently being used */;
-    
+        size_t len; /**< The number of Writers */
+
     public:
+        static ByteArray<uint8_t> writer_ind; /**< The index of the writing array that is currently being used */;      
+
         /**
          * @brief Construct a new Writer Manager object
          * 
@@ -30,7 +32,7 @@ class WriterManager {
          * @param writers An array of pointers to \ref Writer objects
          * @param num_writers The length of the writers array
          */
-        WriterManager(Writer** writers, size_t num_writers) : writer_ptrs(writers), len(num_writers) { writer_ind = 2; }
+        WriterManager(Writer** writers, size_t num_writers) : writer_ptrs(writers), len(num_writers) { }
         ~WriterManager() {};
 
         /**
@@ -38,10 +40,7 @@ class WriterManager {
          * 
          * @param index The new index to use for calling the functions
          */
-        void select_writer(size_t index) {
-            writer_ind = index;
-            logger.print_variable("Writer Ind", index);
-        }
+        void select_writer(size_t index);
 
         /**
          * @brief Get the writer ind object
@@ -50,7 +49,7 @@ class WriterManager {
          * 
          * @return size_t The current writer in use
          */
-        size_t get_writer_ind() { return writer_ind; };
+        size_t get_writer_ind();
 
         /**
          * @brief Writes the data buffer using the Writer corresponding to the writer_ind
@@ -59,34 +58,22 @@ class WriterManager {
          * @param num_bytes The number of bytes to write from the buffer
          * @return size_t The number of bytes actually written
          */
-        size_t write_data(void* buff_ptr, size_t num_bytes) {
-            logger.print_variable("Writing Data", writer_ind);
-            return writer_ptrs[this->writer_ind]->write_data(buff_ptr, num_bytes);
-        }
+        size_t write_data(void* buff_ptr, size_t num_bytes);
 
         /**
          * @brief Writes the data header using the Writer corresponding to the writer_ind
          * 
          * @return size_t The number of bytes written
          */
-        size_t write_header() {
-            logger.print_variable("Writing Header", writer_ind);
-            return writer_ptrs[this->writer_ind]->write_header();
-        }
+        size_t write_header();
 
         /**
          * @brief This routine is run just before sampling, running the pre_sampling_setup of the Writer corresponding to the writer_ind
          */
-        void pre_sampling_setup() {
-            logger.print_variable("Pre Sampling Setup", writer_ind);
-            writer_ptrs[this->writer_ind]->pre_sampling_setup();
-        }
+        void pre_sampling_setup();
 
         /**
          * @brief This routine is run after sampling is stopped, running the post_sampling_conclude of the Writer corresponding to the writer_ind
          */
-        void post_sampling_conclude() {
-            logger.print_variable("Post Sampling Conclude", writer_ind);
-            writer_ptrs[this->writer_ind]->post_sampling_conclude();
-        }
+        void post_sampling_conclude();
 };
