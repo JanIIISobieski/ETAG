@@ -24,6 +24,7 @@ void loop() {
 #endif
     read_val = TagComms.check_for_commands();  // returns -1 if no commands are read
     if (arming.check_trigger()) {
+        WriteManager.select_writer(2); //if using arming, we want to write onto the SD card
         begin_sampling();
     }
     sampling();
@@ -44,6 +45,7 @@ void loop() {
         else if (command == 'w') Tag_Bluetooth.set_WiFi_mode();
         else if (command == 'y') Tag_Bluetooth.set_Bluetooth_mode();
         else if (command == 'q') arming.arm();
+        else if (command == 'Q') arming.disarm();
         else if (command == 'L') forward_ESP32_logging();
         else logger.print_variable("Recieved byte but don't know what to do with it", read_val);
         read_val = -1;

@@ -8,7 +8,7 @@ extern TagCommunicator TagComms;
 extern Logger logger;
 
 enum ArmingState {
-    NOT_INITIALZED = 0,
+    NOT_INITIALIZED = 0,
     ARMED          = 1,
     TRIGGERED      = 2
 };

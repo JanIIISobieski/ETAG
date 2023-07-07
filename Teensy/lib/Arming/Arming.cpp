@@ -1,7 +1,7 @@
 #include <Arming.h>
 
 Arming::Arming(/* args */) {
-    state = NOT_INITIALZED;
+    state = NOT_INITIALIZED;
 
     success_counter = 0;
     success_count_to_start = 10;
@@ -20,7 +20,7 @@ void Arming::arm() {
 
 void Arming::disarm() {
     TagComms.write(0, static_cast<uint8_t>('l'));  // Disables the saltwater sensor on ESP32 co-board
-    state = NOT_INITIALZED;
+    state = NOT_INITIALIZED;
     logger.print_message("Tag is disarmed");
 }
 
@@ -41,6 +41,7 @@ bool Arming::check_trigger() {
         delay(10);
     }
 
+    state = TRIGGERED;
     logger.print_message("Tag has been triggered");
     return true;
 }
