@@ -13,12 +13,13 @@
 #include <update_page_definition.h>
 
 #include <elapsedMillis.h>
+#include "LEDState.h"
 
 //#define DEBUG_OUTPUT
 
 #define SWSENSE    12
-#define HALL         15
-#define REL_EN      2
+#define HALL       15
+#define REL_EN     2
 #define LED_BLUE   0
 #define SWDRIVE    4
 #define PRES_CS    5
@@ -41,14 +42,28 @@ uint8_t cmd, cmdBT;
 const long interval = 1000;
 unsigned long currMillis, prevMillis;
 
+uint16_t saltwater_sensor;
+
 MS58xx pressSens;
 
 BluetoothSerial SerialBT;
 
 WebServer server(80);
 
+LEDState led_state(LED_BLUE);
+
 // function prototype for comm board input processing
 void process_input(uint8_t _input);
+
+void enableSlowBlink() {
+    led_state.set_timer_ms(2000);
+    led_state.set_state(TOGGLE);
+}
+
+void enableFastBlink() {
+    led_state.set_timer_ms(250);
+    led_state.set_state(TOGGLE);
+}
 
 void enableRelease(bool val) {
     digitalWrite(REL_EN, !val);
@@ -59,7 +74,8 @@ void enableSaltwaterSensor(bool val) {
 }
 
 void serialWriteSaltwaterSensor() {
-    Serial.write(analogRead(SWSENSE));
+    saltwater_sensor = analogRead(SWSENSE);
+    Serial.write((uint8_t*)(&saltwater_sensor), sizeof(saltwater_sensor));
     #ifdef DEBUG_OUTPUT
        Serial.print((String) "SWSENSE: " + analogRead(SWSENSE) + "\n");
     #endif
@@ -72,7 +88,8 @@ void turnOffComms() {
     server.stop();
     WiFi.mode(WIFI_OFF);
     SerialBT.end();
-    digitalWrite(LED_BLUE, LOW);
+    //digitalWrite(LED_BLUE, LOW);
+    led_state.set_state(OFF);
 }
 
 void serialWritePressureTemperature() {
@@ -111,7 +128,9 @@ void setWifiMode() {
        Serial.print("LSwitching to WIFI ...\n");
     #endif
     SerialBT.end();
-    digitalWrite(LED_BLUE, LOW);
+    //digitalWrite(LED_BLUE, LOW);
+    led_state.set_timer_ms(1000);
+    led_state.set_state(TOGGLE);
     WiFi.softAP(ssid);
     server.begin();
     prevMillis = millis();
@@ -127,7 +146,7 @@ void setBluetoothMode() {
     server.stop();
     WiFi.mode(WIFI_OFF);
     SerialBT.begin(("ETAG_" + String(chipID)));
-    digitalWrite(LED_BLUE, HIGH);
+    led_state.set_state(ON);
     #ifdef DEBUG_OUTPUT
        Serial.print("LIn Bluetooth mode - ETAG_" + String(chipID) + "\n");
     #endif
@@ -227,12 +246,6 @@ void loop() {
     if (!streaming) {
         if (WiFi.getMode() != WIFI_OFF) {
             server.handleClient();
-            currMillis = millis();
-            if (currMillis - prevMillis >= interval) {
-                prevMillis = currMillis;
-                ledState = !ledState;
-                digitalWrite(LED_BLUE, ledState);
-            }
         }
 
         if (Serial.available()) {
@@ -263,6 +276,8 @@ void loop() {
     if (!pressSens.data_ready) {
         pressSens.update_pt_data();
     }
+
+    led_state.update_LED_state();
 }
 
 void process_input(uint8_t _input) {
@@ -300,6 +315,15 @@ void process_input(uint8_t _input) {
 	    case ('z'):
             serialWriteSaltwaterSensor();
 	        break;
+        case ('B'):
+            enableSlowBlink();
+            break;
+        case ('F'):
+            enableFastBlink();
+            break;
+        case ('O'):
+            led_state.set_state(ON);
+            break;
         case ('!'):    // switch to streaming mode
             #ifdef DEBUG_OUTPUT
                 Serial.print("LSwitching to streaming mode ...\n");
@@ -307,7 +331,7 @@ void process_input(uint8_t _input) {
             server.stop();
             WiFi.mode(WIFI_OFF);
             SerialBT.begin(("ETAG_" + String(chipID)));
-            digitalWrite(LED_BLUE, HIGH);
+            led_state.set_state(ON);
             streaming = true;
             #ifdef DEBUG_OUTPUT
                 Serial.print("LIn streaming mode\n");

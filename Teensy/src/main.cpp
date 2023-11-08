@@ -19,15 +19,8 @@ void setup() {
 }
 
 void loop() {
-#ifdef ETAG_DEBUG
-    logger.update_timing_data(sampling_loop);
-#endif
-    read_val = TagComms.check_for_commands();  // returns -1 if no commands are read
-    if (arming.check_trigger()) {
-        WriteManager.select_writer(2); //if using arming, we want to write onto the SD card
-        begin_sampling();
-    }
     sampling();
+    read_val = TagComms.check_for_commands();  // returns -1 if no commands are read
     if (read_val != -1) {
         command = (char)(read_val & 0xFF);
         if (command == 'b') begin_sampling();
@@ -50,6 +43,14 @@ void loop() {
         else logger.print_variable("Recieved byte but don't know what to do with it", read_val);
         read_val = -1;
     }
+
+    if (arming.check_trigger()) {
+        WriteManager.select_writer(2); //if using arming, we want to write onto the SD card
+        begin_sampling();
+    }
+#ifdef ETAG_DEBUG
+    logger.update_timing_data(sampling_loop);
+#endif
 }
 
 inline void sampling() {

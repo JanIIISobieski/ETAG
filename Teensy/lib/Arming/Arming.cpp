@@ -7,6 +7,7 @@ Arming::Arming(/* args */) {
     success_count_to_start = 10;
     threshold = 128;
     read_val.as_type = 0;
+    has_triggered_light = false;
 }
 
 Arming::~Arming() {
@@ -14,12 +15,14 @@ Arming::~Arming() {
 
 void Arming::arm() {
     TagComms.write(0, static_cast<uint8_t>('k')); // Enables the saltwater sensor on ESP32 co-board
+    TagComms.write(0, static_cast<uint8_t>('F')); // Enables fast blinking for marking arming
     state = ARMED;
     logger.print_message("Tag is armed");
 }
 
 void Arming::disarm() {
     TagComms.write(0, static_cast<uint8_t>('l'));  // Disables the saltwater sensor on ESP32 co-board
+    TagComms.write(0, static_cast<uint8_t>('O'));  // Sets light for solid blinking
     state = NOT_INITIALIZED;
     logger.print_message("Tag is disarmed");
 }
@@ -35,12 +38,24 @@ bool Arming::check_trigger() {
         TagComms.write(0, static_cast<uint8_t>('z')); // requests saltwater sensor value
         TagComms.read_type(read_val);                 // reads the returned saltwater sensor value
 
-        if (read_val.as_type > threshold) return false;  // value read from tag is not under threshold, therefore the reading was not a success and we should end it
+        if (read_val.as_type > threshold) {
+            TagComms.write(0, static_cast<uint8_t>('F'));
+            has_triggered_light = false;
+            logger.print_message("Not armed");
+            return false;
+        }  // value read from tag is not above threshold, therefore the reading was not a success and we should end this arming attempt
         
+        if (!has_triggered_light) { //if the first reading was successful, we should indicate it with the status LED
+            TagComms.write(0, static_cast<uint8_t>('B'));
+            has_triggered_light = true;
+        }
+
         ++success_counter;
-        delay(10);
+        delay(500);
     }
 
+    has_triggered_light = false;
+    TagComms.write(0, static_cast<uint8_t>('O'));
     state = TRIGGERED;
     logger.print_message("Tag has been triggered");
     return true;

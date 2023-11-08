@@ -20,6 +20,7 @@ private:
     size_t success_count_to_start;
     size_t threshold;
     ByteArray<uint16_t> read_val;
+    bool has_triggered_light;
 
 public:
     Arming(/* args */);
