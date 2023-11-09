@@ -122,7 +122,7 @@ void begin_sampling() {
 }
 
 void stop_sampling() {
-    arming.disarm();
+    //arming.disarm();
     samplingTimer.end();
     WriteManager.write_data((void *)nirs_buffer1, 8192);  //will never fill up otherwise, we have to write this one explicitly
     deviceManager.end_sampling();
@@ -197,8 +197,9 @@ void update_parameters() {
     TagComms.read(adc_settings.raw_bytes, sizeof(ADCSettings));
     TagComms.read((uint8_t*)device_settings.raw_bytes, sizeof(DeviceEnable));
 
-    TagComms.read_type(WriterManager::writer_ind);  //this read is blocking, unlike read() which will return -1 if there is no byte ready. Will also update the writer ind automatically, without needing any additoinal calls
+    TagComms.read_type(WriterManager::writer_ind);  //this read is blocking, unlike read() which will return -1 if there is no byte ready. Will also update the writer ind automatically, without needing any additional calls
     logger.print_message("Recieved Write Index");
+    logger.print_variable("Writer Ind", WriterManager::writer_ind.as_type);
 
     run_data.update_animal_name(TagComms.readStringUntil('|', 120U));
     run_data.update_animal_species(TagComms.readStringUntil('|', 120U));
@@ -213,7 +214,7 @@ void initalize_devices() {
     deviceManager.initialize_devices();
 
     //ensure the release pin is not trying to burn the wire by sending command to ESP32 (Bluetooth device)
-    TagComms.write(0, static_cast<uint8_t>('e')); // see enableRelease(false) in ESP32 folder
+    //TagComms.write(0, static_cast<uint8_t>('e')); // see enableRelease(false) in ESP32 folder
 
     logger.print_ADC_settings("ADC Settings", adc_settings);
     logger.print_DeviceEnable_settings("Device Enable Settings", device_settings);

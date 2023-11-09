@@ -14,16 +14,16 @@ Arming::~Arming() {
 }
 
 void Arming::arm() {
-    TagComms.write(0, static_cast<uint8_t>('k')); // Enables the saltwater sensor on ESP32 co-board
-    TagComms.write(0, static_cast<uint8_t>('F')); // Enables fast blinking for marking arming
-    state = ARMED;
+    //TagComms.write(0, static_cast<uint8_t>('k')); // Enables the saltwater sensor on ESP32 co-board
+    //TagComms.write(0, static_cast<uint8_t>('F')); // Enables fast blinking for marking arming
+    //state = ARMED;
     logger.print_message("Tag is armed");
 }
 
 void Arming::disarm() {
-    TagComms.write(0, static_cast<uint8_t>('l'));  // Disables the saltwater sensor on ESP32 co-board
-    TagComms.write(0, static_cast<uint8_t>('O'));  // Sets light for solid blinking
-    state = NOT_INITIALIZED;
+    //TagComms.write(0, static_cast<uint8_t>('l'));  // Disables the saltwater sensor on ESP32 co-board
+    //TagComms.write(0, static_cast<uint8_t>('O'));  // Sets light for solid blinking
+    //state = NOT_INITIALIZED;
     logger.print_message("Tag is disarmed");
 }
 
